@@ -92,3 +92,21 @@ SELECT Queries
 ```
 
 ```
+##### Phases for Designing a Database
+- Requirements Specification and Analysis
+  - Documented
+- Conceptual Design
+  - Represented and manipulated using computerized tools
+- Logical Design
+  - Expressed in a DBMS
+- Physical Design
+  - Specifications are provided for storing and accessing database
+
+##### Database Approach Characteristics
+- Self-describing
+  - Database System has defined structure and constraints
+  - ^ called meta-data is stored in the DBMS catalog
+  - meta-data describes file structure/type/storage
+  - meta-data can be accessed by the DBMS software and users
+- Insulation b/w Programs and Data
+  -
