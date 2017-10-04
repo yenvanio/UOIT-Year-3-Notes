@@ -108,5 +108,21 @@ SELECT Queries
   - ^ called meta-data is stored in the DBMS catalog
   - meta-data describes file structure/type/storage
   - meta-data can be accessed by the DBMS software and users
+
+
 - Insulation b/w Programs and Data
-  -
+  - Program-Data-Independence: Structure is stored seperately from access programs
+  - Types of Operations:
+
+      (1) Interface includes operation name and data types
+
+      (2) Implementation can be be changed without affecting Interface
+  - Program-Operation-Independence: Some DBS have operation definition as part of DB definition and that is also independent
+  - Program-Data-Independence = Dat Abstraction
+  - DBMS provides conceptual rep. of data, doesnt actually show how data is stored or storage details. Just uses concepts like objects to present to the user.
+- Multiple Data Views
+  - A view is a subset of the DB, contains virtual data; not explicitly stored
+- Sharing of Data and Multiuse Transcation Processing
+  - Multiple users at the same time
+  - Must have concurrency control software so when several users try to update same data, it updates correctly.
+  - ^^ Online Transaction Processing Application (OLTP)
