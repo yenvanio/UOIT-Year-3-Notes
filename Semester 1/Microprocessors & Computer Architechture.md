@@ -15,7 +15,7 @@
     - A **word** is accessed by specifying address and issuing a control command.
   - Random-access memory (RAM)
     - A memory where any location can be accessed in a short and fixed time after specifying address.
-    - Time requiFF5733 to access one word is called **memory access time** (<100ns)
+    - Time required to access one word is called **memory access time** (<100ns)
   - Cash Memory
     - Supplementary to main memory.
     - Facilitates high instruction execution rate
@@ -302,9 +302,62 @@ Add     R4, R2, R3  =>    R4 <- [R2] + [R3]
 - Store puts the first argument into the second
 
 ```
-
-
 #### CISC
 - CISC = Complex Instruction Set Computers
 - Have multi-word instructions
 - Allow arithmetic operands to be accessed directly from memory
+
+#### Instruction Execution and Straight-Line Sequencing
+- A 32-bit word length, byte-addressable (Each byte assigned an address) program.
+- First RISC instruction at address *i* and then each consecutive instruction will be at *i*+4, *i*+8, *i*+12...etc
+- Program Execution Steps
+  - Processor has program counter ( **PC** ) register
+  - Address *i* for first instruction is place in **PC**
+  - Control circuits fetch and execute instructions one after the other
+  ( **Straight Line Sequencing** )
+  - During execution of instructions, **PC** is incremented by 4
+  - **PC** contents are *i*+16 after Store is executed (at the end)
+- Executing an Instruction is a 2-step process
+  - Fetch
+    - Read operation using **PC** value
+    - Place data in **IR**
+  - Execute
+    - Control circuits examine encoded machine instructions in **IR**
+    - Specified operation is performed
+    - **PC** is incremented to point to the next instruction (ready for fetch)
+
+#### Branching
+- Used to repeat instructions (Loops)
+
+```
+Ex:
+
+N is a location that holds 'n' which is the size of a list
+The size is loaded into R2 and then decremented until all element
+have been added to R3 (Conditional Branch goes back to Loop)
+
+Load                  R2, N
+Clear                 R3
+
+--------LOOP----------
+Determine address of "Next" number
+Load it into R5
+Add it to R3
+--------LOOP----------
+
+Subtract              R2, R2, #1
+Branch_if_[R2]>0      LOOP
+Store                 R3, SUM
+
+```
+
+#### Addressing Modes
+- Information involved in any operation performed by CPU needs to be addressed
+- Any instruction issued by processor has **at least** two types of info
+  - Operation to be performed (**op-code**)
+  - Address info of the operand on which operation is to be performed
+  (**Address Field**)
+- **Addressing Mode** = different ways that specify location of operands
+- Instructions can be classified on the # of operands
+  - 3-address, 2-address, 1-address, 0-address instructions
+- Effective Address (**EA**) is the 
