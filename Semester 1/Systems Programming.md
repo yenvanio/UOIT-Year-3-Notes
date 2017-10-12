@@ -50,7 +50,8 @@
 ####
 
 
-#### Quiz 1 (Week 1 + Week 2)
+### Quiz 1 (Week 1 + Week 2)
+
 
 1.) Which of the following statements is false?
   - Linux and Unix are available for many different platforms
