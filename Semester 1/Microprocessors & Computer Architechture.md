@@ -145,7 +145,7 @@ Value: +/- 1.XX....X x 2^exp
 ## Lecture 2
 
 
-#### Memory Locations and Addresses
+### Memory Locations and Addresses
 - Memory consists of millions of cells
 - **Cell** holds a bit ( 0 or 1 )
 - **Word** is a group of *n* bits ( 16 - 64 )
@@ -267,7 +267,7 @@ Ex: R4 <- [R2] + [R3]
 
 ```
 
-#### Assembly Language Notation
+### Assembly Language Notation
 - Needed to represent machine instructions and programs
 
 ```
@@ -351,7 +351,7 @@ Store                 R3, SUM
 
 ```
 
-#### Addressing Modes
+### Addressing Modes
 - Information involved in any operation performed by CPU needs to be addressed
 - Any instruction issued by processor has **at least** two types of info
   - Operation to be performed (**op-code**)
@@ -360,4 +360,67 @@ Store                 R3, SUM
 - **Addressing Mode** = different ways that specify location of operands
 - Instructions can be classified on the # of operands
   - 3-address, 2-address, 1-address, 0-address instructions
-- Effective Address (**EA**) is the 
+- Effective Address (**EA**) is the actual address of the location containing the referenced operand in either memory or register address
+
+#### RISC-Type Addressing Modes
+
+| Name              | Assembler Syntax | Addressing Function |
+|-------------------|------------------|---------------------|
+| Immediate         | #Value           | Operand = Value     |
+| Register          | Ri               | EA = Ri             |        
+| Absolute          | LOC              | EA = LOC            |        
+| Register Indirect | (Ri)             | EA = [Ri]           |         
+| Index             | X(Ri)            | EA = [Ri] + X       |             
+| Base with Index   | (Ri,Rj)          | EA = [Ri] + [Rj]    |                  
+
+----------------------------------------------------------------
+EA = Effective Address
+<br>
+Value = A Signed Number
+<br>
+X = Index Value
+
+#### Immediate Mode
+- Value of operand is *immediately* available in the instruction itself
+- Ex: Load Decimal Value 1000 into register Ri
+  - `Load Ri, #1000` OR `Loadi Ri, 1000`
+  - The `Loadi` OR the `#1000` indicates that 1000 is the value to be loaded and not the address to be loaded from.
+- **This mode basically puts a number into register directly**
+
+#### Direct (Absolute) Mode
+- Address of the memory location that contains the operand is included in the instruction
+- Ex: Load the value of the operand stored in memory location 1000 into register Ri
+  - Load Ri, 1000
+**This mode basically references an address to get the number into register**
+
+#### Indirect Mode
+- Two types
+  - Memory Indirect Addressing (*ONLY IN CISC Style*)
+    - `Load   Ri 1000` Where the address 1000 points to address 10002
+  - Register Indirect Addressing
+    - `Load   R2,(R5)` Loads the contents of R5 directly into R2
+
+#### Index Mode
+- Add values to an **Index Register** to access other values
+- The index register contains an address and by moving up or down (+- bytes) we can generate different addresses which hold different values
+- Ex: Operand address is 1020, start of array is 1000
+  - If start address is stored in R5
+  - Can access operand by `Load     R2, 20(R5)`
+  - Where the effective address is `EA=[R5]+20`
+
+#### Relative Mode
+- Same as Index mode but instead of an index register we use a **PC**
+  - `Load     Ri, X(PC)`
+
+#### Auto-increment Mode
+- Similar to register-indirect addressing `Load Ri,(R2)` Where the contents of R2 are loaded into Ri
+- However for auto-increment `Load Ri,(Rauto)+` The register is incremented after the operand is accessed
+- **Basically a post increment**
+
+#### Auto-decrement Mode
+- Similar to Auto-increment Mode
+- However for auto-decrement `Load Ri,-(Rauto)` The register is decremented before the operand is accessed
+- **Basically a pre-decrement**
+
+### Assembly Language
+- Syntax

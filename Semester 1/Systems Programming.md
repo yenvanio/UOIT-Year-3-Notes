@@ -46,13 +46,23 @@
 
 ## Week 2
 
+#### Shell
+- 3 Most popular shells
+  - Bourne Again Shell (BASH)
+  - Korn Shell (KSH)
+  - C Shell (CSH)
+- Korn and BASH are supersets of original UNIX Bourne Shell
+- BASH is newest and most popular
 
-####
+#### Common Commands
+`clear`
+`cd`
+`man`
 
 
-### Quiz 1 (Week 1 + Week 2)
 
-
+## Quiz 1 (Week 1 + Week 2)
+<br>
 1.) Which of the following statements is false?
   - Linux and Unix are available for many different platforms
   - Components of a computer system usually can't function together without an OS
