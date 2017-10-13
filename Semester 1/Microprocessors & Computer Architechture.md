@@ -423,4 +423,50 @@ X = Index Value
 - **Basically a pre-decrement**
 
 ### Assembly Language
-- Syntax
+- Mnemonics that represent the operation codes
+  - Regular: Load, Store
+  - Assembly: ldw, stw
+- Assembly language needs an assembler to translate to machine language
+- **Source Program** is code in assembly language
+- **Object Program** is code in machine language
+
+#### Assembler Directives
+- **ORIGIN** defines instruction start position
+- **RESERVE** declares that a memory block is to be reserved for data
+- **DATAWORD** informs assembler to assign values to certain words
+- **EQU** associates name with constant value
+  - `TWENTY EQU 20`
+  - Not a part of the instructions but whenever `TWENTY` appears will be replaced with `20`
+- **END** tells the assembler it has reach the end of the source program
+
+#### Program Assembly and Execution
+- Source Program -> Assembler -> Object Program (Machine Language)
+- Uses Directives to determine address locations
+- Computes *+-offset* from present address (in **PC**) to branch target
+- **Loader** places object program in memory
+- **Debugger** used to track execution
+
+#### Number Notation
+- *Decimal* Numbers are used as immediate values
+  - ADDI R2,R3,93 (i, replaces need for #)
+- *Binary* Numbers are represented below
+  - ADDI R2, R3, %01011101
+- *Hexadecimal* Numbers are represented below
+  - ADDI R2, R3, 0x5D
+
+### Stacks
+- Last in First Out (LIFO)
+  - **Push** puts a new element at the top
+    - `Subtract SP, SP, #4`
+      - Moves the Stack Pointer up 4 bytes
+    - `Store Rj, (SP)`
+      - Stores the new value into stack pointer
+  - **Pop** takes out the top element
+    - `Load Rj, (SP)`
+      - Put stack pointer value into Rj
+    - `Add SP, SP, #4`
+      - Moves stack pointer down 4 bytes
+- Processor has a stack pointer ( **SP** )
+  - Always points to the top of the processor stack
+
+### Subroutines
