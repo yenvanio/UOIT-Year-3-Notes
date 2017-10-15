@@ -187,8 +187,8 @@ Value: +/- 1.XX....X x 2^exp
 - Big Endian
   - Addressing assigns lower addresses to more significant (LMB) bytes of word
 
-| Byte Address  - Big Endian |
-|-------|-------|
+| Byte Address  - Big Endian    |  |  |  |
+|-------|-------|-------|-------|
 | 0     | 1     | 2     | 3     |
 | 4     | 5     | 6     | 7     |
 |       |       |       |       |
@@ -199,8 +199,8 @@ Value: +/- 1.XX....X x 2^exp
 - Little Endian
   - Opposite of Big Endian
 
-| Byte Address  - Little Endian |
-|-------|-------|
+| Byte Address  - Little Endian    |  |  |  |
+|-------|-------|-------|-------|
 | 3     | 2     | 1     | 0     |
 | 7     | 6     | 5     | 4     |
 |       |       |       |       |
