@@ -142,6 +142,9 @@ Value: +/- 1.XX....X x 2^exp
 - An 8-bit *byte* is used to represent and store a character.
   - Code occupies the low-order seven bits. High-order bit set to 0
 
+---
+
+
 ## Lecture 2
 
 
@@ -373,7 +376,6 @@ Store                 R3, SUM
 | Index             | X(Ri)            | EA = [Ri] + X       |             
 | Base with Index   | (Ri,Rj)          | EA = [Ri] + [Rj]    |                  
 
-----------------------------------------------------------------
 EA = Effective Address
 <br>
 Value = A Signed Number
@@ -470,3 +472,146 @@ X = Index Value
   - Always points to the top of the processor stack
 
 ### Subroutines
+- Subroutine is a block of instructions that can be called multiple times with different values (like a method in a class)
+- **Call** instructions is a special type of branch
+- Subroutine must return to calling program after
+  - Done using a **Return** instruction
+- Subroutine can be called from multiple places in the program
+  - Use Subroutine Linkage Method to return to correct place
+- Simplest Subroutine Linkage method is to save return address in a register ( **LR** ), Link Register
+
+#### Subroutine Linkage
+- **Call** Instruction performs two operations
+  - Store **PC** contents in link register
+  - Update **PC** to hold subroutine address
+- **Return** Instruction returns to the program by branching indirectly to the address in the link register
+
+- When a **Call** is executed to go to a subroutine the program counter is updated to the subroutine address and not the next instruction address
+- It also saves the next instruction address in a Link Register for the **Return** instruction to use
+- The **Return** call indirectly branches to the address in the link register
+
+#### Subroutine Nesting
+- Subroutines can make nested calls
+  - BUT... Link Register gets overwritten each time
+  - SO ... cannot trace back to the first call
+- To overcome this, each consecutive sub routine call should be saved on the processor stack
+- After each subroutine is finished the link-register can be updated by popping the stack
+
+#### Parameter Passing
+- Exchanging information with the subroutine
+- Registers / Stacks can be used to pass info
+- Load up Registers / Stacks before subroutine CALL
+- Can Load / Store Multiple Registers
+  - `StoreMultiple R2-R5, -(SP)`
+    - Range of registers = R2, R3, R4, R5
+    - -(SP) decrements the stack pointer by 4 before contents of registered are pushed
+  - `LoadMultiple R2-R5, (SP)+`
+    - Range of registers = R2, R3, R4, R5
+    - (SP)+ increments the stack pointer by 4 as each registered is loaded
+    - *This happens in reverse order because of popping a stack*
+
+#### Stack Frame
+- Locations at the top of the processor stack reserved for private work space by subroutines
+- **Stack Frame** allocated on subroutine entry and deallocated on subroutine exit
+- Frame Pointer ( **FP** ) register enables access to private work space for current subroutine
+- In subroutine nesting, stack frame saves return address and **FP** of each caller
+
+### Additional Instructions
+- Logic Operations -> **And**, **Or**, **Not**
+- First operand comes from register/memory
+- Second operand can come from immediate value as well (#value)
+
+#### AND
+- Matches bits with operands and if both are 1, return 1 otherwise 0
+
+```
+Ex:   Operand 1: 0101
+      Operand 2: 0011
+
+And   Op1, Op2
+
+Result -> Op1 -> 0001 (Because only 1 pair of matching 1 bits)
+
+```
+
+#### OR
+- Matches bits with operands and if either/or are 1, return 1 otherwise 0
+
+```
+Ex:   Operand 1: 0101
+      Operand 2: 0011
+
+Or   Op1, Op2
+
+Result -> Op1 -> 0111 (Because only 1 pair where both bits 0, so rest is 1)
+
+```
+
+#### NOT
+- Returns the reverse (switches 1's and 0's)
+
+```
+Ex:   Operand 1: 0101
+
+Not   Op1
+
+Result -> Op1 -> 1010 (Reversed)
+```
+
+#### Shift Instructions
+- Some operations need bits of an operand to be shifted left or right
+- For general operands, **Logical Shift** -> **LshiftL** and **LShiftR**
+  - `LShiftL Ri, Rj, count`
+  - Shifts contents of Rj but number of bit positons specified in count
+    - Shift Binary Left/Right = multiply/divide by 2
+    - Basically moves numbers and any empty positions after shift are filled with 0's
+  - Stores shifted content in Ri, Rj remains unnaffected
+  - *Note* Count can be #value or register
+- For signed number, **Arithmetic Shift** -> **AShiftR** and **AShiftL**
+  - Preserves the sign in the MSB
+
+```
+Logical Shift: LShiftL R3, R3, #2
+
+Before: 0     0 1 1 1 0 . . . 0 1 1
+After:  1     1 1 0 . . . 0 1 1 0 0
+
+*Shifted all bits to the left twice, so 2 placeholder 0's to fill vacant positions
+
+
+Arithmetic Shift: AShiftR R3, R3, #2
+
+Before: 1 0 0 1 1 . . . 0 1 0       0
+After:  1 1 1 0 0 1 1 . . . 0       1
+
+*Shifted all bits to the right twice, but have to perserve the sign so filled vacant positions with 1
+
+```
+
+#### Rotate Instructions
+- Copies bits from one end to the other end (may include carry bit)
+  - `RotateL R3, R3, #2` OR `RotateLC R3, R3, #2`
+- Rotate amount can be in register or #value
+
+```
+Rotate Left without carry: RotateL R3, R3, #2
+
+Before: 0     0 1 1 1 0 . . . 0 1 1
+After:  1     1 1 0 . . . 0 1 1 0 1
+
+*Shifted all bits to the left twice(ignore carry), the bits at the end are shifted back to the beginning and the last remaining bit (after rotate) is pushed to carry.
+
+Rotate Left with carry: RotateLC R3, R3, #2
+
+Before: 0     0 1 1 1 0 . . . 0 1 1
+After:  1     1 1 0 . . . 0 1 1 0 0
+
+*Shifted all bits to the left twice (including carry), the bits are pushed into carry and the carry bits are shifted back to the beginning
+
+```
+
+#### Digit Packing Example
+
+---
+
+## Lecture 3
