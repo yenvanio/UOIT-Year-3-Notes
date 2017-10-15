@@ -184,7 +184,8 @@ Value: +/- 1.XX....X x 2^exp
 
 #### Endian Addressing
 - Big Endian
-  - Addressing assigns lower addresses to more significant (LMB) bytes of word
+  - Addressing assigns lower addresses to more significant bits
+  - **Note** Basically puts more significant bits in LSB (Right Side)
 
 | Byte Address  - Big Endian    |  |  |  |
 |-------|-------|-------|-------|
@@ -197,6 +198,7 @@ Value: +/- 1.XX....X x 2^exp
 
 - Little Endian
   - Opposite of Big Endian
+  - **Note** Basically puts less significant bits in LSB (Right Side)
 
 | Byte Address  - Little Endian    |  |  |  |
 |-------|-------|-------|-------|
