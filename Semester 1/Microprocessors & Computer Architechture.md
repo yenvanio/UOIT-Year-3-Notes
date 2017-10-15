@@ -118,10 +118,9 @@ Same as Signed, but if Subtraction take the 2's complement of the number being s
   - When subtracting, if the result has a different sign than the number being subtracted from or the same sign as the subtracting number then there is an overflow
 
   ```
-  R = A - B
+  A - B = R
 
-  if Sign(R) = Sign(B)
-  elseif Sign(R) != Sign(A)
+  IF Sign(R) = Sign(B) OR Sign(R) != Sign(A)
   then OVERFLOW
   ```
 #### Floating Point Numbers
@@ -630,7 +629,19 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 #### RISC Summary
 - Simple address modes
 - All instructions fit in a single word
--
+- Operations can only be performed on register operands
+- Load/Store Architechture
+  - Cannot transfer directly from one mem location to another
+- Fast execution
+- Larger Size because more instructions but simple instructions
+
+#### CISC Summary
+- Complex address modes
+- Complex instructions, can span multiple words
+- Operations can be performed on memory operands and register operands
+- Transfer from memory location to another memory location
+- Smaller Size because less instructions ubt complex instructions
+
 ---
 
 ## Lecture 3
