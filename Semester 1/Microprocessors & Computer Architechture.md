@@ -611,7 +611,7 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 ```
 
 #### Digit Packing Example
--
+- someone contribute from tuorial plsss
 
 #### Multiplication and Division
 - Signed integer multiplication of n-bits
@@ -641,6 +641,7 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 - Operations can be performed on memory operands and register operands
 - Transfer from memory location to another memory location
 - Smaller Size because less instructions ubt complex instructions
+
 
 ---
 
