@@ -187,26 +187,26 @@ Value: +/- 1.XX....X x 2^exp
 - Big Endian
   - Addressing assigns lower addresses to more significant (LMB) bytes of word
 
-| Byte Address  - Big Endian|
+| Byte Address  - Big Endian |
 |-------|-------|
 | 0     | 1     | 2     | 3     |
 | 4     | 5     | 6     | 7     |
 |       |       |       |       |
 |       |       |       |       |
 |       |       |       |       |
-|2^k - 4|2^k - 3|2^k - 2|2^k - 1|
+| 2^k - 4 | 2^k - 3 | 2^k - 2 | 2^k - 1 |
 
 - Little Endian
   - Opposite of Big Endian
 
-| Byte Address  - Little Endian|
+| Byte Address  - Little Endian |
 |-------|-------|
 | 3     | 2     | 1     | 0     |
 | 7     | 6     | 5     | 4     |
 |       |       |       |       |
 |       |       |       |       |
 |       |       |       |       |
-|2^k - 1|2^k - 2|2^k - 3|2^k - 4|
+| 2^k - 1 | 2^k - 2 | 2^k - 3 | 2^k - 4 |
 
 
 #### Word Alignment
@@ -585,6 +585,7 @@ Before: 1 0 0 1 1 . . . 0 1 0       0
 After:  1 1 1 0 0 1 1 . . . 0       1
 
 *Shifted all bits to the right twice, but have to perserve the sign so filled vacant positions with 1
+*If the Arithmetic Shift is to the left it is the same as a logical shift because it wouldn't make sense to pad with 1's
 
 ```
 
@@ -611,7 +612,25 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 ```
 
 #### Digit Packing Example
+-
 
+#### Multiplication and Division
+- Signed integer multiplication of n-bits
+  - Result can be up to 2^n bits
+- `Multiply Rk, Ri, Rj    (Rk <- [Ri]x[Rj])`
+- `Divide Rk, Ri, Rj      (Rk <- [Rj]/[Ri])``
+
+#### Immediate Values with 32-bits
+- Cannot load 32-bit values in one instruction
+- Seperate it into 2 instructions
+  - `OrHigh   R2, R0, #0x2000`
+  - `Or       R2, R2, #0x4ff0`
+- Result in R2 = `0x20004FF0`
+
+#### RISC Summary
+- Simple address modes
+- All instructions fit in a single word
+-
 ---
 
 ## Lecture 3
