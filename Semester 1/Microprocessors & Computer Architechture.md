@@ -10,9 +10,8 @@
 
 
 
-
-## Lecture 1
 <a name="Lecture1"></a>
+## Lecture 1
 
 
 #### Basic Functional Units of a Computer
@@ -155,8 +154,8 @@ Value: +/- 1.XX....X x 2^exp
 
 ---
 
-
-## Lecture 2 <a name="Lecture2"></a>
+<a name="Lecture2"></a>
+## Lecture 2
 
 
 ### Memory Locations and Addresses
@@ -658,8 +657,8 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 
 
 ---
-
-## Lecture 3 <a name="Lecture3"></a>
+<a name="Lecture3"></a>
+## Lecture 3
 
 
 ### Accessing I/O Devices
