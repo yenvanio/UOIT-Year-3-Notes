@@ -843,7 +843,8 @@ if 1 transfer data to R5
 | Term | Definition |
 |------|------------|
 | RAM  | Random access memory. Temporarily saves stuff in memory. |
+| ROM  | Read only memory. Retains memory even after power off. |
 | Cell | Stores 1 bit of information |
 | Word | A fixed size of cells |
-| Load |  Load destination, source |
-| Store | Store source, destionation |
+| Load |  Load R2, R3 = Loads R3 into R2 |
+| Store | Store R2, R3 = Stores R2 in R3 |
