@@ -787,4 +787,41 @@ if 1 transfer data to R5
 - if someone wanna essplain dis too das coooo
 
 #### Controlling I/O Device Behavior
--
+- teacher i dun know
+
+### Processor Control Registers
+- IPS
+  - This is where processor status register (**PS**) is saved during and interrupt
+- IENABLE
+  - Has one bit per device to recognize the source its coming from
+- IPENDING
+  - Has one bit per device to indicate if interrupt request has been serviced or not
+
+#### Accessing Control Registers
+- Cant be accessed by Load/Store or arithmetic/logic instructions
+- Can ONLY use `MoveControl`
+- Ex: `MoveControl    R4, IPENDING`
+  - Transfer pending interrupt request to R4
+- Ex: `MoveControl    R2, PS`
+  - Transfer Current processor IE setting to R2
+- Ex: `MoveControl    IENABLE, R3`
+  - Transfer desired bit pattern in R3 to IENABLE
+
+#### Interrupt Process Example
+- When an interrupt request goes to the processor and processor interrupts are enabled
+  1. Save the contents of **PC** in register or stack
+  2. Transfer contents of **PS** to **IPS** (temporarily save) and clear **IE** bit in **PS** (to allow other interrupts)
+  3. Load address ILOC into program counter
+- The main program intializes the interrupt process (shown below)
+  1. Load address LINE into mem location PNTR
+    - Interrupt service routine will use this location as a pointer to store input characters
+  2. Enable interrupts in keyboard interface by setting **KIE** bit to 1
+  3. Enable interrupts in processor by setting **IENABLE** bit to 1
+  4. Enable processor to respond to interrupts in general by setting **IE** bit to 1 in **PS**
+
+#### Multiple Interrupt Sources
+- To use interrupts for both keyboard/display call subroutines from ILOC service routine
+- Service routine reads IPENDING register
+- Check which device bit is in the IPENDING
+
+#### Exceptions
