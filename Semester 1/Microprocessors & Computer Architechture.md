@@ -823,5 +823,14 @@ if 1 transfer data to R5
 - To use interrupts for both keyboard/display call subroutines from ILOC service routine
 - Service routine reads IPENDING register
 - Check which device bit is in the IPENDING
+- Service routine must save/restore Link register
+- Need pointer variable to indicate output character for next display
 
 #### Exceptions
+- An exception is any type of interruption during exection
+- Other types of exception (other than I/O) = Recovery from errors
+  - divison by 0, invalid OP codes
+- Steps for errors in execution
+  1. After saving state, service routine executed
+  2. Routine can attempt to recover, if not inform the user and end the execution
+  3. Because the intstruction is the cause of exception, cannot fully complete and interrupt routine will execute right away
