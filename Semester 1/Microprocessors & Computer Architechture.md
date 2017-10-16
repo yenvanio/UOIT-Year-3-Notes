@@ -7,6 +7,7 @@
 [Lecture 2](#Lecture2)
 <br>
 [Lecture 3](#Lecture3)
+<br>
 [Dictionary](#Dictionary)
 
 
@@ -837,12 +838,12 @@ if 1 transfer data to R5
   3. Because the intstruction is the cause of exception, cannot fully complete and interrupt routine will execute right away
 
 
-<a name="Lecture1"></a>
+<a name="Dictionary"></a>
 ## Dictionary
 | Term | Definition |
 |------|------------|
 | RAM  | Random access memory. Temporarily saves stuff in memory. |
 | Cell | Stores 1 bit of information |
 | Word | A fixed size of cells |
-| Load | Loads data from memory into register. Load destination, source |
-| Store | Stores data from register into memory
+| Load |  Load destination, source |
+| Store | Store source, destionation |
