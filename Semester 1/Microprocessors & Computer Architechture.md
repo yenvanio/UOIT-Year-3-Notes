@@ -793,7 +793,7 @@ if 1 transfer data to R5
 
 ### Processor Control Registers
 - IPS
-  - This is where processor status register (**PS**) is saved during and interrupt
+  - This is where processor status register (**PS**) is saved during an interrupt
 - IENABLE
   - Has one bit per device to recognize the source its coming from
 - IPENDING
@@ -845,6 +845,7 @@ if 1 transfer data to R5
 | RAM  | Random access memory. Temporarily saves stuff in memory. |
 | ROM  | Read only memory. Retains memory even after power off. |
 | DMA  | Direct memory access, allows computers to access main system memory, independent of CPU |
+| OS | Operating System |
 | Cell | Holds a bit (0 or 1)|
 | Word | Group of n bits (16-64) |
 | Memory | Collection of words |
@@ -882,5 +883,40 @@ if 1 transfer data to R5
 | DATAWORD | Informs assembler to assign values to certain words |
 | EQU | Sets a keyword to a value -> TWENTY EQU 20, whenever TWENTY called it will be 20 |
 | END | Tells assembler that it's the end of the program |
-| Loader | Placed Object program in memory |
+| Loader | Places Object program in memory |
 | Debugger | Tracks execution |
+| LR | Link Register = stores address to return to after sub routine call |
+| Stack Frame | Allocated space for subroutine to use (only when subroutine called) |
+| FP | Frame Pointer  = register that lets you access private workspace for current subroutine |
+| AND | If two binary numbers both have 1's in the same position it returns 1 for that position otherwise 0 |
+| OR | If two binary numbers have atleast one 1 in the same position it returns 1 for that position otherwise 0 |
+| NOT | returns the inverse of the binary number |
+| LShiftL | Logical shift to the left, just shifts numbers to the left and fills empty spots on the right with 0's |
+| LShiftR | Logical shift to the right, just shifts numbers to the right and fills empty spots on the left with 0's |
+| AShiftL | Same as LShiftL |
+| AShiftR | Arithmetic Shift to the right, just shifts numbers to the rifht and fills empty spots on the left with the MSB(Sign) |
+| RotateL | Similar to shift but bits do not get lost, the bits that get pushed off rotate around to the other end |
+| RotateR | Same as RotateL just different direction |
+| RotateLC | Rotates but includes the carry in the rotation |
+| RotateRC | Same as RotateLC just different direction |
+| DATAIN | Loads data from I/O into register |
+| DATAOUT | Outputs from register to output device |
+| Buffer Register | Holds data during transfers |
+| Status Register | Holds info about status of device |
+| Control Register | Holds info about control operations |
+| KBD_DATA | Holds charcter pressed by keyboard in 8bit register |
+| KIN | Flag that sets to 1 when key pressed |
+| KBD_STATUS | 8 bit register that holds KIN |
+| DISP_DATA | 8 bit register to recieve characters from processor |
+| DOUT | Flag that is set to 1 when its ready to recieve next character |
+| DISP_STATUS | 8 bit register that contains DOUT |
+| Interrupt Request Signal | Sends Signal to the processor when device has stuff to send |
+| Interrupt Acknowledge Signal | Sent from processor to tell device that the interrupt signal was recieved |
+| PS | Processor Status Register |
+| IE | Interrupt Enable/Disable Bit |
+| Interrupt Vector | Contain address of interrupt service routines |
+| Interrupt Vector Table | Place in meomry for Interrupt Vectors |
+| IPS | Processor Status Register is saved here during an interrupt |
+| IENABLE | Has one bit per device to recognize where its coming from |
+| IPENDING | Has one bit per device to indicate if interrupt request has been serviced |
+| MoveControl | Command to transfer between control registers and regular registers |
