@@ -648,3 +648,90 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 ---
 
 ## Lecture 3
+
+
+#### Accessing I/O Devices
+- I/O Devices must have some kind of address
+  - Referred to as **I/O** registers
+- I/O devices share same address space as meomry
+  - Called *Memory-Mapped I/O*
+- `Load R2, DATAIN`
+  - Reads data from **DATAIN** register and loads into processor register **R2**
+- `Store R2, DATAOUT`
+  - Sends contents of **R2** to location **DATAOUT** which is a register in an output device
+
+#### I/O Device Interface
+- Circuit between device and Interconnection network
+  - Allows for data transfer
+- This interface has 3 registers that the processor can access
+  - **Buffer Register** -> Holds data during transfers
+  - **Status Register** -> Holds information about status of device
+  - **Control Register** -> Stores information that controls operations of device
+- The *Memory-Mapped I/O* makes it seem like I/O registers are a part of memory
+  - They are also accessed as if they were memory locations
+
+#### Keyboard
+- **KBD_DATA** = holds the character pressed by the keyboard in 8-bit register
+- **KIN** = a flag that is set to 1 when a key has been pressed
+  - **KIN** is part of an 8 bit register = **KBD_STATUS**
+- Processor checks for **KIN** flag and if 1, processor reads **KBD_DATA** register
+
+#### Display
+- **DISP_DATA** = 8 bit register to recieve characters from processor
+- **DOUT** = a flag that is set to 1 when it is ready to recieve next character
+  - **DOUT** is part of an 8 bit register = **DISP_STATUS**
+
+#### Wait Loop
+- A wait loop is used to read status from keyboard
+
+```
+
+READWAIT:   LoadByte            R4, KBD_STATUS
+            And                 R4, R4, #2
+            Branch_if_[R4]=0    READWAIT
+            LoadByte            R5, KBD_DATA
+
+* Reads the KIN Flag, if 0 (nothing pressed) loop back to READWAIT,
+if 1 transfer data to R5
+
+```
+
+#### General RISC Style I/O Programs
+- Waits for character to be entered
+- Checks KIN Flag (until 1)
+- Reads Data from KBD_DATA (Clears KIN to 0)
+- Writes into meomry
+- Wait for display to be ready
+- Check DOUT Flag (unti 1)
+- Move character read to buffer register (clears DOUT to 0)
+- If not carriage return keep going
+
+#### Interrupts
+- Problems with using a wait loop is that the processor is always busy
+  - waiting for status updates (KIN flag, DOUT flag)
+ - Instead we can let the I/O device alert the processor when it's ready
+  - Device can send an **Interrupt Request Signal** to the processor
+  - Processor is not occupied with waiting anymore
+- Ex: A task with lots of computation and must display results periodically
+  - Can use timer circuit to send interrupts
+  - Program will compute until interrupt then display then go back to computing
+
+#### Interrupt Service Routine
+- **DISPLAY** is an interrupt service routine
+- NOT the same as a subroutine because an interrupt can occur at any time unlike a subroutine which has to be called
+- When an interrupt occurs, the current instruction (*i*) is completed then PC is saved before switching to **DISPLAY**
+- **DISPLAY** has a *Return-From-Interrupt* instruction with the address *i+1*
+
+#### Issues for Handling Requests
+- Return address must be saved in stack or register
+- *Interrupt-Acknowledge Signal* must be sent from the processor to tell the device that interrupt has been recognized, which removes the interrupt request.
+  - Otherwise interrupt will keep appearing even if the service routine is done
+
+#### Enabling & Disabling Interrupts
+- Processor cannot always respond immediately
+- Some tasks need to be completed without interruption
+- In these cases we need ways to enable and disable interrupts
+  Ex: Task A cannot be interrupted, so disable when running task A and enable later
+
+#### Event Sequence for an Interrupt
+- 
