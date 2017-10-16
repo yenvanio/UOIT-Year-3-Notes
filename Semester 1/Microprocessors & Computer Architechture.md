@@ -844,7 +844,28 @@ if 1 transfer data to R5
 |------|------------|
 | RAM  | Random access memory. Temporarily saves stuff in memory. |
 | ROM  | Read only memory. Retains memory even after power off. |
-| Cell | Stores 1 bit of information |
-| Word | A fixed size of cells |
-| Load |  Load R2, R3 = Loads R3 into R2 |
-| Store | Store R2, R3 = Stores R2 in R3 |
+| Cell | Holds a bit (0 or 1)|
+| Word | Group of n bits (16-64) |
+| Memory | Collection of words |
+| Load |  Load R2, R3 = Loads R3 into R2; Loads from memory to register |
+| Store | Store R2, R3 = Stores R2 in R3; Stores from register to memory |
+| Move | Move R2, R3 = Copies R3 into R2; Copies from meomory to register |
+| PC | Program Counter = holds memory address of next instruction |
+| IR | Instruction Register = holds current instruction |
+| Byte Addressability | Assign addresses to each byte instead of each bit |
+| Big Endian | Assign lower address to more significant bits = puts significant bits on the right side |
+| Little Endian | Assign lower address to less significant bits = puts less significant bits on the right side |
+| Word Alignment | If the address is multiple of number of bytes it is aligned = 4byte word so every 4th byte location |
+| MAR | Memory Address Register |
+| MDR | Memory Data Register |
+| RTN | Register Transfer Notation |
+| RISC | Reduced Instruction Set Computers |
+| CISC | Complex Instruction Set Computers |
+| Straight Line Sequencing | Executing instructions one after the other |
+| Op-Code | Operation to be performed |
+| Address Field | Address Information of the operand on which an operation will be perfomed |
+| EA | Effective Address = Address of the location containing the referenced operand |
+| Immediate Mode | Puts a number directly into register = Load R2, #1000 OR Loadi R2, 1000 |
+| Direct Mode | References an address to get number into register = Load R2 1000 |
+| Indirect Mode | Points to an address which points to another address |
+| Index Mode | Add values to register and  |
