@@ -449,7 +449,7 @@ X = Index Value
   - Regular: Load, Store
   - Assembly: ldw, stw
 - Assembly language needs an assembler to translate to machine language
-- **Source Program** is code in assembly language
+- **Source Program** is code in high-level language
 - **Object Program** is code in machine language
 
 #### Assembler Directives
@@ -462,7 +462,7 @@ X = Index Value
 - **END** tells the assembler it has reach the end of the source program
 
 #### Program Assembly and Execution
-- Source Program -> Assembler -> Object Program (Machine Language)
+- Source Program -> Compiler = Assembly Language -> Assembler -> Object Program (Machine Language)
 - Uses Directives to determine address locations
 - Computes *+-offset* from present address (in **PC**) to branch target
 - **Loader** places object program in memory
@@ -844,6 +844,7 @@ if 1 transfer data to R5
 |------|------------|
 | RAM  | Random access memory. Temporarily saves stuff in memory. |
 | ROM  | Read only memory. Retains memory even after power off. |
+| DMA  | Direct memory access, allows computers to access main system memory, independent of CPU |
 | Cell | Holds a bit (0 or 1)|
 | Word | Group of n bits (16-64) |
 | Memory | Collection of words |
@@ -868,4 +869,18 @@ if 1 transfer data to R5
 | Immediate Mode | Puts a number directly into register = Load R2, #1000 OR Loadi R2, 1000 |
 | Direct Mode | References an address to get number into register = Load R2 1000 |
 | Indirect Mode | Points to an address which points to another address |
-| Index Mode | Add values to register and  |
+| Index Mode | Add values to index register and access by adding bytes = 4(R2) = contents of address in R2 + 4 bits|
+| Relative Mode | Same as index but use program counter |
+| Auto-increment | Loads into register then increments the value by amount specified, if not specified its 4 bits|
+| Auto-decrement | Decrements and then loads into register |
+| Source Program | High-level language code |
+| Object Program | Machine language code |
+| Compiler | Turns source program into assembly language |
+| Assembler | Turns assembly language into machine code |
+| ORIGIN | Defines instruction start position |
+| RESERVE | Declares a memory block that is to be reserved for data |
+| DATAWORD | Informs assembler to assign values to certain words |
+| EQU | Sets a keyword to a value -> TWENTY EQU 20, whenever TWENTY called it will be 20 |
+| END | Tells assembler that it's the end of the program |
+| Loader | Placed Object program in memory |
+| Debugger | Tracks execution |
