@@ -650,7 +650,7 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 ## Lecture 3
 
 
-#### Accessing I/O Devices
+### Accessing I/O Devices
 - I/O Devices must have some kind of address
   - Referred to as **I/O** registers
 - I/O devices share same address space as meomry
@@ -706,7 +706,7 @@ if 1 transfer data to R5
 - Move character read to buffer register (clears DOUT to 0)
 - If not carriage return keep going
 
-#### Interrupts
+### Interrupts
 - Problems with using a wait loop is that the processor is always busy
   - waiting for status updates (KIN flag, DOUT flag)
  - Instead we can let the I/O device alert the processor when it's ready
@@ -734,4 +734,40 @@ if 1 transfer data to R5
   Ex: Task A cannot be interrupted, so disable when running task A and enable later
 
 #### Event Sequence for an Interrupt
-- 
+- Processor Status Register ( **PS** ) has an interrupt enable/disable bit ( **IE** )
+  - Set to 1 to enable and 0 to disable interrupts
+- Procedure is as follows:
+1. Device sends interrupt request
+2. Processor interrupts program and saves contents of **PC** and **PS** registers
+3. Interrupts disabled by setting **IE** to 0 (One interrupt at a time)
+4. Interrupt service routine happens, lets device known that its been acknowledged
+5. Saved contents of PC and PS are restored, **IE** is set to 1 to allow interrupts
+
+### Handling Multiple Devices
+
+#### Polling Scheme
+- idk if we even need this tbh
+- but if someone wanna essplain das cooo
+
+#### Vectored Interrupts
+- A method to handle multiple device interrupts
+- Reduces delay
+- Each device identifeis itself with a signal or binary code
+- Have a place in memory for **Interrupt Vector Table**
+  - This will hold **Interrupt Vectors**
+  - These vectors contain address of the interrupt service routines
+- Processor will use the table to find the right interrupt routine for the given device
+
+#### Interrupt Nesting
+- Can reduce delay even more by allowing nesting
+- Works by setting the **IE** bit to 0
+  - Make sure to acknowledge the current request before allowing other to interrupt otherwise infinite loop
+- Use priority levels to control better
+- If ISR1 (Interrupt Service Routine 1) has less priority than an interrupt that occurs after it (ISR2) then ISR2 will complete before ISR1
+
+#### Simultaneous Requests
+- 2 or more requests at the same time
+- if someone wanna essplain dis too das coooo
+
+#### Controlling I/O Device Behavior
+-
