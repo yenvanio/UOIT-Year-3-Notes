@@ -14,9 +14,10 @@
 ## Lecture 1
 
 
-#### Basic Functional Units of a Computer
+### Basic Functional Units of a Computer
 - Input Output
 - Memory
+
   - Main Memory
     - Large # of Semi-Conductor Storage Cells
     - Each Cell stores one bit of info
@@ -24,25 +25,30 @@
     - Each word has a **word length**, 16, 32, 64 which is the number of bits in each word.
     - Each word has a distinct **address** associated with it's location. (Consecutive #'s, start from 0)
     - A **word** is accessed by specifying address and issuing a control command.
+
   - Random-access memory (RAM)
     - A memory where any location can be accessed in a short and fixed time after specifying address.
     - Time required to access one word is called **memory access time** (<100ns)
+
   - Cash Memory
     - Supplementary to main memory.
     - Facilitates high instruction execution rate
     - Smaller and faster than RAM
     - Holds sections of program that are currently being executed (+ any extra data)
     - Cache is usually on the same integrated circuit chip as the processor
+
   - Secondary Memory
     - Primary Memory is expensive, doesn't retain info when turned off.
     - So, we use less expensive, permanent secondary storage to hold large amounts of data.
     - Access time for secondary storage > primary memory
+
 - Arithmetic and Logic Unit (ALU):
   - Most computer operations are executed by this processor
   - Arithmetic/Logic operations are initiated by bringing operands to the processor where ALU performs operation
   - When operands are brought they are stoFF5733 in registers
   - Registers are high speed storage elements, that store one word of data
   - Access times to registers < cache memory
+
 - Control Unit
   - Operation of all the above units is controlled by the control unit
   - Control circuitry is physically distributed throughout the computer
@@ -53,7 +59,7 @@
 - Timing and Control Circuits
 - Registers
 
-#### Instructions and Programs
+### Instructions and Programs
 - Instruction specifies operation and location of data operands
 - Program is a consecutive sequence of instructions
 - Program and Data are stoFF5733 in main memory
@@ -84,7 +90,7 @@ Load    R3, B       Puts B in R3
 Add     R4, R2, R3  Adds R2 and R3 into R4
 Store   R4, C       Stores R4 into C
 ```
-#### Processor Components
+### Processor Components
 - Program Counter (**PC**) register holds memory address of next instruction
 - Instruction Register (**IR**) holds the current instruction
 - General-Purpose Registers hold data and addresses
