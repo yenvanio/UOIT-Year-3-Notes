@@ -1,6 +1,18 @@
 # Microprocessors and Computer Architecture
 
+## Table of Contents
+
+[Lecture 1](#Lecture1)
+<br>
+[Lecture 2](#Lecture2)
+<br>
+[Lecture 3](#Lecture3)
+
+
+
+
 ## Lecture 1
+<a name="Lecture1"></a>
 
 
 #### Basic Functional Units of a Computer
@@ -144,7 +156,7 @@ Value: +/- 1.XX....X x 2^exp
 ---
 
 
-## Lecture 2
+## Lecture 2 <a name="Lecture2"></a>
 
 
 ### Memory Locations and Addresses
@@ -647,7 +659,7 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 
 ---
 
-## Lecture 3
+## Lecture 3 <a name="Lecture3"></a>
 
 
 ### Accessing I/O Devices
@@ -697,14 +709,14 @@ if 1 transfer data to R5
 ```
 
 #### General RISC Style I/O Programs
-- Waits for character to be entered
-- Checks KIN Flag (until 1)
-- Reads Data from KBD_DATA (Clears KIN to 0)
-- Writes into meomry
-- Wait for display to be ready
-- Check DOUT Flag (unti 1)
-- Move character read to buffer register (clears DOUT to 0)
-- If not carriage return keep going
+1. Waits for character to be entered
+2. Checks KIN Flag (until 1)
+3. Reads Data from KBD_DATA (Clears KIN to 0)
+4. Writes into meomry
+5. Wait for display to be ready
+6. Check DOUT Flag (unti 1)
+7. Move character read to buffer register (clears DOUT to 0)
+8. If not carriage return keep going
 
 ### Interrupts
 - Problems with using a wait loop is that the processor is always busy
