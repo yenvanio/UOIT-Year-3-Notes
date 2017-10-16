@@ -7,6 +7,7 @@
 [Lecture 2](#Lecture2)
 <br>
 [Lecture 3](#Lecture3)
+[Dictionary](#Dictionary)
 
 
 
@@ -45,7 +46,7 @@
 - Arithmetic and Logic Unit (ALU):
   - Most computer operations are executed by this processor
   - Arithmetic/Logic operations are initiated by bringing operands to the processor where ALU performs operation
-  - When operands are brought they are stoFF5733 in registers
+  - When operands are brought they are stored in registers
   - Registers are high speed storage elements, that store one word of data
   - Access times to registers < cache memory
 
@@ -62,7 +63,7 @@
 ### Instructions and Programs
 - Instruction specifies operation and location of data operands
 - Program is a consecutive sequence of instructions
-- Program and Data are stoFF5733 in main memory
+- Program and Data are stored in main memory
 - *32-bit word typically holds one encoded instruction*
 
 ##### Three Basic Instructions
@@ -478,14 +479,14 @@ X = Index Value
 - Last in First Out (LIFO)
   - **Push** puts a new element at the top
     - `Subtract SP, SP, #4`
-      - Moves the Stack Pointer up 4 bytes
+      - Moves the Stack Pointer up 4 bits
     - `Store Rj, (SP)`
       - Stores the new value into stack pointer
   - **Pop** takes out the top element
     - `Load Rj, (SP)`
       - Put stack pointer value into Rj
     - `Add SP, SP, #4`
-      - Moves stack pointer down 4 bytes
+      - Moves stack pointer down 4 bits
 - Processor has a stack pointer ( **SP** )
   - Always points to the top of the processor stack
 
@@ -834,3 +835,14 @@ if 1 transfer data to R5
   1. After saving state, service routine executed
   2. Routine can attempt to recover, if not inform the user and end the execution
   3. Because the intstruction is the cause of exception, cannot fully complete and interrupt routine will execute right away
+
+
+<a name="Lecture1"></a>
+## Dictionary
+| Term | Definition |
+|------|------------|
+| RAM  | Random access memory. Temporarily saves stuff in memory. |
+| Cell | Stores 1 bit of information |
+| Word | A fixed size of cells |
+| Load | Loads data from memory into register. Load destination, source |
+| Store | Stores data from register into memory
