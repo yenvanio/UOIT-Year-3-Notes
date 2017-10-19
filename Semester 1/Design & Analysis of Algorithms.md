@@ -45,9 +45,9 @@ for j = 2 to A.length                                   c1    n
   - The terminating condition is when j > length of array and when it becomes n+1 the array consists of values A[1..n], all sorted
 
 ### Mathematical Induction vs Loop Invariants
-    - Base Case = Initialization
-    - Inductive Step = Maintenance
-    - Inductive Step Infinitely != Termination
+- Base Case = Initialization
+- Inductive Step = Maintenance
+- Inductive Step Infinitely != Termination
 
 ### Best Case, Average Case, Worst Case
 - Best case is when the array is already sorted
@@ -64,7 +64,6 @@ for j = 2 to A.length                                   c1    n
 <a name="intQ"></a>
 ## Interview Questions
 1. You have a set of date intervals represented by StartDate and EndDate. How would you efficiently calculate the longest timespan covered by them?
-
 What is Time Complexity?
 
 ```
