@@ -36,14 +36,13 @@ for j = 2 to A.length                                   c1    n
 
 
 ### Loop Invariants
-    - White Box Technique
-    - __Initialization:__ It is true prior to first iteration of loop
-      - Shows Array is sorted when j = 2 (initializing) the only item in the array is Array[1]
-    - __Maintenance:__ If true before iteration, it is true after
-      - After every iteration the values are moved until right position is found and then it is inserted, so still sorted.
-    - __Termination:__ When loop terminates, invariant gives us a useful property that helps show algorithm is correct
-      - The terminating condition is when j > length of array and when it becomes n+1 the array consists of values A[1..n],
-      all sorted
+- White Box Technique
+- __Initialization:__ It is true prior to first iteration of loop
+  - Shows Array is sorted when j = 2 (initializing) the only item in the array is Array[1]
+- __Maintenance:__ If true before iteration, it is true after
+  - After every iteration the values are moved until right position is found and then it is inserted, so still sorted.
+- __Termination:__ When loop terminates, invariant gives us a useful property that helps show algorithm is correct
+  - The terminating condition is when j > length of array and when it becomes n+1 the array consists of values A[1..n], all sorted
 
 ### Mathematical Induction vs Loop Invariants
     - Base Case = Initialization
@@ -51,14 +50,14 @@ for j = 2 to A.length                                   c1    n
     - Inductive Step Infinitely != Termination
 
 ### Best Case, Average Case, Worst Case
-    - Best case is when the array is already sorted
-      - Should never have to go through while loop (to check with all elements before it)
-      - Because already sorted
-    - Average would be half sorted and half unsorted
-    - Worst case is when the array is sorted in reverse
-      - Will always go through the whole while loop (n-1 times)
-      - Because have to bring elements from last index to first index
-    - Usually focus on worst case, because that is the longest time it will ever take to run the algorithm, so we want to focus on making it smaller
+- Best case is when the array is already sorted
+  - Should never have to go through while loop (to check with all elements before it)
+  - Because already sorted
+- Average would be half sorted and half unsorted
+- Worst case is when the array is sorted in reverse
+  - Will always go through the whole while loop (n-1 times)
+  - Because have to bring elements from last index to first index
+- Usually focus on worst case, because that is the longest time it will ever take to run the algorithm, so we want to focus on making it smaller
 
 ### Recursion
 
