@@ -148,6 +148,64 @@ Floor of (a/b) = Floor of (( a + (b-1) ) / b )
 - Both functions are **monotonically increasing**
 
 
+### Solving Recurrences
+- Substitution
+  - For different values of k, substitute the function T to solve for a general form
+  - Ex: Merge Sort
+
+  ```
+  Find Time Complexity of: T(n) = 2T(n/2) + n
+  * 2T because divide by 2 each time
+  * n/2 because n/2 subproblems
+  * n because linear operations of dividing and combining
+
+  First set k = 1   (k is the exponent on the T)
+  T(n) = 2T(n/2) + n
+
+  Then find T(n/2) by subbing n/2 into original function
+  T(n/2) = 2T(n/4) + n/2
+
+  Now sub T(n/2) back into the first function to get function for k=2
+  T(n) = 2( 2T(n/4) + n/2 ) + n
+  T(n) = 2^2T(n/4) + 2n
+
+  Repeat for k=3 to get
+  2^3T(n/8) + 3n
+
+  Pattern is -> T(n) = (2^k)T(n/2^k) + kn
+
+  Now declaring base case T(1) = 1
+  so want to do recursion back to base case otherwise infinite loop
+  SO.. n/2^k = 1
+  n = 2^k
+  k = logn (base 2)
+
+  Sub back in for k ((Since logn is base 2 and being raised to the power of 2 can switch the bottom 2 with top n)
+  T(n) = 2^logn * T(1) + log(n)*n
+  T(n) = n^log2 * T(1) + nlogn
+  T(n) = n * T(1) + nlogn
+  T(n) = nlogn
+
+
+
+
+  ```
+
+- Recursion Tree Method
+  - Each node in the tree represents cost of a subproblem
+  - Sum the costs within each level to get a set of per-level costs and sum them all to get
+  total cost of the recursion
+  - Ex:
+
+  ```
+  T(n) = 3T(n/4) + cn^2
+
+
+
+  ```
+
+- Master Method
+
 
 --------------------------------------------------
 <a name="intQ"></a>
