@@ -60,7 +60,96 @@ for j = 2 to A.length                                   c1    n
 - Usually focus on worst case, because that is the longest time it will ever take to run the algorithm, so we want to focus on making it smaller
 
 ### Recursion
+- Programs that call themselves to solve a problem
+- Follows a divde and conquer method
+  - Breaks down problem into several subproblems
+  - Solve each subproblem recursively
+  - Combine solutions together to form solution to original problem
 
+### Merge Sort
+- **Divide**: Divide n-element sequence in half (n/2) to be sorted
+- **Conquer**: Sort the two subsequences recursively using merge sort
+- **Combine**: merge the two sorted subsequences to get full sorted list
+- Runtime = O(nlogn)
+
+```Java
+
+MERGE_SORT(A,p,r)
+  (if p < r){
+    q = Math.Floor((p+r)/2);
+    MERGE_SORT(A, p, q);
+    MERGE_SORT(A, q+1, r);
+    MERGE_SORT(A, p, q, r);
+  }
+
+```
+
+  **Note**: Basically divide by 2 until single elements and join back same way while sorting by checking the first element of each subsequence to find the smallest number to put into final answer first
+
+#### Correctness of Merge Algorithm
+- Need to check
+  - Initialization  
+    - Before first loop iteration empty subarray
+  - Maintenance
+    - Once broken down into single elements you check smallest element in left side vs right side and smaller one goes into final array. Once the subsequences get bigger you go through each index of subsequences cause they're sorted and make sure the left and right side combine properly
+  - Termination
+    - Upon termination the subarray is already sorted *except for two largest elements which are sentinnels*??
+
+### Divide and Conquer Algorithms
+- *a*: Number of subproblems, each one is 1/b * size of the original problem
+- *T(n/b)*: Time required to solve one subproblem of size n/b
+- *D(n)*: Time required to divide problem into subproblems
+- *C(n)*: Time required to combine subsolutions into main solution
+- T(n) = { O(1)                   if n <= c
+           aT(n/b) + D(n) + C(n)  otherwise  
+                                            }
+
+```
+
+Ex for Merge Sort Algorithm:
+
+T(n) = { O(1)           if n = 1
+         2T(n/2) + O(n) if n > 1
+                                 }
+
+*Note* D(n) = O(1) because divide step only computes middle of subarray which takes constant time. The MERGE procedure takes O(n) on an n-element subarray and so combined we get the answer above
+
+```
+
+### Big O, Omega, Theta
+- Big O is an asymptotic upper bound for a function
+- Big Omega is an asymptotic lower bound for a function
+- Big Theta is an upper and lower bound (sandwiched)
+
+- Big O and Omega have to be true for a function for a function to be Big Omega
+  - Similarly if a function is Big Theta, it is also O and Omega
+- If f(n) = Big Theta/Omega/O g(n) && g(n) = Big Theta/Omega/O h(n)
+  - Then f(n) = Big Theta/Omega/O(h(n))
+
+### Function Notations
+- f(n) is **monotonically increasing** if *m <= n* implies *f(m) <= f(n)*
+- f(n) is **monotonically decreasing** if *m <= n* implies *f(m) >= f(n)*
+- f(n) is **strictly increasing** if *m < n* implies *f(m) < f(n)*
+- f(n) is **strictly decreasing** if *m < n* implies *f(m) > f(n)*
+
+#### Floor and Ceiling
+- Floor of # = Round down
+- Ceiling of # = Round up
+
+```
+Ceiling of ((x/a)/b) = Ceiling of (x/ab)
+Floor of ((x/a)/b) = Floor of (x/ab)
+
+Ceiling of (a/b) = Ceiling of (( a + (b-1) ) / b )
+Floor of (a/b) = Floor of (( a + (b-1) ) / b )
+
+```
+
+- Both functions are **monotonically increasing**
+
+
+
+--------------------------------------------------
 <a name="intQ"></a>
 ## Interview Questions
 1. You have a set of date intervals represented by StartDate and EndDate. How would you efficiently calculate the longest timespan covered by them?
