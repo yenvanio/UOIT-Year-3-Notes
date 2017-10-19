@@ -112,7 +112,9 @@ T(n) = { O(1)           if n = 1
          2T(n/2) + O(n) if n > 1
                                  }
 
-*Note* D(n) = O(1) because divide step only computes middle of subarray which takes constant time. The MERGE procedure takes O(n) on an n-element subarray and so combined we get the answer above
+*Note* D(n) = O(1) because divide step only computes middle of subarray which takes constant time.
+
+The MERGE procedure takes O(n) on an n-element subarray and so combined we get the answer above
 
 ```
 
@@ -149,6 +151,7 @@ Floor of (a/b) = Floor of (( a + (b-1) ) / b )
 
 
 ### Solving Recurrences
+- For complicated ones, can use dummy variables in sub back in later
 - Substitution
   - For different values of k, substitute the function T to solve for a general form
   - Ex: Merge Sort
@@ -186,20 +189,27 @@ Floor of (a/b) = Floor of (( a + (b-1) ) / b )
   T(n) = n * T(1) + nlogn
   T(n) = nlogn
 
-
-
-
   ```
 
 - Recursion Tree Method
   - Each node in the tree represents cost of a subproblem
   - Sum the costs within each level to get a set of per-level costs and sum them all to get
   total cost of the recursion
+  - Width of tree -> a^log_b_n = n^log_b_a
+  - Depth of tree -> log_b_n
   - Ex:
 
   ```
   T(n) = 3T(n/4) + cn^2
 
+  The constant on the side is the head of the three and should be the row sum for every level(
+  Each node should break down into 3 parts (coefficient of T)
+  Each level lower, the breakdown into 3 nodes should be multiplied by the coefficient of n/4 (1/4) (So in this case denominator keeps x4)
+  Each level you go down you will notice a pattern for the recursive call T(n/4^i) (basically the x1/4 thing mentioned above)
+  Want that to equal 1 for base case -> 1 = n/4^i
+                                     -> log_4_n = i
+  Now to calculate final time complexity, take the log_4_n = i and mutliply it by the row sum
+  log(n)*n^2 = n^2logn = n^2 time complexity
 
 
   ```
