@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-[Lecture 1](#Lecture1)
+[Lecture 1 - Basic Structure of Computers ](#Lecture1)
 <br>
-[Lecture 2](#Lecture2)
+[Lecture 2 - Instruction Set Architecture ](#Lecture2)
 <br>
-[Lecture 3](#Lecture3)
+[Lecture 3 - Basic Input & Output ](#Lecture3)
 <br>
-[Lecture 4](#Lecture4)
+[Lecture 4 - Software](#Lecture4)
 <br>
 [Lecture 5](#Lecture5)
 <br>
@@ -25,7 +25,7 @@
 
 
 <a name="Lecture1"></a>
-## Lecture 1
+## Lecture 1 - Basic Structure of Computers
 
 
 ### Basic Functional Units of a Computer
@@ -175,7 +175,7 @@ Value: +/- 1.XX....X x 2^exp
 ---
 
 <a name="Lecture2"></a>
-## Lecture 2
+## Lecture 2 - Instruction Set Architecture
 
 
 ### Memory Locations and Addresses
@@ -678,7 +678,7 @@ After:  1     1 1 0 . . . 0 1 1 0 0
 
 ---
 <a name="Lecture3"></a>
-## Lecture 3
+## Lecture 3 - Basic Input & Output
 
 
 ### Accessing I/O Devices
@@ -852,11 +852,23 @@ if 1 transfer data to R5
 ### Bus Structure
 - Single Bus Systems
   - Processor, Memory, I/O Device 1...N
+- An I/O interface responds when it recognizes the address of the input device
+- Interface needs to know when to
+  - check address information
+  - Send Input
+  - Receive Output
+- Two approaches for bus transfer timings
+  - Synchronous
+  - Asynchronous
+
+#### Synchronous Bus
+-
+
 
 ---
 
 <a name="Lecture4"></a>
-## Lecture 4
+## Lecture 4 - Software
 ---
 
 <a name="Lecture5"></a>
