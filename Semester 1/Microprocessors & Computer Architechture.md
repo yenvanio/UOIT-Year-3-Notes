@@ -8,6 +8,18 @@
 <br>
 [Lecture 3](#Lecture3)
 <br>
+[Lecture 4](#Lecture4)
+<br>
+[Lecture 5](#Lecture5)
+<br>
+[Lecture 6](#Lecture6)
+<br>
+[Lecture 7](#Lecture7)
+<br>
+[Lecture 8](#Lecture8)
+<br>
+[Lecture 9](#Lecture9)
+<br>
 [Dictionary](#Dictionary)
 
 
@@ -829,14 +841,36 @@ if 1 transfer data to R5
 - Need pointer variable to indicate output character for next display
 
 #### Exceptions
-- An exception is any type of interruption during exection
+- An exception is any type of interruption during execution
 - Other types of exception (other than I/O) = Recovery from errors
-  - divison by 0, invalid OP codes
+  - division by 0, invalid OP codes
 - Steps for errors in execution
   1. After saving state, service routine executed
   2. Routine can attempt to recover, if not inform the user and end the execution
-  3. Because the intstruction is the cause of exception, cannot fully complete and interrupt routine will execute right away
+  3. Because the instruction is the cause of exception, cannot fully complete and interrupt routine will execute right away
 
+### Bus Structure
+- Single Bus Systems
+  - Processor, Memory, I/O Device 1...N
+
+
+<a name="Lecture4"></a>
+## Lecture 4
+
+<a name="Lecture5"></a>
+## Lecture 5
+
+<a name="Lecture6"></a>
+## Lecture 6
+
+<a name="Lecture7"></a>
+## Lecture 7
+
+<a name="Lecture8"></a>
+## Lecture 8
+
+<a name="Lecture9"></a>
+## Lecture 9
 
 <a name="Dictionary"></a>
 ## Dictionary
