@@ -853,24 +853,31 @@ if 1 transfer data to R5
 - Single Bus Systems
   - Processor, Memory, I/O Device 1...N
 
+---
 
 <a name="Lecture4"></a>
 ## Lecture 4
+---
 
 <a name="Lecture5"></a>
 ## Lecture 5
+---
 
 <a name="Lecture6"></a>
 ## Lecture 6
+---
 
 <a name="Lecture7"></a>
 ## Lecture 7
+---
 
 <a name="Lecture8"></a>
 ## Lecture 8
+---
 
 <a name="Lecture9"></a>
 ## Lecture 9
+---
 
 <a name="Dictionary"></a>
 ## Dictionary
