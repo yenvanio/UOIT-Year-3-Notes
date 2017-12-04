@@ -869,6 +869,118 @@ if 1 transfer data to R5
 
 <a name="Lecture4"></a>
 ## Lecture 4 - Software
+
+### The Assembly Process
+- *Assembler* translates source file to object code
+  - source file = code written in an IDE or text editor (Java/C++..etc)
+  - object code = machine code
+- Interprets addressing modes for operands
+- Recognizes directives that define constants and allocate memory for that data
+- Assembler uses a symbol table to store names and labels
+  - When a name appears it refers to the table to replace it with a value
+- **Two Pass Assembler**
+  - You cant immediately know the value of all the branches when you start because you have to take the starting address and offset it
+  - First Pass
+    - Generate machine instructions
+    - Generate Symbol Table (load names and labels in)
+  - Second Pass
+    - Calculate unknown branches and address using offset and replace anything that is found in symbol table
+
+### Loading and Executing
+- *Loader* performs the following operations
+  - Loads object file from disk into memory
+  - Address of first instruction loaded into PC
+  - Starts execution of instructions
+
+### Linker
+- Using a linker you can combined multiple program files and run it as a single program
+- Subroutines defined by one file can be used in another
+- Linker combines all object files into an object program
+
+### Libraries
+- Can use a library and reference it in object files and use a linker to combine the library once for all times it needs to be used
+- Can make library of custom subroutines in object files using *archiver*
+
+### Compiler
+- Compiler generates assembly-language file then tells assembler to make the object file
+- Linker combines everything (object files, libraries) to create the final object program
+
+#### Compiler Optimizations
+- Lots of the execution time is spent in loops
+- To speed it up compiler can use register to hold index values rather than accessing from memory
+  - Load before loop to place initial register value
+  - Store after to place final register value
+
+#### Multiple Languages
+- Once object files are created, source language is not relevant
+- Linker combines object files, libraries..etc of any language
+
+### Debugger
+- Syntax errors in the source file are detected by assembler / compiler / linker
+
+- Programming errors and bugs that lead to wrongful output can be found using a debugger
+- A debugger can stop execution at points of interest
+  - It displays values in registers and memory so you can maybe see what went wrong
+
+#### Trace Mode Debugger
+- Go through the code line by line to see what's happening to the values
+
+#### Breakpoints Mode
+- Stops only where breakpoints are placed, after breakpoint resumes regular execution
+
+### Operating System
+- There is a spot in memory that permanently holds an instruction needed for loading the OS.
+
+#### Boot-Strapping Process
+- Loads Memory-Resident part, gives OS control over resources
+- Processor fetches first instruction from predetermined location
+- Larger and larger programs transfer OS into memory to prepare for user input
+
+#### Managing Execution of Programs
+1. User enters command
+2. Loader transfer code and data in object file to memory
+3. Request is made to OS to read data from file
+4. OS and I/O activity occur while program waits
+
+#### Interrupts in OS
+- Interrupts are used by the OS for I/O operations
+- Also assign execution priorities and switch between programs
+- Service routine for I/O devices is a part of the OS
+- I/O makes a request through library routine that raises a software interrupt to enter the OS
+- OS starts I/O activity and makes program wait
+- Hardware signals the OS upon completion using an interrupt
+- OS and program pass control back and forth this way
+
+#### Multitasking
+- OS uses hardware timer for *time slicing* to manage execution of multiple programs
+  - Fair allocation of processor usage
+
+```
+Example of Multitasking
+
+Programs A and B are initiated
+
+A is executing when time slice expires, SCHEDULER is entered and registers are saved
+
+OS then selects B, restors its values and return-from-interrupt to resume B
+
+^ That was a switch ^
+
+This time A calls I/O for interrupt
+
+OS calls IOINIT (Initialize I/O) and KBDINIT (Initialize Keyboard)
+Device interrupts are enabled for transfer
+
+SCHEDULER routine in OS then selects B
+
+Keyboard interrupt invokes IODATA routine which finds interrupt source
+
+A made runnable, OS lets B resume
+
+After switch, A executes again
+
+
+```
 ---
 
 <a name="Lecture5"></a>
@@ -973,3 +1085,4 @@ if 1 transfer data to R5
 | IENABLE | Has one bit per device to recognize where its coming from |
 | IPENDING | Has one bit per device to indicate if interrupt request has been serviced |
 | MoveControl | Command to transfer between control registers and regular registers |
+| Assembler | Assembler translates source file to object code |
