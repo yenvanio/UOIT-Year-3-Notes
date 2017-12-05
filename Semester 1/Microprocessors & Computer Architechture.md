@@ -16,7 +16,7 @@
 <br>
 [Lecture 7 - The Memory System](#Lecture7)
 <br>
-[Lecture 8](#Lecture8)
+[Lecture 8 - Arithmetic](#Lecture8)
 <br>
 [Lecture 9](#Lecture9)
 <br>
@@ -1609,7 +1609,29 @@ Example:
 ---
 
 <a name="Lecture8"></a>
-## Lecture 8
+## Lecture 8 - Arithmetic
+
+### Addition and Subtraction of Signed Numbers
+
+#### Addition
+- Full Adder
+  - Adds 2 bits along with carry in bit
+  - Outputs a sum bit and a carry-out bit
+
+| A | B | Carry In | | Sum | Carry Out |
+|---|---|----------|-|-----|-----------|
+|0|0|0| |0|0|
+|0|0|1| |1|0|
+|0|1|0| |1|0|
+|0|1|1| |0|1|
+|1|0|0| |1|0|
+|1|0|1| |0|1|
+|1|1|0| |0|1|
+|1|1|1| |1|1|
+
+
+
+
 ---
 
 <a name="Lecture9"></a>
