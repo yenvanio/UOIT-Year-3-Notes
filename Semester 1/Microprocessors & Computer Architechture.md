@@ -14,7 +14,7 @@
 <br>
 [Lecture 6 - Pipelining](#Lecture6)
 <br>
-[Lecture 7](#Lecture7)
+[Lecture 7 - The Memory System](#Lecture7)
 <br>
 [Lecture 8](#Lecture8)
 <br>
@@ -1264,22 +1264,129 @@ Sub R9, R2, #30                 F       D       D       D       D (Now available
     - Use temp registers to hold new data before safe for final update
   - **Reorder Buffer**
     - Ensure correct order by reordering
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 <a name="Lecture7"></a>
-## Lecture 7
+## Lecture 7 - The Memory System
+- Need memory access times to be slow
+- Need fast, large and inexpensive memory (cant meet all 3 at the same time)
+
+### Basic Concepts
+- Maximum Memory Size for any computer = 2^k
+  - K = # of bits  
+  - For 16 bit -> 2^16 = 64k
+  - For 32 bit -> 2^32 = 4G
+- Memory is designed to store/retrieve data in word-length quantities
+- **Memory Access Time** -> Time from start to finish of a word or byte transfer
+- **Memory Cycle Time** -> Min. Time delay between the start of successive transfers
+- For **RAM** the access time is same, independent of location
+
+#### Processor - Memory Interface
+- The connection between processor and memory
+- *Address Lines* specify memory location
+- *Data Lines* transfer data
+- *Control Lines* carry Read/Write and whether byte/word is being transferred
+
+#### Cache and Virtual Memory
+- Main Memory slower than processor
+- **Cache Memory** is smaller but faster memory, reduces access time
+  - Sometimes the cache cant hold entire programs due to capacity
+  - **Virtual Memory** provides larger apparent size
+    - Sections of the programs are transferred between main memory and secondary storage
+    - Application program does not see this
+  - Need efficient block transfers for virtual memory
+    - Data always transferred in blocks that have 10/100/1000's of words
+
+### Semiconductor RAM Memory
+- Cycle Times range from 100ns to less than 10ns
+
+#### Static RAMs and CMOS Cell
+- Static memories need power to retain state
+  - short access time
+- Static *RAM Cell* in a chip has two cross-connected inverters to form a latch
+- Chip implementation uses CMOS
+  - Complementary Metal Oxide Semi-Conductor = CMOS
+- Two transistors controlled by word line act as switches between cell and bit lines
+- To write, bit lines are driven with desired data
+
+#### Dynamic RAMs
+- Simple for high density and lower cost
+- Longer access times (outweighed by density/cost advantages)
+- Consists of transistor, capacitor
+- Needs to be refreshed as charge leaves capacitor
+- For Read *Sense Amplifiers* check charge from cells in the selected row on bit lines
+  - 1/0 if charge is above/below threshold
+  - Action of sensing the bit lines also causes refresh in selected row
+- For write access row and drive bit lines to change charge in cells
+  - Refresh periodically to maintain charge
+
+```
+Example Questions for Memory
+
+Type 1
+
+32M x 8 DRAM with 16K x 16K array
+
+16K x 2048 = 32M -> 2048 Bits
+16K = 2^4 + 2^10 -> 14 bits for selector so 2^14 rows
+
+
+Type 2
+
+4M x 8bits
+256K x 1bit
+
+256K x 16 = 4M
+1bit x 8 = 8bits
+
+16 rows x 8 bit columns
+
+```
+
+#### Dynamic RAM (cont'd)
+- Fast Page Mode
+  - Transfer consecutive data faster
+  - page = large block of data
+
+#### Synchronous DRAMs
+- Operations synchronized with clock signal
+- Chips include data registers and address latches
+- New access operations can be initiated while data being transferred
+- Memory controller initializes mode register
+  - Specifies burst length fir block transfer
+  - Able to set delays for timing control
+
+#### Efficient Block Transfers
+- Asynchronous = longer delay from CAS for each column
+- Synchronous = reduce delay by having CAS once for initial column
+- Burst length determines # of transfers
+
+#### Double Data Rate SDRAM
+- Transfer on rising and falling edges
+- Doubles rate after RAS/CAS
+- Needs complex circuitry
+
+#### Address Decoder
+- 2M word-addressable memory needs 21 bits
+- Each chip has 19 address bits(0-18) ((512K) 2^10 = K, 2^9 = 512)
+- Bits 19 & 20 are used for 2 bit decoder to select one of 4 groups (rows)
+
+#### Dynamic Memory Systems
+- SIMMs = Single In Line Memory Modules
+- DIMMs = Dual In Line Memory Modules
+
+#### Memory Controller
+- Handles multiplexing and proper timing of control signals for DRAM
+
+### Read Only Memory
+- Non Volatile storage (retains info on power off)
+
+#### Basic ROM Cell
+- 
+
+
+
+
 ---
 
 <a name="Lecture8"></a>
