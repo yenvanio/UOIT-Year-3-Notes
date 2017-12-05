@@ -1264,7 +1264,6 @@ Sub R9, R2, #30                 F       D       D       D       D (Now available
     - Use temp registers to hold new data before safe for final update
   - **Reorder Buffer**
     - Ensure correct order by reordering
-- 
 
 
 
