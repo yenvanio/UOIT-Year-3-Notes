@@ -10,7 +10,7 @@
 <br>
 [Lecture 4 - Software](#Lecture4)
 <br>
-[Lecture 5](#Lecture5)
+[Lecture 5 - Basic Processing Unit](#Lecture5)
 <br>
 [Lecture 6](#Lecture6)
 <br>
@@ -962,7 +962,7 @@ Programs A and B are initiated
 
 A is executing when time slice expires, SCHEDULER is entered and registers are saved
 
-OS then selects B, restors its values and return-from-interrupt to resume B
+OS then selects B, restores its values and return-from-interrupt to resume B
 
 ^ That was a switch ^
 
@@ -984,7 +984,127 @@ After switch, A executes again
 ---
 
 <a name="Lecture5"></a>
-## Lecture 5
+## Lecture 5 - Basic Processing Unit
+- Processor reads program instructions and executes them
+  1. PC has address of next instruction
+  2. Gets stored into IR
+  3. PC gets updated by "Instruction Address Generator"
+  4. Control circuit generates control signals to perform actions
+
+**Instruction Fetch Phase** - Fetching an instruction and loading it into the IR
+
+**Instruction Execution Phase** - Performed the operation in the instruction
+
+### Digital Processing System
+- Suppose contents of R1 are processed and being deposited in R2
+- Clock signal must be used to control timing of data transfers
+- Period (time between two successive rising edges) must be long enough for circuit to produce correct result
+
+#### Multi-Stage
+- A digital processing system can be broken down into simpler steps
+  - Each step is a sub circuit
+  - Circuits can be combined into multi-stage structure
+  - n stages = n clock cycles
+  - Shorter clock cycles for each step
+- Multi-Stage system = Pipeline
+  - Pipeline lets next instruction start before first one finished
+  - Run concurrently (overlap)
+
+#### Hardware Stages
+- Some processors have set hardware stages (Lets say 5)
+- Ex: `Fetch instruction AND increment PC`
+- By combining two instructions into one step we can meet the 5 stage requirement
+- Pipelined organizations work best when all instructions take same number of steps
+  - (Each step is carried out in a separate stage)
+
+#### Splitting Instruction Execution - 5 stages
+- ALU Instructions
+  - *Add R3, R4, R5*
+    1. Fetch the instruction and increment the PC
+    2. Decode and read contents of R4 R5
+    3. Compute the sum [R4] + [R5]
+    4. **No Action**
+    5. Load result into R3
+- Store Instructions
+  - *Store R6, X(R8)*
+    1. Fetch instruction and increment the PC
+    2. Decode instruction and read R6 R8
+    3. Compute address X + [R8]
+    4. Store contents of R6 into EA from Step3
+    5. **No Action**
+- Summary of Actions
+  - *Sample Instruction*
+    1. Fetch instruction and increment PC
+    2. Decode and read registers
+    3. Perform ALU operation
+    4. Read/Write memory data if needed
+    5. Write result into register if needed
+
+### Hardware Components
+
+#### Register File
+- Lets 2 registers be read at the same time
+  - 2 separate outputs, A & B
+- Has 2 address inputs to select which two registers that will be read
+- Has 1 data input + address input to select the register to write the data
+
+#### ALU
+- Register File reads and passes values of registers to ALU
+- Computed value is sent back and stored in register C
+
+#### Datapath
+- Instruction processing has two phases
+  1. Fetch Phase
+    - Decodes
+    - Generates control signals for actions to take place in execution section
+  2. Execution Phase    
+    - Reads data operands
+    - Performs operation
+    - Stores result
+
+
+- Hardware can be split into a five stage structure just like the instruction execution
+
+1. Instruction Fetch
+2. Decoded & Source Registers Read
+3. Computation in the ALU
+4. Memory Access (if needed)
+5. Result is stored in destination register
+
+**Note**  IR generates the control signals for all subsequent steps. So it must hold current instruction until execution completes **Note**
+
+**Note** Registers need to be inserted between stages. To pass values between stages **Note**
+
+- The hardware from stages 2-5 is known as the **DataPath**
+
+```
+Example with Datapath
+
+Add R3, R4, R5
+
+1.  [PC] loaded into Memory Address
+    Memory Data loaded into IR
+    [PC] += 4
+
+2.  Decode.
+    [R4] loaded into RA
+    [R5] loaded into RB
+
+3.  ALU Computation.
+    [RA] + [RB] is loaded into RZ
+
+4.  Memory Access.
+    [RZ] is loaded into RY
+
+5.  Store Result.
+    [RY] is stored in R3
+
+```
+
+
+
+
+
 ---
 
 <a name="Lecture6"></a>
@@ -1016,7 +1136,7 @@ After switch, A executes again
 | Memory | Collection of words |
 | Load |  Load R2, R3 = Loads R3 into R2; Loads from memory to register |
 | Store | Store R2, R3 = Stores R2 in R3; Stores from register to memory |
-| Move | Move R2, R3 = Copies R3 into R2; Copies from meomory to register |
+| Move | Move R2, R3 = Copies R3 into R2; Copies from memory to register |
 | PC | Program Counter = holds memory address of next instruction |
 | IR | Instruction Register = holds current instruction |
 | Byte Addressability | Assign addresses to each byte instead of each bit |
@@ -1054,12 +1174,12 @@ After switch, A executes again
 | Stack Frame | Allocated space for subroutine to use (only when subroutine called) |
 | FP | Frame Pointer  = register that lets you access private workspace for current subroutine |
 | AND | If two binary numbers both have 1's in the same position it returns 1 for that position otherwise 0 |
-| OR | If two binary numbers have atleast one 1 in the same position it returns 1 for that position otherwise 0 |
+| OR | If two binary numbers have at least one 1 in the same position it returns 1 for that position otherwise 0 |
 | NOT | returns the inverse of the binary number |
 | LShiftL | Logical shift to the left, just shifts numbers to the left and fills empty spots on the right with 0's |
 | LShiftR | Logical shift to the right, just shifts numbers to the right and fills empty spots on the left with 0's |
 | AShiftL | Same as LShiftL |
-| AShiftR | Arithmetic Shift to the right, just shifts numbers to the rifht and fills empty spots on the left with the MSB(Sign) |
+| AShiftR | Arithmetic Shift to the right, just shifts numbers to the right and fills empty spots on the left with the MSB(Sign) |
 | RotateL | Similar to shift but bits do not get lost, the bits that get pushed off rotate around to the other end |
 | RotateR | Same as RotateL just different direction |
 | RotateLC | Rotates but includes the carry in the rotation |
@@ -1069,18 +1189,18 @@ After switch, A executes again
 | Buffer Register | Holds data during transfers |
 | Status Register | Holds info about status of device |
 | Control Register | Holds info about control operations |
-| KBD_DATA | Holds charcter pressed by keyboard in 8bit register |
+| KBD_DATA | Holds character pressed by keyboard in 8bit register |
 | KIN | Flag that sets to 1 when key pressed |
 | KBD_STATUS | 8 bit register that holds KIN |
-| DISP_DATA | 8 bit register to recieve characters from processor |
-| DOUT | Flag that is set to 1 when its ready to recieve next character |
+| DISP_DATA | 8 bit register to receive characters from processor |
+| DOUT | Flag that is set to 1 when its ready to receive next character |
 | DISP_STATUS | 8 bit register that contains DOUT |
 | Interrupt Request Signal | Sends Signal to the processor when device has stuff to send |
-| Interrupt Acknowledge Signal | Sent from processor to tell device that the interrupt signal was recieved |
+| Interrupt Acknowledge Signal | Sent from processor to tell device that the interrupt signal was received |
 | PS | Processor Status Register |
 | IE | Interrupt Enable/Disable Bit |
 | Interrupt Vector | Contain address of interrupt service routines |
-| Interrupt Vector Table | Place in meomry for Interrupt Vectors |
+| Interrupt Vector Table | Place in memory for Interrupt Vectors |
 | IPS | Processor Status Register is saved here during an interrupt |
 | IENABLE | Has one bit per device to recognize where its coming from |
 | IPENDING | Has one bit per device to indicate if interrupt request has been serviced |
