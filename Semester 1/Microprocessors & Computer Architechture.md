@@ -1505,6 +1505,8 @@ Example:
 |248|0010010|01|000|
 |24C|0010010|01|100|
 
+- Place the Values in the correct block and if it is already in the cache add a hit marker and if not add a miss marker
+
 |Block Position|Contents|
 |--------------|--------|
 | 0 = 00 | 200 |
@@ -1516,6 +1518,22 @@ Example:
 | 3 = 11 | 218 |
 | 3 = 11 | 21C |
 
+- When doing a second pass use the initial values and repeat
+
+#### Associative Mapping
+- Same thing as before but now there is a counter
+- Counter is set to 0 and everything else is incremented by 1 on a **Hit**
+
+|Block Position|Contents|Counter|
+|--------------|--------|-------|
+| 0 = 00 | 200 |0-1-2-0-1-2|
+| 0 = 00 | 204 |0-1-2-0-1-2|
+| 1 = 01 | 208 -> 248 |0-1-2-3-0|
+| 1 = 01 | 20C -> 24C |0-1-2-3-0|
+| 2 = 10 | 2F0 |0-1-2-3|
+| 2 = 10 | 2F4 |0-1-2-3|
+| 3 = 11 | 218 |0-1|
+| 3 = 11 | 21C |0-1|
 
 
 
