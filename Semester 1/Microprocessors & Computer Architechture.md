@@ -1480,10 +1480,10 @@ Type 2
   - Ex: 2^3 = 8 (Cache capable of holding 8 32bit words)
     - Bits for word = 3
 - To find # of bits for block
-  - # of blocks = Total Capacity Word / # of Words in block
+  - #of blocks = Total Capacity Word / # of Words in block
   - Ex: Capable of holding 8 32bit words, Each block has 2 32bit words
-  - # of Blocks = 8/2 = 4
-  - # of bits for Block = 2^2 = 4, 2 bits
+  - #of Blocks = 8/2 = 4
+  - #of bits for Block = 2^2 = 4, 2 bits
 
 
 
