@@ -1139,6 +1139,141 @@ Add R3, R4, R5
 
 <a name="Lecture6"></a>
 ## Lecture 6 - Pipelining
+- Arranging hardware to perform multiple operations simultaneously
+- Same total time for each item, but *overlapped*
+- **If all stages take same amount of time and there is enough work to do, then the speed up due to pipelining is equal to the number of stages in the pipeline**
+
+### Pipeline Organization
+- PC to fetch instructions
+- New instruction every cycle
+- Interstage buffers hold instruction specific information
+
+### Pipelining Issues
+- First instruction updates R1
+- Second instruction updates R2
+- Third instruction uses R1, R2 to do something BUT must wait till R1 R2 done
+  - Called a hazard and needs pipelining to stall in order to produce correct output
+
+### Data Dependencies
+- `Add R2, R3, #100`
+- `Subtract R9, R2, #30`
+- Destination R2 in ADD is source for SUBTRACT, this is a data dependency because it needs to be carried over from add -> subtract
+- Old value of R2 will be there when subtract gets to decoding (stage 2), need to stall for 3 cycles now
+
+```
+F = Fetch
+D = Decode
+C = Compute
+M = Memory
+W = Write
+
+Clock Cycle:            1       2       3       4       5       6
+Add R2, R3, #100        F       D       C       M       W
+Sub R9, R2, #30                 F       D       D       D       D (Now available in Decoding)
+```
+
+### Stalling Pipeline
+- Interstage buffers have information about source/destination registers for each instruction
+- During Cycle 3
+  - Take Destination Register in Compute Stage (Add)
+  - Take Source Register in Decode Stage (Subtract)
+  - See if same, is yes need to stall until Add done
+- Hold interstage buffer B1 steady until Add done and then resume
+- After add finishes compute, creates bubbles (idle time) in each later stage
+
+### Operand Forwarding
+- Forwards the value from first instruction compute stage to second instruction compute stage as soon as it finishes
+  - Doesnt have to wait to finish all stages
+  - No stalling
+
+### Memory Delays
+- Usual time to access memory (cache) is one cycle
+- When we have a cache *miss* it causes a delay which delays subsequent instructions
+- Even with cache *hit*, load instruction may cause short delay due to data dependency
+  - One-Cycle stall is needed for the correct value to be forwarded to the next instruction
+- To optimize the one-cycle-stall by inserting a useful instruction in between the two
+  - If it cant find one, then automatically one-cycle-stall
+  - If the processor hardware doesn't deal with dependencies then must insert an explicit NOP (no operation) instruction
+
+### Branch Delays
+
+#### Unconditional Branches
+- If the first instruction branches to 3 instructions down the line it wont be known until the 4th cycle (after compute using PC)
+- By this time, the next 2 instruction would have been loaded and then they need to be dropped (2 cycle penalty)
+- To fix this we have a separate adder for branches
+  - Problem occurs when computing with PC b/c it increments every cycle
+  - If we have separate adder, it can be placed in decoding and only incur 1 cycle penalty
+
+#### Conditional Branches
+- Conditional branches also need a comparator in the decode stage to incur 1 cycle penalty
+- Will incur 0 penalty when conditional branch is not taken
+
+#### Branch Delay Slot
+- Instead of risking the conditional discarding of an instruction
+- The branch delay slot (appears right after branch) can hold the instruction BEFORE the branch
+- The compiler must find the instruction before the branch and put it in the data slot, if data dependencies allow
+  - If not insert explicit NOP
+- That way it is always executed and no problem because needed to be executed anyway
+- This is called *Delayed Branching* due to reordering - penalty is 0
+
+#### Branch Prediction
+- Assume Branch *not* taken
+  - Get penalty if disproved during decode stage
+  - 50% chance
+- If it is a backward branch (branches to earlier line of instruction)
+  - Predict that it is taken (usually in loops and is taken all but last time)
+
+#### Dynamic Branch Prediction
+- Teacher idunkno?
+
+### Resource Limitations
+- Pipeline stalls due to insufficient hardware resources to allow actions to proceed concurrently
+- When two instructions want to access same cache memory, also stalls
+  - Provide 2 cache memories, one for instruction, one for data
+
+### Performance Evaluation
+
+```
+- T = Execution Time
+- S = Average # of Clock Cycles it takes to fetch/execute one instruction
+- R = Clock rate in cycles per second
+- N = Dynamic Instruction Count
+```
+
+- Non Pipeline -> T = (N x S) / R *(Basic Performance Equation for Execution Time)*
+- Non Pipeline -> Pnp = R/S *(Number of instructions executed per second)*
+
+- Pipeline -> Pp = R *(Given S = 1 (Absence of Stalls))*
+- Ideal value of S = 1
+- Real value looks something like -> S = 1 + stallValue + branchPenaltyValue + cacheMissValue
+  - cache miss is the most dominant
+- N value shouldn't be too high because deep pipelining can cause more harm
+
+### Superscalar Operation
+- Has *fetch unit* to bring in 2 instructions every cycle
+- Has *dispatch unit* to decode and send 2 instructions to execution every cycle
+- Has *completion unit* to write results to registers
+- Results of instructions should not be committed until prediction confirmed - **Speculative Execution**
+  - Cant have instructions writing to same register at the same time now
+- Data dependencies between instructions the execution units have **Reservation Stations**
+- If there are no dependencies, there is no real order -> causes **Out of Order Exception**
+  - Leads to *imprecise exceptions*
+  - For *percise exceptions* commit results strictly in original order
+- To commit in original order, can use
+  - **Register Renaming**
+    - Use temp registers to hold new data before safe for final update
+  - **Reorder Buffer**
+    - Ensure correct order by reordering
+- 
+
+
+
+
+
+
+
+
+
 
 
 
