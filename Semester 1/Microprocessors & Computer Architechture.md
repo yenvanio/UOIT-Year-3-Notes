@@ -1483,7 +1483,27 @@ Type 2
   - #of blocks = Total Capacity Word / # of Words in block
   - Ex: Capable of holding 8 32bit words, Each block has 2 32bit words
   - #of Blocks = 8/2 = 4
-  - #of bits for Block = 2^2 = 4, 2 bits
+  - #of bits for Block = 2^2 = 4
+    - = 2 bits
+- After finding all the bits for Block, Word, rest of bits are for Tag
+- Convert all hex addresses to binary and split by Tag, Block, Word
+
+Example:
+|Hex Address|Tag|Block|Word|
+|208|0010000|01|000|
+|20C|0010000|01|100|
+|2F0|0010111|10|000|
+|2F4|0010111|10|100|
+|200|0010000|00|000|
+|204|0010000|00|100|
+|208|0010000|01|000|
+|20C|0010000|01|100|
+|218|0010000|11|000|
+|21C|0010000|11|100|
+|248|0010010|01|000|
+|24C|0010010|01|100|
+
+
 
 
 
