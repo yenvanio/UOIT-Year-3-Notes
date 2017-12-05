@@ -1382,7 +1382,109 @@ Type 2
 - Non Volatile storage (retains info on power off)
 
 #### Basic ROM Cell
-- 
+- ROM only has its contents written once (during manufacturing)
+- Contains a single transistor switch for bit line
+  - If transistor is connected to ground, bit line voltage ~= 0
+  - Else it is high ~= 1
+
+#### PROM
+- Programmable ROM can be written after manufacturing
+  - A fuse (point P) is burned out with a high current pulse
+
+#### EPROM
+- Erasable Programmable ROM
+  - Uses transistor instead of fuse at point P
+  - Transistor is off (open circuit)
+  - Turns on when charge is injected at point P
+  - Uses UV light to remove charge and erase ROM
+
+#### EEPROM
+- Electrically Erasable ROM
+  - Erase individual cells
+  - programmed, erased, reprogrammed
+  - Different voltages for each operation
+
+#### Flash Memory
+- Based on EERPROM
+- Higher Density, Lower Cost
+- Writing a cell must first
+  - read block
+  - erase block
+  - write block again
+
+### Direct Memory Access (DMA)
+- Manages transfer of larger blocks of data between memory and I/O
+
+#### DMA Controller
+- Shared by many I/O devices
+- Performs memory access instead of processor
+- Tracks progress with address counter
+- Processor interrupt used to signal completion
+
+### Memory Hierarchy
+- Memory should be fast, large, expensive
+- Cannot have all
+  - Use memory hierarchy to make it seem like its fast and large
+- Key is to bring data that is going to be used as close to the processor as possible to reduce access time
+- Processor
+- Registers (on Processor)
+- Primary Cache (L1 on Processor)
+- Secondary Cache (L2 on Processor)
+- Main Memory
+- Secondary Memory
+
+### Cache Memory
+- Between main memory and processor
+- Makes main memory seem faster to the processor
+  - Achieved by *locality of reference*
+- Temporal Locality
+  - Data that has been accessed recently are likely to be accessed again very soon
+- Spatial Locality
+  - Nearby data is likely to be accessed soon after current access
+  - To exploit this, transfer cache block with multiple words from memory
+    - Later accesses to nearby words are fast
+- Mapping Function determine where a block in memory is to be put in the cache
+- When cache is full, replacement algo determine which block to remove
+
+#### Cache Operation
+- Processor issues Read/Write as if accessing main memory
+- First Cache is checked
+  - If resent then read/write *hit* occurs
+  - If read hit, cache provides info
+  - If write hit
+    - **Write-Through Protocol**
+      - Update Cache and memory
+    - **Write-Back Protocol**
+      - Only update Cache, Memory is updated when block replaced
+  - Need *Dirty Bit* to mark blocks that are updated in cache
+
+#### Cache Misses
+- Read Miss
+  - Block with desired word is transferred from mem to cache
+- Write Miss
+  - With *Write Through Protocol*, info is written to mem
+  - With *Write Back Protocol*, transfer block with word to cache
+    - Overwrite cached block with new word
+- To avoid pipeline stalling use separate caches for instruction and data so we can run LOAD and STORE in parallel
+
+#### Mapping Functions
+- Block of words must be transferred from mem to cache after miss
+- Mapping function determines location of placement
+  - Direct Mapping
+  - Associative Mapping
+  - Set-Associative Mapping
+
+#### Direct Mapping
+- To find # of bits for word
+  - 2^x = # of words cache can hold
+  - Ex: 2^3 = 8 (Cache capable of holding 8 32bit words)
+    - Bits for word = 3
+- To find # of bits for block
+  - # of blocks = Total Capacity Word / # of Words in block
+  - Ex: Capable of holding 8 32bit words, Each block has 2 32bit words
+  - # of Blocks = 8/2 = 4
+  - # of bits for Block = 2^2 = 4, 2 bits
+
 
 
 
