@@ -1522,24 +1522,90 @@ Example:
 
 #### Associative Mapping
 - Same thing as before but now there is a counter
+- Increment counter on each cache entry
 - Counter is set to 0 and everything else is incremented by 1 on a **Hit**
+- When cache is full and you need to replace, find the highest counter and set it to 0 and increment the rest
 
 |Block Position|Contents|Counter|
 |--------------|--------|-------|
 | 0 = 00 | 200 |0-1-2-0-1-2|
-| 0 = 00 | 204 |0-1-2-0-1-2|
+|| 204 ||
 | 1 = 01 | 208 -> 248 |0-1-2-3-0|
-| 1 = 01 | 20C -> 24C |0-1-2-3-0|
+|| 20C -> 24C ||
 | 2 = 10 | 2F0 |0-1-2-3|
-| 2 = 10 | 2F4 |0-1-2-3|
+|| 2F4 ||
 | 3 = 11 | 218 |0-1|
-| 3 = 11 | 21C |0-1|
+|| 21C ||
 
+#### Set-Associative Mapping
+- Same as associative mapping but split into sets
+- Find Sets and Bits for Set
+  - #of Blocks / #-way associative (2way 4way etc) = #of Sets
+  - 2^1 = 2
+    - 1 Bit for 2 way set associative mapping
 
+|Set|Block Position|Contents|Counter|
+|---|--------------|--------|-------|
+|Set 0| 0 = 00 | 200 |0-1-2-0-1-2|
+||| 204 ||
+||| 1 = 01 | 208 -> 248 |0-1-2-3-0|
+||| 20C -> 24C ||
+|Set 1| 2 = 10 | 2F0 |0-1-2-3|
+||| 2F4 ||
+||| 3 = 11 | 218 |0-1|
+||| 21C ||
 
+#### Stale Data
+- Valid Bit = 1 when placed in cache
+- Cache may contain stale data from memory
+  - Cleared to 0 for those blocks
 
+#### LRU Algorithm
+- Least Recently Used Replacement Algorithm
+- Basically when cache is full and you need to replace
+  - Take the one with the highest counter and replace it
 
+#### Virtual Memory
+- A large program may not be entirely in main memory
+- Parts of the program that are needed are automatically loaded into memory
+  - This replaces other parts of the program using *virtual memory*
+- Binary addresses issued by the processor are called *virtual*
+  - Gets translated into physical address
+- Need **Memory Management Unit (MMU)** to keep track of which parts of virtual address space are in physical memory
+- MMU manages virtual to physical address mapping
+  - When no physics address exist, transfer from disk to mem with DMA
 
+#### Address Translation
+- Assume all programs are compost of pages (fixed length units)
+- Split virtual address into 2 fields
+  - Lower bits = Offset to word within page
+  - Upper bits = Virtual Page # (VPN)
+- VPN replaced with page-frame bits (a space in memory that holds a page)
+- Page table stored in main memory
+  - Provides info to perform address translation
+
+#### Page Table
+- MMU needs to know where the page table is to do the address translations
+- Page table base register has starting address of page table
+- Adding VPN to the base gives location of page
+
+#### Translation Lookaside Buffer (TLB)
+- Holds recently accessed entries of page table
+- Searches are performed on TLB first, if no match pull up the full table and search
+
+#### Page Faults
+- Occurs when virtual address has no corresponding physical address
+
+### Secondary Storage
+
+#### Magnetic Hard Disks
+- Computers often use magnetic hard disks for large secondary storage devices
+- Two components involved in time delay between disk receiving address and beginning of data transfer
+  - Seek Time
+    - Time required to move the read/write head to the correct track
+  - Rotational Delay
+    - Time taken to reach addressed sector after read/write head positioned correctly
+- Access Time = Seek Time + Rotational Delay
 ---
 
 <a name="Lecture8"></a>
