@@ -1489,7 +1489,9 @@ Type 2
 - Convert all hex addresses to binary and split by Tag, Block, Word
 
 Example:
+
 |Hex Address|Tag|Block|Word|
+|-----------|---|-----|----|
 |208|0010000|01|000|
 |20C|0010000|01|100|
 |2F0|0010111|10|000|
