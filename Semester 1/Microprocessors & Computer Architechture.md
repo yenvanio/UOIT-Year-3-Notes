@@ -12,7 +12,7 @@
 <br>
 [Lecture 5 - Basic Processing Unit](#Lecture5)
 <br>
-[Lecture 6](#Lecture6)
+[Lecture 6 - Pipelining](#Lecture6)
 <br>
 [Lecture 7](#Lecture7)
 <br>
@@ -1083,6 +1083,7 @@ Example with Datapath
 Add R3, R4, R5
 
 1.  [PC] loaded into Memory Address
+    Read Memory
     Memory Data loaded into IR
     [PC] += 4
 
@@ -1101,14 +1102,46 @@ Add R3, R4, R5
 
 ```
 
+#### Branching
+- Unconditional Branch
+  - Stage 3:
+    - PC += Branch Offset
+- Conditional Branch
+  - Stage 3:
+    - Compare [RA] & [RB]
+    - if == then PC += Branch Offset
+
+#### Sub Routine Calls
+- Store Sub Routine Address in RA
+- Store [PC] in temp
+- PC = [RA]
+- Return address is stored in general-purpose register LINK
+  - Moves from LINK to RA then to PC
+
+#### Memory Function Completed (MFC)
+- When reading/writing to/from memory the processor generates a signal called MFC
+- Basically MFC says that the read/write operations is complete
+- Stage 1 must wait for MFC then proceed to next step
 
 
-
-
+### Hardwired Control
+- A method to implement circuitry that will generate control signals so that actions take place in correct sequence and at the correct time
+  - Another method is microprogramming
+- Hardwired control involves circuitry that considers *Step Counter*, *IR*, *ALU*, *Result*, *External Inputs*
+  - Step Counter tracks execution progress (one clock cycle for each step)
+  - Unless memory access takes longer than one cycle
+- Control signal generation depends on
+  - [Step Counter]
+  - [IR]
+  - Result of computation / comparison operation
+  - External input signals (interrupt signals)
 ---
 
 <a name="Lecture6"></a>
-## Lecture 6
+## Lecture 6 - Pipelining
+
+
+
 ---
 
 <a name="Lecture7"></a>
