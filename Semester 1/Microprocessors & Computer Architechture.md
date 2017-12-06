@@ -1701,8 +1701,46 @@ C     A     Q
 
 ```
 
-### Multiplication of Signed Numbers
+### Multiplication of Signed Numbers - Booth Algorithm
 
+| Current Bit | Previous Bit | Operation |
+|-------------|--------------|-----------|
+|0|0| No Operation |
+|0|1| Add M |
+|1|0| Subtract M |
+|1|1| No Operation |
+
+```
+Example: 6 bit signed multiplication
+
+2    x  -8
+(Q)  x  (M)
+
+2 = 000010
+8 = 001000; -8 = 111000
+
+Step      A       Q       M       Current  Previous   Operation
+Initial   000000  111000  000010    0         0     No Operation
+
+Shift     000000  011100  000010    0         0     No Operation
+(All bits were Arithmetic Shifted to the Right, pad with sign)
+
+Shift     000000  001110  000010    0         0     No Operation
+Shift     000000  000111  000010    1         0     Subtract
+
+Sub       111110  000111  000010
+(Subtracted M From A)
+
+Shift     111111  000011  000010    1         1      No Operation
+Shift     111111  100001  000010    1         1      No Operation
+Shift     111111  110000  000010
+
+Result = AQ = 1111 1111 0000
+
+
+```
+
+### Restoring Division
 
 
 
