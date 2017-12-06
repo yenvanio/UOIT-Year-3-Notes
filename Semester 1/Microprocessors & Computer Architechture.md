@@ -1851,8 +1851,89 @@ A = Remainder, Q = Quotient
 <a name="Lecture9"></a>
 ## Lecture 9 - Microcontrollers & Microprocessors
 
+### Embedded Systems
+- An embedded system is often used for monitoring/controlling
+- It's a reactive system in which various software routines are executed are determined by events external to the processor
 
+#### Implementation of Embedded System
+- Examples
+  - Microwave Oven
+  - Digital Camera
+- Ways of Implementation
+  - Use microcontroller chip
+  - Use system-on-a-chip approach
 
+#### Microcontroller Chip
+- Should be versatile enough to serve wide variety of applications
+- Consists of
+  - Processor Core
+  - Internal Memory
+  - I/O Ports
+  - Timers
+  - A/D and D/A Conversions
+
+### Sensors and Actuators
+- Provides interface between computer and mechanical system that is to be controlled
+- Sensors and Actuators are often referred to as transducers
+  - Sensors based on: Position, Pressure, Temperature, Speed etc.
+  - Actuators: Cause a mechanical component to move after receiving a command
+
+#### Optical Position Sensor
+- Produce digital output directly
+- Code on disc is in form of transparent and opaque areas organized in concentric annular regions
+
+#### Actuator
+- Solenoid Actuator
+  - Electricity through coil, produces magnetic field that pulls armature into cylinder
+  - When current stops, armature is pulled back to rest by spring
+  - Uses
+    - Open water valve
+    - Close electrical switch that operates motor
+
+### Design Issues
+- Cost
+  - Should be low
+- I/O Capability
+  - Should provide variety of resources
+  - Parallel and serial ports, counters, timers A/D D/A conversion circuits
+- Size
+  - 8, 6 or 32 bit processor core
+- Power consumption
+  - Should be low
+- On-Chip memory
+  - Size and type (RAM or ROM) to suit application
+- Performance
+  - Important in some applications (camera, phone)
+- Development Tools
+  - CAD Software, Compilers, Assemblers, Simulators
+
+### Convert Analog to Digital
+- Two devices
+  - Comparator
+    - Compares analog input vs analog reference voltage
+    - Determines which one larger by returning a 1-bit number
+    - Is depth > 100; Set 100 as analog ref and use comparator
+  - A/D Converter
+    - Tells us how large input is as a fraction of reference
+    - Produces multi-bit number as output
+
+### Digital to Analog
+- n = input code
+- N = number of bits of resolution of converter
+- Vref = reference voltage
+- Vout = output voltage
+  - Vout = Vref x ( n / (2^N) )
+  - OR
+  - Vout = Vref x ( (n+1) / (2^N) )
+
+### Forward Transfer Function Equations
+n = converted code
+Vin = input voltage
+V+ref = upper ref voltage
+V-ref = lower ref voltage
+N = number of bits of resolution in ADC
+
+n = Floor ( ( (Vin - V-ref) / (V+ref - V-ref) ) x (2^N) )
 
 ---
 
