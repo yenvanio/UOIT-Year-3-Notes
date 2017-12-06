@@ -1792,6 +1792,58 @@ Q = Quotient
 
 ```
 
+### Non Restoring Division
+- If sign of A = 0, Shift Left and Subtract M from A
+- If sign of A = 1, Shift Left and Add M to A
+- After Add/Subtract, if the Sign of A = 0, q0 = 1
+- After Add/Subtract, if the Sign of A = 1, q0 = 0
+
+```
+Example:
+
+1000 / 11
+Dividend = 1000 (Q)
+Divisor = 0011 (4bits); 00011 (5bits);
+2's Complement = 1101
+  - When adding to A you will have 1 less bit, so duplicate the Most significant bit
+  - 2's Complement in 4 bits = 1101
+  - 2's Complement in 5 bits = 11101
+A will always have 1 more bit than Q
+
+Steps         A           Q   
+Initial       00000       1000
+--------------------------------------------------------------------------------Start of Cycle
+(Sign of A = 0, ShiftL + Subtract)
+ShiftL         00001       000[ ]
+
+Subtract       11110       000[ ]
+
+Set q0         11110       000[0]
+(Sign of A = 1, q0 = 0)
+--------------------------------------------------------------------------------End of Cycle
+(Sign of A = 1, ShiftL + Add)
+ShiftL         11100      00[0][]
+Add            11111      00[0][]
+Set q0         11111      00[0][0]
+(Sign of A = 1, q0 = 0)
+
+(Sign of A = 1, ShiftL + Add)
+ShiftL         11110      0[0][0][ ]
+Add            00001      0[0][0][ ]
+Set q0         00001      0[0][0][1]
+(Sign of A = 0, q0 = 1)
+
+(Sign of A = 0, ShiftL + Subtract)
+ShiftL         00010    [0][0][1][ ]
+Subtract       11111    [0][0][1][ ]
+Set q0         11111    [0][0][1][0]
+
+At the End, If sign of A = 1, Add M to A
+
+A = M + A = 11111 + 00011 = 00010
+A = Remainder, Q = Quotient
+
+```
 
 
 ---
