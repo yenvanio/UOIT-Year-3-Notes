@@ -1613,8 +1613,7 @@ Example:
 
 ### Addition and Subtraction of Signed Numbers
 
-#### Addition
-- Full Adder
+#### Full Adder
   - Adds 2 bits along with carry in bit
   - Outputs a sum bit and a carry-out bit
 
@@ -1628,6 +1627,81 @@ Example:
 |1|0|1| |0|1|
 |1|1|0| |0|1|
 |1|1|1| |1|1|
+
+#### Ripple Carry Adder
+- Chain of **n** Full Adders linked by carry bits can add two **n** bit numbers
+- Called ripple-carry cause the carry must propagate(ripple) through the chain of full adders
+- Carry is used for
+  - Adding 1 to a number
+  - Forming 2's complement
+  - Interconnected **k** adders to add **kn bits** long numbers
+
+#### Overflow
+- Occurs when signs of operands are **same** but sign of result is **different**
+- Overflow with XOR Gate
+  - Inputs are C(n) and C(n-1)
+
+#### Addition / Subtraction Logic Circuit
+- n bit adder with XOR gates outside
+- Can add or subtract 2 operands
+- For subtraction find the 2's complement of Y and add to X
+  - Set Add/Sub = 0 and c0 = 0 for addition
+  - Set Add/Sub = 1 and c0 = 1 for subtraction
+- Full Adder produces output after 2 logic gate delay
+- 2n gate delays for add/subtract logic circuit
+
+### Multiplication of UNSIGNED Number
+- Two n-bit numbers produce a 2n-bit product after multiplication
+
+#### Sequential Circuit Multiplier
+- Consists of...
+  - Three n-bit registers
+  - n-bit adder
+  - Control sequencer
+- Register A & Q are shift registers
+  - Hold the partial product
+- At the end of each cycle A & Q are shifted right to allow partial product to grow
+- Delay = n x (adder + control delays)
+
+```
+Example:
+
+1101 x 1011
+(M)    (Q)
+
+C     A     Q
+0     0     1011
+
+Last Bit of Q is 1, so Add M to A and shift (Cycle 1)
+
+C     A     Q
+0     1101  1011
+0     0110  1101
+
+Last Bit of Q is 1, so Add M to A and shift (Cycle 2)
+
+C     A     Q
+1     0011  1101
+0     1001  1110
+
+Last Bit of Q is 0 so ONLY shift (Cycle 3)
+
+C     A     Q
+0     0100  1111
+
+Last Bit of Q is 1 so Add M to A and shift (Cycle 4)
+
+C     A     Q
+1     0001  1111
+0     1000  1111    
+
+4 bits each and 4 cycles so done and
+
+0 1000 1111 is the product
+
+```
+
+### Multiplication of Signed Numbers
 
 
 
