@@ -18,7 +18,7 @@
 <br>
 [Lecture 8 - Arithmetic](#Lecture8)
 <br>
-[Lecture 9](#Lecture9)
+[Lecture 9 - Microcontrollers & Microprocessors](#Lecture9)
 <br>
 [Dictionary](#Dictionary)
 
@@ -1849,7 +1849,11 @@ A = Remainder, Q = Quotient
 ---
 
 <a name="Lecture9"></a>
-## Lecture 9
+## Lecture 9 - Microcontrollers & Microprocessors
+
+
+
+
 ---
 
 <a name="Dictionary"></a>
