@@ -1741,6 +1741,56 @@ Result = AQ = 1111 1111 0000
 ```
 
 ### Restoring Division
+- If sign of A = 1, q0 = 0 and Restore
+- If sign A = 0, q0 = 1 and NO Restore
+
+```
+Example:
+
+1000 / 11
+Dividend = 1000 (Q)
+Divisor = 0011 (4bits); 00011 (5bits);
+2's Complement = 1101
+  - When adding to A you will have 1 less bit, so duplicate the Most significant bit
+  - 2's Complement in 4 bits = 1101
+  - 2's Complement in 5 bits = 11101
+A will always have 1 more bit than Q
+
+Steps         A           Q   
+Initial       00000       1000
+--------------------------------------------------------------------------------Start of Cycle
+ShiftL        00001       000[ ]
+(Shifted all bits to the left, have an empty spot called q0)
+
+Subtract      11110       000[ ]
+(Added the 2's Complement to A)
+
+Set q0        11110       000[0]
+(sign of A is 1, so set q0 to 0 and restore)
+
+Restore       00001       000[0]
+(Add the divisor back to A)
+--------------------------------------------------------------------------------End of Cycle
+ShiftL        00010       00[0][ ]
+Subtract      11111       00[0][ ]
+Set q0        11111       00[0][0]
+Restore       00010       00[0][0]
+
+ShiftL        00100       0[0][0][ ]
+Subtract      00001       0[0][0][ ]
+Set q0        00001       0[0][0][1]
+
+ShiftL       00010        [0][0][1][ ]
+Subtract     11111        [0][0][1][ ]   
+Set q0       11111        [0][0][1][0]
+Restore      00010        [0][0][1][0]
+
+A = Remainder
+Q = Quotient
+
+- Know you're done when the Quotient is filled with q0's
+
+```
 
 
 
