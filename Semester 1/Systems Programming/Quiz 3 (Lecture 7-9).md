@@ -298,3 +298,92 @@ $ ./a.out
   - High Level = Source code
   - Machine Level = Object Code
 - Changes to code require recompiling
+
+### Programming Language Components
+- Lexicon
+  - All legal *words* in the language
+  - Meaning and type
+- Syntax
+  - Grammer Rules
+- Semantics
+  - Meaning of command
+
+### Parsing Process
+- Lexical analysis
+  - Also known as csanning
+  - Divides string of input characters into single elements, tokens, based on **strict** computer punctuation
+- Syntactic analysis
+  - Check for errors in grammar rules
+- Semantic Parsing
+  - Determines meaning of the string
+
+### Optmization
+- Compiler analyzes code in order to
+  - Reduce amount of code
+  - Remove repeated code
+  - Reorganize for faster execution
+  - Use resources more effectively
+- Example
+  - If an operation is repeated inside a for loop, but the values in the operation aren't affected by the for loop, it can be moved outside to do the same calculation
+
+### Compiling Source Files
+- `gcc -o newFileName sourceFileName.c`
+  - Ex: `gcc -o a.out source.c`
+  - This will take the source.c file and compile it and output it as a.out
+  - adding `-g` will provide debug info
+  - adding `-Wall` will provide all warnings
+- `g++ -c file1.cpp` && `g++ -c file2.cpp`
+  - These two commands will produce file1.o and file2.o (object files)
+  - To combine them and compile we must do `g++ -o result file1.o file2.o`
+    - This creates an executable file called result
+- Link libraries using `-lnameofLibrary`
+  - Ex: `-lm` links the math library
+
+### Make Files
+- Can declare all the files you need to compile, so dont have to re compile every file indivdually every time
+- If the final output is **sum (exe)** and it contains
+  - main.o
+    - main.c
+    - sum.h
+  - sum.o
+    - sum.c
+    - sum.h
+- We can make a *makeFile* like the following (each point+subpoint = rule for makeFile)
+  - `sum: main.o sum.o`
+    - `gcc -o sum main.o sum.o`
+  - `main.o: main.c sum.h`
+    - `gcc -c main.c`
+  - `sum.o: sum.c sum.h`
+    - `gcc -c sum.c`
+
+### Organization of Compilers
+- Frontend
+  - Depends on Source Language
+  - Lexical Analysis
+  - Parsing
+  - Semantic Analysis
+- Optimizer
+  - Independent part of compiler
+  - Different optimizations are possible
+  - IR to IR translation (?)
+  - Very computational intensive
+- Backend
+  - Depends on target processor
+  - Code selection
+  - Code scheduling
+  - Register allocation
+  - Peephole optimization
+
+### Parsing using LEX and YACC
+- YACC (Yet Another Compiler Compiler)
+  - LookAhead-Left-to-Right (LALR) grammar
+  - YACC is a tool where you can define your own grammar rules and upon recognizing the custom defined rules it will replace them with the correct code and output a C file
+- LEX is a scanner generator
+  - Input is description of patterns/actions
+  - Outputs a C program with function yylex() that matches patterns and performs actions per input
+- Usually you get the tokens from LEX and send to YACC to parse
+
+### Recursive Descent Parsing
+- Constructs parse tree from the top and input is read left to right
+- Recursively parses input to make parse tree (may require backtrack)
+- If it doesn't need backtracking = predictive parsing
