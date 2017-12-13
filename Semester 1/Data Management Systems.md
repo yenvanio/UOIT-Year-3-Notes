@@ -314,10 +314,51 @@ WHERE Ssn=Essn AND Pno=Pnumber
 <a name="Lecture7"></a>
 ## Lecture 7 - SQL Programming Techniques
 
+### Database Applications
+- SQL = Data Sub-Language
+- Host Language = Language you are coding in and using to access database
+
+#### Accessing Database
+- Interactive Interface
+  - SQL Commands are typed directly into a window
+- File Execution
+  - File has many commands and executed like this `@<filename>`
+- Application Programs / Database Applications
+  - Web Interface etc..
+
 ---
 
 <a name="Lecture8"></a>
 ## Lecture 8 - Web Database Programming Using PHP
+
+### PHP
+- Personal Home Page
+- Three-Tier Architecture
+  - DBMS - Bottom Tier Database Server
+  - PHP - Middle Tier Web Server
+    - Able to manipulate HTML files to create custom dynamic web pages
+  - HTML - Client Tier
+
+
+- `<?php *Code Goes Here* ?>` are the start and end tags for PHP
+  - Anything outside that is processed as text
+  - This way PHP can be written in the same file as HTML
+  - Comments are written using `//Comments Go Here` or `/*Comments Go Here*/`
+
+
+- `$_POST` is a global array, predefined in PHP
+  - Holds values passed from a form with method='POST'
+  - Can be numerically indexed array or associative with string values as the index
+    - eg. `$_POST['username']` will retrieve the form object with the name attribute 'username'
+
+
+- HTML can be placed within `<<<_HTML_ *Code goes Here* _HTML_;` tags
+
+- Variables start with `$`
+- `$_SERVER` also predefined, contains server info
+  - `$_SERVER[PHP_SELF]` refers to the name of the PHP File currently being executed on the server
+  - Can use this variable to allow post requests to be processed on same page (without hardcoding name of page)
+- 
 
 ---
 
