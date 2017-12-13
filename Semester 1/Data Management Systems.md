@@ -326,6 +326,8 @@ WHERE Ssn=Essn AND Pno=Pnumber
 - Application Programs / Database Applications
   - Web Interface etc..
 
+
+
 ---
 
 <a name="Lecture8"></a>
@@ -417,7 +419,7 @@ WHERE Ssn=Essn AND Pno=Pnumber
 - To Connect
   - `DB:connect('<DBMS Software>://<username>:<password>@<databaseServer>')`
 - To Query
-  - `$result = $db->query('queryString')` queries database based on query string
+  - `$result = $db->query('queryString')` queries database based on query string and stores in `$result`
 
 #### Checking for Errors
 - `DB:isError` can use to determine whether database access was a success or not
@@ -429,6 +431,100 @@ WHERE Ssn=Essn AND Pno=Pnumber
 
 <a name="Lecture9"></a>
 ## Lecture 9 - Object and Object-Relational Databases
+
+### Object Databases (ODB)
+- Able to store complex objects
+  - Each time objects are stored a unique object identifier (**OID**) is generated
+  - These ID's are immutable(don't change)
+- Useful for complex applications and OOP
+- Some Relation Databases (SQL) have implemented object relational features (ORDBMS)
+
+### Object Oriented Concepts
+- 2 Components
+  - State(Value)
+  - Behavior(Operations)
+- Instance variables act like attributes(column) from relational database
+  - These variables define internal state of the object
+- **Transient Objects** = Objects in OOP exist only during program execution
+- **Persistent Objects** = ODB stores the objects permanently in database
+  - To make an object persistent
+  - Naming Mechanism: Giving a unique persistent name
+  - Reachability: Making an object reachable from some other persistent object
+
+```
+Define class DEPARTMENT_SET {...Defining Code..}
+
+persistent name ALL_DEPARTMENTS: DEPARTMENT_SET
+(* ALL_DEPARTMENTS is a persistent named object of type DEPARTMENT_SET *)
+
+...
+
+d:=create_dept;
+(* Create a new DEPARTMENT object in the variable d *)
+
+...
+
+b:=ALL_DEPARTMENTS.add_dept(d)
+(* Make d persistent by adding it to the persistent set ALL_DEPARTMENTS *)
+
+
+```
+
+- **Inheritance** = Child classes inherit properties from parent class
+- **Polymorphism** = Operation can be applied to different objects
+  - Find Area of different shapes (using 1 function)
+
+### Basic Constructors
+- Atom
+  - Integers, Strings, Floats, Boolean
+  - Single Value / Atomic Types (indivisible)
+- Struct (Tuple)
+  - Basically a row from a relational database
+  - <a1, a2, a3, a4, a5......an>
+  - a 1..n are attributes
+  - Struct = type generator because many different types can be created
+- Collection
+  - Set
+    - Create objects that are a set of distinct elements
+  - Bag
+    - Same as set, but need not be distinct elements
+  - List
+    - Ordered List
+  - Array
+    - 1-D array
+  - Dictionary
+    - Key Value Pairs
+  - Collection = type generator because many different types can be created
+
+### Encapsulation
+- Related to abstract data types and information hiding
+- Define behavior of object based on operations that can be externally applied
+- External users can only see the operations
+- Split into 2 attributes
+  - Visible Attributes: Can be seen aid directly accessible to database users and programmers
+  - Hidden Attributes: Completely encapsulated and only accessible through predefined operations
+- Can be implemented in two parts
+  - Interface
+    - Specifies operation name, return type, parameters
+  - Method
+    - Specifies implementation of the operation
+
+#### Encapsulation of Operations
+- Constructor
+  - Create new object
+- Destructor
+  - Destroy an object
+- Modifier
+  - Modify states (values) of an object
+- Retrieve
+  - Retrieve information about the object
+
+
+- To apply operation use dot notation
+  - `d.no_of_emps`
+
+### Persistence of Objects
+-  
 
 ---
 
