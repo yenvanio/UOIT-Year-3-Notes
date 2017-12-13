@@ -339,7 +339,7 @@ WHERE Ssn=Essn AND Pno=Pnumber
     - Able to manipulate HTML files to create custom dynamic web pages
   - HTML - Client Tier
 
-
+#### Syntax and Super Globals
 - `<?php *Code Goes Here* ?>` are the start and end tags for PHP
   - Anything outside that is processed as text
   - This way PHP can be written in the same file as HTML
@@ -354,12 +354,77 @@ WHERE Ssn=Essn AND Pno=Pnumber
 
 - HTML can be placed within `<<<_HTML_ *Code goes Here* _HTML_;` tags
 
+#### Variables
 - Variables start with `$`
+  - Case Sensitive
+  - Can include characters, numbers, and underscore
+  - **First character cannot be a number**
+  - Loosely typed, interprets the variable type based on value assigned
 - `$_SERVER` also predefined, contains server info
   - `$_SERVER[PHP_SELF]` refers to the name of the PHP File currently being executed on the server
   - Can use this variable to allow post requests to be processed on same page (without hardcoding name of page)
-- 
 
+#### Strings
+- Single Quotes
+- `\` to escape a string and use things like quotations within the string
+  - eg. `print 'We\'ll now visit the next Web site';`
+- Double Quotes allow variables to be evaluated within the string
+  - eg. `print "send email to $email_address";`
+- **Here Documents** = Multiple Lines of Text
+  - Include by doing `<<<DOCNAME DOCNAME`
+- Can concatenate strings by doing `'abc'.'efg'` which will become 'abcdefg'
+- Some string functions
+  - strtolower() - make text lowercase
+  - ucwords() - make words uppercase
+
+#### Arrays
+- 2 Types, neither has a size limit (dynamic)
+  - Numeric
+    - `array[0]`
+  - Associative
+    - `array['name']`
+- Some functions
+  - `array_key_exists($k, $a)` returns true if key 'k' exists in array 'a'
+  - `$GLOBALS['abc']` lets you access all global variables through this array
+
+#### Loops
+- Foreach
+  - `foreach($variable as $var => $value)`
+    - `print "$key : $value \n"`
+- For
+  - `for($i=0, $num=count($courses); $i<$num; $i++)`
+- *count()* = returns current number of elements in array
+- *sort()* = sorts array based on element values in it (not keys)
+
+#### Functions
+- Arguments are passed by value
+
+#### Server Variables
+- `$_SERVER['SERVER_NAME']` = Website name of the server computer
+- `$_SERVER['REMOTE_ADDRESS']` = IP Address of client user computer
+- `$_SERVER['REMOTE_HOST']` = Website name of client user computer
+- `$_SERVER['PATH_INFO']` = Part of the URL after the '/'
+- `$_SERVER['QUERY_STRING']` = Part of the URL after the '?'
+- `$_SERVER['DOCUMENT_ROOT']` = Root Directory that holds files on the server that are accessible by client users
+
+### PEAR DB Library
+- **P**HP **E**xtension and **A**pplication **R**epository (**PEAR**)
+  - Provides functions for database access
+    - Oracle, MySQL, SQLite, Microsoft SQLServer
+- To use database functions
+  - Need to load the module -> `DB.php`
+  - Rest of the functions can be accessed like `DB::<function_name>`
+- To Connect
+  - `DB:connect('<DBMS Software>://<username>:<password>@<databaseServer>')`
+- To Query
+  - `$result = $db->query('queryString')` queries database based on query string
+
+#### Checking for Errors
+- `DB:isError` can use to determine whether database access was a success or not
+  - `get_message()` gets the error message
+- `die()` will terminate the program
+- Another way to automate error checking is
+  - `$db->setErrorHandling(PEAR_ERROR_DIE)` terminates program and prints error messages if any subsequent errors occur
 ---
 
 <a name="Lecture9"></a>
