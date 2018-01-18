@@ -85,7 +85,7 @@
     - Every tuple of individuals have a relationship and each of these relationships have a feature
     - Agents can reason without knowing the individuals or if there are infinitely many individuals
 
-### Planning Horizon
+### Planning Horizons
 - How far the agent looks into the future when making a decision
   - **Static**: World does not change
   - **Finite Stage**: Agent reasons about a *fixed** finite number of time steps
@@ -118,9 +118,43 @@
   - **Fully Observable**: The agent can observe the state of the world
   - **Partially Observable**: There are a number of possible states given the agent's observations
 
-### Goals & Complex Preferences
+### Goals
 - **Achievement Goal**: A goal to achieve
   - Can be a complex logical formula
 - **Complex Preferences**: May involve tradeoffs between things that are needed or wanted
   - **Ordinal** = Only order matters
   - **Cardinal** = Absolute Values & Order matter
+
+### Rationality
+- **Perfect Rationality**: Agent can make the best course of action without having to worry about limited computational resources
+- **Bounded Rationality**: Agent must make good decisions based on perceptual, computational and memory limitations
+
+### Dimension Interaction
+- Partial observability makes multi-agent and indefinite horizon reasoning more complex
+  - Harder to reason without full observation
+- Modularity interacts with uncertainty and succinctness
+  - Some levels may be fully observable and some partially
+- Three values of dimension that make reasoning easier for the agent
+  - Hierarchical
+  - Individuals and relations
+  - Bounded Rationality
+
+### Four Example Application Domains
+- Autonomous Delivery Robot
+  - Roams around office environment doing small deliveries
+- Diagnostic Assistant
+  - Helps troubleshoot problems and suggest repairs
+- Intelligent Tutoring System
+  - Teaches students in some subject area
+- Trading Agent
+  - Buys goods and services on your behalf
+
+### Domain Tasks
+- Modelling Environment
+  - Build models of physical environment
+- Evidential Reasoning
+  - Given observations, determine what the world is like
+- Action
+  - Given model of world and goal, determine what to do
+- Learning from Past Experiences
+  - Learn about specifci case and population of cases
