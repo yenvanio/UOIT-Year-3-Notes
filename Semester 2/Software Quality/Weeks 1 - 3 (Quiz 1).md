@@ -36,6 +36,6 @@
 
 |Quality Categories|Quality Factors|Broad Objectives|
 |------------------|---------------|----------------|
-|Product Operation |Correctness Reliability Efficiency Integrity Usability| Does it do what the customer wants? Does it do it accurately all of the time? Does it quickly solve the intended problem? Is it secure? Can I run it?|
-|Product Revision  |
-|Product Transition|
+|Product Operation |Correctness <br> Reliability <br> Efficiency <br> Integrity <br> Usability| Does it do what the customer wants? <br> Does it do it accurately all of the time? <br> Does it quickly solve the intended problem? <br> Is it secure? <br> Can I run it?|
+|Product Revision  | Maintainability <br> Testability <br> Flexibility| Can it be fixed? <br> Can it be tested? <br> Can it be changed? <br>|
+|Product Transition| Portability <br> Reusability <br> Interoperability| Can it be used on another machine? <br> Can parts of it be reused? <br> Can it interface with another system?|
