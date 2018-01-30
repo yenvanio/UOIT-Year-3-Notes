@@ -157,4 +157,4 @@
 - Action
   - Given model of world and goal, determine what to do
 - Learning from Past Experiences
-  - Learn about specifci case and population of cases
+  - Learn about specific case and population of cases
