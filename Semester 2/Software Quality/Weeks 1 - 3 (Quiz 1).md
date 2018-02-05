@@ -195,4 +195,24 @@
 
 ---
 
-## Week 2
+## Week 2 - Processes, Methods, Techniques for Developing Quality Software
+
+### Plan Driven & Agile Processes
+- Plan Driven
+  - Activities are planned in advance
+  - Process is measured against the pre made plan
+- Agile
+  - Plan is made in increments
+  - Can be changed as customer requirements change
+
+### Waterfall Model
+- Phases
+  - Requirements Analysis & Definition
+  - System and Software Design
+  - Implementation and Unit Testing
+  - Integration and System Testing
+  - Operation and Maintenance
+- One phase must be completed before moving onto next phase
+
+### Incremental Development
+- 
