@@ -101,9 +101,9 @@ Networks can be classified by
     - Interconnect methods
     - Data encoding
     - Electrical properties
-- *Ex: Physical Layer Components of a Computer?
+- *Ex: Physical Layer Components of a Computer?*
   - NIC: Network Interface Card
-  - It has a MAC Address (Physical Address) of a computer*
+  - It has a MAC Address (Physical Address) of a computer
 
 - **Link Layer**
   - Data transfer between network elements
@@ -165,8 +165,8 @@ Networks can be classified by
   - The computer that receives this, reverses the process.
 
 - *Pros and Cons*
-  - (+) Very influential model with clear concepts
-  - (-) Models, protocols and adoption all bogged down by politics and complexity
+  - **(+)** Very influential model with clear concepts
+  - **(-)** Models, protocols and adoption all bogged down by politics and complexity
 
 ### TCP/IP Reference Model
 |Number|Layer|Purpose|Contents|
@@ -181,10 +181,10 @@ Networks can be classified by
 - **Transport Layer**
   - Allows source and destination hosts to carry on a conversation between peer entities
   - Defines Two Protocols
-    - TCP
+    - **TCP**
       - Reliable, Connection Oriented Protocol
       - Handles flow control so fast sender cant swamp slow receiver
-    - UDP
+    - **UDP**
       - Unreliable, Connectionless Protocol
       - Used when we need prompt delivery > accurate delivery
       - *Ex: Transmitting Video or Speech*
@@ -199,8 +199,8 @@ Networks can be classified by
   - **RTP**: Real Time Protocol, delivering real-time media such as voice or movies
 
 - *Pros and Cons*
-  - (+) Very successful protocols that worked well and thrived
-  - (-) Weak model derived after the fact from protocols
+  - **(+)** Very successful protocols that worked well and thrived
+  - **(-)** Weak model derived after the fact from protocols
 
 ### Internet
 - Before Internet was **ARPANET**
