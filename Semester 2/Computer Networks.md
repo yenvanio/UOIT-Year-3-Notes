@@ -5,7 +5,14 @@
 
 [Lecture 1](#Lecture1)
 <br>
-
+[Lecture 2](#Lecture2)
+<br>
+[Lecture 3](#Lecture3)
+<br>
+[Lecture 4](#Lecture4)
+<br>
+[Formulas](#Formulas)
+<br>
 
 <a name="Lecture1"></a>
 ## Lecture 1
@@ -105,6 +112,7 @@ Networks can be classified by
   - NIC: Network Interface Card
   - It has a MAC Address (Physical Address) of a computer
 
+
 - **Link Layer**
   - Data transfer between network elements
     - Moving frames from one node to another
@@ -122,6 +130,7 @@ Networks can be classified by
       - Detects transmission errors using a Cyclic Redundancy Check (CRC)
         - Ask sender to resend packet if it's bad
 
+
 - **Network Layer**
   - Controls subnet operations
   - Responsibilities
@@ -137,22 +146,26 @@ Networks can be classified by
   - Error detection and correction
   - *Ex: TCP, UDP*
 
+
 - **Session Layer**
   - Allows applications to maintain ongoing session
   - Synchronization
     - Checkpoints, allows users to pickup where they left off incase of crash
   - *Ex: Operating Systems, Scheduling*
 
+
 - **Presentation Layer**
   - Data Representation
   - Allow application to interpret data
   - *Ex: ASCII / EBCDIC, JPG, MP3*
+
 
 - **Application Layer**
   - Supports network applications
   - Network processes -> applications
   - Gives user applications access to network resources
   - *Ex: FTP, SMTP, HTTP, Telnet*
+
 
 - **Layers Working Together**
   - Each layer has a Protocol Data Unit (PDU)
@@ -163,6 +176,7 @@ Networks can be classified by
   - Link layer **frames the packets** for transmission
   - Physical layer **converts packets into bits** and send it out
   - The computer that receives this, reverses the process.
+
 
 - *Pros and Cons*
   - **(+)** Very influential model with clear concepts
@@ -217,8 +231,56 @@ Networks can be classified by
 
 **IXP** Internet exchange point where ISPs connect networks to exchange traffic
 
+### Internet Architecture
+- **Network Edge**
+  - Hosts - Clients & Servers
+  - Servers often in data centers
+- **Access Networks, Physical Media**
+  - Wired, Wireless communication links
+- **Network Core**
+  - Interconnected Routers
+  - Network of Networks
 
+#### Host
+- Host sending function
+  - Take application message
+  - Breaks it into packets of *length L* bits
+  - Transmits packet into network at *transmission rate R*
+- Packet Transmission Delay
+  - = time needed to transmit *L-bit* packet into link
+  - = L(bits) / R(bits/sec)
 
+#### Physical Media
+- **Bit**
+  - Propagates between transmitter / receiver pairs
+- **Physical Link**
+  - What lies between transmitter & receiver
+- **Guided Media**
+  - Signals propagate in solid media: Copper, Fiber, Coax
+- **Unguided Media**
+  - Signals propagate freely: radio
+
+#### Network Core
+- Mesh of interconnected routers
+- **Packet Switching**
+  - Hosts break application-layer messages into *packets*
+  - Forward packets from one router to next; from source to destination
+  - Each packet transmitted at full link capacity
+
+##### Packet Switching - Store & Forward
+- Takes L/R seconds to transmit L-bit packet into link at R-bits/sec
+- **Store and Forward**
+  - Entire packet must arrive at router before it can be transmitted to next link
+- *End-to-End Delay = 2L/R*
+
+##### Packet Switching - Queueing Delay, Loss
+
+<a name="Formulas"></a>
+## Formulas
+|Name|Formula|Breakdown|Application|
+|----|-------|---------|-----------|
+|Packet Transmission Delay| L / R | L = Length of Packet (in bits) <br> R = Transmission Rate of Network (in bits/sec)||
+|End-to-End Delay (Store & Forward - Packet Switching)| 2L / R |L = Length of Packet (in bits) <br> R = Transmission Rate of Network (in bits/sec)||
 
 
 
