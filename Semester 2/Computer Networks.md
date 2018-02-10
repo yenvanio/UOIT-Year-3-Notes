@@ -707,9 +707,43 @@ Networks can be classified by
 
 ### Public Switched Telephone Network (PSTN)
 - Structure
+  - Local Loops
+    - Mostly analog twisted pairs going to houses
+  - Trunks
+    - Digital Fiber Optic links that carry calls between switching offices
+  - Switching Offices
+    - Where calls are moved from one trunk to another
+
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/phone_structure.png)
 
+
+### Local Loop
+- **Modems**
+  - Modulator Demodulator
+  - Types
+    - DSL, Cable, Wireless, Telephone
+  - Sends data to POTS (Plain Old Telephone Service)
+
+- **Digital Subscriber Lines**
+  - Sends data over the local loop to the local office using frequencies that aren't used for POTS
+
+
+- **Fiber-To-The-Home (FTTH)**
+  - Relies on deployment of fiber optic cables
+  - One wavelength shared among houses
+
+
+### Switching
+- PSTN uses Circuit Switching
+  - Set up, end-to-end path before any data can be sent
+- Internet uses Packet Switching
+
+### Cable Television
+|Cable|ADSL|
+|-----|----|
+|**Pros** <br> Uses Coaxial Cable to customers (good bandwidth)| **Pros** <br> Bandwidth is dedicated for each customer <br> Point to Point link does not broadcast data|
+|**Cons** <br> Data is broadcast ao all customers (less secure) <br> Bandwidth is shared over customers so may vary| **Cons** <br> Uses twisted pair to customers (lower bandwidth)|
 
 
 ---
