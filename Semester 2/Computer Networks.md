@@ -3,19 +3,19 @@
 
 ## Table of Contents
 
-[Lecture 1](#Lecture1)
+[Lecture 1 - Introduction](#Lecture1)
 <br>
-[Lecture 2](#Lecture2)
+[Lecture 2 - The Physical Layer](#Lecture2)
 <br>
-[Lecture 3](#Lecture3)
+[Lecture 3 - The Data Link Layer](#Lecture3)
 <br>
-[Lecture 4](#Lecture4)
+[Lecture 4 - Medium Access Control (MAC) Sublayer](#Lecture4)
 <br>
 [Formulas](#Formulas)
 <br>
 
 <a name="Lecture1"></a>
-## Lecture 1
+## Lecture 1 - Introduction
 
 ### Network Hardware
 Networks can be classified by
@@ -394,6 +394,22 @@ Networks can be classified by
 - **IP Spoofing**
   - Send packet with false source address
 
+---
+
+<a name="Lecture2"></a>
+## Lecture 2 - The Physical Layer
+
+
+---
+
+<a name="Lecture3"></a>
+## Lecture 2 - The Data Link Layer
+
+
+---
+
+<a name="Lecture4"></a>
+## Lecture 2 - Medium Access Control (MAC) Sublayer
 
 
 ---
