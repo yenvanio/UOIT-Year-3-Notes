@@ -266,6 +266,9 @@ Networks can be classified by
   - Hosts break application-layer messages into *packets*
   - Forward packets from one router to next; from source to destination
   - Each packet transmitted at full link capacity
+- Two Key Functions
+  - **Routing** - Determines route taken by packets (from source to destination)
+  - **Forwarding** - Moves packets from router input to appropriate router output
 
 ##### Packet Switching - Store & Forward
 - Takes L/R seconds to transmit L-bit packet into link at R-bits/sec
@@ -274,6 +277,28 @@ Networks can be classified by
 - *End-to-End Delay = 2L/R*
 
 ##### Packet Switching - Queueing Delay, Loss
+- If bits arrive faster than the transmission rate of the link
+  - Packets will queue (wait to be transmitted)
+  - Packets can be lost if buffer fills up
+
+#### Alternative Core - Circuit Switching
+- End-to-End resources reserved for 'call' between source & destination
+- If a circuit is not used, it is idle
+- Used in traditional telephone networks
+
+#### FDM vs TDM in Circuit Switching
+- Frequency Division Multiplexing
+  - Not as flexible as TDM
+  - Fixed bandwidth usage at a given time
+  - Latency (time it takes for data to get to destination) of FDM > TDM
+- Time Division Multiplexing
+  - More flexibility and efficiency
+  - All of the bandwidth is used at a given time
+  - Dynamically allocates time periods to signals that need more bandwidth and reduces time periods for signals that do not need it
+
+
+
+
 
 <a name="Formulas"></a>
 ## Formulas
