@@ -403,13 +403,13 @@ Networks can be classified by
 ---
 
 <a name="Lecture3"></a>
-## Lecture 2 - The Data Link Layer
+## Lecture 3 - The Data Link Layer
 
 
 ---
 
 <a name="Lecture4"></a>
-## Lecture 2 - Medium Access Control (MAC) Sublayer
+## Lecture 4 - Medium Access Control (MAC) Sublayer
 
 
 ---
