@@ -398,6 +398,175 @@ Networks can be classified by
 
 <a name="Lecture2"></a>
 ## Lecture 2 - The Physical Layer
+- Physical layer is the foundation for the other layers
+  - Determines properties of network
+    - Wires, Fiber, Wireless Limit
+  - Determines throughput, latency and error rate
+- Key problem is sending bits (digital) using signals (analog)
+  - Called **Modulation**
+- Can send information on wires by varying
+  - Voltage, Current, Frequency or Phase
+
+### Bandwidth
+- Analog Bandwidth is measured in *Hz*
+- Digital Bandwidth is the maximum data rate of a channel in *bps*
+
+### Fourier Analysis
+- Time varying signals can be represented as a series of components (harmonics)
+  - Or represented by an infinite number *sines* and *cosines*
+- **T** = Signal Period
+- **F** = Fundamental Frequency = 1 / T
+
+### Bandwidth Limited Signal
+- Transmission of ASCII character `b` to `01100010`
+- Less bandwidth means losing some of the harmonics
+  - Degrades the received signal
+- Can achieve higher data rates
+  - Coding schemes that use several voltage levels
+
+### Maximum Data Rate of a Channel
+- **Nyquist's Theorem**
+  - Signal goes through low-pass filter of bandwidth (B)
+  - Filtered signal can be reconstructed by making exactly 2B samples per second
+  - *Theorem Assumes: Noiseless channel*
+  - Max Data Rate (R) = 2B * log(base 2) * V
+    - Relates data rate (R) to the bandwidth (B) and number of signal levels (V)
+
+- **Shannon's Theorem**
+  - Max Data Rate (R) = B * log(base 2) * (1+ S/N)
+    - Relates data rate (R) to the bandwidth (B) and signal power (S) relative to the noise power (N) or signal-to-noise ratio (S/N)
+    - *B = How fast signal can change*
+    - *S/N = How many levels can be seen*
+
+### Guided Transmission Media (Wires & Fiber)
+|Guided Media|Unguided Media|
+|------------|--------------|
+|**Copper Wire** <br> Twisted Pairs <br> Coaxial Cable <br> Power Lines| Terrestrial wireless <br> Satellite <br> Lasers through the air|
+| **Fiber Optics** <br> Single Mode <br> Multimode | - |
+
+**Full Duplex Link** - Used for transmission in both directions at the same time
+**Half Duplex Link** - Both directions, not at the same time
+**Simplex Link** - One fixed direction at all times
+
+#### Wires - Twisted Pair
+- Twists reduce interference
+- Signal is carried as the difference in voltage between the wires
+- Bandwidth depends on **thickness of wire** and **distance travelled**
+- Categories
+  - Cat 5
+    - 4 Twisted pairs grouped together
+  - Cat 6 (UTP) - Unshielded Twisted Pair
+  - Cat 7 (STP) - Shielded Twisted Pair
+
+#### Wires - Coaxial Cable
+- Two concentric copper conductors
+- Shielding, Bandwidth & rates > Twisted Pair
+- Common Use: TV
+- Bidirectional , Broadband (multiple channels on cable)
+- Categories
+  - 50-ohm: Digital Transmission
+  - 75-ohm: Analog Transmission
+
+#### Wires - Power Lines
+- Convenient to use, but horrible for sending data
+- Data is at much higher frequencies
+
+#### Wires - Fibre Optic Cables
+- Glass fiber carrying light pulses
+  - pulse of light = a 1 bit
+  - no light = a 0 bit
+- Used for high-speed transmission from point to point
+- Low error rate
+  - Light is immune to EM noise
+- 3 key components
+  - Light Source
+  - Transmission Medium
+  - Photodiode (generates electrical pulse when exposed to light)
+- Has huge bandwidth and low signal loss
+  - high rates over long distances
+
+
+- **Single Mode**
+  - Core is narrow (10 um)
+    - Light can't bounce around
+  - Used with lasers for long distances
+
+- **Multi Mode**
+  - Core diameter is 50um
+  - Light can bounce around
+    - Each ray > critical incident has a different mode
+  - Used with LED's for cheaper, shorter distance links
+
+
+### Network Topology
+- **Bus Topology**
+  - All computers connected to a single communication line
+    - Carries messages in both directions
+  - Simple, Low Cost
+  - Only one computers can message at a time
+
+
+- **Star Topology**
+  - All computers are centered around one hub node
+  - If hub goes down, whole network done
+  - Two or more computers can send messages at a time  
+
+
+- **Ring Topology**
+  - Connects all nodes in a closed loop
+    - Messages travel in one direction
+  - One computer fails, whole network fails
+    - Hard to add computers to network
+  - Each computer serves as a repeater to boost signals
+  - Sending Data by tokens
+    - Only computer who has token can send data
+
+### Network Hardware
+- **Network Interface cards**
+  - Connects node to media
+  - Unique MAC address  (6 bytes long)
+- **Network linking device**
+  - Connects nodes to network
+- **Hub**
+  - Center of a star network
+  - All nodes receive transmitted packets
+  - Slow & Insecure
+- **Switches**
+  - Replacement for hubs
+  - Only intended node receives the transmission
+  - Fast & Secure
+- **Bridge**
+  - Connects two or more LANs together
+- **Router**
+  - Connects internal networks to the internet
+- **Gateway**
+  - Connects two dissimilar networks
+
+
+### Electromagnetic Spectrum
+- Signal carried in electromagnetic spectrum
+- **Frequency**
+  - Number of oscillations per second (Hz)
+- **Period**
+  - Time between two consecutive maxima / minima
+  - T = 1/f (seconds)
+- **Wavelength**
+  - Distance between two consecutive maxima / minima
+  - Measured in meters
+- Speed light
+  - c = 3 x 10^8 m/sec
+- Relationships
+  - Wavelength = c/f
+
+### Radio Transmission
+- Radio signals penetrate buildings well and propagate for long distances without loss
+- VLF, LF, MF Bands
+  - Radio waves follow curvature of the earth
+- HF band
+  - Radio waves bounce off the ionosphere
+
+### Microwave Transmission
+- 
 
 
 ---
@@ -422,6 +591,11 @@ Networks can be classified by
 |End-to-End Delay (Store & Forward - Packet Switching)| 2L / R |L = Length of Packet (in bits) <br> R = Transmission Rate of Network (in bits/sec)||
 |Packet Propagation Delay| d / s | d = Length of physical link <br> s = Propagation speed in medium (~ 2x10^8 m/sec)||
 |Packet Queueing Delay| (L * a) / R | L = Packet Length (bits) <br> R = Link Bandwidth (bps) <br> a = Average packet arrival rate | La/R ~ 0 -> Small Average Queueing Delay <br> La/R = 1 -> Average Queueing Delay Increases <br> La/R > 1 -> More work arriving than can be serviced, average delay = infinite!|
+|Fundamental Frequency| 1 / T| T = Signal period||
+|Fourier Analysis||||
+|Max Data Rate (Nyquist)| R = 2B **x** log(base 2) **x** V| R = Max Data Rate (bits/sec) <br> B = Bandwidth (Hz) <br> V = Signal Levels ||
+|Max Data Rate (Shannon)| R = B * log(base 2) * (1+ S/N)| R = Max Data Rate (bits/sec) <br> B = Bandwidth (Hz) <br> S/N = Signal to Noise Ratio (decibels dB)||
+|Wavelength| Lambda = c / f | c = Speed of light <br> f = frequency ||
 
 
 
