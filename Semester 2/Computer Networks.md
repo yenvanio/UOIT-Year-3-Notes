@@ -296,23 +296,116 @@ Networks can be classified by
   - All of the bandwidth is used at a given time
   - Dynamically allocates time periods to signals that need more bandwidth and reduces time periods for signals that do not need it
 
+#### Packet Switching vs Circuit Switching
+- Packet
+  - Allows more users to use network
+  - Packet Delay & Loss Possible
+  - Need protocols for reliable data transfer
+- Circuit
+  - Limited users
+  - All resources being used during a 'call' between source and destination
+  - Reliable connection (even though all resources being used for it)
+
+#### Network of Networks
+- How to connect millions of access ISPs (Internet Service Provider)?
+  - Don't want to connect each ISP to each other because O(n^2) not scalable
+  - Connect Access ISP's to Global ISP (will be multiple due to business competition)
+  - Must interconnect all the Global ISPs using Internet Exchange Points and Peer links
+  - To handle multiple access ISPs, create regional nets then connect those to Global ISP
+  - Content Providers (Google) will have private network to bring content closer to customer
+
+### 3G Networks
+- Based on spatial cells
+  - Each cell provides wireless service through the base station cell
+- Base stations connect to core network
+  - Finds other mobiles and send data to the phone network
+- As mobiles move, base stations hand them off from one to cell to the next
+  - Network tracks their location
+
+### Wireless LANs
+- Clients communicate through an Access Point that is *wired* to the rest of the network
+- ISM = Industrial, Scientific & Medical
+  - ISM Bands defined by ITU-R
+    - 902-928 MHz
+    - 2.4-2.5 GHz
+    - 5.725-5.825 GHz
+
+
+- Signals in ISM band vary in strength
+  - Due to multipath fading caused by reflections
+  - OFDM (Orthogonal Frequency Division Multiplexing)
+    - Complex transmission scheme to fight against multipath fading
+
+
+#### RFID (Radio Frequency Identification)
+- Tag (no battery) are placed on objects
+- Readers send signals
+  - Tags reflect the signals to communicate
+
+#### Sensor Networks
+- Small devices spread out over an area
+  - The devices send data via wireless hops
+
+
+### Network Standardization
+|Body|Area|Examples|
+|----|----|--------|
+|ITU <br> International Telecommunication Union| Telecommunications| G.992, ADSL <br> H.264, MPEG4|
+|IEEE <br> Institute of Electrical and Electronics Engineers| Communications| 802.3, Ethernet <br> 802.11, WiFi|
+|IETF <br> Internet Engineering Task Force| Internet| RFC 2616, HTTP/1.1 <br> RFC 1034/1035,DNS|
+|W3C <br> World Wide Web Consortium| Web |HTML5 standard <br> CSS standard|
+
+**Powers of 10 for Rates**
+**Powers of 2 for Storage**
+**B = bytes**
+**b = bits**
+
+### Delay, Loss, Throughput in Networks
+- Delay of Nodal Processing =
+  - (+) Processing Delay
+  - (+) Queueing Delay
+  - (+) Transmission Delay
+  - (+) Propagational Delay
+
+
+- Throughput
+  - Rate at which bits transferred between sender/receiver
+
+### Network Security
+- Can get malware from
+  - Virus: Self-replicating infection by receiving / executing object
+    - Ex: Email
+  - Worm: Self-replicating infection by passively receiving object that gets itself executed
+- Spyware malware can record keystrokes and internet activity
+
+
+- **Denial of Service (DoS)**
+  - Make resources unavailable by overwhelming resource with fake traffic
+  - Steps:
+    1. Select Target
+    2. Break into hosts around the network
+    3. Send packets to target from compromised hosts
+
+
+- **Packet Sniffing**
+  - Network interface that reads/records all packets (even passwords)
+
+
+- **IP Spoofing**
+  - Send packet with false source address
 
 
 
+---
 
 <a name="Formulas"></a>
 ## Formulas
-|Name|Formula|Breakdown|Application|
+|Name|Formula|Breakdown|Other|
 |----|-------|---------|-----------|
 |Packet Transmission Delay| L / R | L = Length of Packet (in bits) <br> R = Transmission Rate of Network (in bits/sec)||
 |End-to-End Delay (Store & Forward - Packet Switching)| 2L / R |L = Length of Packet (in bits) <br> R = Transmission Rate of Network (in bits/sec)||
-
-
-
-
-
-
-
+|Packet Propagation Delay| d / s | d = Length of physical link <br> s = Propagation speed in medium (~ 2x10^8 m/sec)||
+|Packet Queueing Delay| (L * a) / R | L = Packet Length (bits) <br> R = Link Bandwidth (bps) <br> a = Average packet arrival rate | La/R ~ 0 -> Small Average Queueing Delay <br> La/R = 1 -> Average Queueing Delay Increases <br> La/R > 1 -> More work arriving than can be serviced, average delay = infinite!|
 
 
 
