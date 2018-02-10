@@ -707,6 +707,7 @@ Networks can be classified by
 
 ### Public Switched Telephone Network (PSTN)
 - Structure
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/phone_structure.png)
 
 
