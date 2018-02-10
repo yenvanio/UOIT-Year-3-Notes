@@ -287,11 +287,11 @@ Networks can be classified by
 - Used in traditional telephone networks
 
 #### FDM vs TDM in Circuit Switching
-- Frequency Division Multiplexing
+- **Frequency Division Multiplexing**
   - Not as flexible as TDM
   - Fixed bandwidth usage at a given time
   - Latency (time it takes for data to get to destination) of FDM > TDM
-- Time Division Multiplexing
+- **Time Division Multiplexing**
   - More flexibility and efficiency
   - All of the bandwidth is used at a given time
   - Dynamically allocates time periods to signals that need more bandwidth and reduces time periods for signals that do not need it
@@ -445,8 +445,11 @@ Networks can be classified by
 | **Fiber Optics** <br> Single Mode <br> Multimode | - |
 
 **Full Duplex Link** - Used for transmission in both directions at the same time
+<br>
 **Half Duplex Link** - Both directions, not at the same time
+<br>
 **Simplex Link** - One fixed direction at all times
+<br>
 
 #### Wires - Twisted Pair
 - Twists reduce interference
@@ -475,13 +478,19 @@ Networks can be classified by
 - Glass fiber carrying light pulses
   - pulse of light = a 1 bit
   - no light = a 0 bit
+
+
 - Used for high-speed transmission from point to point
 - Low error rate
   - Light is immune to EM noise
+
+
 - 3 key components
   - Light Source
   - Transmission Medium
   - Photodiode (generates electrical pulse when exposed to light)
+
+
 - Has huge bandwidth and low signal loss
   - high rates over long distances
 
@@ -566,7 +575,140 @@ Networks can be classified by
   - Radio waves bounce off the ionosphere
 
 ### Microwave Transmission
-- 
+- Travel in straight line
+- Used indoors & outdoors
+  - Wifi
+  - 4G, Satellites
+- Signal is reflected by everyday objects
+- Do not penetrate buildings
+
+### Light Transmission
+- Line-of-sight light can be used for links
+  - Light is highly directional
+    - Used for LEDs, Lasers
+
+### Communication Satellites
+- Effective for broadcast distribution
+  - Also for anywhere/anytime communications
+- Receives signal on one frequency
+  - Regenerates it
+  - Amplifies it
+  - Sends it back on different frequency
+- Satellite placed in a specified orbit
+  - Higher = Longer period
+  - Orbit governed by *Van Allen Belts*
+  - Any satellite flying within them will be destroyed by the belts
+
+#### Geostationary (GEO) Satellite
+- Orbits 35,000km above a fixed location
+- Different bands
+  - Higher frequency suffers greater spreading compared to lower frequency
+  - Uplink band is always of higher frequency because connected to power
+    - Helps compensate for poor performance
+- Footprint
+  - Shows radiated power of antenna at each point
+- VSAT (Very Small Aperture Terminals)
+  - Low cost micro station
+  - Can communicate with hub to extend coverage
+
+### Medium Earth Orbit (MEO) Satellite
+- Lower altitude
+  - Between the two Van Allen belts
+- Used for navigation vs communication
+  - GPS
+- GPS receiver must observe 4 satellites
+  - Three of them provide distance measurement
+  - Fourth adjusts timing offsets
+
+### Low Earth Orbit (LEO) Satellite
+- Lower to the ground
+  - Better for point to point communication
+    - Better signal and less time delay
+
+
+### Wireless vs Fiber vs Satellite
+|Wireless|Fiber|Satellite|
+|----|-----|-------------|
+|**Pros** <br> Easy and inexpensive to deploy <br> Naturally supports mobility <br> Naturally supports broadcast|**Pros** <br> Easy to engineer a fixed data rate over point-to-point links <br> Enormous bandwidth over long distances| **Pros** <br> Can rapidly set up anywhere/anytime communications (after satellites have been launched) <br> Can broadcast to large regions|
+|**Cons** <br> Transmissions interfere and must be managed <br> Signal strengths hence data rates vary greatly|**Cons** <br> Can be expensive to deploy <br> Doesn't readily support mobility or broadcast|**Cons** <br> Limited bandwidth and interference to manage
+
+### Digital Modulation
+- Process of converting data bits into signals
+
+
+#### Baseband Transmission
+- Signal occupies frequencies from 0 up to a max
+  - Common for Wires
+
+- **Non-Return-to-Zero (NRZ)**
+  - Positive voltage = 1
+  - Negative voltage = 0
+
+
+- **Manchester Encoding**
+  - Mixes clock signal w/ data signal
+    - XOR's the signals together
+  - When clock is XOR'd with 0 level
+    - Makes it a low-to-high transition
+  - When clock is XOR'd with 1 level
+    - Makes it a high-to-low transition
+
+
+- **Non-Return-to-Zero-Inverted (NRZI)**
+  - Same as NRZ but
+    - 1 = Transition
+    - 0 = No Transition
+
+#### Passband Transmission
+- The signal occupies a band of frequencies around the frequency of the carrier signal
+  - Common for Wireless
+- Schemes that regulate the amplitude, phase or frequency of a carrier signal to convey bits
+
+
+- **Amplitude Shift Keying (ASK)**
+  - Two different amplitudes are used to represent 0 and 1.
+
+
+- **Frequency Shift Keying (FSK)**
+  - Two or more different frequencies are used
+
+
+- **Phase Shift Keying (PSK)**
+  - The carrier wave is systematically shifted a certain amount of degrees at each symbol period
+  - If two phases, **Binary Phase Shift Keying (BPSK)**
+  - If we use 4 shifts, **Quadrature Phase Shift Keying (QPSK)**
+
+
+- Usually amplitude and phase are modulated in combination
+  - **Quadrature Amplitude Modulation (QAM)**
+  - QAM-16 uses 4 bits per symbol
+  - QAM-64 uses 6 bits per symbol
+
+### Frequency Division Multiplexing
+- Share channels among many signals
+  - Divides spectrum into frequency bands
+  - Each user has possession of some band to send their signal
+
+
+- **Orthogonal Frequency Division Multiplexing (OFDM)**
+  - The channel bandwidth is divided into many subcarriers that independently send data
+
+
+### Time Division Multiplexing (TDM)
+- Users take turns (round robin)
+  - Each one gets entire bandwidth for a little bit of time
+
+
+### Code Division Multiple Access (CDMA)
+- Allowing multiple signals from different users to share the same frequency band all the time
+  - Users are separated by unique codes
+  - Each bit time is subdivided into shorter intervals called *chips*
+
+
+### Public Switched Telephone Network (PSTN)
+- Structure
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/phone_structure.png)
+
 
 
 ---
