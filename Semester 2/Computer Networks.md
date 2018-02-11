@@ -1090,7 +1090,7 @@ Message will be received and summed again
 - **Unreliable**
   - Receiving NIC doesn't send ACKs to sender
 
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Backoff)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Backoff.png)
 
 
 
