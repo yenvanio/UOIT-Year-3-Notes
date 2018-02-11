@@ -1225,7 +1225,33 @@ Message will be received and summed again
       - Else forward frame onto interface indicated by entry
 
 ### Spanning Tree Problem
--
+- Each bridge periodically broadcasts a config message
+  - Called **Bridge Protocol Data Unit (BPDU)**
+  - Includes info about selected root bridge and distance of other bridges to root
+- Bridges choose on to be the root of the Spanning Tree
+  - The one with smallest MAC address is chosen
+- Shortest path from root to every bridge is constructed
+- Bridges turn off ports that are not part of shortest path
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/MST.png)
+
+### Virtual LANs
+- Splits one physical LAN into multiple logical LANs
+  - Eases management tasks
+  - Ports are colored according to their VLAN
+- Switches that support VLAN can be configured to define multiple VLANs over a single physical LAN
+
+
+- **Port Based VLAN**: Switch ports grouped so that single switch operates as multiple virtual switches
+  - Traffic Isolation
+    - Frames to/from ports 1-8 only
+  - Dynamic Membership
+    - Ports can be dynamically assigned among VLANs
+  - Forwarding b/w VLANs
+    - Done via routing
+
+- **Trunk Port**: Carries frames between VLANs defined over multiple physical switches
+
 
 
 
