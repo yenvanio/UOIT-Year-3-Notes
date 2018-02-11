@@ -1075,23 +1075,40 @@ Message will be received and summed again
 ### Classic Ethernet - MAC Sublayer
 - MAC Protocol is 1-Persistent
 - Channel is divided into time slots (twice the propagational delay)
-- BEB: Backoff a random number between 0 and 2^i - 1
+- Binary Exponential Backoff (BEB): Backoff a random number between 0 and 2^i - 1
   - i = attempt number (1-10)
-
-
 - **Random Delay**
   - Backoff after collision is computed with Binary Exponential Backoff (BEB)
-
-
 - **Connectionless**
   - No handshaking between sending/receiving NICs
-
-
 - **Unreliable**
   - Receiving NIC doesn't send ACKs to sender
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Backoff.png)
 
+
+- Frame format
+  - Preamble
+    - 7 bytes, used to synchronize receiver / sender clock rates
+  - Addresses
+    - 6 byte source / destination MAC addresses
+  - Type  
+    - Indicates higher layer protocol (IPv4, IPv6)
+- If error is detected (FCS / CRC), frame is dropped
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Ethernet_Frame.png)
+
+
+- Collisions can occur and take as long as 2(Propagational Delay)
+  - Minimum packet size of data must be >= 46 for reliable detection
+  - Min Frame size = 46 + 18 = 64 bytes (excluding Preamble)
+  - All frames must take 2*PDelay, So the transmission is still happening when the noise burst gets back to the sender
+
+### Fast Ethernet / Switched Ethernet
+- Hubs wire all lines into a single CSMA collision domain
+- Switches isolate each port into separate collision domains
+
+### Wireless LANs
 
 
 
