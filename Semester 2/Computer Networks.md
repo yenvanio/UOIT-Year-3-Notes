@@ -966,18 +966,134 @@ Message will be received and summed again
     - Only send specifically un-ACK'd packets
     - Trickier to implement
 
-
-
-
-
-
-
-
-
 ---
 
 <a name="Lecture4"></a>
 ## Lecture 4 - Medium Access Control (MAC) Sublayer
+- Responsible for deciding who sends next on a multi-access link
+
+### Multiple Access Protocol
+- **Interference**: Two or more simultaneous transmissions by nodes
+- **Collision**: If a node receives two or more signals at the same time
+- **Multiple Access** Protocol: Determines how nodes share the channel
+  - Determines when a node can transmit
+
+### MAC Protocols: Taxonomy
+- Channel Partitioning (Static)
+- Random Access (Dynamic)
+- "Taking Turns" (Predefined Order)
+
+#### Static Channel Allocation
+- **TDMA**: Time Division Multiple Access
+  - Access to channel happens in rounds
+  - Each station gets fixed length
+
+
+- **FDMA**: Frequency Division Multiple Access
+  - Channel is divided into frequency bands
+  - Each station assigned fixed frequency band
+
+#### Dynamic Channel Allocation
+- Gives channel to a user when they need it
+- Schemes vary with assumptions
+- When node has packet to send
+  - Transmit at full channel data rate (R)
+  - No coordination among nodes
+- Two or more transmitting nodes = collision
+
+|Assumption|Implication|
+|----------|-----------|
+|Independent Traffic|Assume Poisson packet arrival rate from N users Often not a good model, but permits analysis|
+| Single Channel| Only one channel available for all users No external way to coordinate the senders|
+|Observable Collisions|All nodes sense the collision when it happens Needed for reliability; mechanisms vary|
+| Continuous or slotted time|Slotting may improve performance since a frame can only be sent at the start of the slot|
+|Carrier Sense|Stations can sense the channel if busy or not. If busy they should not use the channel Can improve performance|
+
+- Random Access MAC Protocol specifies
+  - How to detect collisions
+  - How to recover from collisions
+- MAC Protocols
+  - ALOHA  (Pure / Slotted)
+  - CSMA (Carrier Sense Multiple Access)
+  - Collision Free Protocols
+  - Limited Contention Protocols
+  - Wireless LAN Protocols
+
+
+### Pure ALOHA
+- User transmits frames whenever they have data
+- Retry after random time if there was a collision
+- Collisions happen when
+  - Users transmit during a vulnerable period
+    - Vulnerable period is when a frame is sent in between the start of one frame and end of another frame
+    - Collides with both
+
+### Slotted ALOHA
+- Twice as efficient as Pure ALOHA
+- Assumes
+  - All frames have same size
+  - Time divided into equal size slots
+  - Nodes start to transmit only at slot beginning
+  - Nodes are synced
+  - If 2 or more nodes transmit in the same slot, all nodes detect collision
+- Process
+  - When node obtains frame, it transmits it in the next slot
+  - If no collision, send new frame in next slot
+  - If collision, node retransmits in each subsequent slot until successful
+    - Probability p of success with each subsequent slot
+
+### Carrier Sense Multiple Access Protocols
+- Improves ALOHA by sensing the channel
+- Listens before transmitting
+  - If it senses channel as idle, transmit frame
+  - If it senses channel as busy, defer transmission
+- Collisions can still occur
+  - Due to propagation delay, two nodes may not hear each other's transmissions
+- When a collision occurs
+  - Transmitter sends a jam signal to let the receiver and other stations to know that there was a collision
+- 3 actions to choose from when a channel is busy
+  - 1-Persistent (Greedy)
+    - Sends as soon as idle (probability 1)
+  - P-Persistent (Probability)
+    - Sends with probability p when idle
+  - NonPersistent
+    - Wait a random time then sense again
+
+### Collision Free Protocols
+- Token sent around a ring defines sending order
+- Station with token can send frame before passing token
+
+### Classic Ethernet - Physical Layer
+- One shared coaxial cable that all hosts attach to
+- Topology
+  - Bus
+    - All nodes in same collision domain
+  - Star
+    - Nodes do not collide with each other
+    - Active switch in center
+
+### Classic Ethernet - MAC Sublayer
+- MAC Protocol is 1-Persistent
+- Channel is divided into time slots (twice the propagational delay)
+- BEB: Backoff a random number between 0 and 2^i - 1
+  - i = attempt number (1-10)
+
+
+- **Random Delay**
+  - Backoff after collision is computed with Binary Exponential Backoff (BEB)
+
+
+- **Connectionless**
+  - No handshaking between sending/receiving NICs
+
+
+- **Unreliable**
+  - Receiving NIC doesn't send ACKs to sender
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Backoff)
+
+
+
 
 
 ---
