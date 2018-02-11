@@ -750,6 +750,228 @@ Networks can be classified by
 
 <a name="Lecture3"></a>
 ## Lecture 3 - The Data Link Layer
+- Uses physical layer to deliver frames of info over a single link
+- Functions   
+  - Handles transmission errors
+  - Regulates flow of data
+  - Provides service to network layer
+
+### Frames
+- Link Layer accepts packets from network layer
+  - Puts them into frames
+  - Sends using physical layer
+  - Sends to a layer *physically adjacent* over a link
+- MAC addresses used in frame headers to identify source and destination
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Data_Link_1.png)
+
+### Services Provided to Network Layer
+- Provides services to the layer above (Network Layer)
+
+
+- **Unacknowledged Connectionless Service**
+  - Frame is sent with no logical connection
+    - No ACK or error recovery
+
+
+- **Acknowledged Connectionless Service**
+  - Frame is sent with no connection but with retransmissions if needed
+    - Each frame sent is individually acknowledged by the receiver
+
+
+- **Acknowledged Connection-Oriented Service**
+  - Connection is set up first
+    - Has 3 Phases
+  - 1. Connection is established by having both sides initialize buffers and counters to keep track of the received frames
+  - 2. Frames are transmitted and ACK by the receiver
+  - 3. Releasing the connection, freeing up the resources
+
+
+### Putting bits into Frames
+- Byte Count
+- Byte Stuffing
+- Bit Stuffing
+
+#### Byte Count
+- Header has a field to put the number of bytes in it
+  - Simple, but difficult to re-sync if an error occurs
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Byte_Count.png)
+
+
+#### Byte Stuffing
+- Special flag bytes delimit frames
+  - Used as starting and ending delimiter
+  - 2 consecutive flag bytes = end of one, start of another
+- When the Flag shows up in the data, need to escape it
+  - Can escape it by doubling up with the flag
+- Longer process, but can be re-synced easier after error occurs
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Byte_Stuffing.png)
+
+
+#### Bit Stuffing
+- Stuffing done at the bit level
+  - On Transmit: After five consecutive 1's in the data, a 0 is added
+  - On Receive: A 0 after five consecutive 1's is deleted
+
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Bit_Stuffing.png)
+
+
+### Error Control
+- Repairs frames that are received in error
+- Receiver sends an ACK for every packet that is received correctly
+  - ACK = Acknowledgement packet sent by host in response to packet it received
+- Timer protects against lost ACKs
+  - Timeout signal occurs when an ACK has not been received for a sent packet within a certain timeframe
+  - Timeout triggers retransmission of original packet
+
+
+### Flow Control
+- Prevents a fast sender from outpacing a slow receiver
+-	Receiver gives the feedback to the sender on the data it can accept
+
+### Error Detection and Correction
+- Error codes add
+  - Structured Redundancy to data
+  - Allows errors to be detected or corrected
+
+
+- **Error Correction Codes**
+  - Hamming Codes
+  - Binary Convolutional Codes
+  - Reed-Solomon and Low-Density Parity Check codes
+
+
+- **Error Detection Codes**
+  - Parity
+  - Checksums
+  - Cyclic Redundancy Codes
+
+
+#### Parity (Error Detection)
+- Depending on if Even or Odd Parity is set
+  - If EVEN when sending the number of 1s must be even
+    - When received if the number of 1s is not even then there is an error
+  - If ODD when sending the number of 1s must be odd
+    - When received if the number of 1s is not odd then there is an error
+- Some problems with parity check
+  - If two bits are altered then can still come through as the correct parity with errors
+  - If the parity bit is altered then it will still come through as correct
+
+
+#### Checksums (Error Detection)
+- Basically add up the message, and 1's complement it
+  - This value is the internet checksum
+- When passed to receiver if the sum after being 1's complemented is 0000 then no errors
+
+```
+Example
+
+Message: 1001 1100 1010 0011
+Sum (Start from Right End):
+1. 0011 + 1010 = 1101
+2. 1101 + 1100 = 1001 + 1 = 1010
+3. 1010 + 1001 = 0011 + 1 = 0100
+
+Internet checksum will be the 1's complement of the sum
+Internet checksum = 1011
+
+Message will be sent as: 1001 1100 1010 *1011*
+
+Message will be received and summed again
+0100 + 1011 = 1111
+1's complimenting that will give us 0000 (a.k.a Error Free Data)
+
+
+```
+
+#### Cyclic Redundancy Check - CRC (Error Detection)
+- Given Message, Divide it by generator polynomial
+- Put remainder at end of message and send it
+- When received, divide message by generator polynomial
+  - If remainder = 0 then no error
+
+
+### Error Control
+- Acknowledgements and Timeouts
+- Propagation Delay
+  - Delay between transmission and receipt of packets b/w hosts
+  - Can be used to estimate timeout period
+- Timeout = AT LEAST twice the propagation delay  + processing time at the receiver and transmission of an ACK
+  - Use (EWMA) Exponentially weighted moving average of the (RTT) Round Trip Time
+  - Set Timeout = 2 x EWMA
+
+### Automatic Repeat reQuest (ARQ)
+- Sender waits for a positive ACK before moving onto next data item
+- a.k.a Positive Acknowledgement with Retransmission (PAR)
+  - Stop & Wait for Error Free Channel
+  - Stop & Wait for Noisy Channel
+
+#### Stop & Wait for Error Free Channel
+- Protocol ensures sender can't outpace receiver
+  - Sender waits for ACK after passing frame to physical layer
+  - Receiver sends ACK after passing frame to network layer
+
+
+#### Stop & Wait for Noisy Channel
+- ARQ adds error control
+  - Receiver acknowledges frames that are delivered correctly
+  - Sender sets timer and resends frame if no ACK and the a timeout occurs
+- Need to number ACKs
+  - So receiver knows its retransmission
+
+
+### Sliding Window Concept
+- Allows for multiple un-ACK'd frames
+  - Upper Bound = Window
+
+
+- **Sender**
+  - Assign SeqNum to each frame
+  - 3 State Variables
+    - SWS = Send Window Size (Upper Bound of outstanding frames)
+    - LAR = Last Acknowledgement Receiver (Sequence Number of the last ACK received)
+    - LFS = Last Frame Sent (Sequence Number of the last frame sent)
+  - Process
+    - Advance LAR when ACK arrives
+    - Associate timer with each frame the sender transmits
+    - Sender retransmits the frame if timer runs out
+    - Buffer up to SWS frames
+  - LFS - LAR <= SFS
+
+
+- **Receiver**
+  - 3 State Variables
+    - RWS = Receive Window Size (Upper Bound of out-of-order frames the receiver will take)
+    - LFA = Largest Frame Acceptable (Sequence Number of the largest acceptable frame)
+    - LFR = Last Frame Received (Sequence number of last frame received and ACK'd)
+  - Process
+    - When Frame w/ SeqNum arrives
+      - If LFR < SeqNum <= LFA, then ACCEPT
+      - If SeqNum <= LFR or SeqNum > LFA, then DISCARD
+  - LFA = LFR = RWS
+
+
+- How to prevent sender overflowing receiver's buffer
+  - Receiver tells sender its buffer size during connection setup
+
+
+- How can we insure reliability in pipelined transmissions
+  - **Go Back N**
+    - Send all N un-ACK'd packets when a loss is signaled
+    - Inefficient
+  - **Selective Repeat**
+    - Only send specifically un-ACK'd packets
+    - Trickier to implement
+
+
+
+
+
+
+
 
 
 ---
