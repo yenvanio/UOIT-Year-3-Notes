@@ -48,7 +48,9 @@ Networks can be classified by
   - At the bottom, messages are carried by the medium
 - Each low layer adds its own header to the message to transmit and removes it, once it receives it.
 - Layers can also split / join messages
-- **Diagram shows the protocols adding headers to layer below it in the source machine and passing it to destination machine where it builds it back up**
+
+
+  ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Protocol_Layers.png)
 
 ### Design Issues
 
@@ -176,6 +178,8 @@ Networks can be classified by
   - Link layer **frames the packets** for transmission
   - Physical layer **converts packets into bits** and send it out
   - The computer that receives this, reverses the process.
+
+    ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Layers_Together.png)
 
 
 - *Pros and Cons*
@@ -314,6 +318,9 @@ Networks can be classified by
   - To handle multiple access ISPs, create regional nets then connect those to Global ISP
   - Content Providers (Google) will have private network to bring content closer to customer
 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/NetworkOFNetworks.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/NetworkOFNetworks2.png)
+
 ### 3G Networks
 - Based on spatial cells
   - Each cell provides wireless service through the base station cell
@@ -416,6 +423,8 @@ Networks can be classified by
   - Or represented by an infinite number *sines* and *cosines*
 - **T** = Signal Period
 - **F** = Fundamental Frequency = 1 / T
+
+    ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Fourier_Analysis.png)
 
 ### Bandwidth Limited Signal
 - Transmission of ASCII character `b` to `01100010`
@@ -659,6 +668,8 @@ Networks can be classified by
     - 1 = Transition
     - 0 = No Transition
 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Baseband_Transmission.png)
+
 #### Passband Transmission
 - The signal occupies a band of frequencies around the frequency of the carrier signal
   - Common for Wireless
@@ -683,6 +694,8 @@ Networks can be classified by
   - **Quadrature Amplitude Modulation (QAM)**
   - QAM-16 uses 4 bits per symbol
   - QAM-64 uses 6 bits per symbol
+
+    ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Passband_Transmission.png)
 
 ### Frequency Division Multiplexing
 - Share channels among many signals
@@ -1109,7 +1122,110 @@ Message will be received and summed again
 - Switches isolate each port into separate collision domains
 
 ### Wireless LANs
+- Nodes have different coverage regions
+- Nodes cannot detect collisions while sending
+  - Because the received signal is weaker than transmitted one
 
+#### Hidden Terminals
+- Senders that cannot sense each other but collide at the intended receiver
+- A & B are hidden terminals when sending to C
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Hidden_Terminal.png)
+
+#### Exposed Terminals
+- Senders who can sense each other but still transmit safely to different receivers
+- Exposed Terminals are  
+  - B sending to A;
+  - C sending to D;
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Exposed_Terminal.png)
+
+### Architecture / Protocol Stack
+- Wireless clients associate to a wired Access Point (AP)
+  - Called **Infrastructure Mode**
+  - Client only sends / receives packets via the AP
+- Sever AP's connected = **Distribution System** (DS)
+- **SSID**
+  - Unique
+  - Case Sensitive
+  - Alphanumeric value
+  - 2-32 characters in length
+  - Network Name
+- Client must be configured for correct SSID to join network
+
+### 802.11 MAC
+- Algorithm = DFWMAC (Distributed Foundation Wireless MAC)
+- 2 Algos
+  - Distributed Access Protocols (Distributed Coordination Function **DCF**)
+  - Centralized Access Protocols (Point Coordination Function **PCF**)
+- Uses **CSMA/CA**
+  - CA = Collision Avoidance (similar to Collision Detection)
+  - Inserts backoff slots to avoid collisions
+- **Process**
+  - Stats sensing channel
+  - If free during IFS (Inter Frame Space)
+    - Send
+  - If busy, wait for free IFS
+    - Wait a random back-off time
+  - If another station occupies medium during back-off time
+    - Backoff timer stops
+  - If transmission failed
+    - Assume collision occurred
+
+
+- **SIFS (Short IFS)**
+  - Used for immediate response actions
+- **DIFS (Distributed Coordination Function IFS)**
+  - Used for all ordinary async traffic
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/CSMA_CA.png)
+
+### Data Link Layer Switching
+- Uses of Bridges
+- Learning Bridges
+- Spanning Tree
+- Repeaters, Hubs, Bridges....Routers, Gateways
+- Virtual LANs
+
+### Uses of Bridges
+- TO Join multiple physical LANs into a single logical LAN
+- TO Divide one physical LAN into multiple logical LANs called VLANs (Virtual LANs)
+
+#### Ethernet Switch (Bridge)
+- Link-Layer Device
+  - Store, Forward Ethernet frames
+- Transparent
+  - Hosts are unaware of the presence of switches
+- Plug-And-Play
+  - Switches do not need to be configured
+- 2 Algos to make Bridges Transparent
+  - Backward Learning Algorithm
+    - Stop traffic being sent where not needed
+  - Spanning Tree Algorithm
+    - Break loops that can form when switches are cabled together
+
+### Learning Bridges
+- Operates as a switched LAN
+- Switch allows multiple simultaneous transmissions
+  - Each link is its own collision domain
+
+
+- **Switch Forwarding Table (MAC Table)**
+  - Switch learns which hosts can be reached through which interfaces
+
+  ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/MAC_Table.png)
+
+- **Backward Learning Algorithm**
+  - Picks the output port
+  - When frame received at the switch
+    - 1. Record incoming link, MAC address of sending host
+    - 2. Index switch table using MAC Destination Address
+    - 3. If entry found for destination
+      - If Destination on same segment, DROP
+      - Else forward frame onto interface indicated by entry
+
+### Spanning Tree Problem
+-
 
 
 
