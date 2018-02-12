@@ -1269,7 +1269,7 @@ Message will be received and summed again
 |Fourier Analysis||||
 |Max Data Rate (Nyquist)| R = 2B **x** log(base 2) **x** V| R = Max Data Rate (bits/sec) <br> B = Bandwidth (Hz) <br> V = Signal Levels ||
 |Max Data Rate (Shannon)| R = B * log(base 2) * (1+ S/N)| R = Max Data Rate (bits/sec) <br> B = Bandwidth (Hz) <br> S/N is calculated by using SNR below||
-|Signal to Noise Ration (SNR)| SNR = 10 log10(S/N) | SNR = Signal to Noise Ration |
+|Signal to Noise Ratio (SNR)| SNR = 10 log10(S/N) | SNR = Signal to Noise Ration |
 |Wavelength| Lambda = c / f | c = Speed of light <br> f = frequency ||
 
 
