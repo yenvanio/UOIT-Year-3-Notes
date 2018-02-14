@@ -9,7 +9,9 @@
 <br>
 [Lecture 3 - Processes](#Lecture3)
 <br>
-[Lecture 4 - ](#Lecture4)
+[Lecture 4 - Threads](#Lecture4)
+<br>
+[Lecture 5 - Process Synchronization](#Lecture5)
 
 
 <a name="Lecture1"></a>
@@ -702,19 +704,226 @@
   - Server Side stub receives the message, unpacks it and performs procedure
 
 ### Pipes
-- 
+- Allows two processes to communicate
+- 4 Issues
+  - Unidirectional or Bidirectional
+  - Half or Full Duplex
+  - Need of parent-child relationship?
+  - Can pipes be used over network?
+- 2 Common Types
+  - Ordinary: Cannot be accessed from outside the process that created it
+  - Named: Accessed without parent-child relationship
+
+#### Ordinary Pipes
+- Producer-Consumer Style
+  - Produces writes to one end (write end)
+  - Consumer reads from other end (read end)
+- Unidirectional
+- For two way communication need 2 pipes
+- Need Parent-Child relationship
+
+#### Named Pipes
+- Bidirectional
+- No parent-child relationship
+- **ON UNIX**
+  - Called FIFOs
+  - Exist until explicitly deleted
+  - Only communicate with same machine
+- **ON WINDOWS**
+  - Full Duplex
+  - Can communicate with same or other machines
+----
+
+<a name="Lecture4"></a>
+## Lecture 4 - Threads
+- Basic unit of CPU utilization
+- Consists of
+  - Thread ID
+  - Program Counter
+  - Register set
+  - Stack
+- Shares the following with other threads belonging to same process
+  - Code Section
+  - Data Section
+
+### Process vs Thread
+|Process|Thread|
+|-------|------|
+|Process is heavy weight or resource intensive.|Thread is light weight taking lesser resources than a process.|
+|Generally, more than one process cannot share the same memory. Sharing memory among processes requires additional memory management schemes.| Threads of the same process can share the same memory unless they are specially allotted separate memory locations.|
+|Process creation, process execution, and process switch are time consuming.| Thread creation, thread execution, and thread switch are much faster in comparison.|
+|Processes are generally loosely coupled and so a lesser amount of resource sharing is possible.| As the threads of a process are tightly coupled; a greater amount of resource sharing is possible.|
+|Communication between processes is difficult and requires system calls.| Communication between threads is much easier and more efficient.|
 
 
+### Multithreaded Server Architecture
+- Single application might need to perform several similar tasks from different clients requests
+  - Can use multithreading to create a thread to listen to requests
+  - When request received, create threat to handle it rather than a process
+- Pros
+  - Responsiveness
+    - Might still allow thread to run even if part of process is blocked
+  - Resource Sharing
+    - Easier to share resource from one process instead of between processes
+  - Economy
+    - Cheaper than process creation, less overhead
+  - Scalability
+    - Can take advantage of multiprocessor
+    - Threads can run in parallel
+
+### Concurrency vs Parallelism
+- Concurrency
+  - Uses time sharing to allow more than one task to make progress
+  - Seems like parallelism, but not really cause just switching between processes really fast
+- Parallelism
+  - Threads run in parallel
+  - Types
+    - Data Parallelism
+      - Distributes subsets of data across multiple cores, and doing same operation on each core
+      - Example: Sum half of array on each core
+    - Task Parallelism
+      - Distributing threads across cores, each one doing different operation
+      - Example: Sum elements on one, find max on another
+
+### Amdahl's Law
+- S = Serial Portion %
+- N = Number of processing cores
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Amdahl.png)
+
+- If application is 75% serial, 25% serial moving from 1 core to 2 will speedup the results by 1.6 times
 
 
+### User Threads & Kernel Threads
+- User
+  - Management done by user-level threads library
+  - 3 Libraries: POSIX Pthreads, Windows threads, Java threads
+  - Pros
+    - Thread switching does not need Kernel mode privileges
+    - User level thread can run on any OS
+    - Faster to create and manage
+  - Cons
+    - Most system calls are blocking
+    - Cannot take advantage of multiprocessing
 
 
+- Kernel
+  - OS Managed Threads
+  - Supported by most OS's
+  - Pros
+    - Schedule multiple threads from same process on multiple processors at the same time
+    - If one thread blocked, can schedule another
+    - Kernel routines can be multithreaded
+  - Cons
+    - Slower to create and manage
+    - Transfer of thread control requires mode switch
+
+### Many to One Model
+- Many user-level threads mapped to a single kernel thread
+- One thread blocking, blocks all
+- Cant run in parallel because only one may be in kernel at a time
 
 
+### One to One Model
+- Each user-level thread maps to one kernel thread
+- Supports running threads in parallel
+- Bad because creating a user-level thread needs kernel thread to be created
+  - Overhead of creating kernel threads
 
 
+### Many to Many Model
+- Allows many user-level threads to be multiplexed to a smaller or equal amount of kernel threads
+- OS can create sufficient number of kernel threads
+- Developers can create s many user threads as necessary and the kernel threads can run in parallels
+
+### Two Level Model
+- Same as Many to Many, but
+  - Allows user thread to be bound to kernel thread
+
+### Thread Library
+- Gives developers API for managing threads
 
 
+- 2 Primary ways to implement thread library
+  - Provide a library without kernel support
+    - Everything exists in user space
+    - No system calls for access
+  - Implement kernel-level library supported by OS
+    - Everything in kernel space
+    - Need system calls for access
+
+
+- 3 Main Libraries
+  - POSIX Pthreads
+    - Can be user or kernel
+  - Windows threads
+    - Kernel Library
+  - Java threads
+    - Managed in java programs
+**For POSIX and Windows, global variables are shared among threads in same process**
+
+
+- 2 Main strategies for creating multiple threads
+  - Asynchronous Threading
+    - Once parent creates child thread, parent does own stuff and doesnt care when child terminates
+  - Synchronous Threading
+    - Parent creates one or more children and wait for child termination to continue
+    - Fork-Join strategy
+
+### Pthreads
+- User-level or Kernel-level
+- POSIX API for thread creation and synchronization
+
+### Java Threads
+- Managed by JVM (Java Virtual Machine)
+- Created by
+  - Extending Thread class and overriding `run()`
+  - Define class implementing Runnable
+
+### Implicit Threading
+- Transfer management of threads to compilers and run-time libraries instead of programmers
+- 3 Methods
+  - Thread Pool
+  - OpenMP
+  - Grand Central Dispatch
+
+### Thread Pools
+- Create a bunch of threads at start-up and put them in a pool
+- When a request comes in, get a thread from the pool and use it
+- When done put it back in the pool
+
+### Semantics of fork() and exec()
+- Will `fork()` duplicate one thread or all
+- 2 options
+  - If `exec()` is called after forking then duplicate only the calling thread
+  - If process does not call `exec()` after forking then should duplicate all threads
+
+### Signal Handling
+- Signal generated by event
+- Delivered to a process
+- Handled by one of the following
+  - Default Signal Handler
+  - User-Defined Signal Handler
+- For single thread, signal delivered to process
+- For multi-threaded process
+  - Send to the thread where it applies
+  - Divide by 0 goes to thread that caused it
+  - Ctrl C goes to all
+
+### Thread Cancellation
+- Terminating before completion
+- Asynchronous terminates immediately
+- Deferred cancellation allows thread to check a flag if it should be cancelled and only cancel if flag is true
+
+### Thread-Local Storage
+- Threads belonging to process share process data
+- TLS (Thread Local Storage) allows each thread to have own copy of data
+  - Different from local variables
+  - Similar to static data
+---
+
+<a name="Lecture5"></a>
+## Lecture 5 - Process Synchronization
 
 
 
