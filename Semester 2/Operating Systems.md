@@ -109,7 +109,32 @@
 - Cache management is important because it is smaller in size
 
 ### I/O Structure
-- 
+- OS's have *device driver* for each device controller to manage I/O
+- Interrupt driven I/O is good for moving small data
+  - Device driver loads registers within device controller
+  - Device controller determines the action
+  - Device controller transfer data to local buffer
+  - Device controller informs driver via interrupt that its done
+  - Device driver gives control back to OS
+- This produces **High Overhead** when using it for bulk data
+  - To solve this, use DMA
+
+### Direct Memory Access (DMA)
+- Used for high speed I/O Devices
+- Transfer blocks of data from buffer to main memory without CPU
+- 1 Interrupt per block instead of byte
+  - Used for moving bulk data
+
+### Single Processor System
+- Most systems use a single-general-purpose processor
+  - Also have special-purpose processors
+  - Used for keyboards and disks
+
+### Multiprocessor System
+- Parallel / Multicore
+
+
+
 
 
 
