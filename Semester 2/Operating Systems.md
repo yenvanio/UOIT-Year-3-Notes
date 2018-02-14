@@ -925,6 +925,47 @@
 <a name="Lecture5"></a>
 ## Lecture 5 - Process Synchronization
 
+### Race Condition
+- Two processes try to change the value of the data at the same time
+- Can not know for sure which one changed first because scheduler keeps swapping processes
+
+### Critical Section
+- Each process has a critical section of code
+  - During this stage, no other processes are allowed to be in its critical section
+  - Example: When changing common variables, updating table, writing file
+- Design a protocol to solve this issue s
+  - Each process needs to request to enter its critical section
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Critical.png)
+
+- **Solution must satisfy the following**
+- Mutual Exclusion
+  - No other processes can execute critical section while one already is
+- Progress
+  - If nobody executing critical section then processes that are not in remainder stage can participate in the decision on which one will do the critical section next
+- Bounded Waiting
+  - Bound must exist on number of time other processes can enter critical sections after a process has made a request to enter critical section
+
+- **Critical Section Handling in OS**
+- 2 approaches
+  - Preemptive Kernel
+    - Allows preemption of process when running in kernel mode
+  - Non-Preemptive Kernel
+    - Process runs until it exits kernel mode, blocks, voluntarily yields
+- Preemptive kernel is more responsive, less risk
+
+### Peterson's Solution
+- Software based solution to the critical-section problem
+- Restricted to two processes that alternate execution between critical sections
+- Have `turn` and `flag[]` variables
+  - P(i) has a turn value i
+  - If flag[turn] is true then P(i) is ready
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Peterson.png)
+
+### Synchronization Hardware
+- 
+
 
 
 
