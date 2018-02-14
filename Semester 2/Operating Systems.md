@@ -468,8 +468,241 @@
 
 <a name="Lecture3"></a>
 ## Lecture 3 - Processes
+- A program in execution
+- Process has multiple parts (not all code)
+  - Text Section (Code)
+  - Program Counter
+  - Stack
+    - Function parameters, return addressees, local variables
+  - Data Section
+    - Global variables
+  - Heap
+    - Contains dynamically allocated memory
+- Program becomes process when the executable file is loaded into memory
+
+### Process State
+- As a process executes, changes state
+- Types of States
+  - New
+  - Running
+  - Waiting
+  - Ready
+  - Terminated
+
+### Process Control Block (PCB)
+- Each process represented in the OS by a PCB
+- PCB contains
+  - Process State
+    - Ready, Running, Waiting
+  - Program Counter
+    - Location of Next Instruction
+  - CPU Registers
+    - Contents of all process-centric registers
+  - CPU Scheduling Information
+    - Priorities, Scheduling & Queue Pointers
+  - Memory-Management Information
+    - Memory allocated to the process
+  - Accounting Information
+    - Amount of CPU used, Clock time elapsed, process numbers
+  - I/O Status Information
+    - list of I/O devices allocated to the process
+
+### CPU Switch from Process to Process
 
 
+### Threads
+- Process performs a single thread of execution
+- OS's allow for multiple threads
+- PCB can be expanded to include info about each thread
+
+### Process Scheduling
+- Objective of Multiprogramming is to have some process running at all times
+  - Maximizes CPU utilization
+- Objective of Time sharing is to switch CPU among processes
+- Scheduler
+  - Selects among available processes for next execution
+  - Maintains scheduling queues of processes
+  - Types of Queues
+    - Job Queue: All processes in the system
+    - Ready Queue: All processes in main memory that are waiting to execute
+    - Device Queue: Set of processes waiting for I/O Device
+
+### Queueing Diagram
+- Representation of Process Scheduling
+- Legend
+  - Rectangle = Queue
+  - Circle = Resources serving the queue
+  - Arrow = Flow of processes
+- Process
+  - New process put in ready queue
+  - Waits until selected for execution
+  - While waiting process can
+    - Issue I/O Request and move to I/O Queue
+    - Create new child process & wait for its termination
+    - Be removed from CPU due to interrupt
+
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Queue_Diagram.png)
+
+### Schedulers
+- Short Term ( CPU Scheduler )
+  - Selects which process to execute next from the ready queue
+  - Invoked frequently (milliseconds)
+- Long Term ( Job Scheduler )
+  - Selects which processes should be brought into ready queue
+  - Invoked infrequently (minutes)
+  - Controls degree of multiprogramming
+- Either...
+  - I/O Bound Process
+    - Spends more time doing I/O
+  - CPU Bound Process
+    - Spends more time doing computations
+- **Long term scheduler should select a good process mix of I/O and CPU bound**
+- Some times intermediate level of scheduling
+  - Medium Term Scheduler
+    - Added if degree of multiple programming needs to decrease
+    - Remove process from memory, store it to disk and bring it back
+    - Swapping is necessary to improve the process mix
+
+### Context Switch
+- When CPU switches processes
+  - System saves the state of old process and loads saved state for new process via **Context Switch**
+- Context of a process is represented by PCB
+- Context-switch time is an overhead, cannot do useful work while switching
+- Time increases as the complexity of context-switch increases
+
+### Process Creation
+- Parent process create children processes
+  - Children create other processes, forms a tree of processes
+  - Node is parent, leaves are children
+- Process identified and managed via PID (Process Identifier)
+- `fork()` returns  0 for child and nonzero for parent
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Tree.png)
+
+- **Resource Sharing Options**
+  - Child process may get it from OS
+  - Can also share subset of parent's resources
+    - This prevents overloading
+
+
+- **Execution Options**
+  - Parent continues to execute with children
+  - OR Parent waits until children terminate
+
+- **Address Space Options**
+  - Child process is duplicate of parent
+  - Child process loads a new program
+
+### Process Termination
+- `exit()` deletes process
+  - Returns status data from child to parent (via `wait()`)
+- Parent can use `abort()` to end child without waiting if
+  - Exceeds resources
+  - Not needed
+  - Need to terminate so parent can terminate
+- **Cascading Termination**
+  - Terminate all childs when parent is terminated
+- When process terminates, resources are deallocated by OS
+  - But entry in process table there until parent calls wait()
+- If parent does not `wait()`
+  - Zombie Process
+- If parent terminates without `wait()`
+  - Orphan Process
+  - Init becomes parent and issues `wait()` to clear orphans
+
+### Interprocess Communication
+- Independent processes are not affected by the execution of another
+- Cooperating processes can be affected though
+
+### Shared Memory Systems
+- Area of memory shared among processes that want to communicate
+- Under control of user
+  - Need System call too establish shared memory regions
+- **Produce Consumer Problem**
+  - Producer process produces info that is consumed by consumer process
+  - Need a buffer that can be filled by producer and emptied by consumer
+  - 2 Types of Buffers
+    - **Unbounded**: No Limit on Buffer Size
+      - May have to wait for new items, but can always add more
+    - **Bounded**: Fixed Buffer Size
+      - Customer needs to wait if buffer empty and producer wait if buffer full
+      - Implemented as a circular array (ends are marked as *in* and *out*)
+      - *in*  = next free position in buffer
+      - *out* = first full position in buffer
+
+### Message Passing Systems
+- Provided by OS for processes to communicate and sync actions without sharing same address space
+- Good for distributed system (chat system)
+- Process
+  - If P & Q (processes) want to communicated
+  - Need to establish communication link
+  - Exchange messages via send/receive operations
+- Implementation
+  - Physical
+    - Shared Memory
+    - Hardware Bus
+    - Network
+  - Logical Issues
+    - Direct or Indirect communication
+    - Synchronous or Asynchronous communication
+    - Automatic or Explicit Buffering
+
+
+- **To solves the issues, OS needs mechanism for naming processes, synching actions and buffering**
+  - Naming: Processes need to refer to each other
+  - Direct Communication: Processes name each other explicitly
+    - Links are established automatically
+    - Only need ID to communicate
+  - Indirect Communication: Messages are sent and received from mailboxes/ports
+    - Processes need common mailbox
+    - Can be associated with many processes
+
+#### Indirect Communication (In Depth)
+- OS needs to allow creating/deleting of mailbox
+- Sending and Receiving messages through it
+- Mailbox Sharing
+  - If P1 sends message and P2/P3 both share mailbox, who gets it?
+  - 3 options
+      - Round Robin
+      - Allow link to max out at connecting 2 processes
+      - Allow only one process to receive at a time
+
+#### Synchronization
+- Can be blocking or non-blocking
+- Blocking = Synchronous
+  - Sender blocked until message received
+  - Receiver blocked until message available
+- Non-Blocking = Asynchronous
+  - Send message and continue
+  - Receiver gets valid/null message
+
+#### Buffering
+- 3 ways
+  - **Zero Capacity:** No messages are queued on a link
+    - Sender must wait for receiver to get message
+  - **Bounded Capacity**: Queue has finite length of n messages
+    - Sender must wait if link is full
+  - **Unbounded Capacity**: Queue with infinite length
+    - Sender never waits
+
+### Sockets
+- Endpoint for communication
+- Identified by IP Address + Port
+- Ports below 1024 are well known, used for standard services
+  - Ports > 1024 are used for sockets and stuff
+- Client-Server Architecture
+  - Listen on port for client requests
+
+### Remote Procedure Calls (RPC)
+- Allows client to invoke procedure on remote host as it would do it locally
+- Hides details about communication and provides client side with stub
+  - When remote procedure is invoked, RPC calls the appropriate stub
+  - Client Side stub locates server and *marshalls* parameters
+  - Server Side stub receives the message, unpacks it and performs procedure
+
+### Pipes
+- 
 
 
 
