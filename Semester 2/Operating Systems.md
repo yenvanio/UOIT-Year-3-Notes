@@ -7,7 +7,7 @@
 <br>
 [Lecture 2 - Operating-System Structures](#Lecture2)
 <br>
-[Lecture 3 - ](#Lecture3)
+[Lecture 3 - Processes](#Lecture3)
 <br>
 [Lecture 4 - ](#Lecture4)
 
@@ -368,7 +368,106 @@
   - Allow / Deny user access
 
 
-### System Program
+### System Programs
+- File Management
+- Status Information
+- File Modification
+- Programming-Language Support
+- Program Loading & Execution
+- Communications
+- Background Services
+- Application Programs
+
+### OS Design & Implementation
+- Highly creative task of software engineering
+- Principles of designing OS
+  - **Design Goals**
+    - Define specifications (hardware, type of system)
+    - User Goals: Convenient to use
+    - Designers Goals: Easy to design and implement
+  - **Separation of mechanism and policies**
+    - Policy: What will be done?
+    - Mechanism: How to do it?
+  - **Implementation**
+    - Used to use assembly (Now its a mix)
+    - High level languages are easier to port to other hardware
+
+### Simple Structure -- MS-DOS (OS Structure)
+- Most functionality in the least space
+- Not divided into modules
+  - Not well separated
+  - More vulnerable to malicious programs
+
+### Traditional UNIX (OS Structure)
+- Not simple but not fully layered
+- Limited by hardware functionality
+- Two parts
+  - System Programs
+  - Kernel
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/UNIX.png)
+
+### Layered Approach
+- Divided into layers (levels)
+  - Each layer built on top of lower layers
+  - Layer 0 = Hardware
+  - Layer N = UI
+
+### Microkernel System Structure
+- Kernel keeps core stuff (essential stuff)
+  - Non-essential stuff becomes system and user-level programs
+- Communication happens via Message Passing Model
+- Pros
+  - Easy to extend Microkernel
+  - Easy to port
+  - More reliables (less code in kernel)
+  - More secure
+- Cons
+  - Performance overhead of user space to kernel space communication
+
+### Modules
+- Lots of OS implement *Loadable Kernel Modules*
+  - Uses OOP
+  - Each core component separate
+  - Each is loadable as needed
+  - Each talks to others over known interfaces
+
+
+- **Solaris Modular Approach**
+  - Organized around a core kernel with seven types of loadable kernel modules
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Solaris.png)
+
+### Hybrid Systems
+- Combines multiple approaches to address
+  - Performance
+  - Security
+  - Usability
+
+### OS Debugging
+- Finding / Fixing Bugs or Errors
+- OS generates log files
+- Failure of application generates core dump
+  - Core dump captures memory of process
+- OS failure generates crash dump
+  - Crash Dump contains kernel memory
+
+### Performance Tuning
+- Improves performance by removing bottlenecks
+- OS provides way to compute and display measures of system behavior
+
+### Dtrace Tool
+- Dynamically adds probes to a running system
+- Probes are fired when code is executed within a provider
+  - Captures state data and sending it to consumer of probes
+
+### OS Generation
+- `SYSGEN` = Program that obtains info about config of hardware system
+
+---
+
+<a name="Lecture3"></a>
+## Lecture 3 - Processes
 
 
 
