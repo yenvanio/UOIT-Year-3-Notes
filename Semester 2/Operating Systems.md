@@ -5,7 +5,7 @@
 
 [Lecture 1 - Introduction to OS](#Lecture1)
 <br>
-[Lecture 2 - ](#Lecture2)
+[Lecture 2 - Operating-System Structures](#Lecture2)
 <br>
 [Lecture 3 - ](#Lecture3)
 <br>
@@ -132,6 +132,166 @@
 
 ### Multiprocessor System
 - Parallel / Multicore
+- 2+ processors that share resources
+- Pros
+  - **Increased Throughput**: More work in less time
+  - **Economy of Scale**: Cost less than equivalent single-processor systems
+  - **Increased Reliability**: Graceful degradation or fault tolerance
+- Two Types
+  - Asymmetric Multiprocessing:
+    - Each processor assigned a task
+    - **Boss Worker** Relationship
+    - Boss schedules work to the worker processors
+  - Symmetric Multiprocessing:
+    - Most common
+    - All processors are peers, each processor performs all tasks
+
+### Multi-Core CPUs:
+- More efficient than multiple single-core chips
+  - On-chip communication > chip-to-chip communication
+- Uses less power than multiple single-core chips
+
+### Clustered Systems
+- Like multiprocessor systems, but its multiple systems working together
+- Use **Storage Area Network (SAN)** to share storage
+- High-Availability service that survives failures
+  - **Asymmetric Clustering**: One machine in hot-standby mode
+  - **Symmetric Clustering**: Multiple nodes running apps, monitoring each other
+- Some clusters are **High Performance Computing (HPC)**
+  - Apps use parallelization
+- Some clusters have **Distributed Lock Manager (DLM)**
+  - Avoids conflicting operations
+
+### Important Aspects of OS
+- **Multiprogramming (Batch System)**
+  - Needed for efficiency
+  - Single user cant keep CPU / I/O busy all the time
+  - Organizes jobs so CPU always has one to execute
+  - Jobs are selected and run via **Job Scheduling**
+  - Instead of waiting, switches to another job
+
+
+- **Timesharing (Multitasking)**
+  - CPU switches jobs frequently so that users can interact with jobs while they are running
+  - Response time < 1s
+  - Each user has at least one process running
+  - Several jobs ready to run, handled by CPU Scheduling
+  - If processes exceed memory space, swap them in and out
+  - Virtual memory allows processes > physical memory to execute
+
+### Dual-Mode & Multi-Mode Operations
+- OS can know when a user is executing code and when kernel is
+  - **Mode Bit**: provided by hardware (kernel(0), user(1))
+- Switch between user and kernel mode
+  - System calls go from user mode to kernel mode, then back to user after executing system call
+  - **Timer** is used to make sure user doesn't hog resources or no infinite loop
+  - After timer expires control goes back to OS
+- Can be applied to multiple modes
+  - **Virtual Machine Manager** is another mode
+  - Has more privileges than user but less than kernel
+  - Will have a bit to identify when VMM is in control
+
+### Process Management
+- **Process**: A program in execution. (Unit of work)
+  - Program is passive, process is active
+- **Single Threaded**: Process that has one program counter specifying location of next instruction to execute
+  - Process executes sequentially
+- **Multi Threaded**: Process has one program counter per thread
+
+### Memory Management
+- To execute program, must be in memory (at least a part of it)
+- Memory management determines what is in memory and when
+  - Needs to keep track of which parts of memory are being used and who's using it
+  - Decide which processes to move in and out of memory
+  - Allocate/Deallocate memory space as needed
+
+### Storage Management
+- OS provides uniform, logical view of info storage
+- File System Management
+  - Files organized into directories
+  - Access control to determine level of accessibility
+  - Activities include
+    - Create/Delete files/directories
+    - Backup onto non-volatile storage
+
+### Mass Storage Management
+- Disks used to store data that can't fit on main memory
+  - Long storage periods
+- OS responsible for
+  - Free-space management
+  - Disk Scheduling
+  - Storage allocation
+
+### Cache Coherency
+- Data might show up multiple times in the hierarchical storage structure
+- Cache coherency is making sure all levels of data have the most recent value in their cache
+
+### I/O Systems
+- Subsystem consists of
+  - Memory Management of I/O
+    - Buffering - Storing data temporarily while being transferred
+    - Caching - Storing parts of data in faster storage for performance
+    - Spooling - Overlapping output of one job with input of others
+
+### Protection & Security
+- **Protection**: Controlling access of resources to processes and users
+- **Security**: Defense of system against attacks (Internal / External)
+- Systems first distinguish among users (Who can do what)
+  - User ID's - Associated with files, processes, determine access
+  - Group ID's - Define the above to a group of users
+  - **Privilege Escalation** - Allows users to change effective ID with more rights
+
+### Kernel Data Structures
+- Array
+- List
+- Linked List
+  - Singly
+  - Doubly
+  - Circularly
+- Stack (LIFO)
+- Queue (FIFO)
+- Trees
+  - Binary
+  - Binary Search Tree - O(N) performance
+  - Balanced Binary Search Tree - O(log(2)n) performance
+- Hash Functions & Maps
+  - Hash collision control - Secondary Hash Function, Linear Probing, Linked List
+- Bitmaps
+  - String of `n` binary digits that represent status of `n` items
+  - `001011101`
+    - Resources: 2,4,5,6,8 are unavailable because 0 and rest are available
+
+### Computing Environments
+- Traditional Computing
+- Mobile Computing
+- Distributed Computing
+  - LAN / WAN / MAN / PAN
+- Client Server
+- Peer to Peer
+- Virtualization
+  - Allows OS's to run as applications inside other OS's
+  - Emulation (Running android on laptop for testing)
+- Cloud Computing
+  - Types
+    - Public Cloud
+    - Private Cloud
+    - Hybrid Cloud
+  - Services
+    - SaaS = Software as a Service
+    - PaaS = Platform as a Service
+    - IaaS = Infrastructure as a Service
+---
+
+<a name="Lecture2"></a>
+## Lecture 2 - Operating-System Structures
+
+
+
+
+
+
+
+
 
 
 
