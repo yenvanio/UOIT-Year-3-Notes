@@ -285,6 +285,90 @@
 <a name="Lecture2"></a>
 ## Lecture 2 - Operating-System Structures
 
+### Operating System Services
+- User Interface - All systems have a UI
+  - Command Line Interpreter (CLI)
+  - Graphics User Interface (GUI)
+  - Batch Interface
+- Program Execution
+- I/O operations
+- File-System Manipulation
+- Communications
+- Error Detection
+- Resource Allocation
+- Accounting
+- Protection & Security
+
+### Command Interpreters
+- CLI allows direct command entry
+- Fetches command from user and executes
+- Examples
+  - BASH
+  - C Shell
+  - Korn Shell
+  - Bourne Shell
+
+### System Calls
+- Provide interface to the services of the OS
+- Written in high level language
+  - C / C++
+- Accessed via API (Application Programming Interface)
+  - Another High level language
+
+### System Call Implementation
+- Number associated with each system call
+  - System Call Interface (SCI) maintains table with these numbers
+- SCI invokes system call in OS kernel
+  - Returns status of system call
+
+### System Call Parameter Passing
+- 3 Methods used
+  - Passing parameters in registers
+  - Passing parameters in a block / table
+  - Parameters placed/pushed onto stack by program and popped off by OS
+**Block and stack methods DO NOT limit number/length of parameters being passed**
+
+### Types of System Calls
+- **Process Control**
+  - Create / Terminate Processes
+  - Wait / Signal Events
+  - Allocate / Free Memory
+  - Debugger
+  - Locks
+  - Example
+    - `fork()` to start new process, `exec()` to load system call, `exit()` to end
+
+
+- **File Management**
+  - Create / Delete / Open / Close / Read / Write Files
+
+
+- **Device Management**
+  - Request / Release Devices
+  - Read / Write / Reposition
+  - Get / Set Device Attributes
+
+
+- **Information Maintenance**
+  - Get / Set Time & Date
+  - Get / Set System Data
+  - Get / Set process, file, attributes
+
+
+- **Communications**
+  - Create / Delete Communication connections
+  - Transfer status info
+  - Interprocess communication
+    - Message-Passing Model: exchange small data from client to server
+    - Shared-Memory Model: inter-computer communication
+
+
+- **Protection**
+  - Get / Set Permissions
+  - Allow / Deny user access
+
+
+### System Program
 
 
 
