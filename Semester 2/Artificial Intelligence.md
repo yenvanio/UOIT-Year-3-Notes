@@ -4,6 +4,12 @@
 
 [Lecture 1](#Lecture1)
 <br>
+[Lecture 2](#Lecture2)
+<br>
+[Lecture 3](#Lecture3)
+<br>
+[Lecture 4](#Lecture4)
+<br>
 
 
 <a name="Lecture1"></a>
@@ -150,7 +156,7 @@
   - Buys goods and services on your behalf
 
 ### Domain Tasks
-- Modelling Environment
+- Modeling Environment
   - Build models of physical environment
 - Evidential Reasoning
   - Given observations, determine what the world is like
@@ -158,3 +164,93 @@
   - Given model of world and goal, determine what to do
 - Learning from Past Experiences
   - Learn about specific case and population of cases
+
+### Representations
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Representations.png)
+
+- Representations
+  - Should be rich enough to express knowledge needed to solve problem
+  - As close to the problem as possible
+  - Should be changeable, to accommodate efficient computation
+    - Point out areas that can be exploited for computational gain
+    - Able to trade off between accuracy and computation time/space
+  - Acquired from people, data, past experiences
+
+### Solutions
+- Optimal
+  - Best solution
+- Satisfying  
+  - Good enough solution
+- Approximately Optimal
+  - Close to the best theoretically possible solution
+- Probable
+  - What is likely going to end up being the solution
+
+### Symbols
+- Meaningful pattern that can be manipulated
+- **Symbol System**
+  - Creates
+  - Copies
+  - Modifies
+  - Destroys
+- **Physical Symbol System Hypothesis**
+  - Has necessary and sufficient means for general intelligent action
+- 2 levels of abstraction
+  - Knowledge Level
+    - About the agent's external world
+    - Is in terms of what agent knows and what agent's goals are
+  - Symbol Level
+    - About what an agent uses to implement the knowledge level
+    - Is in terms of agent's reasoning
+
+### Mapping from Problem to Representation
+- Choosing abstraction level
+  - High Level description is easier for human
+  - Low level description is more accurate but more difficult to reason with
+  - Can use multiple levels of abstraction
+- Reasoning & Acting
+  - Design Time Reasoning & Computation
+    - Carried out by designer of agent
+  - Offline Computation
+    - Done by agent before it acts
+  - Online Computation
+    - Done by agent after receiving information and before acting
+
+---
+
+<a name="Lecture2"></a>
+## Lecture 2
+
+### Agent Systems
+- Consists of
+  - Agent
+  - Environment
+- Agent receives stimuli from environment
+- Agent carries out actions in the environment
+
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Agent.png)
+
+
+----
+
+
+
+<a name="Lecture3"></a>
+## Lecture 3
+
+
+
+
+---
+
+
+
+
+<a name="Lecture4"></a>
+## Lecture 4
+
+
+
+
+----
