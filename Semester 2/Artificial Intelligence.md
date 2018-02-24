@@ -342,9 +342,9 @@ given timeout and target pos:
   while not arrived() and remaining 6= 0
     if whisker sensor = on
       then steer := left
-    else if straight ahead(rob pos, robot dir,target pos)
+    else if straight ahead(rob pos, robot dir, target, pos)
       then steer := straight
-    else if left of (rob pos, robot dir,target pos)
+    else if left of (rob pos, robot dir, target, pos)
       then steer := left
     else steer := right
     do(steer)
@@ -371,7 +371,7 @@ given plan:
   timeout ← 200
   while not empty(to do)
     target pos := coordinates(first(to do))
-    do(timeout,target pos)
+    do(timeout, target, pos)
     to do := rest(to do)
 
 ```
@@ -388,7 +388,96 @@ given plan:
 <a name="Lecture3"></a>
 ## Lecture 3
 
+### Directed Graphs
+- Consists of
+  - A set of `N` nodes
+  - A set of ordered pair of nodes called `arcs`
+- **Neighbors**: Two nodes are neighbors if there is arc from one node to another
+- **Path**: Is a sequence of nodes
+- **Length**: Length of a path `n0 - nk` = k
+- Given set of start nodes and goal nodes
+  - **Solution** is a path from start to goal
 
+### Graph Searching
+- Given a graph, start nodes and goal nodes
+  - Incrementally explore paths from the start node
+- Maintain a *frontier* of paths from the start node that have been explored
+- Frontier expands into unexplored nodes until goal node is found
+  - This frontier expansion defines the search strategy
+
+```
+Graph Search Algorithm
+
+Input: Graph, Set of Start Nodes, Boolean Test for Goal Node
+
+frontier := {hsi : s is a start node};
+
+while frontier is not empty:
+  select and remove path < n0, . . . , nk > from frontier;
+  if goal(nk)
+    return < n0, . . . , nk >;
+  for every neighbor n of nk
+    add < n0, . . . , nk , n > to frontier;
+end while
+
+```
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/GraphSearch.png)
+
+### Depth First Search
+- Treats frontier as a stack
+- Always selects one of the last elements added to the frontier
+- If the list of paths on the frontier is [p1,p2...]
+  - p1 is selected
+  - Paths that extend from p1 are added to the front of the stack
+  - Once all paths explored
+  - p2 is selected
+- Basically asks one neighbor if it has path to goal
+  - That neighbor asks all its children and responds (yes or no)
+  - Then asks next neighbor and so on
+  - Goes deep before going across
+
+### Breadth First Search
+- Treats frontier as a queue
+- Always selects one of the earliest elements added to the frontier
+- If the list of paths on the frontier is [p1,p2...pr]
+  - p1 is selected
+  - p1's neighbors are added to the end of the queue (after pr)
+  - p2 is selected next
+- Basically asks neighbors before asking their children
+  - Goes across before going deep
+
+
+[DFS & BFS Explained (Simple)](https://www.youtube.com/watch?v=zaBhtODEL0w)
+
+
+### Lowest Cost First Search
+- Costs can be associated with arcs
+  - Numbers on the lines connecting neighbors
+- Optimal solutions has minimum cost
+- Each step
+  - Select a path from frontier with lowest cost
+  - Frontier is a priority queue ordered by path cost
+  - If costs are all equal then BFS
+
+### Heuristic Search
+- Don't ignore the goal when selecting paths
+- **Heuristics**: Extra knowledge that can be used to guide the search
+- `h(n)` is an estimate of the cost of the shortest path from node n to goal node
+  - Needs to be efficient
+  - Can be extended to paths `h(< n0,...,nk >) = h(nk)`
+  - **Underestimate**: If there is no path from node n to goal node
+  - **Admissible Heuristic**: Non-negative function that is an underestimate of the actual cost of a path to a goal
+- Does not guarantee best solution
+  - Guarantees good solution in *reasonable time*
+
+### Best First Search
+- Select the path whose end is closest to a goal according to the heuristic function
+- Selects a path on the frontier with minimal `h` value
+  - Frontier is a priority queue ordered by `h`
+
+
+### A* Search
 
 
 
