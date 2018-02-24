@@ -228,16 +228,166 @@
 - Agent receives stimuli from environment
 - Agent carries out actions in the environment
 
+### Agent System Architecture
+- Agent consists of
+  - Controller (Receives percepts from the body)
+  - Body (used to interact with environment)
+- Body consists of
+  - Sensors (Interpret Stimuli)
+  - Actuators (Carry out actions)
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Agent.png)
 
+- Body uses sensors to interpret stimuli and send it to controller which then sends commands to the body.
+
+### Agent Functions
+- T = Set of time points
+- **Percept Trace**
+  - Sequence of all past, present, future percepts received by controller
+- **Command Trace**
+  - Sequence of all past, present, future commands output by the controller
+- **Transduction**
+  - Function from percept traces to command traces
+  - It is *casual* if command trace up to time `t` depends only on percept trace up to time `t`
+- **Controller**
+  - Implementation of a casual transduction
+- Agent History at time `t` is a sequence of
+  - Past & Present percepts
+  - Past Commands
+- A casual transduction specifies a function from an agent's history at time `t` into its action at time `t`
+
+### Belief States
+- Agent does not have access to entire history
+  - Only what it can remember
+- Memory / Belief State of an agent at time `t`
+  - Encodes all of the agent's history that it has access to
+- Belief State encapsulates information about its past that can be used for current and future actions
+- Controller must decide the following
+  - What to do
+  - What to remember
+  - How to update memory
+
+### Controller
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Controller.png)
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Controller_Functions.png)
+
+- For a discrete time controller implements
+  - Belief State Function `remember(beleif_state, percept)`
+    - returns the next belief state
+  - Command Function `command(memory, percept)`
+    - returns the command for the agent
+
+```
+Example: Snack buying agent that ensures you have a supply of chips
+
+Percepts: Price, Number in Stock
+Action: Number to Buy
+Belief State: Average
+Controller: If price < (0.9 * average) & instock < 60
+              Then Buy 48
+            Else If instock < 12
+              Then Buy 12
+            Else
+              Buy 0
+
+Belief State Transition Function
+  average := average + (price - average) * 0.05
+
+
+```
+
+### Hierarchical Control
+- Better to implement intelligent agents rather than 3 independent modules
+- Each controller sees the controllers below as virtual bodies
+  - They can get percepts from and sends commands to these bodies
+- Lower level controllers
+  - Run faster, react quicker
+  - Deliver simple view of world to higher level controllers
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Hierarchical.png)
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/functions_1.png)
+
+- Memory Function `remember(memory, percept, command)`
+- Command Function `do(memory, percept, command)`
+- Percept Function `higher_percept(memory, percept, command)`
+
+
+### Delivery Robot Example
+- 3 actions
+  - Left
+  - Right
+  - Straight
+- Can be given a plan
+  - Consisting of locations where the robot needs to turn
+- Whisker sensor
+  - Can detect objects when whisker hits it
+  - Robot can identify location of objects this way
+
+#### Decomposition
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/decomposition.png)
+
+#### Middle Layer
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/middleLayer.png)
+
+```
+Middle Layer Pseudocode
+
+given timeout and target pos:
+  remaining ← timeout
+  while not arrived() and remaining 6= 0
+    if whisker sensor = on
+      then steer := left
+    else if straight ahead(rob pos, robot dir,target pos)
+      then steer := straight
+    else if left of (rob pos, robot dir,target pos)
+      then steer := left
+    else steer := right
+    do(steer)
+    remaining ← remaining − 1
+tell upper layer arrived()
+
+```
+
+#### Top Layer
+- Given a plan
+  - Consists of named locations
+- Tells middle layer goal position of current location
+- Needs to remember the goal position and the locations that still need to be visited
+- When middle layer signals that robot arrived
+  - Top layer takes next location from positions to visit and there is a new goal position
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/topLayer.png)
+
+```
+Top Layer Pseudocode
+
+given plan:
+  to do ← plan
+  timeout ← 200
+  while not empty(to do)
+    target pos := coordinates(first(to do))
+    do(timeout,target pos)
+    to do := rest(to do)
+
+```
+
+### Agent Belief State
+- Agent decides what to do based on its belief state and what it observes
+- Purely reactive agent does NOT have a belief state
+- A dead reckoning agent doesn't perceive the world
+  - Also don't work very well in complicated domains
+- Useful for belief state to be a model of the world
 
 ----
 
-
-
 <a name="Lecture3"></a>
 ## Lecture 3
+
 
 
 
