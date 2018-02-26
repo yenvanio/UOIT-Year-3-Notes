@@ -478,6 +478,43 @@ end while
 
 
 ### A* Search
+- Uses both path cost & heuristic values
+- `cost(p)` is the cost of path `p`
+- `h(p)` is the estimate cost from `p` to goal
+- `f(p) = cost(p) + h(p)` which estimates total path cost from start to goal via `p`
+- Treats frontier as a priority queue ordered by `f(p)`
+  - Mix of lowest-cost-first and best-first searches
+- Selects nodes from frontier such that...
+  - Selected node has the lowest estimate distance from start to goal
+  - The path goes through the selected node
+- A* finds the optimal solution **if** ...
+  - Branching factor is finite
+  - All arc (path between two nodes) costs are above a value `e` and `e` > 0
+  - `h(n)` is an admissible heuristic
+
+#### Why is A* Admissible
+- If a path `p` is selected from a frontier this means that it was selected because it's `f(p)` was better than the other paths SO...
+  - `cost(p) <= f(p')` SO `cost(p) <= cost(p') + h(p')`
+  - && `cost(p') + h(p') <= cost(p")`
+- This proves that `cost(p)` will be less than any other subsequent paths
+
+
+### Summary of Search Strategies
+|Strategy|Frontier Selection|Complete|Halts|Space|
+|--------|------------------|--------|-----|-----|
+|Depth First|Last node added|No|No|Linear|
+|Breadth First|First node added|Yes|No|Exp|
+|Heuristic Depth-First|Local Min `h(p)`|No|No|Linear|
+|Best-First|Global Min `h(p)`|No|No|Exp|
+|Lowest-Cost-First|Minimal `cost(p)`|Yes|No|Exp|
+|A*|Minimal `f(p)`|Yes|No|Exp|
+
+**Complete** = If there is a path to a goal, it can find one (Even on infinite graphs)
+**Halts** = On finite graph (Perhaps with cycles)
+**Space** = As a function of length of current path
+
+### Cycle Checking
+- 
 
 
 
