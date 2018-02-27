@@ -612,9 +612,96 @@ end while
 <a name="Lecture4"></a>
 ## Lecture 4
 
+### Constraint Satisfaction Problem
+- CSP is characterized by
+  - Variables `V1....Vn`
+  - Each variables has associated domains `DV1....DVn`
+  - Set of constraints for each variable
+  - A solution to CSP is assigning values to each variable that satisfies the constraints
 
+### Generate and Test Algorithm
+- A method for solving a CSP
+- Exhaustive method
+- Tries all possible assignments
+- Checks constraints at the end
 
+### Backtracking Algorithm
+- A method for solving a CSP
+- Assign values to variables one at a time
+- Evaluate each constraint as you add variables
+- If a partial assignment violates constraints you can skip and not have to do full assignment because that will also violate
 
+**Partial Assignment**: Assign values to some variables in a set
+  - Ex: V1 = 2, V2 = 3, V3 = 7, V4, V5, V6
+  - Can stop if v1, v2, or v3 already violate constraint
 
+**Full Assignment**: Assign values to all variables in a set
+  - Ex: V1 = 2, V2 = 3, V3 = 7, V4 = 9, V5 = 8, V6 = 4
+
+### CSP & Graph Searching
+- Parent node is empty
+- All other nodes are variables
+  - Each set of child nodes for a given parent is the domain of a variable
+- Follow the path as long as it follows the constraint
+- See picture below for clarity
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/cspTree.png)
+
+### Consistency Algorithm
+- Variable is **domain consistent** if none of the values in the domain violate a constraint
+
+### Constraint Network
+- Oval
+  - Represents variable
+  - Domain of values for each variable node
+- Rectangle
+  - Represents constraint
+- Arc from each variable to its respective constraints
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/constraintNetwork.png)
+
+### Arc Consistency
+- An arc is **arc consistent** if for each value `x` there is a value y such that the constraint linking `x` and `y` is satisfied
+- A network is **arc consistent** if all the arcs are consistent
+- If there is a value in the domain `x` for which there is no corresponding `y` to satisfy the constraint then remove that `x` value to make the arc consistent
+
+### Arc Consistency Algorithm
+- Consider arcs one by one so they make each other consistent
+- Only need to re-check an arc if domain changes
+- To find solution when network is arc consistent
+  - If domain has more than one element
+    - Search
+    - Split domain in half and recursively solve
+- When network is consistent only 3 possible outcomes
+  - One domain is empty = **No Solution**
+  - Each domain has a single value = **Unique Solution**
+  - Some domains have more than one value = **There may or may not be a solution**
+
+### Hard & Soft Constraints
+- Values assigned to a variable that...
+  - Satisfies a set of constraints
+    - Satisfiability Problems
+    - **Hard Constraints**
+  - Minimizes some cost function
+    - Each assignment of value to variable has a cost
+    - Optimization Problems
+    - **Soft Constraints**
+
+### Local Search
+-
+
+### Greedy Descent
+-
+
+### Complex Domains
+- For small domains, neighbors of an assignment can choose other values for the variables
+- For large domains, neighbors of an assignment are adjacent values for the variables
+- For continuous domains, **Gradient Descent** changes variables proportionally to the gradient of the heuristic function in that direction
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/gradient.png)
+
+### Randomized Greedy Descent
+- **Random Steps**: Move to a random neighbor
+- **Random Restart**: Reassign random values to all variables 
 
 ----
