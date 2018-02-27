@@ -514,17 +514,105 @@ end while
 **Space** = As a function of length of current path
 
 ### Cycle Checking
-- 
+- A searcher can remove a path `p` without removing an optimal solution given that...
+  - `p` is a path that ends in a node already on the path
+
+### Multiple Path Pruning (Removing)
+- Remove a path to node `n` that the searcher has already found a path to
+  - See diagram below
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/MPPrune.png)
+
+### Multiple Path Pruning & Optimal Solutions
+- What if a subsequent path to `n` is shorter than the first path to `n`?
+  - Remove all paths from frontier that use longer path
+  - Change initial segment of paths on frontier to use shorter path
+  - Make sure this does not happen. Make sure shortest path is always found first
+
+### Multiple Path Pruning & A*
+- Suppose path `p` to node `n` was selected but there is a shorter path to `n`
+  - Suppose the shorter path `p'` ends at node `n'`
+  - `p` was selected before `p'` so
+    - `cost(p) + h(n) <= cost(p') + h(n')`
+  - If `cost(n', n)` is the actual cost of path from `n'` to `n` then
+    - `cost(p') + cost(n', n) < cost(p)` because `p'` shorter than `p`
+  - SO... `cost(n' n) < cost(p) - cost(p') <= h(n') - h(n)`
+- To make sure this doesn't happen
+  - Ensure that `|h(n') - h(n)|  <=  cost(n', n)`
+
+### Monotone Restriction
+- IF heuristic function `h` satisfies the following requirement it is known as a monotone restriction
+  - `|h(m) - h(n)|  <=  cost(m, n)` for every arc `<m, n>`
+
+### Direction of Search
+- **Forward Branching Factor**: Number of arcs out of a node
+- **Backward Branching Factor**: Number of arcs into a node
+- Search complexity = `b^n`
+  - Use forward or backward search depending on which one has smaller branching factor
+
+### Bidirectional Search
+- Search backward from goal and forward from start **at the same time**
+- This is better because instead of `b^n` it becomes `2b^n/2`
+- Have to make sure the frontiers meet
+- Often done like this  
+  - One direction uses breadth-first search to build a set of locations that can lead to goal
+  - Another location finds paths to these locations
+
+### Island Driven Search
+- Find set of islands between start and goal
+- The time complexity then becomes `m * b^k/m` vs `b^k`
+  - Because `m` smaller problems rather than 1 big one
+- Problem is the path must pass through islands
+  - Harder to guarantee optimality
+- Subproblems are solved using islands
+  - **Hierarchy of Abstractions**
+
+### Dynamic Programming
+- For a statically stored graph, build a table of `dist(n)`
+  - Contains the actual distance of shortest path from `n` to goal
+- Can be used locally to determine what to do
+- 2 big problems
+  - Needs enough space to store graph
+  - `dist()` function must be recomputed for each goal
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/dist.png)
 
 
+### Bounded Depth First Search
+- Does regular depth first search but does not exceed a set bound
+  - Paths that exceed that bound are not expanded (don't even look at children nodes)
+- Explores part of the search graph
+- Uses linear space in the depth of the search
+
+### Iterative Deepening Search
+- Procedure
+  - Start with bound `b = 0`
+  - Do a bounded depth first search with bound `b`
+  - If solution is found, return it
+  - If not, increment `b` and repeat
+- Complexity
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/idC.png)
+
+### Depth First Branch-and-Bound
+- Want to find a single optimal solution
+  - Bound is set to be the cost of the lowest-cost path found so far
+  - If a worse path is found then remove it
+  - If a better path is found then make it the new best and update bound
+  - Upon completion, will have a single optimal solution
+
+#### Initializing Bound for Depth First Branch-and-Bound
+- Can be initialized to infinity (very large number)
+  - Something so that the first path found will override it
+- Can be set to an estimate of the optimal path cost
 
 ---
 
 
-
-
 <a name="Lecture4"></a>
 ## Lecture 4
+
+
 
 
 
