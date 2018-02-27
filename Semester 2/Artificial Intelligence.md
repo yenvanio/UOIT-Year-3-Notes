@@ -695,13 +695,76 @@ end while
 
 ### Complex Domains
 - For small domains, neighbors of an assignment can choose other values for the variables
-- For large domains, neighbors of an assignment are adjacent values for the variables
+- For large domains, neighbors of an assignment should choose adjacent values for the variables
 - For continuous domains, **Gradient Descent** changes variables proportionally to the gradient of the heuristic function in that direction
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/gradient.png)
 
 ### Randomized Greedy Descent
 - **Random Steps**: Move to a random neighbor
-- **Random Restart**: Reassign random values to all variables 
+- **Random Restart**: Reassign random values to all variables
+
+### Stochastic Local Search
+- Mix of
+  - **Greedy Descent**: Move to a lowest neighbor
+  - **Random Walk**: Taking some random steps
+  - **Random Restart**: Reassigning values to all variables
+
+### Random Walk
+- When choosing best variable-value pair, sometimes do it randomly
+- When selecting variable then value
+  - Sometimes choose variable that participate in the most conflicts
+  - Sometimes choose variable that participate in any conflict
+  - Sometimes choose anything
+- Sometimes best value, sometimes random value
+
+### Variant: Simulated Annealing
+- Procedure
+  - Pick a variable at random
+  - Pick a new value at random
+  - If improvement, take it
+  - If not improvement, take it based on a probability `T`
+
+- Probability of moving from `n` to `n'`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/moveP.png)
+
+- Probability of accepting a change
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/tableP.png)
+
+### Tabu Lists
+- Prevents cycling
+- Maintain list of the last `k` assignments
+- Don't allow assignment if it's on the list
+- If `k = 1` then cannot assign to same value as chosen variable
+
+### Parallel Search
+- *A total assignment is called an* **individual**
+- Maintain a population of `k` individuals instead of one
+- At each stage, update the individuals in the population
+- If individual = solution, report it
+
+### Beam Search
+- Like Parallel Search, but choose `k` best individuals out of the neighbors
+- If k = 1, greedy descent
+- When k = infinity, breadth-first search
+
+### Stochastic Beam Search
+- Like Beam Search, but uses probability to choose `k` best individuals
+- Probability of being chose depends on heuristic value
+  - Reflects fitness value of individual
+- The fittest ones survive
+
+### Genetic Algorithms
+- Like Stochastic Beam Search, but pairs of individuals are combined to create offspring
+- Each generation
+  - Randomly choose pairs where the fitness values are higher (more likely to be chosen)
+  - Perform cross-over (Form two offspring each, taking different parts of the parents)
+- **Crossover**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Crossover.png)
+
+### Variable Elimination
+- Eliminate variables one-by-one passing the constraints to the neighbor
+
+
 
 ----
