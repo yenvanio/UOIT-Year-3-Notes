@@ -1,6 +1,16 @@
 # Software Quality Quiz 1 Notes
 
-## Week 1
+
+[Week 1 - Introduction ](#Lecture1)
+<br>
+[Week 2 - Processes, Methods, Techniques for Developing Quality Software](#Lecture2)
+<br>
+[Week 3 - Software Testing at the Unit, Module, Subsystem & System Levels](#Lecture3)
+<br>
+
+
+<a name="Lecture1"></a>
+## Week 1 - Introduction
 
 ### Software Failure
 - Caused by
@@ -194,6 +204,7 @@
 
 ---
 
+<a name="Lecture2"></a>
 ## Week 2 - Processes, Methods, Techniques for Developing Quality Software
 
 ### Implications of Maturity
@@ -284,5 +295,121 @@
   - Specification is developed as the system is, but most places have a complete specification right at the start
 
 ### Boehm's Spiral Model
-- 
+- Process represented as a spiral instead of sequence of activities
+- Each loop in the spiral is a phase
+- Sectors
+  - **Objective Setting**
+    - Specific objectives for the phase are identified
+  - **Risk Assessment & Reduction**
+    - Risks are assessed and activities put in place to reduce the key risks
+  - **Development & Validation**
+    - A development model for the system is chosen which can be any of the generic models
+  - **Planning**
+    -  The project is reviewed and the next phase of the spiral is planned
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bsm.png)
+
+### Extreme Programming
+- Intended to improve software quality and responsiveness to changing customer requirements
+  - Focuses on customer satisfaction
+  - Delivers small features by priority in frequent intervals
+- XP Practices
+  - Pair Programming (Teams of 2)
+  - Test Driven Development (Writing lots of tests and writing them early)
+  - Continuous Integration (Putting code together as you write it, not at the last minute)
+  - Coding Standards (Learn and follow well-established conventions)
+  - Collective Code Ownership (You are responsible for your partner's code)
+  - Simple Design (Eschew Obfuscation)
+
+### Rational Unified Process
+- Modern generic process derived from UML and associated process
+- Brings together 3 generic process models
+- Described from 3 perspectives
+  - Dynamic perspective that shows phases over time
+  - Static perspective shows process activities
+  - Perspective that suggests good practice
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/rul.png)
+- Phases
+  - Inception
+    - Establish business case for the system
+  - Elaboration
+    - Develop an understanding of the problem domain and the system architecture
+  - Construction
+    - System Design, Programming & Testing
+  - Transition
+    - Deploy system in its operating environment
+- Iterations
+  - In-Phase Iteration
+    - Each phase is iterative with results developed incrementally
+  - Cross-Phase Iteration
+    - As shown by the loop in the diagram above, whole set of phases may be enacted incrementally
+
 ----
+
+<a name="Lecture3"></a>
+## Week 3 - Software Testing at the Unit, Module, Subsystem & System Levels
+
+### Testing vs Debugging
+- **Testing**: Evaluating software by observing its execution
+  - Ways to test
+    - Compile it
+    - Run it on one input
+    - Run it on many inputs
+    - Run it on a representative set of inputs
+    - Run it on all inputs
+- **Debugging**: The process of finding a fault given a failure
+
+### Definitions
+- **Test Case**: Test case values, expected results, prefix values, and postfix values necessary to evaluate software under test
+  - Specify input and expected output
+- **Test Set**: Set of test cases
+- **Expected Results**: The result that will be produced when executing the test if and only if the program satisfies its intended behavior
+- **Test Case Values**: Input values necessary to complete some execution of the software under test
+- **Prefix Values**: Inputs to prepare software for test case values
+- **Postfix Values**: Inputs for software after test case values
+- **Verification Values**: Inputs to show results of test case values
+- **Exit Commands**: Inputs to terminate program or to return it to initial state
+- **Test Requirement**: Specific element of a software artifact that a test case must satisfy or cover
+- **Test Coverage**: A coverage criterion is a rule or set of rules that impose test requirements on a test set.
+- **Unit Testing**: Tests individual subsystems, confirms that subsystems are correctly coded and carries out the intended functionality
+- **Integration Testing**: Tests groups of subsystems, tests the interface among the subsystem
+- **System Testing**: The entire system, determines if system meets the requirements (functional and global)
+- **Acceptance Testing**: Demonstrate that the system meets customer requirements and is ready for use
+- **Coverage Level**: Given a set of test requirements `TR` and a test set `T` the coverage level is the ratio of the number of test requirements satisfied by `T` to the size of `TR`
+  - Example
+  - `TR = {flavor=chocolate, flavor=vanilla, flavor=mint}`
+  - `T = {3 chocolate, 1 vanilla}`
+  - Coverage Level = 2/3 = 66.7%
+- **Subsumption**: A test criterion C1 subsumes C2 if and only if **every** set of test cases that satisfies criterion C1 also satisfies C2
+
+### Graph Coverage
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/gc.png)
+- If `G'` is a subgraph of `G` then the nodes must also be a subset
+  - Initial nodes of subgraph will be nodes of Nsub - N0 from parent graph  
+  - Final nodes of subgraph will be nodes of Nsub - Nf from parent graph
+
+### Path
+- A sequence of nodes from a graph `G` whose adjacent pairs all belong to the set of edges `E of G`
+  - Basically a path is formed with nodes that are neighbors
+  - If a node is not a neighbor the path is invalid
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/path.png)
+- **Subsequence**: Can be derived from another sequence by deleting some elements without changing the order of the remaining elements
+- **Subpath**: All the edges must be in the path
+
+### Control Flow Graph (CFG)
+- Fundamental graph for source code
+- **CFG Nodes**: Zero or more statement s
+- **CFG Edges**: An edge `(s1, s2)` indicates that `s1` may be followed by `s2` during execution
+- **Basic Block**: Has one entry point and one exit point
+
+- CFG Example
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/selfCheck1.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/selfCheck2.png)
+
+- CFG Basic Block Example
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/basikBlok.png)
+
+
+
+
+
+---
