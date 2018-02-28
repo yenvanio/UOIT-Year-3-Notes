@@ -190,12 +190,14 @@
   - Ex: MTBF = 68 + 3 days = 71 days
     - Failures per 100 days = 1/71 x 100 = 1.4
 - Availability: Probability of operation according to requirements at a given point in time
-  - Availability = [MTTF / (MTTF + MTTR)]
-  - Ex: Avail = [68 days / (68 + 3 days)] = 96%
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/r&a.png)
 
 ---
 
 ## Week 2 - Processes, Methods, Techniques for Developing Quality Software
+
+### Implications of Maturity
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/CMM.png)
 
 ### Plan Driven & Agile Processes
 - Plan Driven
@@ -206,13 +208,81 @@
   - Can be changed as customer requirements change
 
 ### Waterfall Model
-- Phases
-  - Requirements Analysis & Definition
-  - System and Software Design
-  - Implementation and Unit Testing
-  - Integration and System Testing
-  - Operation and Maintenance
 - One phase must be completed before moving onto next phase
+- Harder to accommodate changes  
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/waterfall.png)
 
 ### Incremental Development
+- Project is completed in versions
+  - Each version implements new functionality
+- Easier to accommodate changes compared to waterfall
+  - Because versions are developed quickly it is costly to produce documentation for all the intermediate versions
+- Easier to get customer feedback on the different versions
+- System structure degrades without time spent refactoring it
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/increment.png)
+
+### Reuse Oriented Software Engineering
+- Reuses existing components or **COTS** (Commercial-Off-The-Shelf) systems
+- Becoming a standard approach for building many types of business systems
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/reuse.png)
+
+### Requirements Engineering Process
+- Process of establishing needed services and necessary constraints
+- Feasibility Study
+  - Is it technically & financially feasible to build?
+- Requirements Elicitation and Analysis
+  - What do stakeholders require/expect from the system?
+- Requirements Specification
+  - Define requirements in detail
+- Requirements Validation
+  - Checking validity of requirements
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/reqengp.png)
+
+### Software Design & Implementation
+- Process of converting system specifications into an executable system
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/dp.png)
+
+### Design Activities
+- **Architectural Design**: Identify overall structure of the system, the principal components (subsystems / modules) and their relationships
+- **Interface Design**: Define interfaces between system components
+- **Component Design**: Take each system component and design how it will operate
+- **Database Design**: Design system data structures and how they will be represented in a database
+
+### Reducing costs of Rework
+- **Change Avoidance**
+  - While designing process, anticipate possible changes before significant rework is required
+- **Change Tolerance**
+  - Process is designed so changes can be made at a lower cost
+
+### Software Prototyping
+- Prototype is an initial version of a system used to demonstrate concepts and design options
+- Benefits
+  - Improved System Usability
+  - Improved Design Quality  
+  - Improved Maintainability
+  - Reduced development effort
+- Should focus on areas of the product that are not well understood
+  - Can get clarity from customer when presenting a prototype
+- Don't always need error checking and recovery in the prototype
+- Focus on functional > non-functional requirements (Security / Reliability)
+
+- Development Process
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pd.png)
+
+- **Throw Away Prototypes**: Discarded after development, will not be used in final product
+
+### Incremental Delivery
+- Instead of delivering one system
+  - Break it down in increments
+  - Each increment delivers part of the required functionality
+- User requirements are included in early increments (higher priority)
+- During development of an increment, requirements are frozen (no change until next increment)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/id.png)
+- Problems
+  - Hard to identify what parts are needed by all increments until all of them are implemented
+  - Specification is developed as the system is, but most places have a complete specification right at the start
+
+### Boehm's Spiral Model
 - 
+----
