@@ -37,25 +37,25 @@
 
 #### Structure of Software Test Plan ( STP )
 - **1 - Introduction**
-  - **1.1** Objectives
+  - **1.1 Objectives**
     - Scope, Approach, Resources, Schedule. High Level Summary of everything
-  - **1.2** Testing Strategy
+  - **1.2 Testing Strategy**
     - High Level Test plan for each level of testing
-  - **1.3** Scope
+  - **1.3 Scope**
     - Plans for producing scheduled and unscheduled updates to the STP
-  - **1.4** Reference Manual
+  - **1.4 Reference Manual**
     - List of referenced sources
-  - **1.5** Definitions & Acronyms
+  - **1.5 Definitions & Acronyms**
     - Definitions of all terms and agency acronyms
 
 - **2 - Test Items**
-  - **2.1** Program Modules
+  - **2.1 Program Modules**
     - Outline testing for each module
-  - **2.2** Job Control Procedures (JCL)
+  - **2.2 Job Control Procedures (JCL)**
     - Describe testing for JCL, production, scheduling, control, calls and job sequencing
-  - **2.3** User Procedures
+  - **2.3 User Procedures**
     - Describe testing for user documentation
-  - **2.4** Operator Procedures
+  - **2.4 Operator Procedures**
     - Describe testing procedures to ensure application can be run
 
 - **3 - Features to be Tested**
@@ -65,62 +65,62 @@
   - Identify all features that are not being tested and why they are not
 
 - **5 - Approach**
-  - **5.1** Component Testing
+  - **5.1 Component Testing**
     - Like Unit Testing, test individual modules to ensure it works properly
-  - **5.2** Integration Testing
+  - **5.2 Integration Testing**
     - Like System Testing, test the integration of components together
-  - **5.3** Conversion Testing
+  - **5.3 Conversion Testing**
     - Ensure all data is converted from old format to new format
-  - **5.4** Job Stream Testing
+  - **5.4 Job Stream Testing**
     - Ensure applications works in the production environment
-  - **5.5** Interface Testing
+  - **5.5 Interface Testing**
     - Ensure application operates efficiently and effectively with all interface systems
-  - **5.6** Security Testing
+  - **5.6 Security Testing**
     - Ensure systems control and auditability functions work
-  - **5.7** Recovery Testing
+  - **5.7 Recovery Testing**
     - Ensure application restart and backup / recovery operate correctly
-  - **5.8** Performance Testing
+  - **5.8 Performance Testing**
     - Ensure applications works as customer wanted it to
-  - **5.9** Regression Testing
+  - **5.9 Regression Testing**
     - Ensure new changes haven't affected old functions / features
-  - **5.10** Acceptance Testing
+  - **5.10 Acceptance Testing**
     - Ensure system satisfies all criteria laid out by customer
-  - **5.11** Beta Testing
+  - **5.11 Beta Testing**
     - Done by customer to see if everything is there before final release
 
 - **6 - Pass/Fail Criteria**
-  - **6.1** Suspension Criteria
+  - **6.1 Suspension Criteria**
     - Criteria used to suspend all or part of the testing activity
-  - **6.2** Resumption Criteria
+  - **6.2 Resumption Criteria**
     - Criteria that must be met before resuming testing activities after suspension
-  - **6.3** Approval Criteria
+  - **6.3 Approval Criteria**
     - Conditions that must be met to approve test results
 
 - **7 - Testing Process**
-  - **7.1** Test Deliverables
+  - **7.1 Test Deliverables**
     - Deliverables from test process: input/output data, logs, summary
-  - **7.2** Testing Tasks
+  - **7.2 Testing Tasks**
     - Tasks needed to prepare and perform testing activities
-  - **7.3** Responsibilities
+  - **7.3 Responsibilities**
     - Identify groups responsible for the following during a test activity
       - Managing, Designing, Preparing, Executing, Witnessing, Checking, Resolving
-  - **7.4** Resources
+  - **7.4 Resources**
     - Identify resources allocated for testing tasks
-  - **7.5** Schedule
+  - **7.5 Schedule**
     - High level schedule for each testing task
 
 - **8 - Environmental Requirements**
-  - **8.1** Hardware
+  - **8.1 Hardware**
     - Hardware and Network requirements for testing activities
-  - **8.2** Software
+  - **8.2 Software**
     - Software requirements for testing activities
-  - **8.3** Security
+  - **8.3 Security**
     - Security and Asset Protection for testing activities
-  - **8.4** Tools
+  - **8.4 Tools**
     - Special software tools, techniques and methodologies and the purpose of each for testing
-  - **8.5** Publications
+  - **8.5 Publications**
     - Documents and publications to support testing activities
-  - **8.6** Risks and Assumptions
+  - **8.6 Risks and Assumptions**
     - Constraints on testing activities and risks with each testing task
 
 - **9 - Change Management Procedures**
