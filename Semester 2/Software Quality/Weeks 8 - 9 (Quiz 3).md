@@ -147,3 +147,92 @@
 
 <a name="Lecture9"></a>
 ## Week 9 - Software Inspection: Systematic and Code Inspection
+
+### Inspection
+- A formal review of a work product by peers
+  - Used to detect defects early in the development life cycle
+- **Best Known Method** for  increasing quality
+- Inspections are used to find defects
+
+### Defects
+- A defect is a deviation from specific or expected behavior
+- Any defect found is a defect
+  - Not open to discussion
+  - Based on opinion of the person doing the review
+- Not all defects are bugs
+
+### Review Methods
+- **Presentation**
+  - Present idea or proposal
+- **Walkthrough**
+  - Technical presentation of work
+- **Inspection**
+  - Formal review by peers
+
+### Defect Detection Methods
+- **Buddy**
+  - Developers work in pairs
+- **Testing**
+  - Formal Testing
+- **Inspection**
+  - Formal review by peers
+
+### Typical Inspection Process
+- Planning
+  - 45 mins
+- Prep
+  - 15 - 120 mins
+- Log Defects
+  - 60 - 120 mins
+- Rework
+- Follow Up
+
+### Roles
+- Moderator
+- Inspectors
+- Scribe
+- Work Owner
+
+### Owner Planning
+- Owner decides what code to review
+- Includes
+  - Relevant Requirements
+  - Common Errors List
+    - Provided by moderator (specifics are added by owner)
+  - Copy of Code listing Everyone
+    - Send code few days before inspection
+
+### Preparation
+- Inspectors need to have the materials required to inspect in advance
+- Need to complete a defect log
+- Rule of Thumb - Timing Estimate
+  - 2 hours for 10 full pages of text
+- Lots of projects means can't do detailed inspection on each one
+  - Need to compromise and do just enough that it is useful
+- Process
+  - Everyone prepares by examining code
+  - Owner will provide brief walkthrough
+  - Scribe will log defects in real time after the walkthrough
+
+### Walkthrough
+- Pre - Walkthrough
+  - Owner sends code and relevant docs
+  - Inspector prepare by inspecting code and documenting defects
+
+- During - Walkthrough
+  - Owner provides walkthrough for code
+  - Inspectors search for defects
+  - Round-Robin where each inspector describes a defect found
+
+### Defect Logging
+- Performed by the scribe
+  - Allows owner to concentrate on other tasks
+- Moderator leads meeting and facilitates process
+- Focus is finding defects
+  - Categorize as High, Medium, Low
+  - Brief Description ~ 7 words or less
+
+
+
+
+---
