@@ -1,4 +1,4 @@
-# Software Quality Quiz 3 Notes
+# Software Quality Notes
 
 
 [Week 6 - Test Automation, Inspections & Reliability Assessment](#Lecture6)
