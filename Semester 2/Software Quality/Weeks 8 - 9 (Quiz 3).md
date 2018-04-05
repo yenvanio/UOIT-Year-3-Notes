@@ -267,24 +267,24 @@
 
 ### Code Review Checklist
 1. Clarity
-  - Is it easy to understand?
-  - Can it be refactored to make it clearer?
+    - Is it easy to understand?
+    - Can it be refactored to make it clearer?
 2. Maintainability
-  - Well commented and documented?
+    - Well commented and documented?
 3. Accuracy
-  - Does the code do what it needs to do?
+    - Does the code do what it needs to do?
 4. Readability & Robustness
-  - Can it handle abnormal conditions
-  - Does it fail "gracefully"
+    - Can it handle abnormal conditions
+    - Does it fail "gracefully"
 5. Security
-  - Is it vulnerable to unauthorized access?
+    - Is it vulnerable to unauthorized access?
 6. Scalability
-  - Does the code allow for growing user base?
+    - Does the code allow for growing user base?
 7. Reusability
-  - Can it be made general? Reused in other applications?
+    - Can it be made general? Reused in other applications?
 8. Efficiency
-  - Does it make good use of memory and stuff?
-  - Can it be optimized?
+    - Does it make good use of memory and stuff?
+    - Can it be optimized?
 
 ### Automated Code Review
 - Reduces cost of manual code reviews

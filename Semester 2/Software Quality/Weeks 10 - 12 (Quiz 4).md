@@ -65,9 +65,15 @@
   - Testing before and after
   - Verification of preservation of call sequence
 
-### Impacts of Refactoring on Quality
+#### Impacts of Refactoring on Quality
+- Impacts internal & external qualities of software
+  - Internal Example: `size, complexity, cohesion, testability`
+  - External Example: `performance, reusability, maintainability, scalability`
+- Refactoring is usually highly specialized (very specific)
+  - A refactor technique improves a small amount of quality attributes
 
-
+#### Maintain Consistency
+- 
 
 
 ---
