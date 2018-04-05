@@ -178,14 +178,14 @@
   - Formal review by peers
 
 ### Typical Inspection Process
-- Planning
+- **Planning**
   - 45 mins
-- Prep
+- **Preparation**
   - 15 - 120 mins
-- Log Defects
+- **Log Defects**
   - 60 - 120 mins
-- Rework
-- Follow Up
+- **Rework**
+- **Follow Up**
 
 #### Roles
 - Moderator
@@ -266,23 +266,23 @@
   - New programming technique is used
 
 ### Code Review Checklist
-1. Clarity
+1. **Clarity**
     - Is it easy to understand?
     - Can it be refactored to make it clearer?
-2. Maintainability
+2. **Maintainability**
     - Well commented and documented?
-3. Accuracy
+3. **Accuracy**
     - Does the code do what it needs to do?
-4. Readability & Robustness
+4. **Readability & Robustness**
     - Can it handle abnormal conditions
     - Does it fail "gracefully"
-5. Security
+5. **Security**
     - Is it vulnerable to unauthorized access?
-6. Scalability
+6. **Scalability**
     - Does the code allow for growing user base?
-7. Reusability
+7. **Reusability**
     - Can it be made general? Reused in other applications?
-8. Efficiency
+8. **Efficiency**
     - Does it make good use of memory and stuff?
     - Can it be optimized?
 
