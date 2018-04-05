@@ -75,16 +75,43 @@ Steps 12 & 13.  These are cleanup activities. Sign out and close browser
 
 ### Availability vs Reliability
 - **Availability**: Does the system give an answer?
+  - Matters more when booking seats on aircrafts etc.
 - **Reliability**: Is the answer correct?
+  - Matters more when using tax software, want correct but its ok if it takes some time to submit the tax return.
   - Ways to measure
     - Counting failures in periodic intervals (cumulative failure count)
     - Failure intensity (number of failures per unit time)
+      - `= derivative of cumulative failure count wrt to time `
+
+### Software Reliability
+- 2 Definitions
+  - Probability of failure free operation of a software system for a specified time & environment.
+    - `Example: Probability that a PC runs without crashing for 8 hours is 0.99`
+  - Failure intensity is a measure of reliability of the reliability of a system in a given environment.
+    - `Example: Air traffic control systems fails once in two years`
 
 ### Software Reliability Assessment
 - A "survey" which predicts defect density
 - **Application Type**: Inherent risks of product and release
 - **Project Specific Practices**: Ability to schedule project and manage progress against schedule
 - **Software Standards**: Standards & Processes for every phase and development activity
+- Categories of Assessment (# of Fielded Defects)
+  - `97% - 75%` = More risk than strengths
+  - `50%` = Strengths and risk offset each other
+  - `25% - 3%` = More strengths than risks
+
+### Patient Monitoring Unit (PMU) - Example
+- Requires high reliability
+- Reliability Assessment
+  - Patient ill, no alarm sounding
+  - Bad range permitted
+  - Log overflow, no alarm sounding
+  - Database incorrect
+  - Database failure
+  - Undetected database corruption
+  - Operating system failure
+
+
 
 
 

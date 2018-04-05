@@ -187,13 +187,13 @@
 - Rework
 - Follow Up
 
-### Roles
+#### Roles
 - Moderator
 - Inspectors
 - Scribe
 - Work Owner
 
-### Owner Planning
+#### Owner Planning
 - Owner decides what code to review
 - Includes
   - Relevant Requirements
@@ -202,7 +202,7 @@
   - Copy of Code listing Everyone
     - Send code few days before inspection
 
-### Preparation
+#### Preparation
 - Inspectors need to have the materials required to inspect in advance
 - Need to complete a defect log
 - Rule of Thumb - Timing Estimate
@@ -214,7 +214,7 @@
   - Owner will provide brief walkthrough
   - Scribe will log defects in real time after the walkthrough
 
-### Walkthrough
+#### Walkthrough
 - Pre - Walkthrough
   - Owner sends code and relevant docs
   - Inspector prepare by inspecting code and documenting defects
@@ -224,7 +224,7 @@
   - Inspectors search for defects
   - Round-Robin where each inspector describes a defect found
 
-### Defect Logging
+#### Defect Logging
 - Performed by the scribe
   - Allows owner to concentrate on other tasks
 - Moderator leads meeting and facilitates process
@@ -232,6 +232,89 @@
   - Categorize as High, Medium, Low
   - Brief Description ~ 7 words or less
 
+|Severity: High / Medium / Low|Location|Description|
+|-----------------------------|--------|-----------|
+|1|||
+|2|||
+|3|||
+|4|||
+|5||||
+
+#### Casual Analysis Meeting
+- Brainstorm on the root cause of specific defects
+  - Meeting is to support continuous improvement
+  - Can help future defects from occurring
+
+#### Rework
+- Addresses defects found during the logging process
+- Performed by product owner
+- All defects are addressed
+  - Doesn't mean all of them are fixed
+
+#### Follow Up
+- Work product is redistributed for review
+- Unfixed defects are reported back to the team
+
+### Code Review
+- Special inspection where the team examines a sample of the code and fixes defects
+  - Can make it more readable
+  - Can improve performance
+- Candidates for a code review
+  - Tricky algorithms
+  - Difficult API or Library to work with
+  - Inexperienced coder
+  - New programming technique is used
+
+### Code Review Checklist
+1. Clarity
+  - Is it easy to understand?
+  - Can it be refactored to make it clearer?
+2. Maintainability
+  - Well commented and documented?
+3. Accuracy
+  - Does the code do what it needs to do?
+4. Readability & Robustness
+  - Can it handle abnormal conditions
+  - Does it fail "gracefully"
+5. Security
+  - Is it vulnerable to unauthorized access?
+6. Scalability
+  - Does the code allow for growing user base?
+7. Reusability
+  - Can it be made general? Reused in other applications?
+8. Efficiency
+  - Does it make good use of memory and stuff?
+  - Can it be optimized?
+
+### Automated Code Review
+- Reduces cost of manual code reviews
+- Fast, consistent, repeatable
+
+### Gerrit & Jenkins
+- Code Review tools
+- Reviewers receive email asking them to review the change in code
+- Can see changes side by side (like in github desktop mode)
+- Can add comments to the code through gerrit Web UI
+- Connect with Git
+  - `git checkout -b change-4` - Switch to new Branch
+  - `git fetch gerrit refs/changes/04/4/1` - Fetch from gerrit repo
+- Changes require `+2` to be submitted
+- Reviewers can give
+  - `-1` bad
+  - `0` - can be better
+  - `+1` - good
+
+### Gerrit Flow
+- Developer pushes to gerrit
+- Code gets approved in gerrit then is pushed to repo
+- Code is downloaded by other developres
+- Process
+  - Create branch
+  - Do work
+  - Push to gerrit
+  - Review
+  - Fix if needed
+  - Upstream to repo if approved
 
 
 

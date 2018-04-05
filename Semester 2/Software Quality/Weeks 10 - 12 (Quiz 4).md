@@ -65,6 +65,8 @@
   - Testing before and after
   - Verification of preservation of call sequence
 
+### Impacts of Refactoring on Quality
+
 
 
 
