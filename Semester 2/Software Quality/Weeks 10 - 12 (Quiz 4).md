@@ -77,7 +77,7 @@
   - Select refactorings such that upon completion it has better quality attributes
 - **Soft Goal Graph** used to select refactorings
 
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/SGG.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/SGG.PNG)
 
 ---
 
