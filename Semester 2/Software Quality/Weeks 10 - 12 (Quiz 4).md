@@ -118,11 +118,13 @@
 
 - **Push Down Method**
   - If a subclass has a method used by one subclass and not the other, can push it down to the only subclass that needs it.
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pushDown.PNG)
 
 - **Parameterize Methods**
   - If multiple method do the same computation with different inputs
-  - Make a new method with same computation but have a parameter that can invoke the other methods as well
+  - Make a new method with same computation but have a parameter that can invoke the other methods as well.
+  
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/wifi.PNG)
 
 
