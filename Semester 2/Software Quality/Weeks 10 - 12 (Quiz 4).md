@@ -73,8 +73,11 @@
   - A refactor technique improves a small amount of quality attributes
 
 #### Maintain Consistency
-- 
+- Instead of evaluating impacts after refactoring
+  - Select refactorings such that upon completion it has better quality attributes
+- **Soft Goal Graph** used to select refactorings
 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/SGG.png)
 
 ---
 
