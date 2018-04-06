@@ -79,9 +79,54 @@
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/SGG.PNG)
 
+- The focused quality attribute is the root node (High Maintainability)
+- The internal nodes represent successive refinements of the attribute
+- Leaf Nodes represent refactoring that affects the soft goals above it
+  - (Connected with dotted lines)
+
+### Formalisms for Refactoring
+- **Assertions**
+  - Verifies assumptions made by programmer
+  - Boolean Expression
+  - 3 Kinds of Assertions
+    - **Invariants**
+      - Assertion that evaluates to true when invoked
+      - *Class Invariant*: All instances of the class must satisfy
+    - **Pre Conditions**
+      - Condition to be satisfied before computation
+    - **Post Conditions**
+      - Condition to be satisfied after computation
+
+- *These assertions help test the behavior preserving property of refactoring*
+
+- **Graph Transformation**
+  - Class Diagrams / State charts can be seen as graphs
+  - Refactorings can be seen as graph production rules
+  - Push Down Method
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/graphTrans.png)
+
+### More Refactoring Techniques
+- **Substitute Algorithm**
+  - Replace algorithm X with algorithm Y because it is
+    - Clearer
+    - Performs better
+  - Easy to replace if algorithms have same input/output behaviors
+
+- **Replace Parameter with Methods**
+  - Instead of passing 2 parameters from the same object, pass the object as a parameter
+  - Want to avoid long parameter lists
+
+- **Push Down Method**
+  - If a subclass has a method used by one subclass and not the other, can push it down to the only subclass that needs it.
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pushDown.PNG)
+
+- **Parameterize Methods**
+  - If multiple method do the same computation with different inputs
+  - Make a new method with same computation but have a parameter that can invoke the other methods as well
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/wifi.PNG)
+
+
 ---
-
-
 
 
 <a name="Lecture11"></a>
