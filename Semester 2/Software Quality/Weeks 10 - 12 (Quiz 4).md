@@ -3,11 +3,8 @@
 
 [Week 10 - Refactoring](#Lecture10)
 <br>
-[Week 11 - Software Metrics](#Lecture11)
+[Week 11 & 12 - Software Metrics](#Lecture1112)
 <br>
-[Week 12 ](#Lecture12)
-<br>
-
 
 
 <a name="Lecture10"></a>
@@ -124,18 +121,39 @@
 - **Parameterize Methods**
   - If multiple method do the same computation with different inputs
   - Make a new method with same computation but have a parameter that can invoke the other methods as well.
-  
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/wifi.PNG)
 
 
 ---
 
+<a name="Lecture1112"></a>
+## Week 11 & 12 - Software Metrics
 
-<a name="Lecture11"></a>
-## Week 11 - Software Metrics
+### Software Quality Metrics Basics
+- # of Lines of Code is the most popular software metric
+
+- Software Quality Models Breakdown
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sqm.png)
 
 
-
+- **Human Error**: Designer's Mistake
+- **Fault**: Encoding of an error into a software product
+- **Failure**: Deviation of the software from expected behavior
+- Example:
+  - Human error: Failure to distinguish signed and absolute value numbers in an algorithm
+    resulted in:
+  - Fault: `X:=Y` is coded instead of `X:= ABS(Y)` which in  turn led to
+  - Failure: Nuclear reactor shut down because it was determined wrongly  that a meltdown   was likely.
+- **Processing Error**: An erroneous state that is triggered by a fault
+  - Does not immediately crash
+  - Example:
+    - An operating system fault is triggered by a particular input resulting in a processing error that causes a another processing error in the word-processor which then crashes.
+- **MTTF** = Mean Time To Failure
+- Faults & Failures
+  - ~35% of all faults only lead to very rare failures (MTTF > 5000 years)
+  - Less than 2% of all faults lead to the common failures
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mttf.png)
 
 
 ---
