@@ -369,7 +369,7 @@
 - **Technical Complexity Factor (TCF)**
   - The Technical Complexity Factor (TCF) is determined by first rating the following 14 factors on a ‘scale’ 0,1,2,3,4,5 where 0 means irrelevant and 5 means essential:
 
-  
+
   |Factor|Description|
   |------|-----------|
   |F1   |Reliable back-up and recovery|      
@@ -388,20 +388,18 @@
   |F14  |Facilitate change|
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ycf.png)
 
+- **Productivity** = `FP / Person Months Effort`
+- **Quality** = `Defects / FP`
+- **Effort Predication** = `E = f(FP)`
+
+#### SEI Capability Maturity Model
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/SEI_CMM.png)
+
+### Software Metrics Framework
+
+
 
 
 
 
 ---
-
-
-
-
-
-<a name="Lecture12"></a>
-## Week 12
-
-
-
-
-----
