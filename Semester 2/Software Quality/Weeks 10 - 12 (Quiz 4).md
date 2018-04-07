@@ -153,9 +153,237 @@
 - Faults & Failures
   - ~35% of all faults only lead to very rare failures (MTTF > 5000 years)
   - Less than 2% of all faults lead to the common failures
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mttf.png)
 
--
+- Most faults are benign
+  - When fixed doesn't really improve reliability that much
+  - Reliability only significantly improves when we hit the 2% of bugs
+
+- **Defects** = `{Faults} U {Failures}` (Union)
+- **System Defect Density** = `# of Defects Found / System Size (KLOC)`
+- *The danger of associating a measure of fault density with software quality (especially if quality is synonymous with reliability which is defined as the probability of failure-free operation in a given time period under given operational conditions).*
+
+- Popular belief is that with more lines of code, the defect density will increase, however in practicality with more lines of code the defect density decreases.
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/density.png)
+
+- **Relative Efficiency of Testing Methods**
+
+|Testing Type|Defects Found per hours|
+|------------|-----------------------|
+|Regular Use| 0.21|
+|Black Box| 0.282|
+|White Box|0.322|
+|Reading / Inspections|1.057|
+
+- **Classification of Software Failures**
+  - OS Crash
+  - Program Hang-up
+  - Program Crash
+  - Input Problem
+  - Output Problem
+  - Failed Required Performance
+  - Perceived Total Product Failure
+  - System Error Message
+  - Service Degraded
+  - Loss of Data
+  - Other
+- Need to classify correctly otherwise some failures can be found in multiple categories leading to arbitrariness in the measurement process
+
+- **Incident Types**
+  - Failure
+  - Fault
+  - Change Request
+
+- **Generic Data** *(Applicable to all incident types)*
+  - What (Product Details)
+  - Where (Where is it? Location?)
+  - Who (Who found it?)
+  - When (When did it occur? Time?)
+  - What (End Result? What was observed?)
+  - How (How did it occur? Trigger?)
+  - Why (Why did it occur? Cause?)
+  - Severity/Criticality/Urgency
+  - Change
+
+- **Failure Data Example**
+  - What:  ABC Software Version 2.3
+  - Where: Norman’s home PC
+  - Who: Norman
+  - When: 13 Jan 2000 at 21:08 after 35 minutes of operational use
+  - End result: Program crashed with error message xyz
+  - How: Loaded external file and clicked the command Z.
+  - Why: <BLANK - refer to fault>
+  - Severity: Major
+  - Change: <BLANK>
+
+- **Reactive Fault Data Example**
+  - What:  ABC Software Version 2.3
+  - Where: Help file, section 5.7
+  - Who: Norman
+  - When: 15 Jan 2000, during formal inspection
+  - End result: Likely to cause users to enter invalid passwords
+  - How: The text wrongly says that passwords are case sensitive
+  - Why: <BLANK>
+  - Urgency: Minor
+  - Change: Suggest rewording as follows ...
+
+- **Responsive Fault Data Example**
+  - What:  ABC Software Version 2.3
+  - Where: Function <abcd> in Module <ts0023>
+  - Who: Simon
+  - When: 14 Jan 2000, after 2 hours investigation
+  - What happened: Caused reported failure id <0096>
+  - How: <BLANK>
+  - Why: Missing exception code for command Z
+  - Urgency: Major
+  - Change: exception code for command Z added to function <abcd> and also to function <efgh>. Closed on 15 Jan 2000.
+
+- **Change Request Data Example**
+  - What:  ABC Software Version 2.3
+  - Where: File save menu options
+  - Who: Norman
+  - When: 20 Jan 2000
+  - End result: <BLANK>
+  - How: <BLANK>
+  - Why: Must be able to save files in ascii format - currently not possible
+  - Urgency: Major
+  - Change: Add function to enable ascii format file saving
+
+- **Tracking Incidents**
+  - Incidents should be traceable to components
+    - Units
+    - Modules
+    - Sub System
+    - System
+  - Need to know where it came from
+
+### Software Metrics Practice
+- **Purpose**
+  - To assess software products
+    - Want to measure attributes
+      - Reliability, Maintainability, Internal Complexity ...etc.
+  - To assess software methods
+    - Perform measurement based case studies to find cost-effective software engineering methods
+  - To help improve software processes
+    - Bulk of Software measurement activities come from here
+    - Measurement for cost/effort estimation, quality control ...etc.
+
+- **Goal Question Metric (GQM)**
+  - Clearly defined needs for every measurement
+  - Process
+    - Start with overall goals for the project
+    - For each goal, generate questions to see if goals are met
+    - For each question, suggest measurements that can help answer them
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/gqm.png)
+
+- **Metrics Plan**
+  - Why (Metrics can address the goal)
+  - What (Metrics will be collected, how they will be defined, and how they will be analyzed)
+  - Who (Will do the collecting, who will do the analyzing, and who will see the results)
+  - How (it will be done - what tools, techniques and practices will be used to support metrics collection and analysis)
+  - When (In the process and how often the metrics will be collected and analyzed)
+  - Where (The data will be stored)
+
+
+- **LOC Measure**
+  - LOC: Number of Lines of Code
+  - Measure of program size
+  - Used for
+    - **Productivity Assessment** = `LOC / Effort`
+    - **Effort Estimation** `Effort = f(LOC)`
+    - **Quality Assessment** = `Defects / LOC`
+- Similar Ways to Measure  
+  - KLOC: Thousands of Lines of Code
+  - KDSI: Thousands of Delivered Source Instructions
+  - NCLOC: Non-Comment Lines of Code
+  - Number of Characters or Number of Bytes
+- Problems with LOC Measures
+  - Measures length instead of size
+  - Can't be used for different languages
+  - Only available at the end of development life cycle
+
+
+- **Length**: Physical size of the product
+- **Functionality**: Measures the functions supplied by product to user
+
+
+- Complexity
+  - **Problem Complexity**: Complexity of underlying problem
+  - **Algorithmic Complexity**: Complexity of algorithm implemented to solve the problem
+  - **Structural Complexity**: Measures the structure of the software used to implement the algorithm
+  - **Cognitive Complexity**: Measures effort required to understand the software
+
+
+- **Halstead's Software Science Metric**
+  - Program (P) is a collection of tokens
+    - Classified as **Operators** or **Operands**
+  - `n1` = number of unique operators
+  - `n2` = number of unique operands
+  - `N1` = total occurrences of operators
+  - `N2` = total occurrences of operands
+  - **Length of P** `N = N1 + N2`
+  - **Vocabulary of P** `n = n1 + n2`
+  - **Estimate of N** = `N^ = n1(log(n1)) + n2(log(n2))`
+  - **Effort to generate P** = `E = (n1 * N2 * N(log(n))) / (2 * n2)`
+  - **Time to program P** = `T = E/18 seconds`
+- Restricted to FORTRAN
+- No convincing evidence that these laws are valid
+- These were meant for predictive purposes
+
+
+- **McCabe's Cyclomatic Complexity Metric `v`**
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mcCab.png)
+
+
+- **COCOMO**
+  - Effort Prediction
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/cocomo1.png)
+  - Time Prediction
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/cocomo2.png)
+
+
+- **Regression Based Cost Modeling**
+  - Use effort and size values from past projects
+  - `log(E) = log(a) + b(log(S))`
+  - `E = a * S * b`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/rbcm.png)
+
+
+- **Albrecht's Function Points**
+  - Count the number of
+    - External Inputs
+    - External Outputs
+    - External Inquiries
+    - External Files
+    - Internal Files
+  - Give each of scores a *Weighing Factor*
+  - **Unadjusted Function Count (UFC)** = Sum of the weighted scores
+  - **Adjusted Function Count (FP)** = `FP = UFC x TCF`
+  - **Technical Complexity Factor (TCF)**
+    - The Technical Complexity Factor (TCF) is determined by first rating the following 14 factors on a ‘scale’ 0,1,2,3,4,5 where 0 means irrelevant and 5 means essential:
+      - F1   Reliable back-up and recovery      
+      - F2   Data communications
+      - F3   Distributed functions              
+      - F4   Performance
+      - F5   Heavily used configuration         
+      - F6  On-line data entry
+      - F7   Operational ease                   
+      - F8  On-line update
+      - F9   Complex interface                  
+      - F10 Complex processing
+      - F11 Reusability                         
+      - F12 Installation ease
+      - F13 Multiple sites                      
+      - F14 Facilitate change
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ycf.png)
+
+
+
+
 
 ---
 
