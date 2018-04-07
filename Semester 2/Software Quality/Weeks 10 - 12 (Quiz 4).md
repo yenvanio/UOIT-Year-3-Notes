@@ -131,7 +131,7 @@
 ## Week 11 & 12 - Software Metrics
 
 ### Software Quality Metrics Basics
-- # of Lines of Code is the most popular software metric
+- No. of Lines of Code is the most popular software metric
 
 - Software Quality Models Breakdown
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sqm.png)
@@ -155,6 +155,7 @@
   - Less than 2% of all faults lead to the common failures
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mttf.png)
 
+-
 
 ---
 
