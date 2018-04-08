@@ -124,6 +124,19 @@ understanding# Software Quality Quiz 3 Notes
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/wifi.PNG)
 
+### Factors Influencing Software Structure
+- Code
+- Documentation
+- Tools
+- Programmers
+
+### Restructuring Techniques
+- **Elimination of GoTo Approach**
+  - GoTo statements basically causes a jump to another line in the program whereas functions return control
+  - GoTo statements can be transformed into goto-less programs using `while` statements
+
+- **Localization & Information Hiding Approach**
+  - 
 
 ---
 
