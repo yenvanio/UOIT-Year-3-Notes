@@ -124,9 +124,22 @@
 - **Parameterize Methods**
   - If multiple method do the same computation with different inputs
   - Make a new method with same computation but have a parameter that can invoke the other methods as well.
-  
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/wifi.PNG)
 
+### Factors Influencing Software Structure
+- Code
+- Documentation
+- Tools
+- Programmers
+
+### Restructuring Techniques
+- **Elimination of GoTo Approach**
+  - GoTo statements basically causes a jump to another line in the program whereas functions return control
+  - GoTo statements can be transformed into goto-less programs using `while` statements
+
+- **Localization & Information Hiding Approach**
+  - 
 
 ---
 
