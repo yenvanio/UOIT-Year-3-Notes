@@ -548,8 +548,48 @@ understanding# Software Quality Quiz 3 Notes
 #### Summary of Scale Types
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/stSum.png)
 
-#### Summary of Statistics 
+#### Summary of Statistics
+- Arithmetic cannot be used on Nominal and Ordinal data
+- Following diagram shows statistic techniques to use based on the scale type
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/meanStat.png)
+
+#### Non-Parametric Techniques
+- Software measures cannot be assumed to be normally distributed
+- Can use Non-Parametric Techniques
+  - Pie Charts
+  - Bar Graphs
+  - Scatter Plots
+  - Box Plots
+
+#### Box Plot Example
+- Split data by Median
+  - Box Length: `b = u - l`
+- Find Median of left side (Lower Quartile `l`)
+  - Find Lower Tail = `l - 1.5b`
+- Find Median of right side (Upper Quartile `u`)
+  - Find Upper Tail = `u + 1.5b`
+- Outside the tails are outliers
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/boPlo.png)
+
+#### Scatter Plot Example
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/scaPlo.png)
+
+#### Outlier Example
+- Long Module with few errors can be caused by
+  - High Quality Code
+  - Simple Module
+  - Code Reuse
+  - Poor Testing
+- Only poor testing requires action and is not an acceptable outliers
+
+#### Control Chart Example
+- Shows when data is within acceptable bounds
+- Use to predict whether action needs to be taken to prevent a problem
+- Uses mean, standard deviation and the control limits to make the chart
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/conPlo.png)
+
 
 
 
