@@ -590,7 +590,12 @@ understanding# Software Quality Quiz 3 Notes
 - Uses mean, standard deviation and the control limits to make the chart
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/conPlo.png)
 
+### Evaluating Software Engineering Technologies through Measurement
+- Measurement is the only true means of establishing the efficiency of a method/tool/techniques
+- Quantitative claims must be supported by empirical evidence
+- **Cannot rely on anecdotal evidence**
 
-
+### Software Metrics: Risk & Uncertainty
+- 
 
 ---
