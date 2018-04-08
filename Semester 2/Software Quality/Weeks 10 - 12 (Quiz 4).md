@@ -1,4 +1,4 @@
-# Software Quality Quiz 3 Notes
+understanding# Software Quality Quiz 3 Notes
 
 
 [Week 10 - Refactoring](#Lecture10)
@@ -396,9 +396,28 @@
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/SEI_CMM.png)
 
 ### Software Metrics Framework
+- **Measurement**: Process of empirical objective assignment of numbers to entities in order to characterize a specific attribute
+- **Entity**: An object or event
+- **Attribute**: A feature or property of an entity
+- **Objective**: Measurement process must be based on a well defined rule whose results are repeatable
+- Avoid mistakes in measurement!
+  - Specify both entity and attribute
+  - Entity must be defined precisely
+  - Must have reasonable, intuitive understanding of attribute before proposing a measure
 
-
-
+#### Types & Uses of Measurement
+- 2 Types
+  - **Direct Measurement**
+    - Length of Source Code (LOC)
+    - Duration of Testing Process (Hours)
+    - Number of Defects
+  - **Indirect Measurement**
+    - Programmer Productivity
+    - Defect Density
+    - Requirements Stability 
+- 2 Uses
+  - Assessment
+  - Prediction
 
 
 
