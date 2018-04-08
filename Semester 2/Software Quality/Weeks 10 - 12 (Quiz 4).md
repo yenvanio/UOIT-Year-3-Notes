@@ -596,6 +596,54 @@ understanding# Software Quality Quiz 3 Notes
 - **Cannot rely on anecdotal evidence**
 
 ### Software Metrics: Risk & Uncertainty
-- 
+
+#### Bayesian Belief Nets (BBNs)
+- Used to reason about uncertainty
+- Nodes in the graph represent uncertain variables
+- Arcs in the graph represent casual or influential relationships between variables
+- Each node has a probability table (NPT)
+
+- **Sample Diagram**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbnsb.png)
+
+#### Bayes' Theorem
+- `p(A)` = Probability of A (Prior Probability)
+- `p(B)` = Probability of B
+- `p(A|B)` = Probability of A, given the probability of B (Posterior Probability)
+- `p(B|A)` = Probability of B, given the probability of A (Likelihood)
+- `p(A|B) = (p(B|A) * p(A)) / (p(B))`
+
+#### Bayes' Propagation
+- Applying Bayes' Theorem to update probabilities when new evidence is found
+- Make predications even with incomplete data
+
+#### Defect Modeling: Classic Approach
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/dmcs.png)
+
+
+#### Resource Model: Classic Approach
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/clrm.png)
+
+#### BBNs vs Classical Approach
+- **Classical**
+  - Mainly regression-based black-box models
+  - Predicted_attribute = f(size)
+  - Crucial assumptions often hidden
+  - Obvious causal factors not modeled
+  - Cannot handle uncertainty
+  - Cannot be used for real risk assessment
+- **BBNs**
+  - Provide realistic alternative approach
+  - Help risk assessment and decision making in a wide range of applications
+  - Model cause-effect relationships, uncertainty
+  - Incorporate expert judgement
+  - Combine diverse types of information
+  - All assumptions visible and auditable
+  - Ability to forecast with missing data
+  - Rigorous, mathematical semantics
+  - Good tool support
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbnsb.png)
+
 
 ---
