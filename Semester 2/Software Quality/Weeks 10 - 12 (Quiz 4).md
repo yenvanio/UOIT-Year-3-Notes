@@ -459,5 +459,98 @@ understanding# Software Quality Quiz 3 Notes
 
 
 ### Software Metrics: Measurement Theory & Statistical Analysis
+- **Purpose of Measurement Theory**
+  - Scientific basis for all types of measurement
+  - Used to determine
+    - When we have really defined a measure
+    - Which statements involving measurement are meaningful
+    - What the appropriate scale type is
+    - What types of statistical operations can be applied to measurement data
+
+
+- **Key Components in Measurement Theory**
+  - **Empirical Relation System**
+    - Relations on entities in the real world
+    - Characterize our understanding of the attribute
+    - Example: `Fred is TALLER than Joe`
+
+
+  - **Representation Condition**
+    - Real world entities are mapped to a number
+    - Preserves all Empirical relations and no new relations are created
+    - Example: `M(Fred) > M(Joe) only when Fred is TALLER than Joe`
+    ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/repC.png)
+
+  - **Uniqueness Theorem**
+    - Different mappings satisfy the Representation Condition (each one is special)
+    - Example: `Measure height in inches, feet, centimeters, meters ...etc.`
+
+- **Meaningful Measurements**
+  - Formally a statement involving measurement is meaningful if its truth value is invariant of transformations of allowable scales
+  - Example: `Fred is twice as tall as Jane`
+    - Meaningful because no matter what unit of measurement is used the truth value of the statement does not change
+  - Example: `Temperature in Tokyo is twice that in London`
+    - NOT Meaningful because maybe twice in `C` but not in `F`
+
+#### Measurement Scale Types
+- Nominal (Least Sophisticated)
+- Ordinal
+- Interval
+- Ratio
+- Absolute (Most Sophisticated)
+
+#### Nominal Scale Measurement
+- Simplest measurement
+- Measurements are organized into different entities
+- NO order for the entities
+- Example:
+  ```
+  Measurement = Software Faults
+  Can classify them by type of fault
+  BUT, NO order on which class of faults is more sever than the other
+  ```
+
+#### Ordinal Scale Measurement
+- A step above nominal
+- Entities can be ordered
+- NO arithmetic operations
+
+#### Interval Scale Measurement
+- Powerful, but rare in practical use
+- Distances between entities
+- NO ratios
+- Must preserve order and intervals
+- Example:
+  ```
+  Measurement = Timing of Events
+  The time between project X starting and now is twice the time between project Y starting and now
+  BUT, CAN'T SAY project X started twice as early as project Y
+  ```
+
+#### Ratio Scale Measurement
+- Ordering, Distance & Ratios of entities
+- Arithmetic applicable
+- **Zero Element**: Representing total lack of the attribute
+
+#### Absolute Scale Measurement
+- Basically counting
+- No. of occurrences of X in the entity
+
+#### Validating Measures
+- Validation of a software measure is the process of ensuring that the measure is a proper numerical characterization of the claimed attribute
+- Example:
+	- A valid measure of length of programs must not contradict any intuitive notion about program length
+	- If program P2 is bigger than P1 then m(P2) > m(P1)
+	- If  m(P1)  = 7 and m(P2) = 9 then if P1 and P2 are concatenated then m(P1;P2) must equal m(P1)+m(P2) = 16
+- A stricter criterion is to demonstrate that the measure is itself part of valid prediction system
+
+
+#### Summary of Scale Types
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/stSum.png)
+
+#### Summary of Statistics 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/meanStat.png)
+
+
 
 ---
