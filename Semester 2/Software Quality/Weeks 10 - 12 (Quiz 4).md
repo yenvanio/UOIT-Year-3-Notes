@@ -136,7 +136,54 @@ understanding# Software Quality Quiz 3 Notes
   - GoTo statements can be transformed into goto-less programs using `while` statements
 
 - **Localization & Information Hiding Approach**
-  -
+  - Localization
+    - Put all logic related resources in one physical module
+    - By localizing computational resources in separate modules, can make a loosely coupled system of sufficient independent modules
+    - Hard to achieve
+  - Information Hiding
+    - Hide implementations of computational resources to make program easier to understand
+  - **The Restructuring Process**
+    - Based on localization of variables and functions
+    - Organize groups of functions into hierarchical package structures based on visibility functions within groups
+
+- **System Sandwich Approach**
+  - It is for software cannot be restructured
+  - Implement new front-end interface & back-end database
+    - Easy to interface with program
+    - Outputs are more structured
+
+- **Clustering Approach**
+  - Software Modularization
+    - **System level remodularization**
+      - This is a top-down approach.
+      - Partition the program into smaller modules.
+    - **Entity level remodularization**
+      - This is a bottom-up approach.
+      - Group a  program’s entities to form larger modules.
+
+### Software Optimization
+- Not the same as refactoring
+- Make software use less resources or work more efficiently
+- Optimizing
+  - **Design**
+    - Make best use of requirements and resources
+    - *Ex: Mobile app, do not show error messages to user*
+  - **Algorithms & Data Structures**
+    - Choose the right data structure for the required problem
+    - *Ex: Priority booking, use priority queue*
+  - **Source Code**
+    - a ```
+      int a, b;
+      b = a;
+      ```
+    - b ```
+      char a;
+      int b;
+      b = a
+      ```
+    - Which one is more space and time efficient?
+  - **Compilation**
+    - Can set optimization level during compilation
 
 ---
 
@@ -643,7 +690,7 @@ understanding# Software Quality Quiz 3 Notes
   - Rigorous, mathematical semantics
   - Good tool support
 
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbnsb.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbBns.png)
 
 
 ---
