@@ -136,14 +136,14 @@ understanding# Software Quality Quiz 3 Notes
   - GoTo statements can be transformed into goto-less programs using `while` statements
 
 - **Localization & Information Hiding Approach**
-  - 
+  -
 
 ---
 
 <a name="Lecture1112"></a>
 ## Week 11 & 12 - Software Metrics
 
-### Software Quality Metrics Basics
+### Software Metrics: Basics
 - No. of Lines of Code is the most popular software metric
 
 - Software Quality Models Breakdown
@@ -272,7 +272,7 @@ understanding# Software Quality Quiz 3 Notes
     - System
   - Need to know where it came from
 
-### Software Metrics Practice
+### Software Metrics: Practice
 - **Purpose**
   - To assess software products
     - Want to measure attributes
@@ -408,7 +408,7 @@ understanding# Software Quality Quiz 3 Notes
 #### SEI Capability Maturity Model
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/SEI_CMM.png)
 
-### Software Metrics Framework
+### Software Metrics: Framework
 - **Measurement**: Process of empirical objective assignment of numbers to entities in order to characterize a specific attribute
 - **Entity**: An object or event
 - **Attribute**: A feature or property of an entity
@@ -427,11 +427,37 @@ understanding# Software Quality Quiz 3 Notes
   - **Indirect Measurement**
     - Programmer Productivity
     - Defect Density
-    - Requirements Stability 
+    - Requirements Stability
 - 2 Uses
   - Assessment
   - Prediction
+    - Requires a prediction system
+    - Consisting of...
+      - Mathematical Model
+      - Procedures for determining model parameters
+      - Procedures for interpreting results
+
+#### Products, Processes & Resources
+- **Process**: A software related activity
+  - Coding, Testing, Designing ...etc.
+- **Product**: An object which results from a process
+  - Test plans, Design documents, Source code ...etc.
+- **Resource**: An item which is input to a process
+  - People, Hardware, Software ...etc.
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/rpr.png)
+
+#### Internal & External Attributes
+- `Let X be a product, process or resource`
+- **External Attributes**: Attributes that are measured with respect to how X relates to its environment
+  - Reliability or Maintainability of product
+- **Internal Attributes**: Attributes that can be measured in terms of X alone
+  - Length or Structure of source code
+
+**Relation Diagram**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/exfa.png)
 
 
+### Software Metrics: Measurement Theory & Statistical Analysis
 
 ---
