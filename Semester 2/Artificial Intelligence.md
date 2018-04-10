@@ -10,6 +10,8 @@
 <br>
 [Lecture 4](#Lecture4)
 <br>
+[Lecture 5](#Lecture5)
+<br>
 
 
 <a name="Lecture1"></a>
@@ -764,6 +766,30 @@ end while
 
 ### Variable Elimination
 - Eliminate variables one-by-one passing the constraints to the neighbor
+
+----
+
+<a name="Lecture5"></a>
+## Lecture 5
+
+### Components of a Learning Problem
+- **Task**
+  - Behavior that's being improved
+  - Ex: classification, acting in an environment
+- **Data**
+  - Experiences that are being used to improve task performance
+- **Measure of Improvement**
+  - How can we measure the improvement?
+  - Ex: Increasing accuracy in prediction
+
+### Black Box Learner
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbl.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbli.png)
+
+### Learning Tasks
+- **Supervised Classification**: 
+
+
 
 
 
