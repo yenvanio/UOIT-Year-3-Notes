@@ -425,29 +425,42 @@
   - External Inquiries
   - External Files
   - Internal Files
-- Give each of scores a *Weighing Factor*
+- Give each of scores a *Weighing Factor* based on the table below
+
+|  |Simple|Average|Complex|
+|--|------|-------|-------|
+|**External Inputs**|3|4|6|
+|**External Outputs**|4|5|7|
+|**External Inquiries**|3|4|6|
+|**External Files**|7|10|15|
+|**Internal Files**|5|7|10|
+
 - **Unadjusted Function Count (UFC)** = Sum of the weighted scores
-- **Adjusted Function Count (FP)** = `FP = UFC x TCF`
+  - Take factor from table and multiply by the number counted from above
+  - Get the sum of all of that and it is the **UFC**
 - **Technical Complexity Factor (TCF)**
   - The Technical Complexity Factor (TCF) is determined by first rating the following 14 factors on a ‘scale’ 0,1,2,3,4,5 where 0 means irrelevant and 5 means essential:
 
-
   |Factor|Description|
   |------|-----------|
-  |F1   |Reliable back-up and recovery|      
-  |F2   |Data communications|
-  |F3   |Distributed functions|              
+  |F1   |Reliable Back-up and Recovery|      
+  |F2   |Data Communications|
+  |F3   |Distributed Functions|              
   |F4   |Performance|
-  |F5   |Heavily used configuration|         
-  |F6   |On-line data entry|
-  |F7   |Operational ease|                   
-  |F8   |On-line update|
-  |F9   |Complex interface|                  
-  |F10  |Complex processing|
+  |F5   |Heavily Used Configuration|         
+  |F6   |On-line Data Entry|
+  |F7   |Operational Ease|                   
+  |F8   |On-line Update|
+  |F9   |Complex Interface|                  
+  |F10  |Complex Processing|
   |F11  |Reusability|                         
-  |F12  |Installation ease|
-  |F13  |Multiple sites|                      
-  |F14  |Facilitate change|
+  |F12  |Installation Ease|
+  |F13  |Multiple Sites|                      
+  |F14  |Facilitate Change|
+
+- **Adjusted Function Count (FP)** = `FP = UFC x TCF`
+
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ycf.png)
 
 - **Diagram Explanation**
