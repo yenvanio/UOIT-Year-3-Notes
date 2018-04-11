@@ -450,11 +450,12 @@
   |F14  |Facilitate change|
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ycf.png)
 
-  - External inputs: Document File, Personal Dictionary
-  - External outputs : Misspelt words , Word processed, Error Message
-  - External inquiries: Words Processed, Errors Found
-  - External files: Document File, Personal Dictionary
-  - Internal files: Dictionary 
+- **Diagram Explanation**
+  - External Inputs: Document File, Personal Dictionary
+  - External Outputs : Misspelt words , Word processed, Error Message
+  - External Inquiries: Words Processed, Errors Found
+  - External Files: Document File, Personal Dictionary
+  - Internal Files: Dictionary
 
 - **Productivity** = `FP / Person Months Effort`
 - **Quality** = `Defects / FP`
