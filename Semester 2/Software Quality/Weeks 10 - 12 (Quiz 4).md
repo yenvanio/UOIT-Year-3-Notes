@@ -450,11 +450,11 @@
   |F14  |Facilitate change|
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ycf.png)
 
-- External inputs:  document file-name, personal dictionary
-- External outputs : report on misspelt words, No. of words processed message, No. of errors message
-- External inquiries: words processed, errors so far
-- External files: document file, personal dictionary
-- Internal files: dictionary
+  - External inputs: Document File, Personal Dictionary
+  - External outputs : Misspelt words , Word processed, Error Message
+  - External inquiries: Words Processed, Errors Found
+  - External files: Document File, Personal Dictionary
+  - Internal files: Dictionary 
 
 - **Productivity** = `FP / Person Months Effort`
 - **Quality** = `Defects / FP`
