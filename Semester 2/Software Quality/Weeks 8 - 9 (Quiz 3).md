@@ -162,20 +162,28 @@
 - Not all defects are bugs
 
 ### Review Methods
-- **Presentation**
-  - Present idea or proposal
-- **Walkthrough**
-  - Technical presentation of work
-- **Inspection**
-  - Formal review by peers
+|   |Presentation|Walkthrough|Inspection|
+|---|------------|-----------|----------|
+|**What**|Present idea or proposal| Technical presentation of work| Formal review by peers|
+|**Audience**|Management / Tech| Tech| Tech|
+|**Objective**| Provide info, Evaluate specs or plan - Give Status|Explain work, may find design or logic defect - Give context| Find defects early - Find defects|
+
 
 ### Defect Detection Methods
-- **Buddy**
-  - Developers work in pairs
-- **Testing**
-  - Formal Testing
-- **Inspection**
-  - Formal review by peers
+|   |Buddy|Testing|Inspection|
+|---|------------|-----------|----------|
+|**What**|Developers work in pairs|Formal Testing| Formal review by peers|
+|**Audience**|Tech| Tech| Tech|
+|**Objective**|Develop, explain work, find defects|Find defects by **symptom**, usability, performance| Find defects **where they occur**|
+
+### Walkthrough vs. Inspection
+|  |Walkthrough|Inspection|
+|--|-----------|----------|
+|**Focus**| Improve Product | Find Defects|
+|**Activities**| Find defects <br> Examine Alternatives <br> Forum for learning <br> Discussion| Find defects <br> Only defect explanation allowed <br> Learning through defects and inspections|
+|**Process**| Informal| Formal|
+|**Quality**|Variable; personalities can modify outcome|Repeatable with fixed process|
+|**Time**|Preparation ad-hoc, less formal| Preparation required, efficient use of time|
 
 ### Typical Inspection Process
 - **Planning**
