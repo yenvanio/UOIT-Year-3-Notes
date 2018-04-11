@@ -172,11 +172,13 @@
     - Choose the right data structure for the required problem
     - *Ex: Priority booking, use priority queue*
   - **Source Code**
-    - a ```
+    - a
+      ```
       int a, b;
       b = a;
       ```
-    - b ```
+    - b
+      ```
       char a;
       int b;
       b = a
