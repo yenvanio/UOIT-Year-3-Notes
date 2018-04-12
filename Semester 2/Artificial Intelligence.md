@@ -999,7 +999,20 @@ end while
 - Linear & Non Linear Classifiers
 
 ### Learning Decision Trees
--
+- Representation is a decision tree
+- Bias towards simpler ones
+- Search through the space of decision trees (Simple to Complex)
+
+### Decision Trees
+- A binary decision tree for a particular target feature is a tree where
+  - All non-leaf nodes are labeled with an input feature
+  - All arcs out of a node are labeled with possible values for the input feature
+  - The leaves are labeled with either of the following
+    - A prediction of the target feature called a **Class**
+    - A probabilistic prediction of the target feature
+  - Both examples are shown below
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/treesAB.png) 
+
 
 
 
