@@ -942,8 +942,8 @@ end while
   - *fp* / (*fp* + *tn*)
 
 ### Information Theory
-- `n` bits can distinguish 2<sup>n items
-- `n` items can distinguish log<sub>2n bits
+- `n` bits can distinguish 2<sup>n</sup> items
+- `n` items can distinguish log<sub>2</sub>n bits
 - Can distinguish better by using probability
 
 ### Information and Probability
@@ -952,8 +952,11 @@ end while
   - `P(b) = 1/4`
   - `P(c) = 1/8`
   - `P(d) = 1/8`
-- Consider the code
-  - `a:0; b:10; c:110; d:111`
+- Consider the code that uses the following 3 bits to represent `{a, b, c, d}`
+  - `a - 0`
+  - `b - 10`
+  - `c - 110`
+  - `d - 111`
   - This code sometimes uses 3 bits and sometimes 1 bit and on average it uses
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/probAb.png)  
 - With this code you need -log<sub>2</sub>P(a) = 1 bit is required to distinguish a from the other symbols and 2 for b, and 3 for c
@@ -996,7 +999,7 @@ end while
 - Linear & Non Linear Classifiers
 
 ### Learning Decision Trees
-- 
+-
 
 
 
