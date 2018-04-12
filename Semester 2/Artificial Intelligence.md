@@ -953,8 +953,8 @@ end while
   - `P(c) = 1/8`
   - `P(d) = 1/8`
 - Consider the code that uses the following 3 bits to represent `{a, b, c, d}`
-  - `a - 0`
-  - `b - 10`
+  - `a - 000`
+  - `b - 100`
   - `c - 110`
   - `d - 111`
   - This code sometimes uses 3 bits and sometimes 1 bit and on average it uses
