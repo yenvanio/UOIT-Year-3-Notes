@@ -2,20 +2,20 @@
 
 ## Table of Contents
 
-[Lecture 1](#Lecture1)
+[Chapter 1](#Lecture1)
 <br>
-[Lecture 2](#Lecture2)
+[Chapter 2](#Lecture2)
 <br>
-[Lecture 3](#Lecture3)
+[Chapter 3](#Lecture3)
 <br>
-[Lecture 4](#Lecture4)
+[Chapter 4](#Lecture4)
 <br>
-[Lecture 5](#Lecture5)
+[Chapter 7](#Lecture5)
 <br>
 
 
 <a name="Lecture1"></a>
-## Lecture 1
+## Chapter 1
 
 ### Artificial Intelligence
 - **Definitions**
@@ -221,7 +221,7 @@
 ---
 
 <a name="Lecture2"></a>
-## Lecture 2
+## Chapter 2
 
 ### Agent Systems
 - Consists of
@@ -388,7 +388,7 @@ given plan:
 ----
 
 <a name="Lecture3"></a>
-## Lecture 3
+## Chapter 3
 
 ### Directed Graphs
 - Consists of
@@ -612,7 +612,7 @@ end while
 
 
 <a name="Lecture4"></a>
-## Lecture 4
+## Chapter 4
 
 ### Constraint Satisfaction Problem
 - CSP is characterized by
@@ -690,10 +690,29 @@ end while
     - **Soft Constraints**
 
 ### Local Search
--
+- Find an assignment with zero unsatisfied constraints
+  - **Unsatisfied Constraint**: A conflict when assigning values to each variables
+- Does not backtrack, only uses local info
+- Iteratively improves assignment of variables to satisfy all constraints
+- Process:
+  1. Maintain an assignment of a value to each variable
+  2. Select a variable to change
+  3. Select new value for variable
+  4. Repeat Steps 2-3 until satisfying assignment is found
+- Example: Sudoku
 
 ### Greedy Descent
--
+- Same as Local Search, but how the variables are chosen is different
+  - Find a variable-value pair that minimizes the number of
+  conflicts
+  - Select a variable that participates in the most conflicts.
+  - Select a value that minimizes the number of conflicts.
+  - Select a variable that appears in any conflict.
+  - Select a value that minimizes the number of conflicts.
+  - Select a variable at random.
+  - Select a value that minimizes the number of conflicts.
+  - Select a variable and value at random; accept this change if it
+  doesn’t increase the number of conflicts.
 
 ### Complex Domains
 - For small domains, neighbors of an assignment can choose other values for the variables
@@ -766,11 +785,32 @@ end while
 
 ### Variable Elimination
 - Eliminate variables one-by-one passing the constraints to the neighbor
+- Algorithm:
+  - If there is only 1 variable, return `intersection of constraints that contain it`
+  - Select Variable X
+  - Join constraints in which X appears, `Form R1`
+  - Project R1 onto its variables other than X, `Form R2`
+  - Replace all of the constraints in which Xi appears by R2
+  - Recursively solve the simplified problem, `Form R3`
+  - return `R1 joined with R3`
+- If single variable remaining with no values = **Inconsistent Network**
+- Variables are eliminated by a predetermined **Elimination Ordering**
+- Example
 
 ----
 
 <a name="Lecture5"></a>
-## Lecture 5
+## Chapter 7
+
+### Learning
+- Ability of an agent to improve its behavior based on experience
+  - Range of behaviors is expanded
+    - Agent can do more things
+  - Accuracy on tasks is improved
+    - Agent can do things better
+  - Speed is improved
+    - Agent can do things faster
+- The problem of learning is taking prior experiences and creating a knowledge base that is used by the agent as it acts
 
 ### Components of a Learning Problem
 - **Task**
@@ -782,15 +822,123 @@ end while
   - How can we measure the improvement?
   - Ex: Increasing accuracy in prediction
 
+### Representation
+- The richer the representation scheme
+  - More useful it is for subsequent problem solving (+)
+  - More difficult it is to learn (-)
+- Bias-Variance Tradeoff
+
 ### Black Box Learner
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbl.png)
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bbli.png)
 
 ### Learning Tasks
-- **Supervised Classification**: 
+- **Supervised Classification**: Given a set of pre-classified training examples, classify a new instance
+- **Unsupervised Learning**: Find natural classes for examples
+- **Reinforcement Learning**: Determine what to do based on rewards and punishments
+- **Analytic Learning**: Reason faster using experience
+- **Inductive Logic Programming**: Build richer models in terms of logic programs
+- **Statistical Relational Learning**: Learning relational representations that also deal with uncertainty
 
+### Feedback
+- Learning tasks can be characterized by the feedback given to the learner
+  - **Supervised Learning**: What has to be learned is specified for each example
+    - The agent gets immediate feedback about the value of each action
+  - **Unsupervised Learning**: No classifications are given
+    - The learner has to discover categories and regularities in the data
+  - **Reinforcement Learning**: Feedback occurs after a sequence of actions
 
+### Success Measures
+- Success is measured based on how well the agent performs for new examples
+  - (not training examples)
 
+### Bias
+- The tendency to prefer one hypothesis over another
+- What makes a good bias?
+  - Observations on which biases work best in practice
 
+### Learning as Search
+- Given the following, a problem of learning can be reduced to a problem of search
+  - A representation
+  - Data
+  - Bias
+- Learning defined in terms of search
+  - Searching through the space of possible representations, seeing which one best fits the data given the bias
+- Learning Algorithms are made up of
+  - A search space
+  - Evaluation Function
+  - Search Method
+
+### Data
+- Data is NOT perfect
+  - Features given are inadequate to predict classification
+  - There are examples with missing features
+  - Some features are assigned wrong values
+- **Overfitting**: Occurs when distinctions appear in the training data, but not in the unseen examples
+
+### Errors in Learning
+- Caused by
+  - Limited Representation (Representation Bias)
+  - Limited Search (Search Bias)
+  - Limited Data (Variance)
+  - Limited Features (Noise)
+
+### Supervised Learning
+- Given
+  - Input features  `X1.....Xn`
+  - Target features `Y1.....Yn`
+  - A set of training examples (both input/target feature values are given )
+- Predict target features of a next example given only input features
+  - **Classification**: When target variables are discrete
+  - **Regression**: When target variables are continuous
+
+### Example Data Representation
+- **Scenario**: Travel Agent wants to predict the preferred length of a trip which can be from 1-6 days *(No Input Features)*
+  - `Y` is the length of trip chose
+  - Each `Yi` is an indicator variable
+    - 1 if chosen
+    - 0 if not chosen
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/eYe.png)
+
+### Evaluating Predictions
+- o<sub>e</sub> is the observed value of target feature on example `e`
+- p<sub>e</sub> is the predicted value of target feature on example `e`
+- The **error** of the prediction is a measure how close p<sub>e</sub> is to o<sub>e</sub>
+
+### Measures of Error
+- **Absolute Error**: Sum of all |o<sub>e</sub> - p<sub>e</sub>|
+- **Sum of Squares Error**: Sum of all  (o<sub>e</sub> - p<sub>e</sub>)<sup>2</sup>
+- **Worst Case Error**: Max of all  |o<sub>e</sub> - p<sub>e</sub>|
+- **Number Wrong**:
+- **Cost Based Error**: Takes into accounts costs of errors
+
+### Measures of Errors for Boolean Domains
+- **Likelihood of the Data**: Product of all p<sub>e</sub><sup>o<sub>e</sub></sup> * (1 - p<sub>e</sub>)<sup>(1 - o<sub>e</sub>)</sup>
+  - Probability of the data when the predicted value is interpreted as a probability
+- **Entropy**: Sum of all (o<sub>e</sub>  log(p<sub>e</sub>) + (1 - o<sub>e</sub>)  log(1 - p<sub>e</sub>))
+  - Negative of No. of bits it takes to encode the data given a code based on p<sub>e</sub>
+- **False Positive Error**: Positive Predication that is wrong
+  - Prediction was 1 but actual value was 0
+- **False Negative Error**: Negative Prediction that was wrong
+  - Predication was 0 but actual value was 1
+- **Predictions that minimize entropy, maximizes the likelihood**
+
+### Positives & Negatives
+- At the extreme cases the predicting agent can choose to
+  - Only claim positive prediction when it is sure of it
+  - Claim positive unless it is sure of a negative
+- In between these extremes are four other cases
+
+|  |Actual Positive|Actual Negative|
+|--|---------------|---------------|
+|**Predict Positive**|True Positive (*tp*)|False Positive (*fp*)|
+|**Predict Negative**|False Negative (*fn*)|True Negative (*tn*)|
+
+- **Precision**: The proportion of positive predictions that are actual positives  
+  - *tp* / (*tp* + *fp*)
+- **Recall**: The true-positive rate, the proportion of actual positives that were predicted
+  - *tp* / (*tp* + *fn*)
+- **False-Positive Error Rate**: Proportion of actual negatives predicted to be positive
+  - *fp* / (*fp* + *tn*)
 
 ----
