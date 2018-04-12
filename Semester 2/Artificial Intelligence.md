@@ -941,4 +941,65 @@ end while
 - **False-Positive Error Rate**: Proportion of actual negatives predicted to be positive
   - *fp* / (*fp* + *tn*)
 
+### Information Theory
+- `n` bits can distinguish 2<sup>n items
+- `n` items can distinguish log<sub>2n bits
+- Can distinguish better by using probability
+
+### Information and Probability
+- If we need to make a code to distinguish elements of `{a, b, c, d}` given the following probabilities
+  - `P(a) = 1/2`
+  - `P(b) = 1/4`
+  - `P(c) = 1/8`
+  - `P(d) = 1/8`
+- Consider the code
+  - `a:0; b:10; c:110; d:111`
+  - This code sometimes uses 3 bits and sometimes 1 bit and on average it uses
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/probAb.png)  
+- With this code you need -log<sub>2</sub>P(a) = 1 bit is required to distinguish a from the other symbols and 2 for b, and 3 for c
+  - These bits are calculated based on the probabilities
+- A more general example is discussed below
+
+### Information Content
+- To identify `x` need -log<sub>2</sub>P(x) bits to represent it
+- The **Entropy** or information content of a distribution over a set is
+  - Sum of all -P(x) * log<sub>2</sub>P(x)
+- The expected number of bits to describe a distribution given evidence `e`
+  - l(e) = Sum of all -P(x|e) * log<sub>2</sub>P(x|e)
+  - Probability changes based on the evidence `e`
+
+### Information Gain
+- If we have a test that can distinguish where α is true and where its false
+- The **Information Gain** from this test is
+  - `l(true) - (P(α) * l(α) + P(¬α) * l(¬α))`
+  - `l(true)` is the expected number of bits needed before the test
+  - `P(α) * l(α) + P(¬α) * l(¬α)` is the expected number of bits after the test
+
+### Point Estimates
+- Predict single value for numerical feature `Y` on examples `E`
+  - The prediction that *minimizes sum of squares error* on `E` is the **Mean of** `Y`
+  - The prediction that *minimizes absolute error* on `E` is the **Median value of** `Y`
+  - The prediction that *minimizes the number wrong* on `E` is the **Mode of** `Y`
+  - The prediction that *minimizes the worst case error* on `E` is `(max + min) / 2`
+  - When `Y` has values `{0, 1}`
+    - The prediction that maximizes the likelihood on `E` is the **Empirical Frequency**
+    - The prediction that minimizes the entropy on `E` is the **Empirical Frequency**
+- These point estimates **DO NOT** minimize the error for future predictions
+
+### Training and Test Sets
+- To evaluate how well a learner will work on future predictions need
+  - **Training Examples**: Train the Learner
+  - **Test Examples**: Evaluate the Learner
+
+### Basic Models for Supervised Learning
+- Decision Trees
+- Linear & Non Linear Classifiers
+
+### Learning Decision Trees
+- 
+
+
+
+
+
 ----
