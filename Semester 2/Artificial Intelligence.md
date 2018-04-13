@@ -1130,7 +1130,7 @@ end while
 - Let w<sub>kj</sub> be the weight of the link connecting the k-th input with j-th hidden neuron
 - Let w<sub>ji</sub> be the weight of the link connecting the j-th hidden neuron with the i-th output neuron
 - Let f be the sigmoid transfer function
-- The i-th output is obtained by the function below
+- The i-th output is obtained by the function to the right
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sig.png)
 
 
