@@ -12,6 +12,8 @@
 <br>
 [Chapter 7](#Lecture5)
 <br>
+[Artificial Neural Networks](#Lecture5.5)
+<br>
 
 
 <a name="Lecture1"></a>
@@ -1072,8 +1074,67 @@ end while
   - SSE = Y(e) vs Y<sup>w</sup>
   - = Sum of all ( Y(e) - Sum of all w<sub>i</sub>X<sub>i</sub>(e) )
 
-### Minimizing Error
-- 
+### Gradient Descent
+- Way to minimize errors
+  - Errors are based on the weights
+- Gradient Descent iteratively find the minimum of a function
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/split19.png)
+- `n` is the step size (**Learning Rate**)
+- Updating weights after each example
+  - **Incremental Gradient Descent**: Sweeps through examples
+  - **Stochastic Gradient Descent**: Selects examples at random
+    - Often much faster than updating weights after sweeping through examples but may not converge to a local optimum
+
+### Linear Classifier
+- Assuming binary classifications `{0, 1}`
+- Predication only makes sense if between 0 and 1
+- **Squashed Linear Function**
+  - f<sup>w</sup> = f(w<sub>0</sub> w<sub>1</sub>X<sub>1</sub> + ..... + w<sub>n</sub>X<sub>n</sub>)
+  - `f` is an activation function
+    - 1 if `x >= 0`
+    - 0 if `x <0`
+- SSE for Squashed Linear Function
+  - = Sum of all ( Y(e) - Sum of all w<sub>i</sub>X<sub>i</sub>(e) )
+
+### Sigmoid / Logistic Function
+- Logistic is the sigmoid of a linear function
+  - Sigmoid = curved / S shaped
+- f(x) = (1) / (1 + e<sup>-x</sup>)
+- f'(x) = f(x) * (1 - f(x))
+- Logistic Regression
+  - Find weights to minimize error of a logistic function
+
+### Linearly Separable
+- Classification is linearly separable if there is a hyperplane where the classification is *true* on one side and *false* on the other side
+  - w<sub>0</sub> w<sub>1</sub>X<sub>1</sub> + ..... + w<sub>n</sub>X<sub>n</sub> = 0
+  - Separates predictions > 0.5 & < 0.5
+
+----
+
+<a name="Lecture5.5"></a>
+## Artificial Neural Networks
+
+### Architecture
+- **MLP - Multilayer Perceptron**
+  - Layers of neurons, interconnected by weighted links
+- **Neuron**
+  - Basic Unit
+  - Similar to linear classifiers
+  - Input: Weighted sum of attribute values (Sum of all w<sub>i</sub>X<sub>i</sub>)
+  - Output: Weighted sum passed through a transfer function
+    - Most common transfer function: Sigmoid
+    - f(x) = (1) / (1 + e<sup>-x</sup>)
+
+### Forward Propagation
+- `x = (X0.....Xn)`
+- Let w<sub>kj</sub> be the weight of the link connecting the k-th input with j-th hidden neuron
+- Let w<sub>ji</sub> be the weight of the link connecting the j-th hidden neuron with the i-th output neuron
+- Let f be the sigmoid transfer function
+- The i-th output is obtained by the function below
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sig.png)
+
+
+
 
 
 
