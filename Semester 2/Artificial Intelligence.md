@@ -875,6 +875,7 @@ end while
   - There are examples with missing features
   - Some features are assigned wrong values
 - **Overfitting**: Occurs when distinctions appear in the training data, but not in the unseen examples
+  - Basically overfitted to the training data because it models it too much so it cannot make accurate future predictions
 
 ### Errors in Learning
 - Caused by
@@ -1011,7 +1012,68 @@ end while
     - A prediction of the target feature called a **Class**
     - A probabilistic prediction of the target feature
   - Both examples are shown below
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/treesAB.png) 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/treesAB.png)
+
+- If all the leaves are classes, they can be converted into a set of rules as follows
+  - Considering the left tree example (because all the leaves are classes)
+  - skips ← long
+  - reads ← short & new
+  - reads ← short & followUp & known
+  - skips ← short & followUp & Unknown
+
+### Issues in Decision Tree Learning
+- Which tree should be generated?
+- Need a bias to be able to select the appropriate tree because they all get the job done
+- Bias can lean towards finding smallest decision tree that fits the data
+  - **BUT** decision trees are huge and a search for the smallest is not a good idea
+- Instead can carry out a local search with the following goal
+  - Minimizing error
+
+### Searching for a Good Decision Tree
+- Input is
+  - Input Features
+  - A Target Feature
+  - Set of Training Examples
+- **Process**
+  - Either stop and return a value for the target feature or a distribution over target feature values
+  - Choose an input feature to split on
+    - For each value of the input feature, build a subtree for those examples with this input feature value
+- **Stopping**
+  - When no more input features
+  - When all examples are classified the same
+  - When there are too few examples to make an informative split
+- To decide how to split, use **Myopic Split**
+  - Basically a split which gives us the smallest error
+- With multi-value, splits on all values or split values into half
+- **Example Table**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/tabsZ.png)
+- **Example Splitting**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/split19.png)
+
+### Handling Overfitting
+- Only split when useful
+- Allow unrestricted splitting BUT
+  - Prune the resulting tree when it makes unwarranted distinctions
+- Learn multiple trees and average them
+
+### Linear Function
+- A linear function of features `X1.... Xn` is a function of the form
+  - f<sup>w</sup> = w<sub>0</sub> w<sub>1</sub>X<sub>1</sub> + ..... + w<sub>n</sub>X<sub>n</sub>
+- We invent a new feature X<sub>0</sub> with value 1 so we can make it a summation
+  - Sum of all w<sub>i</sub>X<sub>i</sub>
+
+### Linear Regression
+- Try to predict feature `Y` from features `X1....Xn`
+- A feature `Xi` is a function of an example `e`
+- X<sub>i</sub> is the value of feature `Xi` on example `e`
+- Linear regression is
+  - The sum of all w<sub>i</sub>X<sub>i</sub>(e)
+- Sum of Squares Error for Linear Regression
+  - SSE = Y(e) vs Y<sup>w</sup>
+  - = Sum of all ( Y(e) - Sum of all w<sub>i</sub>X<sub>i</sub>(e) )
+
+### Minimizing Error
+- 
 
 
 
