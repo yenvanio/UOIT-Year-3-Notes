@@ -1133,6 +1133,13 @@ end while
 - The i-th output is obtained by the function to the right
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sig.png)
 
+### Classification with MLPs
+- Each class represented by one output neuron
+- Present an example
+- Forward propagate its attribute values to the networks output
+- Let *i* be the index of the neuron with the highest output
+- Label the example with the i-th class 
+
 
 
 
