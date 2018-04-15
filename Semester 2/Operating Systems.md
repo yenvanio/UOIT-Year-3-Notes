@@ -924,6 +924,10 @@
 
 <a name="Lecture5"></a>
 ## Lecture 5 - Process Synchronization
+- **Cooperating Process**: Can affect or be affected by other processes in the system
+- Processes can execute concurrently or in parallel
+  - Might be interrupted: ending in partial execution
+  - Concurrent data sharing may cause inconsistencies
 
 ### Race Condition
 - Two processes try to change the value of the data at the same time
@@ -939,18 +943,18 @@
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Critical.png)
 
 - **Solution must satisfy the following**
-- Mutual Exclusion
+- `Mutual Exclusion`
   - No other processes can execute critical section while one already is
-- Progress
+- `Progress`
   - If nobody executing critical section then processes that are not in remainder stage can participate in the decision on which one will do the critical section next
-- Bounded Waiting
+- `Bounded Waiting`
   - Bound must exist on number of time other processes can enter critical sections after a process has made a request to enter critical section
 
 - **Critical Section Handling in OS**
 - 2 approaches
-  - Preemptive Kernel
+  - `Preemptive Kernel`
     - Allows preemption of process when running in kernel mode
-  - Non-Preemptive Kernel
+  - `Non-Preemptive Kernel`
     - Process runs until it exits kernel mode, blocks, voluntarily yields
 - Preemptive kernel is more responsive, less risk
 
