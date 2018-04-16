@@ -11,6 +11,8 @@
 <br>
 [Lecture 4 - Medium Access Control (MAC) Sublayer](#Lecture4)
 <br>
+[Lecture 7 - Application Layer](#Lecture7)
+<br>
 [Formulas](#Formulas)
 <br>
 
@@ -1252,6 +1254,11 @@ Message will be received and summed again
 
 - **Trunk Port**: Carries frames between VLANs defined over multiple physical switches
 
+
+---
+
+<a name="Lecture7"></a>
+## Lecture 7 - Application Layer
 
 
 

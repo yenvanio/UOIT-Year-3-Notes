@@ -968,14 +968,192 @@
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/Peterson.png)
 
 ### Synchronization Hardware
-- 
+- Hardware support for the critical section code is provided via locks
+- The critical-section problem is easily solved in a single-processor system
+  - Single processor can disable interrupt after entering critical section
+- For multi-processor, because message has to be sent to ALL processors it is not efficient
+- **Atomic Hardware Instructions**: Non-interruptible.
+  - If two executed same time, will end up in sequential order (arbitrary)
+  - This will help avoid the critical section problem
+- Instructions
+  - `Test & Set` the content of a memory word
+  - `Compare & Swap` the contents of two memory words atomically
 
+#### Test & Set
+- Executed atomically
+- Returns original value of passed parameter
+- Sets new value of passed parameter to true
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/defSet.png)
+- After critical section passed, set `lock` variable to false to satisfy mutual exclusion
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/teste.png)
 
+#### Compare & Swap
+- Executed atomically
+- Returns original value of passed parameter
+- IF expected value is received, THEN set new value of passed parameter
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/defSwap.png)
+- `lock` variable set to 0
+  - Satisfies mutual exclusion because sets `lock = 1` to prevent entry to critical section
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/swape.png)
 
+#### Bounded-Waiting & Mutual Exclusion
+- The above examples do not satisfy the bounded-waiting requirement
+- The following algorithm uses the `test_and_set()` instruction that satisfies all the critical-section requirements
+- To meet the bounded waiting requirement, there is a waiting array so that processes waiting will enter the critical section within `n-1` turns
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bounD.png)
 
+### Mutex Locks
+- The previous solutions are complicated and inaccessible to application programmers
+- A better solution is **Mutex Lock** (Mutual Exclusion Lock)
+  - Lock has a boolean variable
+  - Used to protect critical regions and prevent race conditions
+  - A process must `acquire()` lock before critical and `release()` after critical
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/muteX.png)  
+- `acquire()` and `release()` need to be atomic so are implemented as hardware mechanisms mostly
+- It is called a **Spinlock** due to busy waiting times while trying to acquire the lock
 
+### Semaphores
+- Synchronization tool that provides better ways (> Mutex Locks) for process to sync activities
+- It is an `int` variable that can be accessed via 2 atomic operations
+  - `wait()`
+  - `signal()`
+- One process modifies semaphore at a time
+- **Counting Semaphore**
+  - Initialized to No. of Resources
+  - Want to use resource? = `wait()` = `count --;`
+  - Done using resource? = `signal()` = `count ++;`
+  - `if count(==0)` wait until `count > 0` because all resources being used
+- **Binary Semaphore**
+  - Domain is between 0 and 1
+  - Used like a mutex lock for mutual exclusion
+- **Synchronization**
+  - To ensure one statement executed after another can do the following
+  - S2 only executed after because have to wait for `signal(synch)` to be invoked
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/synch.png)
 
+#### Semaphore without Busy Waiting
+- Every semaphore has an integer value and a waiting queue
+- If Semaphore value less than 0, add the process trying to access it in the queue
+- If Semaphore value greater than 0, remove it from the waiting queue and put it in the ready queue
+- Implemented using
+  - `block()`: places process in waiting queue
+  - `wakeup()`: removes from waiting queue and puts in ready queue
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/semasem.png)
 
+#### Deadlock & Starvation
+- **Deadlock**: >=2 processes are waiting indefinitely for an event from the other processes
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/deadass.png)
+
+- **Starvation** (Indefinite Blocking): A process may never be removed from the semaphore queue
+  - Another problem with deadlocks
+
+#### Priority Inversion
+- Lower priority process holds a lock needed by a higher priority process
+- Solved by **priority-inheritance protocol**
+  - A process that is using a resource needed by a higher-priority process will inherit its priority until it is finished with the resource
+
+### Bounded Buffer Problem
+- Variables
+  - `int n` buffers
+  - `semaphore mutex = 1` mutual exclusion
+  - `semaphore empty = n` n empty buffers
+  - `semaphore full = 0` 0 full buffers
+- The problem is if we have a producer and a consumer we don't want the producer producing items to a full buffer and customer consuming items from an empty buffer
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/proco.png)
+
+### Readers-Writer Problem
+- A common database with a reading specific process and writing specific process
+  - When both accessed at the same time may lead to unexpected results
+
+- **First Problem - Readers Preference**
+  - No readers should be kept waiting unless a writer has permission to modify the database
+  - No point in Reader1 waiting for Reader2
+  - Readers may starve
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/read1.png)
+- `rw_mutex` used by first or last reader that enters/exits the critical section
+- If a writer is in critical and `n` readers waiting then one reader is put on `rw_mutex` and rest on `mutex` (mutual exclusion ^)
+
+- **Second Problem - Writers Preference**
+  - No writers should be kept waiting longer than necessary once added to the queue
+  - Reader2 shouldn't jump ahead of Writer while it is waiting
+  - Writers may starve
+
+### Dining Philosophers Problem
+- One bowl of rice
+- One chopstick between each philosopher
+- Taking chopsticks should be the critical section
+- Avoid Deadlocks
+  - Allow at max 4 (for the diagram below)
+  - Only pickup if both chopsticks available
+  - `Odd #` picks up left > right
+  - `Even #` picks up right > left
+
+### Semaphore Summary
+- Correct oder is `wait(mutex)` *critical section* `signal(mutex)`
+- Deadlock caused by `wait(mutex)` *critical section* `wait(mutex)`
+
+### Monitors
+- Monitor type is an ADT used process synchronization
+- One process active within a monitor at a time
+- Not powerful enough to model all synchronization schemes
+  - Need to define synchronization mechanisms provided by **Condition Construct**
+
+#### Condition Construct
+- Variables of type condition `condition x, y;`
+- Only `wait()` & `signal()` are allowed on condition variables
+- `x.wait()` waits until `x.signal()` invoked and when it is invoked, it resumes exactly one process that was suspended by `x.wait()`.
+- If `x.signal()` called and no suspended process then nothing happens
+
+#### Condition Variable Choices
+- Process P1 invokes `x.signal()` and Process P2 is suspended in the `x.wait()`
+  - They cannot run in parallel
+- SO one of the processes have to either
+  - Leave the monitor
+  - Wait for another condition
+
+#### Dining Philosophers Solution w/ Monitors
+- 3 States
+  - Thinking
+  - Hungry
+  - Eating
+- Can only pickup chopsticks if both available so
+  - Can only pickup if neighbors are not in eating state
+- If hungry and cannot eat, add delay and put in queue
+- Each philosopher needs to `pickup()` eat then `putdown()`
+
+#### Resuming Processes within a Monitor
+- If lots of suspended processes, which one should be resumed first?
+  - **FCFC** First come First server is not enough in most cases
+- Implement **Conditional-Wait** by doing `x.wait(c)`
+  - `c` is a priority number (low num = high priority)
+- Highest priority comes back first
+
+#### Single Resource Allocation
+- Allocate single resource using max-time limitations
+  - Specify max-time a process plans to use a resource
+
+### Linux Synchronization
+- Version 2.6 and later fully preemptive kernel
+  - **Preemptive**: Temporarily interrupting a task without cooperation with intent to resume it at a later time
+- Atomic Integers
+```
+atomic_t counter;
+int value;
+atomic_set(&counter,5); /* counter = 5 */
+atomic_add(10, &counter); /* counter = counter + 10 */
+atomic_sub(4, &counter); /* counter = counter - 4 */
+atomic_inc(&counter); /* counter = counter + 1 */
+value = atomic_read(&counter); /* value = 12 */
+```
+
+- Mutex Locks
+  - `mutex_lock()`
+  - `mutex_unlock()`
+
+- Semaphores, Spinlocks (replaced by enable/disable kernel preemption)
+  - `preempt_disable()`
+  - `preempt_enable()`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/linuxEE.png)
 
 
 ---
