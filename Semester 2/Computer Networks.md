@@ -1259,6 +1259,140 @@ Message will be received and summed again
 
 <a name="Lecture7"></a>
 ## Lecture 7 - Application Layer
+- Cannot write software for network-core devices
+  - Because they work on Network layer and below
+- Need to write software that will run on multiple *end systems* and communicate over networks
+  - Can use C, Java, Python
+
+### Network Application Architecture
+- Designed by application developer
+- Defines application structure over various end systems
+- 2 Architectural paradigms
+  - Client Server Architecture
+  - Peer to Peer Architecture
+
+#### Client-Server Architecture
+- **Server**
+  - Always-on
+  - Permanent IP Address
+  - Data Centers are used for scaling
+- **Client**
+  - ONLY communicates with server, not each other
+  - May have dynamic IP Address
+  - May be intermittently connected
+
+#### P2P Architecture
+- Little to no reliance on dedicated servers
+- Services are
+  - Requested from peers
+  - Provided to peers
+- Self scaling
+  - New peers bring new capacity along with demands
+- Issues with P2P
+  - Complex to manage
+  - Security Issues
+
+### Processes Communicating
+- **Process**: Program running within a host
+- **Inter-process Communication**: Two processes of the same host communicating
+  - Processes from different hosts communicate by exchanging messages
+- **Client Process**: Process that initiates the communication
+- **Server Process***: Process that waits to be communicated with
+
+### Sockets
+- The interface between the process and the computer network through which processes communicate
+- Messages are sent/received to/from sockets
+- Sending process relies on the other side to deliver the message to the socket at the receiving process
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/socketZ.png)
+- Receiving processes are identified by the following
+  - IP Address (host address)
+  - Port Number (destination host identifier)
+- Socket Number is a combo of the above two
+
+### Transport Services
+- An application needs the following transport services
+  - **Reliable Data Transfer**
+    - Some require 100% reliable transfer (File transfer)
+    - Some can tolerate loss to an extent (Audio)
+  - **Timing**
+    - Some require low delay to be effective (Games)
+  - **Throughput**
+    - Require a minimum amount of throughput (Multimedia)
+    - Others make use of whatever they get (Mail, File Transfer)
+    - *Throughput: The amount of items passing through a system*
+  - **Security**
+    - Encryption, Data Integrity
+
+### Transport Services Provided by the Internet
+- **TCP**
+  - Provides
+    - Reliable Transport
+    - Flow Control
+    - Congestion Control
+    - Connection Oriented
+  - Does NOT Provide
+    - Timing
+    - Minimum Throughput  
+    - Security
+
+- **UDP**
+  - Provides
+    - Unreliable Data Transfer
+  - Does NOT Provide
+    - Reliability
+    - Flow Control
+    - Congestion Control
+    - Timing
+    - Minimum Throughput
+    - Security
+    - Connection Setup
+
+- **So WHY is there even a UDP?**
+  - Because it does not take into consideration any of these extra factors that ensure security, it allows computers to communicate much faster. It is up to the receiving user to ensure all packets are received correctly because if you miss it, too bad and no guarantee you're gonna get all of them either.
+
+- **How do you secure these Transport Services?**
+  - TCP and UDP do not provide any encryption or security
+  - **SSL** Security Sockets Layer, adds security enhancement to TCP and it is developed at the application layer
+  - SSL provides data integrity, encryption, authentication
+
+### Application Layer Protocols
+- Defines how processes of an application pass messages to each other
+  - Processes are running on different end systems
+- **Type of Message**
+  - Request, Response
+- **Message Syntax**
+  - What fields and how the fields are delineated (separated)
+- **Message Semantics**
+  - Meaning of information in the fields
+- **Rules**
+  - When & How processes respond to messages
+- **Note*:**
+  - Some protocols are *open*
+    - Allows for interoperability (exchange info b/w systems)
+    - HTTP, SMTP
+  - Some protocols are *proprietary*
+    - Skype
+
+### Web & HTTP
+- **Web**: An application that revolutionized the internet
+  - Works by demand
+  - Uses get what they want, when they want it
+  - Any user can become a publisher at a low cost
+
+#### HTTP Overview
+- Web Page consists of **objects** (files)
+  - Objects can be: HTML File, JPEG, Audio File, Java Applet
+  - Objects are addressable by a single URL that is made up of
+    - Host Name
+    - Object Path Name
+  - `http://www.somesite.com/someFolder/somePic.png`
+- **HTTP**: Hypertext Transfer Protocol
+  - The application layer for the Web
+  - Defines how clients request web pages
+  - Defines how servers transfer web pages to clients
+  - *Client Server Model* (HTTP Protocol)
+    - Client = Browser that requests/receives and displays web objects
+    - Server = Web server that responds to requests by sending objects
 
 
 
