@@ -1393,7 +1393,62 @@ Message will be received and summed again
   - *Client Server Model* (HTTP Protocol)
     - Client = Browser that requests/receives and displays web objects
     - Server = Web server that responds to requests by sending objects
+- Web uses HTTP Protocol but **HTTP used TCP Protocol**
+  - Client initiates TCP connection (creates a socket to the server **Port 80**)
+  - Server accepts TCP connection
+  - HTTP messages are exchanged between browser and server
+    - HTTP messages = application-layer protocol messages
+- **HTTP is a stateless protocol**
+  - Maintains no info about past client requests
 
+### HTTP Connections
+- **Non Persistent HTTP**
+  - One object sent over TCP connection at a time
+  - For multiple must close connection and open a new one
+  - **Issues**
+    - Requires 2 RoundTripTime's per object
+    - OS overhead for each connection
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/nPers.png)
+
+- **Persistent HTTP**
+  - Multiple objects can be sent over a single TCP connection
+  - Connection stays open so client sends requests as soon it encounters a referenced object
+  - As little as 1 RoundTripTime for all referenced object
+
+### HTTP Message Format
+- **Request Message**
+  - ASCII format human-readable)
+  - General Format Below
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/htptreq.png)
+  - Two ways to upload form inputs
+    - `POST`: Form input uploaded to server
+    - `URL`: www.somesite.come/animalsearch<b>?monkeys&banana<b>
+  - Other request methods are below  
+|Method|Description|
+|------|-----------|
+|GET|Fetch a web page|
+|HEAD|Read a web page's header|
+|POST|Send input data to a server program|
+|PUT|Uploads file in entity body to path specified in URL field|
+|DELETE|Deletes file specified in URL field|
+|TRACE|Echo the incoming request |
+|CONNECT|Connect through a proxy|
+|OPTIONS|Query options for a page|
+
+- **Response Message**
+  - General Format Below
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/htptres.png)
+  - Status Codes
+
+|Code|Description|
+|------|-----------|
+|200 OK|Request succeeded, object is later in this message|
+|301 Moved Permanently|Requested object moved, new location is laster in this message|
+|400 Bad Request|Request message not understood by server|
+|404 Not Found|Requested document not found on this server|
+|505 HTTP Version Not Supported|HTTP Version is not supported|
+
+### Cookies
 
 
 ---
