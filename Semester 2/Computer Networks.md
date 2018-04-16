@@ -1442,7 +1442,7 @@ Message will be received and summed again
   - Status Codes
 
 |Code|Description|
-|------|-----------|
+|------|---------|
 |200 OK|Request succeeded, object is later in this message|
 |301 Moved Permanently|Requested object moved, new location is laster in this message|
 |400 Bad Request|Request message not understood by server|
@@ -1450,9 +1450,258 @@ Message will be received and summed again
 |505 HTTP Version Not Supported|HTTP Version is not supported|
 
 ### Cookies
+- HTTP is stateless but some web sites want to save information about users to identify them
+  - HTTP uses **Cookies** for this
+- 4 Components of Cookies
+  - Header in the HTTP Response Message
+  - Header in the HTTP Request Message
+  - Cookie file kept on the user's end system and managed by their browser
+  - Back end Database at the web site
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/coooK.png)
+
+- **Cookies can be used for**
+  - Authorization
+  - Shopping Carts
+  - Recommendations
+  - User Session State (Web Email)
+
+- **Maintaining state**
+  - Protocol endpoints maintain state over transactions
+  - Cookies are HTTP messages carrying state
+
+- **Cookies and Privacy**
+  - Cookies allows sites to learn about you
+  - May supply: name, email, cc to sites
+
+### Web Caching
+- A network entity that satisfies HTTP requests on behalf of the web server
+- User browser initiates TCP connection to the **Web Cache**
+  - If cache has object it returns it
+  - If not it gets the object from the server
+    - Saves it in cache and sends to user
+- Cache is a client and server
+  - Client b/c requests from server
+  - Server b/c responds to client browser
+- Benefits
+  - Reduces response time
+  - Reduces traffic
+
+- Sample Problem
+  - Access Delay too high
+  - A solution can be to increase access link rate but that would be expensive ($$)
+  - Web cache is a cost effective solution
+
+- Conditional `GET`
+  - `GET` message and `If-modified-since: <date>`
+  - Checks to see if modified from last cached date, otherwise return from cache
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/caches.png)
+
+
+### eMail
+- **User Agents**
+  - Mail reader (Gmail, Apple, Outlook)
+  - Lets you manage your mail (read, reply, save, compose)
+- **Mail Servers**
+  - Mailbox to hold incoming messages
+  - Message queue of outgoing mail messages
+- **SMTP (Simple Mail Transfer Protocol)**
+  - Protocol to send email between mail servers
+- **Process**
+  - PersonA sends mail using *User Agent* to the *Mail Server*. It's placed in the *Mail Server's* outgoing queue. PersonA's mail server uses SMTP to deliver the message to PersonB's mail server. PersonB's *User Agent* retrieves the mail from their *Mail Server*.
+  - If PersonA mail fails to send, will hold in queue and retry every 30mins or so and after a number of failed attempts, sends mail to personA saying failed.
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/proSez.png)
+
+```
+Example Transcript
+Client Name: crepes.fr
+Server Name: hamburger.edu
+
+S: 220 hamburger.edu
+C: HELO crepes.fr
+S: 250 Hello crepes.fr, pleased to meet you
+C: MAIL FROM: <alice@crepes.fr>
+S: 250 alice@crepes.fr ... Sender ok
+C: RCPT TO: <bob@hamburger.edu>
+S: 250 bob@hamburger.edu ... Recipient ok
+C: DATA
+S: 354 Enter mail, end with “.” on a line by itself
+C: Do you like ketchup?
+C: How about pickles?
+C: .
+S: 250 Message accepted for delivery
+C: QUIT
+S: 221 hamburger.edu closing connection
+
+```
+
+### SMTP
+- Uses **TCP** to transfer email messages from client to server (Port 25)
+- Direct transfer: Sending server to receiving server
+- Three phases
+  - **Handshaking**
+  - **Transfer of messages**
+  - **Closure**
+- Command/Response interactions
+  - Commands are ASCII text
+  - Responses are Status Codes + Phrases
+- Uses persistent connections
+- Requires header and body to be in 7-but ASCII
+- Uses CRLF to determine end of message
+
+- **HTTP vs SMTP**
+|--|HTTP|SMTP|
+|--|----|----|
+|<b>Protocol Type</b>| Pull | Push |
+|<b>Command/Response Interaction</b>| ASCII | ASCII |
+|<b>Command/Response Interaction</b>| ASCII | ASCII |
+|<b>Objects</b>| Each object encapsulated in its own response | Multiple objects sent into one message |
+
+
+### Mail Message Format
+- RFC 822: Standard for text message format
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mmmF.png)
+
+### Mail Access Protocols
+- SMTP is only used to push mail from sender agent to mail server
+  - AND from mail server to other mail server
+- Need mail access protocol to retrieve the mail from recipient mail server
+- 3 protocols
+  - **POP**
+  - **IMAP**
+  - **HTTP**: gmail, hotmail, yahoo
+
+#### POP3 Protocol
+- Begins when client opens TCP connection to mail server (Port 110)
+- 3 Phases
+  - **Authorization**
+    - Authenticates users by username, password
+    - Responds with +OK or -ERR
+  - **Transaction**
+    - User can
+      - List message numbers
+      - Retrieve messages
+      - Delete messages
+      - Quit  
+  - **Update**
+    - Occurs after quit command
+    - Mail server deletes message that were marked for deletion in this stage
+- 2 Modes
+  - **Download-and-Delete**:
+    - Server deletes messages after being downloaded
+    - Client cant re-read messages if he changes the client machine
+  - **Download-and-Keep**:
+    - User agent leaves messages on server after downloading
+    - Client can be read from different machines
+- **POP3 is stateless across sessions**
+- Problem: No way to create remote folders and assign messages to folders
+  - Use IMAP for this
+
+### IMAP (Internet Mail Access Protocol)
+- Keeps all messages in one place @ the server
+- Allows users to create folders and organize messages in folders
+- Keeps user state across sessions
+  - Names of folders and mappings between message IDs and folder name
+
+### Web Based E-mail
+- Protocol works in 2 modes
+- Many users send and access email through browsers
+  - User agent is now the browser that communicates with its remote mailbox via HTTP
+  - Now the email is sent from mail server using HTTP vs POP3 and IMAP
+  - Sender also sends email over HTTP vs SMTP too
+- Mail servers still talk to each other using SMTP though  
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/baba.png)
+
+### Domain Name System
+- How to map between IP address and name
+  - Domain Name System
+- **Distributed Database**: implemented in hierarchy of many DNS servers
+- **Application Layer Protocol**: Allows hosts and DNS servers to communicate to resolve the names (address/name translation)
+- DNS protocol runs over UDP and on Port 53
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/DNSS.png)
+
+- Services by DNS
+  - Hostname to IP address translation
+  - Host aliasing
+    - rela1.west-cost-.enterprise.com could have two aliases : enterprise.com vs www.enterprise.com
+    - DNS translates from simple aliases to canonical names and its IP address
+  - Mail server aliasing
+    - Translate from simple alias mail server names to its canonical name and its IP address
+  - Load distribution
+    - Many IP addresses correspond to one server name
+    - DNS responds with the full set of IP addresses but rotates the ordering of the addresses within each reply
+
+#### DNS - Distributed and Hierarchical Database
+- **Root DNS Servers**
+  - 400 root name servers managed by 13 different organizations
+  - Provide IP addresses of the TLD servers
+- **Top-Level Domain (TLD) DNS Servers**
+  - Responsible for com, org, net etc
+  - TLD servers provide IP addresses for authoritative DNS servers
+- **Authoritative DNS Servers**
+  - Organization's own DNS server(s) providing authoritative hostname to IP mappings for organizations names hosts
+  - Can be maintained by organization or hosted by a Service Provider
+- **Local DNS Name Server**
+  - Does not belong to hierarchy
+  - Each ISP has one
+  - When hosts make DNS queries its sent to DNS server that acts as a proxy
+    - It has a cache (can be out of date )
+    - May forward to hierarchy
+
+- If client wants the IP address of a website  (amazon.com)
+  - Client queries one of the root servers to find the .com servers
+  - Client queries one of the .com DNS servers to get amazon.com
+  - Client queries amazon.com DNS server to get IP address for www.amazon.com
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/higherArc.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/welp.png)
+
+### DNS - Caching
+- Once a server learns IP mapping it caches the mapping
+- Cache entries disappear after TTL = 2 days
+- TLD servers are also cached so root name servers are rarely visited
+  - If a name host changes IP address wont know until all entries disappear
+
+#### DNS - Records
+- DNS is a distributed database that stores resource records (RR)
+  - Stored in this format: (Name, Value, Type, TTL)
+  - Name & Value depend on Type
+    - type=A: Name is hostname and value is IP address
+    - type=NS: Name is domain and value is hostname
+    - type=CNAME: Name is alias, value is canonical name  
+    - type=MX: Name is canonical name of mail server, value is hostname
+
+#### DNS - Messages
+- Query & Reply messages both have the same message format
+- `nslookup` can be used to query a DNS server on Windows
+- Identification
+  - 16 bit number of query, and for reply
+- Flags
+  - Query(0) or Reply(1)
+
+#### DNS - Inserting Records into DNS Database
+- Need to register DNS
+- Provide names and IP addresses
+- Registrar inserts two RR's (NS & A typed)
+- Need type A for web server
+- Need type MX for mail server
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bumdum.png)
+- Example
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/welp2.png)
+
+#### DNS - Vulnerabilities
+- Attacks
+  - DDoS
+    - Bombards root servers with traffic
+  - Redirect
+    - Man in Middle to intercept query and reply with bogus
+  - Exploit DNS for DDoS
+    - Send queries with spoofed source address : targetIP
+
+
+
 
 
 ---
+
 
 <a name="Formulas"></a>
 ## Formulas
