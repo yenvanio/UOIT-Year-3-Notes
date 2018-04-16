@@ -1422,8 +1422,9 @@ Message will be received and summed again
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/htptreq.png)
   - Two ways to upload form inputs
     - `POST`: Form input uploaded to server
-    - `URL`: www.somesite.come/animalsearch<b>?monkeys&banana<b>
+    - `URL`: www.somesite.come/animalsearch<b>?monkeys&banana</b>
   - Other request methods are below  
+
 |Method|Description|
 |------|-----------|
 |GET|Fetch a web page|
