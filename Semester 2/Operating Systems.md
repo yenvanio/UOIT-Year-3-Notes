@@ -1316,9 +1316,41 @@ value = atomic_read(&counter); /* value = 12 */
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/RRP.png)
 
 ### Multilevel Queue Scheduling
+- Used when processes can be classified into different groups
+- Ready queue is separated into
+  - **Foreground** (Interactive Processes)
+    - Round Robin Scheduling
+  - **Background** (Batch Processes)
+    - FCFS Scheduling
+- Processes are permanently assigned to one of the two queues
+  - Based on properties of the process
+  - Memory Size, Priority, Type etc
+- **Fixed Priority Scheduling**
+  - Server all from foreground queue then background
+  - Starvation because low priority queue wont server until higher is empty
+- **Time Slice**
+  - Each queue gets a chunk of CPU time which it can schedule amongst processes
+  - 80% Foreground in RR
+  - 20% Background in FCFS
 
+### Multilevel Feedback Queue Scheduling
+- Allows process to move between queues
+  - Allows for aging processes
+- This scheduler defined by the following parameters
+  - Number of queues
+  - Scheduling algorithm for each queue
+  - Method to upgrade process to higher queue
+  - Method to demote a process to lower queue
+  - Method to determine which queue a process will enter
+- Example
+  - `Q0` - RR with quantum 8 ms
+  - `Q1` - RR with quantum 16 ms
+  - `Q2` - FCFS
+- When a new process comes it gets 8ms with RR in Q0
+- If it doesn't finish in that time, move to Q1 with RR 16ms
+- If it doesn't finish in that time either, move to Q2 with FCFS so it can finish
 
-
+### Thread Scheduling
 
 
 
