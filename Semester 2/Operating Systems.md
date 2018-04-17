@@ -12,6 +12,8 @@
 [Lecture 4 - Threads](#Lecture4)
 <br>
 [Lecture 5 - Process Synchronization](#Lecture5)
+<br>
+[Lecture 6 - CPU Scheduling](#Lecture6)
 
 
 <a name="Lecture1"></a>
@@ -1134,7 +1136,7 @@
 
 ### Linux Synchronization
 - Version 2.6 and later fully preemptive kernel
-  - **Preemptive**: Temporarily interrupting a task without cooperation with intent to resume it at a later time
+  - **Preemptive**: Temporarily interrupting a task without cooperation & with intent to resume it at a later time
 - Atomic Integers
 ```
 atomic_t counter;
@@ -1154,6 +1156,158 @@ value = atomic_read(&counter); /* value = 12 */
   - `preempt_disable()`
   - `preempt_enable()`
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/linuxEE.png)
-
-
 ---
+
+
+<a name="Lecture6"></a>
+## Lecture 6 - CPU Scheduling
+- Maximum CPU Utilization obtained with multiprogramming
+  - Lots of processes kept in memory at the same time
+  - When one process is waiting, another process will use the CPU
+- **CPU-I/O** Burst Cycle
+  - CPU Execution (CPU Burst)
+  - I/O Wait (I/O Burst)
+- CPU Burst distribution is the main concern
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/burstC.png)
+
+- I/O Bound program has many short CPU bursts
+- CPU Bound program might have a few long CPU bursts
+
+### CPU Scheduler
+- **Short Term Scheduler**: Selects processes from ready queue and allocates CPU to one of them, while CPU is idle
+
+### Preemptive Scheduling
+- Scheduling decisions happen in the following situations
+  1. When a process switches from running to waiting state (**Cooperative**)
+    - Waiting for I/O request or during `wait()` for child process termination
+  2. When a process switches from running to ready state (**Preemptive**)
+    - Due to an interrupt
+  3. When a process switches from waiting to ready (**Preemptive**)
+    - When it finishes an I/O operation
+  4. When a process terminates (**Cooperative**)
+- **Preemptive Scheduling**
+  - There is a choice in scheduling
+  - Can cause race conditions if a processes served is preempted (not completely finished)
+- **Cooperative Scheduling**
+  - There is no choice in scheduling
+  - Once CPU has been allocated to process, process will keep until switch to waiting state or terminated
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/schedSit.png)
+
+
+### Dispatcher
+- Gives control of CPU to process selected by short-term scheduler, this involves:
+  - Switching context
+  - Switching to user mode
+  - Jumping to the proper location in user program to restart that program
+- Dispatcher needs to be really fast because used for EVERY process switch
+  - **Dispatch Latency**: Time it takes for the dispatcher to stop one process and start running another
+
+### Scheduling Criteria
+- **CPU Utilization**: Keep CPU as busy as possible (irl 40%-90%)
+- **Throughput**: Number of processes that complete their execution per unit time
+- **Turnaround Time**: Time taken to execute a process
+  - Sum of periods spent (Getting into Memory + Waiting in the ready queue)
+- **Waiting Time**: Time a process spends waiting in the ready queue
+- **Response Time**: Time from request submission to first response
+- To optimize Scheduling Algorithms want to
+  - `Max` CPU Utilization
+  - `Max` Throughput
+  - `Min` Turnaround Time
+  - `Min` Waiting Time
+  - `Min` Response Time
+- Basically
+  - **Maximize CPU usage and number of processes being executed while minimizing execution, wait and response times**
+
+### First-Come, First-Served (FCFS) Scheduling
+- First process to request the CPU gets allocated the CPU first
+- Implemented with a FIFO queue
+- Waiting time on average is pretty long
+- Example
+
+|Process|Burst Time (ms)|
+|-------|---------------|
+| P<sub>1</sub>| 24 |
+| P<sub>2</sub>| 3 |
+| P<sub>3</sub>| 3 |
+
+- Gantt Chart looks like the following
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/gantTC.png)
+- Average waiting time is longer because shorter processes are queued up behind a long process, if it was the opposite, waiting time would be a lot shorter
+- **Convoy Effect**: When short processes are waiting behind long processes
+
+### Shortest-Job-First (SJF) Scheduling
+- Dependent on length of **next CPU burst**
+- FCFS is tie breaker for processes with same length
+- Minimum Average waiting time
+- Complex part is getting the length of next CPU request
+  - Can estimate by using previous CPU burst lengths
+    1. t<sub>n</sub> = actual length of n<sup>th</sup> CPU burst
+    2. τ<sub>n+1</sub> = predicted value for the next CPU burst
+    3. α, 0 <= α <= 1 *(Commonly set to 1/2)*
+      - If α = 0, Recent history does not count, So τ<sub>n+1</sub> = τ<sub>n+</sub>
+      - If α = 1, Only the actual last CPU burst counts, So τ<sub>n+1</sub> = ατ<sub>n</sub>
+    4. τ<sub>n+1</sub> = αt<sub>n</sub> + (1-α)t<sub>n</sub>
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/predIk.png)  
+- **Preemptive**
+  - Shortest-Remaining-Time-First
+  - If a new process comes with a burst length less than remaining time of current process then preempt it
+- **Non-Preemptive**
+  - Once CPU is given to process, can't be preempted until burst complete
+- **Preemptive vs Non-Preemptive**
+  - Example
+
+|Process|Arrival Time (ms)| Burst Time (ms)|
+|-------|-----------------|----------------|
+| P<sub>1</sub>| 0 | 8 |
+| P<sub>2</sub>| 1 | 4 |
+| P<sub>3</sub>| 2 | 9 |
+| P<sub>4</sub>| 3 | 5 |
+
+- Gantt Chart for Preemptive
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/preeG.png)
+- Gantt Chart for Non-Preemptive
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/NpreeG.png)
+
+
+### Priority Scheduling
+- Priority number associated with each process
+- CPU allocated to process with highest priority
+  - Smallest integer = highest priority
+- Priorities can be defined internally or externally
+  - **Internally**: Set by OS
+    - Time limits
+    - Memory Requirements
+    - Number of open files
+  - **Externally**: Set by criteria outside OS
+    - Importance of process
+    - Political factors
+- Can also be preemptive or non-preemptive
+  - Will be preempt if priority of newly arriving process is higher
+- May lead to starvation (low priority process may never execute)
+  - **Aging**: Gradually increase the priority of waiting processes
+- Example ( All of them arrived at time 0)
+
+|Process|Burst Time (ms)|Priority|
+|-------|---------------|-------|
+| P<sub>1</sub>| 10 | 3 |
+| P<sub>2</sub>| 1 | 1 |
+| P<sub>3</sub>| 2 | 4 |
+| P<sub>4</sub>| 1 | 5 |
+| P<sub>4</sub>| 5 | 2 |
+
+- Gantt Chart is as follows
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/PSG.png)
+
+### Round Robin
+
+### Multilevel Queue Scheduling
+
+
+
+
+
+
+
+
+
+----

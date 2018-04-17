@@ -1257,6 +1257,37 @@ Message will be received and summed again
 
 ---
 
+<a name="Lecture6"></a>
+## Lecture 6 - Transport Layer
+- Sends data across networks
+  - **Sender**: breaks app messages into segments and passes to network
+  - **Receiver**: reassembles segments into messages passes to app layer
+- Two protocols
+  - **TCP**
+  - **UDP**
+- **Network Layer**: Communication betweens hosts
+- **Transport Layer**: Communication between processes (within host)
+  - Adds reliability to network layer
+
+### Process of Transporting Elements
+- **Addressing**
+  - adds TSAPs (Transport Service Access Points)
+    - Multiple clients and servers can run on a host with a single network (IP) address
+    - TSAPs are ports for TCP/UDP
+  - Hosts receives IP datagrams
+    - Each datagram has source/destination IP addresses
+    - Each datagram carries one transport layer segment
+    - Each segment has source/destination port numbers
+  - Uses IP address and Port Numbers of host to send to IP address and Port number of destination
+
+
+
+
+
+---
+
+
+
 <a name="Lecture7"></a>
 ## Lecture 7 - Application Layer
 - Cannot write software for network-core devices
