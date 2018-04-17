@@ -1462,5 +1462,25 @@ void *runner(void *param) {
 - Takes advantage of memory stall to make progress on another thread while memory is being retrieved
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mmPP.png)
 
+### Algorithm Evaluation
+- **Deterministic Modeling**
+  - Takes predetermined workload and defines performance of each algorithm for that workload
+
+- **Queueing Network Analysis**
+  - `n` average queue length
+  - `W` average waiting time in queue
+  - `λ` average arrival rate into queue
+  - Littles Law - Processes leaving queue must equal processes arriving
+    - `n = λW`
+    - *If on average 7 processes arrive per second, and normally 14 processes in queue then average wait time per process is 2 seconds**
+
+- **Simulations**
+  - More accurate than Queueing Models
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/simEval.png)
+
+- **Implementation**
+  - Implement new scheduler and test in real systems
+    - High Cost, High Risk
+    - Environments may vary 
 
 ----
