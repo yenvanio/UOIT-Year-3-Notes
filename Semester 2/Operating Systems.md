@@ -15,15 +15,15 @@
 <br>
 [Lecture 6 - CPU Scheduling](#Lecture6)
 <br>
-[Lecture 6 - Deadlocks](#Lecture7)
+[Lecture 7 - Deadlocks](#Lecture7)
 <br>
-[Lecture 6 - Main Memory](#Lecture8)
+[Lecture 8 - Main Memory](#Lecture8)
 <br>
-[Lecture 6 - Virtual Memory](#Lecture9)
+[Lecture 9 - Virtual Memory](#Lecture9)
 <br>
-[Lecture 6 - File System Interface](#Lecture10)
+[Lecture 10 - File System Interface](#Lecture10)
 <br>
-[Lecture 6 - File System Implementation](#Lecture11)
+[Lecture 11 - File System Implementation](#Lecture11)
 
 
 <a name="Lecture1"></a>
@@ -1524,7 +1524,7 @@ void *runner(void *param) {
 
 <a name="Lecture10"></a>
 ## Lecture 10 - File System Interface
-- 
+-
 
 
 ----
