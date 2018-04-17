@@ -1188,7 +1188,7 @@ value = atomic_read(&counter); /* value = 12 */
     - When it finishes an I/O operation
 
   4. When a process terminates (**Cooperative**)
-  
+
 - **Preemptive Scheduling**
   - There is a choice in scheduling
   - Can cause race conditions if a processes served is preempted (not completely finished)
@@ -1355,10 +1355,112 @@ value = atomic_read(&counter); /* value = 12 */
 - If it doesn't finish in that time either, move to Q2 with FCFS so it can finish
 
 ### Thread Scheduling
+- Can be **user-level** or **kernel-level**
+- **Process Contention Scope (PCS)**
+  - Schedule user-level threads to run on available Lightweight Processes (LWP)
+  - Competition for CPU takes place among threads from same process
+  - Done by priority (set by programmer)
+- **System Contention Scope (SCS)**
+  - Decides which kernel-level thread to schedule
+  - Competition among all threads in system
 
+### Pthread Scheduling
+- `PTHREAD_SCOPE_PROCESS`
+  - Schedules threads using PCS
+- `PTHREAD_SCOPE_SYSTEM`
+  - Schedules threads using SCS
+- Pthread Scheduling API
+  - Determines existing contention scope and sets it to `PTHREAD_SCOPE_SYSTEM`
+  - Creates 5 different threads that run using SCS
 
+```C
+#include <pthread.h>
+#include <stdio.h>
+#define NUM_THREADS 5
 
+int main(int argc, char *argv[]) {
+  int i, scope;
+  pthread_t tid[NUM_THREADS];
+  pthread_attr_t attr;
 
+  /* get the default attributes */
+  pthread_attr_init(&attr);
+
+  /* first inquire on the current scope */
+  if (pthread_attr_getscope(&attr, &scope) != 0)
+    fprintf(stderr, "Unable to get scheduling scope\n");
+  else {
+    if (scope == PTHREAD_SCOPE_PROCESS)
+      printf("PTHREAD_SCOPE_PROCESS");
+    else if (scope == PTHREAD_SCOPE_SYSTEM)
+      printf("PTHREAD_SCOPE_SYSTEM");
+  else
+    fprintf(stderr, "Illegal scope value.\n");
+  }
+
+  /* set the scheduling algorithm to PCS or SCS */
+  pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM);
+
+  /* create the threads */
+  for (i = 0; i < NUM_THREADS; i++)
+    pthread_create(&tid[i],&attr, runner, NULL);
+
+  /* now join on each thread */
+  for (i = 0; i < NUM_THREADS; i++)
+    pthread_join(tid[i], NULL);
+}
+
+/* Each thread will begin control in this function */
+void *runner(void *param) {
+  /* do some work ... */
+  pthread_exit(0);
+}
+```
+
+**
+
+### Multiple-Processor Scheduling
+- CPU scheduling complexity increases when there are more CPUs
+- Even if processors are homogeneous
+  - A system with an I/O device attached to a private bus of one process
+  - Other processes that want to use it must be scheduled to run on that processor
+- **Asymmetric Multiprocessing**
+  - All scheduling handled by a single processor
+- **Symmetric Multiprocessing (SMP)**
+  - Each processor is self-scheduling
+  - Can have common ready queue or private ready queue per processor
+
+### Issues with Multiple-Processor Scheduling
+- **Processor Affinity**: Keeps a process running on the same processor that it was before
+  - A process has an affinity for the processor it is in running on
+  - If it needs to migrate then old cache needs to be cleared and new one repopulated which has a high cost
+  - 2 types of Affinity
+    - **Soft Affinity**
+      - OS tries to keep a process on the same processor bu no guarantee to keep it this way
+    - **hard Affinity**
+      - OS allows a process to specify a subset of processor on which it can run
+      - `sched_setaffinity()`
+
+- **NUMA & CPU Scheduling**
+  - Non-Uniform Memory Access
+  - Faster access to some memory vs others
+  - More memory boards
+
+- **Load Balancing**
+  - If Symmetric Multiprocessing is used all the CPUs need to be loaded for efficiency
+  - Load Balancing tries to distribute workload across processors
+  - Only necessary when private ready queues are being used
+  - **Push Migration**
+    - Checks load on all processors and if there is imbalance, push process from busy to less busy processors
+  - **Pull Migration**
+    - Idle processor pulls a waiting task from a busy processor
+  - **Push and Pull are often implemented in parallel**
+
+- **Multicore Processors**
+  - Recent trend is to place multiple processors on same chip
+  - Faster and consumes less power than multiple processors
+- Takes advantage of memory stall to make progress on another thread while memory is being retrieved
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mmPP.png)
 
 
 ----
