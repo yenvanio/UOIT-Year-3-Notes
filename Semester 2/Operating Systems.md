@@ -1180,11 +1180,15 @@ value = atomic_read(&counter); /* value = 12 */
 - Scheduling decisions happen in the following situations
   1. When a process switches from running to waiting state (**Cooperative**)
     - Waiting for I/O request or during `wait()` for child process termination
+
   2. When a process switches from running to ready state (**Preemptive**)
     - Due to an interrupt
+
   3. When a process switches from waiting to ready (**Preemptive**)
     - When it finishes an I/O operation
+
   4. When a process terminates (**Cooperative**)
+  
 - **Preemptive Scheduling**
   - There is a choice in scheduling
   - Can cause race conditions if a processes served is preempted (not completely finished)
