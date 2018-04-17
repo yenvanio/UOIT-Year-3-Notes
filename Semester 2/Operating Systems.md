@@ -1299,6 +1299,21 @@ value = atomic_read(&counter); /* value = 12 */
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/PSG.png)
 
 ### Round Robin
+- Designed especially for time sharing systems
+- Each process gets a small amount of CPU time (time quantum `q`)
+  - For `n` processes, each process gets `1/n` of the CPU time in chunks of `q` time units at most
+- If `q` is large: FCFS
+- If `q` is small: high overhead (too many context switches)
+
+- Example with Time Quantum = 4
+
+|Process|Burst Time (ms)|
+|-------|---------------|
+| P<sub>1</sub>| 24 |
+| P<sub>2</sub>| 3 |
+| P<sub>3</sub>| 3 |
+- Gantt Chart is as follows
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/RRP.png)
 
 ### Multilevel Queue Scheduling
 
