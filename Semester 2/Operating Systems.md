@@ -1786,7 +1786,72 @@ tar                 # Combine files/directories
     - File Handle
     - Location (by maintaining file control blocks)
   - Manages directory structure
-  - Responsible for protection 
+  - Responsible for protection
+
+
+### File System Implementation
+- OS implements `open()` & `close()`
+- Need many structures and operations to implement the file system
+  - **On Disk**
+  - **In Memory**
+  - **Partitions and Mounting**
+  - **Virtual File Systems**
+
+#### On Disk - File System Structures
+- Contains information on
+  - **Boot Control Block**: Contains info needed by system to boot OS from that volume
+  - **Volume Control Block**: Contains total number of blocks, free blocks, block size
+    - Also called: Superblock, Master File Table
+  - **Directory Structure**: Information to organize files
+    - In UFS: Includes file names, inode numbers
+    - in NTFS: stored in the master file table
+  - **Per-File FCB**: Contains details about the file:inode number, permissions, size, dates
+
+#### In Memory - File System Structures
+- Used for both file system management and performance improvement (caching)
+- Loaded at mount and discarded at dismount
+  - **In Memory Mount Table**: Contains information about each mounted volume
+  - **In Memory Directory Structure Cache**: Holds directory information of recently accessed directories
+  - **System Wide Open File Table**: Contains a copy of FCB of each opened file
+  - **Per Process Open File Table**: Contains pointer to appropriate entry in system-wide open-file table
+  - **Buffers**: Holds file system blocks when they are being read/written
+- `Open()`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/openF.png)
+- `Close()`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/closeF.png)
+
+#### Partitions and Mounting
+- Disk can be sliced into multiple partitions
+  - Partitions can have a file system (**Cooked**)
+  - Partitions can just be a sequence of blocks (**Raw**)
+- Boot block, points to boot volume or loader blocks
+  - These volumes/blocks contain enough info to load kernel from file system
+- **Root Partition**
+  - Contains OS
+  - Mounted at boot time
+- At mount time the file system consistency is checked
+  - If metadata not correct, fix
+  - If correct, mount table and allow access
+
+### Virtual File Systems
+- Modern OS's use OOP techniques to
+  - Simplify
+  - Organize
+  - Modularize
+- File System implementation consists of 3 major layers
+  - **The file system interface**
+    - `open()`, `read()`,  `write()`, `close()`
+  - **Virtual File System**
+    - Allows API to be used to implement different types of file systems
+  - **Layer to implement file-system type or the remote-file-system protocol**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/vvN.png)
+- 4 object types
+  - **Inode**: Represents individual file
+  - **File**: Represents an open file
+  - **Superblock**: Represents entire file system
+  - **Dentry**: Represents an individual directory entry 
+
+### Directory Implementation
 
 
 ----
