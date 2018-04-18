@@ -1578,14 +1578,14 @@ void *runner(void *param) {
 ### Linux Commands
 
 ``` sh
-mkdir dirname       /* Create directory */
-rmdir dirname       /* Remove directory */
-mv data newdata/    /* Move data to new directory and delete old one */
-cp data newdata/    /* Copy data to new directory */
-ls                  /* Lists files */
-pwd                 /* Print working directory */
-cd                  /* Changes directories */
-rm data             /* Deletes file within current directory*/
+mkdir dirname       # Create directory
+rmdir dirname       # Remove directory
+mv data newdata/    # Move data to new directory and delete old one 
+cp data newdata/    # Copy data to new directory
+ls                  # Lists files
+pwd                 # Print working directory
+cd                  # Changes directories
+rm data             # Deletes file within current directory
 find
 whereis
 grep
@@ -1606,14 +1606,14 @@ grep
 
 ### Access Methods
 - **Sequential Access**
-  - Tape Drive Model
+  - **Tape Drive Model**
   - Records are processed one after the other
   - `Read_next`: Reads next portion and advance pointer
   - `Write_next`: Appends to end of file and advance pointer to end of newly written text
   - `Reset`: Reset file to the beginning
 
 - **Direct Access**
-  - Disk Model
+  - **Disk Model**
   - File is made of a numbered sequence of fixed length logical records
   - `read(n)`: Read block `n`
   - `write(n)`: Write block `n`
@@ -1623,11 +1623,30 @@ grep
 - **Other Methods**
   - Most other techniques involve creation of an index for the file
   - Keep index in memory to determine location faster
-  - If index file too large, index the index file 
+  - If index file too large, index the index file
 
-### Directory Structure
+### Disk Structure
+- Disks can be subdivided into partitions
+  - Partitions a.k.a minidisks, slices
+- Disks can be RAID protected against failure
+- Disk can be used raw without a file system
+  - Or formatted with a file system
+- Entities containing file system is known as a volume
+- Volumes contain information about device directory
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/fileZ.png)
 
+### Types of File Systems
+- We usually look at general-purpose file systems
+- **Solaris has many**
+  - `tmpfs`: Temp memory-based volatile file system for fast I/O
+  - `objfs`: Virtual file system which is an interface to the kernel memory to get kernel symbols for debugging
+  - `ctfs`:  Contract File System for managing daemons
+  - `lofs`: Loopback file system allows one file system to be accessed in place of another
+  - `procfs`: Kernel interface to process structure
+  - `ufs`, `zfs`: General purpose file systems
 
+### Directory
+- Collection of nodes with info about all files
 
 ----
 
