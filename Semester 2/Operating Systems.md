@@ -1679,8 +1679,66 @@ tar                 # Combine files/directories
     - `subdirectory(1)`
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/treeDP.png)
 
+### Acyclic-Graph Directories
+- Graph with no cycles
+- Generalization of tree-structured directories
+- Directories can share subdirectories and files
+  - Shared files/subdirectories are implemented by creating a new directory
+  - `Link` Directory, pointer to the shared files
+  - If one of the *pointed to* files are deleted, now we have a dangling pointer
+  - Fix by having a count entry that holds how many pointers to the file
 
+### General Graph Directory
+- To ensure no cycles
+  - Allow only links to files NOT subdirectories
+- Use **Garbage Collection**
+  - Find when last reference is deleted and reallocate space
+  - 1st Pass: Note all the directories or files that have been visited
+  - 2nd Pass: Delete all unmarked files or directories
 
+### Mounting
+- File system must be *mounted* before accessing it via processes
+  - To make it available within the file-system name space
+- **Unix**
+  - All unmounted partitions are mounted into a directory @ root `/`
+- **Macintosh**
+  - If a file system is found via search it mounts it to the file system under `/Volumes`
+- **MS Windows**
+  - Devices and partitions are assigned under drive letters `A:\` `C:\`
+
+### File Sharing
+- Can be shared through a protection scheme
+- For multi-user system
+  - **User IDs**: Identifies users, allow permissions and protection per user
+  - **Group IDs**: Allow users to be in groups, allowing group access rights
+
+### Remote File Systems
+- Networking allows file access across computer systems
+- **Distributed File Systems (DFS)**: Remote directories are visible to local machines
+- Client-Server model of world wide web allows clients to mount remote file systems from servers
+- **NFS**
+- **CIFS**: Common Internet File System
+  - Standard Windows Protocol
+
+### Consistency Semantics
+- Specifies No. of users can access a shared file at the same time
+- **Unix File System (UFS)**
+  - Sharing of pointers to the shared resources
+- **Andrew File System (OpenAFS)**
+  - Implements complex remote file sharing semantics
+  - If a user is writing, not visible until the starting file is closed by the user
+
+### Protection
+- Can control access to the following
+  - Read, Write, Execute, Append, Delete, List
+  - Protection is only provided at the lower level
+- **Access Lists & Groups**
+  - Access: Read, Write, Execute
+  - 3 classes of users
+    - Owner access (7) = rwx = 111
+    - Group access (6) = rwx = 110
+    - Public access (1) = rwx = 001
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/smsm.png)
 
 
 ----
