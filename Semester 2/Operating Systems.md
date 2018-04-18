@@ -1748,6 +1748,45 @@ tar                 # Combine files/directories
 <a name="Lecture11"></a>
 ## Lecture 11 - File System Implementation
 
+### Disk Storage
+- Main secondary storage to store file systems
+- Disks can be rewritten in the same place
+- Sequential / Random access
+- Transfers b/w memory and disks are performed in blocks
+  - 32B to 4KB (block size range)
+
+### File System Structure
+- **File Structure**: Logical Storage Unit
+  - Collection of related information
+- **File System**: Resides on Disks (Secondary Storage)
+  - Provides UI for storage
+  - Maps file system onto storage devices
+  - Efficient & Convenient access
+  - Organized in layers
+
+#### File System Layers
+- Each layer uses feature of lower layer to create new feature for higher layer to use
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/fulez.png)
+- I/O control level consists of
+  - **Device Drivers**: Manage I/O devices at the I/O control layer
+  - **Interrupt Handlers**
+
+- **Basic File System**
+  - Generic commands to write and read physical blocks on the disk
+  - Manages memory buffers and uses cache
+
+- **File Organization Module**
+  - Knows about files, logical address and physical blocks
+  - Converts logical block address to physical block address
+
+- **Logical File System**
+  - Manages metadata info
+  - Converts File into
+    - File Number
+    - File Handle
+    - Location (by maintaining file control blocks)
+  - Manages directory structure
+  - Responsible for protection 
 
 
 ----
