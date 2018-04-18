@@ -1482,7 +1482,7 @@ void *runner(void *param) {
   - `λ` average arrival rate into queue
   - Littles Law - Processes leaving queue must equal processes arriving
     - `n = λW`
-    - *If on average 7 processes arrive per second, and normally 14 processes in queue then average wait time per process is 2 seconds**
+    - *If on average 7 processes arrive per second, and normally 14 processes in queue then average wait time per process is 2 seconds*
 
 - **Simulations**
   - More accurate than Queueing Models
@@ -1524,7 +1524,52 @@ void *runner(void *param) {
 
 <a name="Lecture10"></a>
 ## Lecture 10 - File System Interface
--
+- **File System**: Mechanism for storage and access to both data and programs
+  - **Files**: Each storing related data
+    - Data Files: Numeric, Character, Binary
+    - Program Files: Source, Object, Executable
+  - **Directory Structure**: Organize and provide information about all the files in the system
+    - Stores file name and identifier which is used to locate rest of attributes
+
+### File Attributes
+- **Name**: The only human-readable information (text)
+- **Identifier**: Unique tag (number)
+- **Type**: Needed for systems that support different types of files
+- **Location**: Pointer to the file location on device
+- **Size**: Current file size in bytes/words/blocks
+- **Protection**: Controls determine who can read, write, execute
+- **Time, Date, User Identification**: Info may be kept for creation/modification date
+
+### File Operations
+- **Create**
+- **Write**
+  - Start writing at the write pointer
+- **Read**
+  - Start reading at the read pointer (same pointer for read/write)
+- **Reposition**
+  - Current file position pointer is given a new value
+- **Delete**
+  - Erases file, release file space
+- **Truncate**
+  - Keep file attributes, set size to 0, release file space
+- `Open(Fi)`
+  - Search directory for entry Fi and move content to memory (open-file table)
+- `Close(Fi)`
+  - Move content from memory (open-file table) to directory on disk
+
+- First time a file is opened by a process
+- Puts into system-wide table and then each process that uses it gets a pointer to it in its own open-file table
+
+#### Open Files
+- **Open File Table**
+  - One table for each process to track its opened files
+  - Pointer to system-wide table
+  - Current File Position Pointer to the last read/write location
+- **File Open Count**: Counter, for how many times file is opened
+- **Disk Location of the file**: Data needed to locate file, ease of memory access  
+- **Access Rights**: Access mode information per process 
+
+#### Locking
 
 
 ----
