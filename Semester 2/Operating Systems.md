@@ -1567,9 +1567,66 @@ void *runner(void *param) {
   - Current File Position Pointer to the last read/write location
 - **File Open Count**: Counter, for how many times file is opened
 - **Disk Location of the file**: Data needed to locate file, ease of memory access  
-- **Access Rights**: Access mode information per process 
+- **Access Rights**: Access mode information per process
 
 #### Locking
+- **Shared Lock**: Several processes can acquire it concurrently (reading)
+- **Exclusive Lock**: Only one process at a time (writing)
+- **Mandatory Locking**: Access denied to a resource if process already acquired its advisory lock
+- **Advisory Locking**: Process can find status of locks and then decide what to do
+
+### Linux Commands
+
+``` sh
+mkdir dirname       /* Create directory */
+rmdir dirname       /* Remove directory */
+mv data newdata/    /* Move data to new directory and delete old one */
+cp data newdata/    /* Copy data to new directory */
+ls                  /* Lists files */
+pwd                 /* Print working directory */
+cd                  /* Changes directories */
+rm data             /* Deletes file within current directory*/
+find
+whereis
+grep
+
+```
+
+### File Types
+- `name.extension`
+- Uses extension to indicate type of file
+  - Lets OS know what operations can be done on it
+- Files have `creator` attributes
+  - Name of program that created it
+
+### File Structure
+- UNIX considers files to a be a sequence of 8-bit bytes
+  - Each application needs to have code to interpret input files of appropriate structures
+- All OS's must support executable files
+
+### Access Methods
+- **Sequential Access**
+  - Tape Drive Model
+  - Records are processed one after the other
+  - `Read_next`: Reads next portion and advance pointer
+  - `Write_next`: Appends to end of file and advance pointer to end of newly written text
+  - `Reset`: Reset file to the beginning
+
+- **Direct Access**
+  - Disk Model
+  - File is made of a numbered sequence of fixed length logical records
+  - `read(n)`: Read block `n`
+  - `write(n)`: Write block `n`
+  - `n`: Relative block number from start of file
+  - Keep a `cp` variable for current position
+
+- **Other Methods**
+  - Most other techniques involve creation of an index for the file
+  - Keep index in memory to determine location faster
+  - If index file too large, index the index file 
+
+### Directory Structure
+
 
 
 ----
