@@ -1580,15 +1580,17 @@ void *runner(void *param) {
 ``` sh
 mkdir dirname       # Create directory
 rmdir dirname       # Remove directory
-mv data newdata/    # Move data to new directory and delete old one 
+mv data newdata/    # Move data to new directory and delete old one
 cp data newdata/    # Copy data to new directory
 ls                  # Lists files
 pwd                 # Print working directory
 cd                  # Changes directories
 rm data             # Deletes file within current directory
-find
-whereis
-grep
+find                # Finds
+whereis             # Locates stuff like binary source files
+grep                # Filters text
+touch               # Update last modified date, create if not exists
+tar                 # Combine files/directories
 
 ```
 
@@ -1647,6 +1649,39 @@ grep
 
 ### Directory
 - Collection of nodes with info about all files
+- Organized to obtain
+  - **Efficiency**: Locate file quickly
+  - **Naming**: Convenient Naming
+    - Same file, different names
+    - Different users, same name for different files
+  - **Grouping**
+    - Group by properties
+
+#### Single Level Directory
+- All files in the same directory
+- Single directory for all users
+  - Limitation when No. of files increase or users increase
+- Since only 1 directory, must have unique names
+
+### Two Level Directory
+- Each user gets their own single level directory
+- **User File Directory (UFD)**
+  - Separate directory per user
+- **Master File Directory (MFD)**
+  - Indexed by user's name
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/MUFD.png)
+
+### Tree Structured Directory
+- Users are able to create their own subdirectories to organize their files
+- All directories have same internal format
+  - One bit in each directory defines the entry type as
+    - `file(0)`
+    - `subdirectory(1)`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/treeDP.png)
+
+
+
+
 
 ----
 
