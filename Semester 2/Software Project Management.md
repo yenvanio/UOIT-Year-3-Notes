@@ -8,7 +8,7 @@
 <br>
 [Lecture 9 - Monitoring & Controlling](#Lecture9)
 <br>
-[Chapter 10](#Lecture10)
+[Chapter 10 - Contract Management](#Lecture10)
 <br>
 [Chapter 11](#Lecture11)
 <br>
@@ -335,11 +335,11 @@ Changes that could affect users and the business
 
 ### Example Question
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm10.png)
-- What is the PV at the end of Tuesday?
+- What is the `PV` at the end of Tuesday?
   - 250
-- What is the EV at the end of Tuesday?
+- What is the `EV` at the end of Tuesday?
   - 170
-- What is the AC at the end of Tuesday?
+- What is the `AC` at the end of Tuesday?
   - 200
 - Calculate the `SV`, `CV`, `SPI` & `CPI`
   - `SV` = 170 - 250 = -80 ($80 behind where we should be)
@@ -352,81 +352,122 @@ Changes that could affect users and the business
 ---
 
 <a name="Lecture10"></a>
-## Lecture 10
-Software from external suppliers could be:
-- Bespoke system: created specifically for the customer
-- Off-the-shelf: bought “as is”
-- Customer off-the-shelf (COTS): a core system is customized to meet the needs of a particular customer
-Types of contracts:
-- Fixed price contracts: a fixed price is paid for the whole project
-o Advantages to customer: known expenditure, supplied motivated to be cost-effective o Disadvantages to customer: supplier will increase price to be contingencies
-o Hard to modify requirements
-o Cost of changes after buying the project could be higher
-o Threat to system quality
-- Time and materials contract: divide the project into smaller tasks and pay different amounts for each task
-o Advantages to customer: easy to change requirements, lack of price pressure can assist product quality o Disadvantagestocustomer:
- Customer liability: the customer absorbs all the risk associated with poorly-defined or changing requirements
- Lack of incentive for supplier to be cost-effective
-o Fixed price per delivered unit: divide the project into smaller tasks and pay the same price for each task
- The bigger the project, the higher the cost per function point because there are more technical issues to consider
- See examples on slide 11 and 12
- Advantages to customer:
- Customer understanding of how price is calculated
- Comparability between different pricing schedules
- Emerging functionality can be accounted for
- Supplier incentive to be cost-effective
- Disadvantages to customer:
- Difficulties with software size measurement – may need independent FP counter
- Changing (requirements: how to measure price for new changes?
-- The tendering process: o Open tendering:
- Any supplier can bid in response to the invitation to tender
- All tenders must be evaluated in the same way
- Government bodies may have to do this by local/international law
-o Restrictedtenderingprocess:
- Bids only from those specifically invited
- Can reduce suppliers being considered at any stage
-o Negotiated procedure: negotiate with one supplier Stages in contract placement:
-1. Requirements analysis, sections (in the following order):
-a. Introduction
-b. Description of existing system and current environment
-c. Future strategy or plans
-d. System requirements (mandatory/desirable features)
-e. Deadlines
-f. Additional information required from bidders 2. Evaluation plan: how the proposals are to be evaluated
-a. Methods could include: reading proposals, interviews, demonstrations, site visits, practical tests
-i. Need to assess value for money (VFM) for each desirable feature
-ii. See example on slide 22
-3. Invitation to tender:
-a. Acceptance of bidder’s offer creates a contract
-b. Customer may need further information
-4. Evaluation of proposals
-Memoranda of Agreement (MoA):
+## Lecture 10 - Contract Management
+Software from external suppliers
+  - **Bespoke System**: created specifically for the customer
+  - **Off-the-shelf**: bought “as is”
+  - **Customer off-the-shelf (COTS)**: a core system is customized to meet the needs of a particular customer
+
+### Contracts
+- **Fixed Price Contract**: A fixed price is paid for the whole project
+  - **Pros**
+    - Known Expenditure
+    - Supplied motivated to be cost-effective
+  - **Cons**
+    - Supplier will increase price to be contingencies
+    - Hard to modify requirements
+    - Cost of changes after buying the project could be higher
+    - Threat to system quality
+
+- **Time and Materials Contract**: Divide the project into smaller tasks and pay different amounts for each task
+  - **Pros**
+    - Easy to change requirements,
+    - Lack of price pressure can assist product quality
+  - **Cons**
+    - Customer liability - the customer absorbs all the risk associated with poorly-defined or changing requirements
+    - Lack of incentive for supplier to be cost-effective
+
+- **Fixed Price per Delivered Unit**: Divide the project into smaller tasks and pay the same price for each task
+  - The bigger the project, the higher the cost per function point because there are more technical issues to consider
+  - **Pros**
+    - Customer understanding of how price is calculated
+    - Comparability between different pricing schedules
+    - Emerging functionality can be accounted for
+    - Supplier incentive to be cost-effective
+  - **Cons**
+    - Difficulties with software size measurement – may need independent FP counter
+    - Changing (requirements: how to measure price for new changes?
+- **Example**
+
+|Function Point Count| Function Design cost per FP| Implementation cost per FP| Total cost per FT|
+|--|--|--|--|
+|Up to 2000|$242|$725|$967|
+|2001-2500|$255|$764|$1019|
+|2501-3000|$265|$793|$1058|
+|3001-3500|$274|$820|$1094|
+|3501-4000|$284|$850|$1134|
+
+- What would be the charge for 3,200 FPs?
+  - 2000 Fps at $967
+  - 500 FPs at $1019
+  - 500 FPs at $1058
+  - 200 FPs at $1094
+- Basically move through the table multiplying cost by how many FPs fall into that category
+
+
+### Tendering Process
+- **Open Tendering**
+  - Any supplier can bid in response to the invitation to tender
+  - All tenders must be evaluated in the same way
+  - Government bodies may have to do this by local/international law
+- **Restricted Tendering Process**
+  - Bids only from those specifically invited
+  - Can reduce suppliers being considered at any stage
+- **Negotiated Procedure**
+  - Negotiate with one supplier
+
+### Contract Placement Stages
+
+1. **Requirements Analysis**
+  - Introduction
+  - Description of existing system and current environment
+  - Future strategy or plans
+  - System requirements
+    - Mandatory / Desirable Features
+  - Deadlines
+  - Additional information required from bidders
+2. **Evaluation Plan**
+  - Methods could include: Reading Proposals, Interviews, Demonstrations, Site Visits, Practical Tests
+    - Need to assess value for money (VFM) for each desirable feature
+  - Example:
+    - A Feeder file saves data input
+    - 4 hours a month, $20 saved/hr
+    - System to be used for 4 years
+    - Cost is $1000, worth or not?
+    - Saved Amount = 4 x 20 x 12 x 4
+      - = $3,840
+      - So, yes worth.
+3. **Invitation to Tender**:
+  - Acceptance of bidder’s offer creates a contract
+  - Customer may need further information
+4. **Evaluation of Proposals**
+
+
+### Memoranda of Agreement (MoA)
 - Customer asks for technical proposals
 - Technical proposals are examined and discussed
 - Agreed technical solution in MoA
 - Tenders are then requested from suppliers based in MoA
 - Tenders judged on price
 - Fee could be paid for technical proposals by customer
-Contract checklist:
-- Definitions: the precise meaning of words
-- Form of agreement: could be a sale, lease, or license to use a software (also mentions if license can be
-transferred)
-- Goods and services to be supplied
-- Timetable of activities
-- Payment arrangement: payments may be tied to completion of specific tasks
-- Ownership of software: who owns the software if supplier goes out of business?
-- Environment: who is responsible for various aspects of site preparation?
-- Customer commitments: providing access, supplying information
-- Standards to be met
-Contract management: some terms of contract will relate to management of contract, for example:
+
+### Contract Checklist
+- **Definitions**: The precise meaning of words
+- **Form of Agreement**: Could be a sale, lease, or license to use a software (also mentions if license can be transferred)
+- **Goods and Services to be Supplied**
+- **Timetable of Activities**
+- **Payment Arrangement**: Payments may be tied to completion of specific tasks
+- **Ownership of Software**: Who owns the software if supplier goes out of business?
+- **Environment**: Who is responsible for various aspects of site preparation?
+- **Customer Commitments**: providing access, supplying information
+- **Standards to be met**
+
+### Contract Management
+- Some terms of contract will relate to management of contract, for example:
 - Progress reporting
 - Decision points (could be linked to release of payments to the contractor)
 - Variations to the contract (i.e. how are changes to requirements dealt with?
 - Acceptance criteria
-
-
-
-
 ---
 
 
