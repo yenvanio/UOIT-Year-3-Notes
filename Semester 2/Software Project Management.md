@@ -428,12 +428,8 @@ Software from external suppliers
     - Additional information required from bidders
 2. **Evaluation Plan**
     - Methods could include: Reading Proposals, Interviews, Demonstrations, Site Visits, Practical Tests
-      - Need to assess value for money (VFM) for each desirable feature
-      - Example:
-      - A Feeder file saves data input
-      - 4 hours a month, $20 saved/hr
-      - System to be used for 4 years
-      - Cost is $1000, worth or not?
+    - Need to assess value for money (VFM) for each desirable feature
+    - Example: A Feeder file saves data input, 4 hours a month, $20 saved/hr, System to be used for 4 years. If cost is $1000, worth or not?
       - Saved Amount = 4 x 20 x 12 x 4
         - = $3,840
         - So, yes worth.
