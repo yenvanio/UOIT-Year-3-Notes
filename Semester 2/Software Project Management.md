@@ -221,8 +221,131 @@
 
 <a name="Lecture9"></a>
 ## Lecture 9 - Monitoring & Controlling
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm8.png)
 
+### Responsibilities
+- The details relating to the project progress have to originate with the people actually doing the work and then have to be fed up through the management structure
+- **Information Overload**: May occur when information passes from the many to the few
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm9.png)
 
+### Assessing progress:
+- **Checkpoints**: Predetermined times when the progress is checked
+  - **Event Driven**: Check takes place when a particular event has been achieved o
+  - **Time Driven**: Date of the check is predetermined
+- The higher the management level, the longer the gaps between checkpoints
+- **Reporting**: Identify key tasks and break them down into sub tasks. Assess the subtasks as the following
+  - Green = on target
+  - Amber = not on target but recoverable
+  - Red = not on target and recoverable only with difficulty
+- **Critical Tasks**: Tasks on the critical path and/or reliant on critical resources
+- **Slip Charts**: A Gantt chart with a vertical line through it.
+  - Left of the line is completed activities
+  - Right of the line is incomplete activities
+  - *The more jagged the line, the more activities that are lagging as well as ahead of schedule*
+
+### Getting Back on Track
+  - Renegotiate the deadline, and if that is not possible, try to shorten the critical path to get things done more quickly by adding more staff
+  - Reconsider activity dependencies:
+    - Allowing activities to overlap often increases the risk of quality shortfalls
+    - Overlap the activities so that the start of one activity does not have to wait for the completion of another
+    - Split activities
+
+### Cost Monitoring
+- 2 Scenarios we want to avoid
+  - **Behind Time & Under Budget**
+    - The originally committed staff have not been deployed so will be within the budget but not on time
+  - **On Time & Over Budget**
+    - Added more resources to meet the deadline but went over the budget
+
+#### Earned Value Analysis
+- **Planned Value (PV) / Budgeted Cost of Work Scheduled (BCWS)**
+  - The original estimate of the effort/cost to complete a task
+- **Earned Value (EV) / Budgeted Cost of Work Performed (BCWP)**
+  - The total of PVs for the work completed at this time
+- **Schedule Variance (SV)**
+  - `SV = EV - PV`
+  - If `SV < 0` then project behind schedule
+- **Schedule Performance Indicator (SPI)**
+  - `SPI = EV / PV`
+  - If `SPI < 1` then project behind schedule
+- Earned Values for works started but not yet completed are assigned by:
+  - **50/50**: half allocated at start and the other half on completion (proportions of start and end can vary)
+  - **Milestone**: current value depends on the milestones achieved
+  - **Units Processed**
+- **Example**
+```
+Tasks
+     Specify Module: 5 Days
+     Code Module:    8 Days
+     Test Module:    6 Days
+
+At the beginning of day 20, PV = 19 Days
+
+If @ Day 20 everything but testing done, EV = 13 Days
+    SV= EV - PV = 13 - 19 = -6
+    SPI = EV/PV = 13/19 = 0.68
+
+SV < 0 OR SPI < 1 = Project behind schedule
+
+```
+- **Actual Cost (AC) / Actual Cost of Work Performed (ACWP)**
+  - The actual time it took to finish a task
+- **Cost Variance (CV)**
+  - `CV = EV - AC`
+  - If `CV > 0` then project within budget
+- **Cost Performance Indicator (CPI)**
+  - `CPI = EV / AC`
+  - If `CPI > 1` then project within budget
+- **Budget At Completion (BAC)**: Current budget allocated to total costs of project
+- **Estimate At Completion (EAC)**: Updated Estimate
+  - `EAC = BAC / CPI`
+- **Time Variance (TV)**: Difference between time when EV should be reached vs when it was actually reached
+
+- **Schedule and Cost Variance**
+  - `SV = EV - PV`
+  - `CV = EV - AC`
+  - If (+) then Good
+- **Schedule and Cost Indicator**
+  - `SPI = EV / PV`
+  - `CPI = EV / AC`
+  - If (>1) then Good
+
+### Prioritizing monitoring:
+- **Critical Path Activities**: If these are late, the project as a whole will be delayed
+- **Activities with no Free Float**: If delayed, dependent activities are also delayed
+  - However, project end date may not be directly threatened
+- **Activities with Less than a Specified Float**
+  - Project execution is dynamic
+  - Some will take longer and some will take less time
+  - This can cause critical shifting
+- **High risk activities**: Large uncertainty about duration of these activities
+  - Uncertainty is large if standard deviation is large
+- **Activities using Critical Resources**: Some resources are only available for a limited time and if these activities are delayed, the needed resources may become unavailable
+
+### Exception Planning
+Changes that could affect users and the business
+  - Delivery Date, Scope, and Cost
+- An exception report is generated for these changes
+- Stages
+  1. Write an exception report for sponsors
+      - Explains problems and sets out options for resolution
+  2. Sponsor selects an option
+    - Project manager produces an exception plan implementing the selected option
+    - Exception plan is reviewed and accepted/rejected by sponsors/project board
+
+### Example Question
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm10.png)
+- What is the PV at the end of Tuesday?
+  - 250
+- What is the EV at the end of Tuesday?
+  - 170
+- What is the AC at the end of Tuesday?
+  - 200
+- Calculate the `SV`, `CV`, `SPI` & `CPI`
+  - `SV` = 170 - 250 = -80 ($80 behind where we should be)
+  - `CV` = 170 - 200 = -30 (Behind schedule that will cost us $30)
+  - `SPI` = 170 / 250 = 0.68 (We are only achieving 68% of the work that should be done)
+  - `CPI` = 170 / 200 = 0.85 (We are spending money at an efficiency rate of 0.85)
 
 
 
@@ -230,21 +353,82 @@
 
 <a name="Lecture10"></a>
 ## Lecture 10
-
+Software from external suppliers could be:
+- Bespoke system: created specifically for the customer
+- Off-the-shelf: bought “as is”
+- Customer off-the-shelf (COTS): a core system is customized to meet the needs of a particular customer
+Types of contracts:
+- Fixed price contracts: a fixed price is paid for the whole project
+o Advantages to customer: known expenditure, supplied motivated to be cost-effective o Disadvantages to customer: supplier will increase price to be contingencies
+o Hard to modify requirements
+o Cost of changes after buying the project could be higher
+o Threat to system quality
+- Time and materials contract: divide the project into smaller tasks and pay different amounts for each task
+o Advantages to customer: easy to change requirements, lack of price pressure can assist product quality o Disadvantagestocustomer:
+ Customer liability: the customer absorbs all the risk associated with poorly-defined or changing requirements
+ Lack of incentive for supplier to be cost-effective
+o Fixed price per delivered unit: divide the project into smaller tasks and pay the same price for each task
+ The bigger the project, the higher the cost per function point because there are more technical issues to consider
+ See examples on slide 11 and 12
+ Advantages to customer:
+ Customer understanding of how price is calculated
+ Comparability between different pricing schedules
+ Emerging functionality can be accounted for
+ Supplier incentive to be cost-effective
+ Disadvantages to customer:
+ Difficulties with software size measurement – may need independent FP counter
+ Changing (requirements: how to measure price for new changes?
+- The tendering process: o Open tendering:
+ Any supplier can bid in response to the invitation to tender
+ All tenders must be evaluated in the same way
+ Government bodies may have to do this by local/international law
+o Restrictedtenderingprocess:
+ Bids only from those specifically invited
+ Can reduce suppliers being considered at any stage
+o Negotiated procedure: negotiate with one supplier Stages in contract placement:
+1. Requirements analysis, sections (in the following order):
+a. Introduction
+b. Description of existing system and current environment
+c. Future strategy or plans
+d. System requirements (mandatory/desirable features)
+e. Deadlines
+f. Additional information required from bidders 2. Evaluation plan: how the proposals are to be evaluated
+a. Methods could include: reading proposals, interviews, demonstrations, site visits, practical tests
+i. Need to assess value for money (VFM) for each desirable feature
+ii. See example on slide 22
+3. Invitation to tender:
+a. Acceptance of bidder’s offer creates a contract
+b. Customer may need further information
+4. Evaluation of proposals
+Memoranda of Agreement (MoA):
+- Customer asks for technical proposals
+- Technical proposals are examined and discussed
+- Agreed technical solution in MoA
+- Tenders are then requested from suppliers based in MoA
+- Tenders judged on price
+- Fee could be paid for technical proposals by customer
+Contract checklist:
+- Definitions: the precise meaning of words
+- Form of agreement: could be a sale, lease, or license to use a software (also mentions if license can be
+transferred)
+- Goods and services to be supplied
+- Timetable of activities
+- Payment arrangement: payments may be tied to completion of specific tasks
+- Ownership of software: who owns the software if supplier goes out of business?
+- Environment: who is responsible for various aspects of site preparation?
+- Customer commitments: providing access, supplying information
+- Standards to be met
+Contract management: some terms of contract will relate to management of contract, for example:
+- Progress reporting
+- Decision points (could be linked to release of payments to the contractor)
+- Variations to the contract (i.e. how are changes to requirements dealt with?
+- Acceptance criteria
 
 
 
 
 ---
 
-<a name="Lecture7"></a>
-## Lecture 7
-
-
-
-
-
----
 
 <a name="Lecture11"></a>
 ## Lecture 11
