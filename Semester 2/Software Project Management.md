@@ -12,7 +12,7 @@
 <br>
 [Lecture 11 - Managing People in Software Environments](#Lecture11)
 <br>
-[Lecture 12](#Lecture12)
+[Lecture 12 - Working in Teams](#Lecture12)
 <br>
 
 
@@ -589,7 +589,7 @@ Some argue that organization ethics are limited:
 ---
 
 <a name="Lecture12"></a>
-## Lecture 12
+## Lecture 12 - Working in Teams
 
 
 
