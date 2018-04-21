@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-[Chapter 7](#Lecture7)
+[Chapter 7 - Risk Management](#Lecture7)
 <br>
-[Chapter 8](#Lecture8)
+[Chapter 8 - Resource Allocation](#Lecture8)
 <br>
-[Chapter 9](#Lecture9)
+[Lecture 9 - Monitoring & Controlling](#Lecture9)
 <br>
 [Chapter 10](#Lecture10)
 <br>
@@ -17,10 +17,9 @@
 
 
 <a name="Lecture7"></a>
-## Lecture 7
+## Lecture 7 - Risk Management
 - Risks relate to potential future problems, not current problems
 - They involve a cause and an effect
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm1.png)
 
 ### Risk Categories
 - **Actors**: Relate to all those involved in the project
@@ -127,22 +126,101 @@
   - No chain of tasks is started earlier than scheduled, but once it has started it is finished as soon as possible
   - This means that the activity following the current one starts as soon as current activity ends even if current activity ends early (known as the relay race principle)
   - Buffers are divided into three zones
-    - Green: the first 33% (no action required)
-    - Amber: the next 33% (plan is formulated)
-    - Red: last 33% (plan is executed)
+    - **Green**: The first 33% (no action required)
+    - **Amber**: The next 33% (plan is formulated)
+    - **Red**: Last 33% (plan is executed)
 ---
 
 <a name="Lecture8"></a>
-## Lecture 8
+## Lecture 8 - Resource Allocation
+- **Activity Schedule**: Indicates start and completion dates for each activity
+- **Resource Schedule**: Indicates dates when resources are needed + level of resources
+- **Cost Schedule**: Showing accumulative expenditure
 
 
+### Resource allocation:
+- Identify the resources needed for each activity and create a **Resource Requirement List**
+- Identify **Resource Types**
+- Allocate resource types to activities and examine the **Resource Histogram**
+- Assumption: We are dealing with a standard employee with average productivity
+  - When we allocate actual people they may be a trainee or an expert and this will affect productivity
+ - A short-coming in productivity in an individual might be compensated for by a lower cost
+
+#### Resource Histogram
+- The resource histogram helps us identify where the demand for a resource exceeds the supply
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm5.png)
+
+#### Resource Smoothing
+- Adding extra weeks to stay within the limit of required staff
+- Needed because we employ a constant number of staff on a project
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm6.png)
+- To split a task or activity, it has to be on non-critical path
+  - Splitting causes an increase task duration so by delaying the start of some tasks, we can uniformly distribute the resources over the total duration of the project
+
+#### Resources Clashes
+- When more than one activity is competing for the same limited resource at the same time
+- The activities now need to be prioritized to decide who uses the resources when
+- Can be resolved by:
+  - Delaying some of the activities
+  - Taking resource from a non-critical activity
+  - Bringing in additional resources (increases cost)
+
+#### Prioritizing Activities
+- Resources have to be allocated on an *activty-by-activity* basis
+- 2 ways to prioritize
+  - **Total Float Priority**: Those with the smallest float have the highest priority
+  - **Ordered List Priority**: This takes into account the duration of the activity as well as the float
+- **Burman’s Priority List**
+  - Shortest critical activities
+  - Other critical activities
+  - Shortest non-critical activities
+  - Non-critical activities with lease float o Non-critical activities
+
+#### Resource Usage
+- Need to maximize usage of resources
+  - Reduce idle periods between tasks
+- Need to balance costs against early completion date
+- Need to allow for contingency
+
+#### Allocating Individuals to Activities
+- Factors to consider
+  - **Availability**
+    - This will change over the project as some tasks are completed earlier or later than planned
+  - **Criticality**
+    - Try to put more experienced staff on critical activities
+  - **Risk**
+    - Try to put more experienced staff on activities with highest risk
+    - Some activities off the critical path can still have risks
+  - **Training**
+    - Allocating slightly risky activities to develop capabilities or inexperienced staff
+  - **Team Building**
+    - Identifying people who work well together
+
+### Cost Schedules
+  - **Staff Costs**
+    - Time sheets are often used to record actual hours spent
+    - *Examples: Salary, Holiday Pay, Social Security Benefits, etc.*
+  - **Overheads**
+    - *Examples: Space Rental, Service Charges, etc.*
+  - **Usage Charges**
+    - *Examples: Pay as you go Charges*
+
+### Cost Profiles
+- Shows how much is going to be spent in each week
+  - Important when projects are allocated by financial year or quarter and the project straddles more than one of these periods
+- **Accumulative Costs**
+  - Used to compare with actual accumulative costs to see if project is likely to meet cost target
+- **Balancing Concern**
+  - Due to inter-linking of different concerns, project planning needs to be iterative
+  - Consequences of decisions need to be carefully assess and plans adjusted accordingly
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm7.png)
 
 
 
 ---
 
 <a name="Lecture9"></a>
-## Lecture 9
+## Lecture 9 - Monitoring & Controlling
 
 
 
