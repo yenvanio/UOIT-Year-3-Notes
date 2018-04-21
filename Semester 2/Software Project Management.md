@@ -95,6 +95,8 @@
 - **Z Value**
   - `z = (T - te) / S`
   - T would be the target days to completion
+- **Project Buffer**
+  - `= (b - m) / 2`
 - *Example*
   - What would be the expected duration of the chain A + B + C?
     - 12.66 + 10.33 + 25.66
@@ -488,59 +490,100 @@ Software from external suppliers
 - Found that simply showing an interest in a group increased productivity
 - **Theory X**: There is a need for coercion, direction, and control of people at work
 - **Theory Y**: Work is as natural as rest or play
-Selecting the best people: Belbin distinguishes between eligible (having the right qualifications) and suitable (can do the job) candidates
-- Danger is to hire someone who is eligible but not suitable
+
+#### Selecting People
+- Belbin distinguishes between eligible (having the right qualifications) and suitable (can do the job) candidates
+- Danger is hiring someone who is eligible but not suitable
 - Best situation is to hire someone who is suitable but not eligible because these are likely to be cheaper and stay
-in the job Selection process:
-- Create a job specification: content includes types of task to be carried out
-- Create a job holder profile:
-o Describes the characteristics of the person who could do the job
-o List of qualities, qualifications, education, and experience
-- Obtain applicants:
-o Identifythemediathatpotentialjobholdersarelikelytoconsult
-o Usually advertisement, social media, and professional networks
-- Select potential candidates from CVs or resumes: remove obvious rejects
-- Further selection, including interview
-The induction of new staff should be carefully planned:
-- Worst case: new recruit is simply ignored and not given any tasks
-- Base case: good induction leads to new recruit becoming productive more quickly
+
+#### Selection Process
+- **Create a job specification**
+  - Content includes types of task to be carried out
+- **Create a job holder profile**
+  - Describes the characteristics of the person who could do the job
+  - List of qualities, qualifications, education, and experience
+- **Obtain applicants**
+  - Identify the media that potential job holders are likely to consult
+  - Usually advertisement, social media, and professional networks
+- **Select potential candidates from CVs or resumes**
+  - Remove obvious rejects
+- **Further selection, including interview**
+  - Could include aptitude tests, examine work portfolios
+
+#### Instruction in the Best Methods
+- The induction of new staff should be carefully planned:
+  - **Worst Case**: New recruit is simply ignored and not given any tasks
+  - **Base Case**: Good induction leads to new recruit becoming productive more quickly
 - Need to review staff progress frequently and provide feedback
 - Need to identify training that could enhance staff effectiveness
-See slides 21 and 22
-Herzberg suggested two sets of factors affected job satisfaction:
-- Hygiene or maintenance factors: i.e. pay, working conditions
-- Motivators: make you feel the job is worthwhile: i.e. sense of achievement
-Vroom identified three influences on motivation:
-1. Expectancy: the belief that working harder leads to better performance
-2. Instrumentality: the belief that better performance will be rewarded
-3. Perceived value of the reward
-ii. If any of the above three factors have a 0 value, then motivation will be 0 Oldham-Hackman identified the following characteristics of a job which make it more “meaningful”
-- Skill variety: the number of different skills the job holder has the opportunity to exercise
-- Task identity: the degree to which your work and its results are associated with you
-- Task significance: the degree to which your job has influence on others
-- Autonomy: the freedom that you have about the way that you do the job
-- Feedback: the information you get back about the results of your work
-Methods to improve job satisfaction:
+
+#### Motivation
+- As lower ones fulfilled, higher ones emerge
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/spm11.png)
+
+#### Herzberg
+- Two sets of factors affected job satisfaction
+- **Hygiene or Maintenance Factors**
+  - Pay, Working Conditions
+- **Motivators**
+  - Make you feel the job is worthwhile
+  - Sense of Achievement
+
+#### Vroom
+- Identified three influences on motivation
+  - **Expectancy**: The belief that working harder leads to better performance
+    - *Example: Trying to use a compiler. The code has a bug which causes a compilation error regardless of what you do. In this case motivation will collapse*
+  - **Instrumentality**: The belief that better performance will be rewarded
+    - *Example: Working on removing a fault from a software tool. Find that client gave up using the tool and acquired a different one to do the job*
+  - **Perceived Value**: Of the reward
+    - *Example: A reward that evryone gets is less highly regarded than one which only outstanding people get*
+  - If any of the factors has a 0 value then motivation will be 0
+
+#### Oldham-Hackman
+- Identified the following characteristics of a job which make it more “meaningful”
+  - **Skill Variety**: the number of different skills the job holder has the opportunity to exercise
+  - **Task Identity**: the degree to which your work and its results are associated with you
+  - **Task Significance**: the degree to which your job has influence on others
+  - **Autonomy**: the freedom that you have about the way that you do the job
+  - **Feedback**: the information you get back about the results of your work
+
+#### Improving Job Satisfaction
 - Set specific goals
 - Provide feedback
-- Consider job redesign:
-o Job enlargement: widening the range of tasks carried out by a worker
-o Job enrichment: delegating some management roles to the worker
-- Stress can be reduced by good project management; good project management should lead to:
-o Reasonableestimatesofeffort
-o Good project control leading fewer unexpected crisis
-o Making clear what is expected of each team member – reduces role ambiguity o Reduced role conflict where a person is torn between conflicting responsibilities
-- Health and safety: management of safety should be embedded in project management o Job descriptions should include health and safety related responsibilities
-o There should be a designated safety officer
-Ethical and professional concerns:
+- Consider job redesign
+  - **Job Enlargement**: Widening the range of tasks carried out by a worker
+  - **Job Enrichment**: Delegating some management roles to the worker
+
+#### Stress
+- Can be reduced by good project management
+- Good project management should lead to
+  - Reasonable estimates of effort
+  - Good project control leading fewer unexpected crisis
+  - Making clear what is expected of each team member
+    - **Reduces Role Ambiguity**
+    - **Reduced Role Conflict** where a person is torn between conflicting responsibilities
+- *Bullying tactics are a symptom of incompetent project management*
+
+### Health & Safety
+- Management of safety should be embedded in project management
+- Job descriptions should include health and safety related responsibilities
+- Top management must be committed to health and safety
+- There should be a designated safety officer
+
+### Ethical and Professional Concerns:
 - Ethics related to the moral obligation to respect the rights and interests of others (goes beyond strictly legal responsibilities)
 - Three groups of responsibilities:
-o Responsibilitiesthateveryonehas
-o Responsibilities that people in organizations have o Responsibilities related to your profession
-Some argue that organization ethics are limited:
-- Stockholder theory: an employee’s duty is to the owners of the business above all others – although legal requirements must be met
-- Competitive relationships between businesses: competition may cause you to do things that could have a negative impact on the owners or employees of competitive business
+  - Responsibilities that everyone has
+  - Responsibilities that people in organizations have
+  - Responsibilities related to your profession
 
+#### Organizational Ethics
+Some argue that organization ethics are limited:
+- **Stockholder Theory**: an employee’s duty is to the owners of the business above all others – although legal requirements must be met
+- **Competitive Relationships between Businesses**: Competition may cause you to do things that could have a negative impact on the owners or employees of competitive business
+
+- **Exercise**: Identify some of the possible objections and criticisms that can be made of the stockholder business ethics model described above.
+  - *The argument against stockholder theory is that the work of an organization is not purely that of money-making. Banks, for example, have a social and economic role facilitating day to day commerce and business. If the owners of the banks decided to opt out of this role the community at large (through the government) would have to step in to ensure that that role is still carried out. Freidman’s arguments unwittingly support a greater role for state ownership of important organizations.*
 
 
 ---
