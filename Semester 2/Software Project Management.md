@@ -469,8 +469,77 @@ Software from external suppliers
 
 <a name="Lecture11"></a>
 ## Lecture 11 - Managing People in Software Environments
+- **Behavior**: The range of actions and mannerisms made by *organisms*, systems, or artificial entities in conjunction with their environment, which includes the *other systems* or *organisms* around as well as the *physical environment*
+- **Organizational behavior (OB)**: The study of the way people interact within groups
 
+### Understanding Behavior
+- **Positivist**: Inspired from physical science, based on quantitative and experimental methods
+  - If A is in the situation then B is likely to result
+- **Interpretivist**: Human acts and behaves mostly subjectively
 
+#### Before Organizational Behavior
+- Frederick Taylor was considered the “father of scientific management”
+- The focus:
+  - To select the best people for the job
+  - To instruct them in the best methods
+  - To give financial incentives in the form of higher wages to the best workers
+
+#### Hawthorne Effect
+- Found that simply showing an interest in a group increased productivity
+- **Theory X**: There is a need for coercion, direction, and control of people at work
+- **Theory Y**: Work is as natural as rest or play
+Selecting the best people: Belbin distinguishes between eligible (having the right qualifications) and suitable (can do the job) candidates
+- Danger is to hire someone who is eligible but not suitable
+- Best situation is to hire someone who is suitable but not eligible because these are likely to be cheaper and stay
+in the job Selection process:
+- Create a job specification: content includes types of task to be carried out
+- Create a job holder profile:
+o Describes the characteristics of the person who could do the job
+o List of qualities, qualifications, education, and experience
+- Obtain applicants:
+o Identifythemediathatpotentialjobholdersarelikelytoconsult
+o Usually advertisement, social media, and professional networks
+- Select potential candidates from CVs or resumes: remove obvious rejects
+- Further selection, including interview
+The induction of new staff should be carefully planned:
+- Worst case: new recruit is simply ignored and not given any tasks
+- Base case: good induction leads to new recruit becoming productive more quickly
+- Need to review staff progress frequently and provide feedback
+- Need to identify training that could enhance staff effectiveness
+See slides 21 and 22
+Herzberg suggested two sets of factors affected job satisfaction:
+- Hygiene or maintenance factors: i.e. pay, working conditions
+- Motivators: make you feel the job is worthwhile: i.e. sense of achievement
+Vroom identified three influences on motivation:
+1. Expectancy: the belief that working harder leads to better performance
+2. Instrumentality: the belief that better performance will be rewarded
+3. Perceived value of the reward
+ii. If any of the above three factors have a 0 value, then motivation will be 0 Oldham-Hackman identified the following characteristics of a job which make it more “meaningful”
+- Skill variety: the number of different skills the job holder has the opportunity to exercise
+- Task identity: the degree to which your work and its results are associated with you
+- Task significance: the degree to which your job has influence on others
+- Autonomy: the freedom that you have about the way that you do the job
+- Feedback: the information you get back about the results of your work
+Methods to improve job satisfaction:
+- Set specific goals
+- Provide feedback
+- Consider job redesign:
+o Job enlargement: widening the range of tasks carried out by a worker
+o Job enrichment: delegating some management roles to the worker
+- Stress can be reduced by good project management; good project management should lead to:
+o Reasonableestimatesofeffort
+o Good project control leading fewer unexpected crisis
+o Making clear what is expected of each team member – reduces role ambiguity o Reduced role conflict where a person is torn between conflicting responsibilities
+- Health and safety: management of safety should be embedded in project management o Job descriptions should include health and safety related responsibilities
+o There should be a designated safety officer
+Ethical and professional concerns:
+- Ethics related to the moral obligation to respect the rights and interests of others (goes beyond strictly legal responsibilities)
+- Three groups of responsibilities:
+o Responsibilitiesthateveryonehas
+o Responsibilities that people in organizations have o Responsibilities related to your profession
+Some argue that organization ethics are limited:
+- Stockholder theory: an employee’s duty is to the owners of the business above all others – although legal requirements must be met
+- Competitive relationships between businesses: competition may cause you to do things that could have a negative impact on the owners or employees of competitive business
 
 
 
