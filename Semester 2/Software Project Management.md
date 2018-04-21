@@ -113,15 +113,15 @@
   - The safety buffer in the task duration estimate ends up being extra duration to the project as a whole
 
 - Solution
-  - 1. Ask the estimators for two estimates
+  1. Ask the estimators for two estimates
     - **Most Likely Duration**: 50% chance of meeting this
     - **Comfort Zone**: Additional time needed to have 95% chance
-  - 2. Schedule all activities using most likely values and starting all activities on latest start dates
-  - 3. Identify the critical chain
-  - 4. Put a project buffer at the end of the critical chain with duration 50% of sum of comfort zones of the activities in the critical chain
-  - 5. Wherever subsidiary chains of activities feed into the critical chain, add a feeding buffer
-  - 6. Duration of the feeding buffer is same as the duration of the project buffer
-  - 7. Wherever there are parallel chains, take the longest and sum those activities
+  2. Schedule all activities using most likely values and starting all activities on latest start dates
+  3. Identify the critical chain
+  4. Put a project buffer at the end of the critical chain with duration 50% of sum of comfort zones of the activities in the critical chain
+  5. Wherever subsidiary chains of activities feed into the critical chain, add a feeding buffer
+  6. Duration of the feeding buffer is same as the duration of the project buffer
+  7. Wherever there are parallel chains, take the longest and sum those activities
 
 - Executing the critical chain plan
   - No chain of tasks is started earlier than scheduled, but once it has started it is finished as soon as possible
