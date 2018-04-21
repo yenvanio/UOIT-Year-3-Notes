@@ -2,17 +2,17 @@
 
 ## Table of Contents
 
-[Chapter 7 - Risk Management](#Lecture7)
+[Lecture 7 - Risk Management](#Lecture7)
 <br>
-[Chapter 8 - Resource Allocation](#Lecture8)
+[Lecture 8 - Resource Allocation](#Lecture8)
 <br>
 [Lecture 9 - Monitoring & Controlling](#Lecture9)
 <br>
-[Chapter 10 - Contract Management](#Lecture10)
+[Lecture 10 - Contract Management](#Lecture10)
 <br>
-[Chapter 11](#Lecture11)
+[Lecture 11 - Managing People in Software Environments](#Lecture11)
 <br>
-[Chapter 12](#Lecture12)
+[Lecture 12](#Lecture12)
 <br>
 
 
@@ -472,7 +472,7 @@ Software from external suppliers
 
 
 <a name="Lecture11"></a>
-## Lecture 11
+## Lecture 11 - Managing People in Software Environments
 
 
 
