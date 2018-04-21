@@ -419,27 +419,27 @@ Software from external suppliers
 ### Contract Placement Stages
 
 1. **Requirements Analysis**
-  - Introduction
-  - Description of existing system and current environment
-  - Future strategy or plans
-  - System requirements
-    - Mandatory / Desirable Features
-  - Deadlines
-  - Additional information required from bidders
+    - Introduction
+    - Description of existing system and current environment
+    - Future strategy or plans
+    - System requirements
+      - Mandatory / Desirable Features
+    - Deadlines
+    - Additional information required from bidders
 2. **Evaluation Plan**
-  - Methods could include: Reading Proposals, Interviews, Demonstrations, Site Visits, Practical Tests
-    - Need to assess value for money (VFM) for each desirable feature
-  - Example:
-    - A Feeder file saves data input
-    - 4 hours a month, $20 saved/hr
-    - System to be used for 4 years
-    - Cost is $1000, worth or not?
-    - Saved Amount = 4 x 20 x 12 x 4
-      - = $3,840
-      - So, yes worth.
+    - Methods could include: Reading Proposals, Interviews, Demonstrations, Site Visits, Practical Tests
+      - Need to assess value for money (VFM) for each desirable feature
+      - Example:
+      - A Feeder file saves data input
+      - 4 hours a month, $20 saved/hr
+      - System to be used for 4 years
+      - Cost is $1000, worth or not?
+      - Saved Amount = 4 x 20 x 12 x 4
+        - = $3,840
+        - So, yes worth.
 3. **Invitation to Tender**:
-  - Acceptance of bidder’s offer creates a contract
-  - Customer may need further information
+    - Acceptance of bidder’s offer creates a contract
+    - Customer may need further information
 4. **Evaluation of Proposals**
 
 
