@@ -114,8 +114,8 @@
 
 - Solution
   1. Ask the estimators for two estimates
-    - **Most Likely Duration**: 50% chance of meeting this
-    - **Comfort Zone**: Additional time needed to have 95% chance
+      - **Most Likely Duration**: 50% chance of meeting this
+      - **Comfort Zone**: Additional time needed to have 95% chance
   2. Schedule all activities using most likely values and starting all activities on latest start dates
   3. Identify the critical chain
   4. Put a project buffer at the end of the critical chain with duration 50% of sum of comfort zones of the activities in the critical chain
