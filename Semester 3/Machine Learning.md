@@ -16,11 +16,11 @@
 - [Forward Chaining and Backward Chaining](#2.4)
 - [Conflict Resolution](#2.5)
 <br>
----
+-----------
 
 <a name="Chapter1"></a>
 
-## Chapter 2 - Rule Based Expert Systems
+## Chapter 1 - Introduction to Knowledge-Base Intelligent Systems
 
 <a name="1.1"></a>
 
