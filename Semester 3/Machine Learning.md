@@ -16,7 +16,8 @@
 - [Forward Chaining and Backward Chaining](#2.4)
 - [Conflict Resolution](#2.5)
 <br>
------------
+
+----
 
 <a name="Chapter1"></a>
 
