@@ -108,7 +108,7 @@
 <a name="2.2"></a>
 
 ### Main Players in the Development Team
--   ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mpDT.png)
+-   ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mpDT.PNG)
 - **Domain Expert**
     - Capable of solving problems in a specific area (domain)
     - Greatest experience in a given domain
