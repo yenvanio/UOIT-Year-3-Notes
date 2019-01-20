@@ -53,6 +53,7 @@
     - The problems were always too broad and difficult
     - These were referred to as **Weak Methods**
     - Realized that to deliver practical results, was to solve cases in narrow areas of expertise
+
 - **DENDRAL**
     - Developed at Stanford
         - Purpose was to determine the molecular structure of Martian soil
@@ -60,10 +61,70 @@
         - These programs were known as **Expert Systems**
     - Big Paradigm Shift
         - From General Purpose to Domain Specific
-- 
+    - The team proved that computers can equal a human expert in narrow, well defined problem areas.
+        - *Knowledge Engineering*: Techniques of capturing and expressing an experts "know-how" in rules.
+- Expert Systems can show the sequence of rules they applied to reach a solution, but can't relate to any deepre understanding of the problem domain
+    - Ex: A system designed for diagnosis of infectious blood disease
+        - Can do that diagnosis only, not identify any other problems
+- These systems also did not learn from previous experiences 
+
+- **Evolutionary Computation (EC)**
+    - Survival of the fittest, the fittest have a chance to reproduce and pass on genetic material
+    - EC combines the three main techniques
+        - Genetic Algorithms (GA)
+        - Evolutionary Strategies (ES)
+        - Genetic Programming (GP)
+
+- **Fuzzy Logic**
+    - Important when dealing with vague, imprecise and uncertain knowledge
+        - Experts think in terms of *generally*, *sometimes*, *occassionally*
+    - Fuzzy Logic uses the concept of a **linguistic variable**
+        - Variable is words rather than numbers
+        - Provides a means of computation with words
+    - Benefits derived from fuzzy logic
+        - **Improved Computational Power**
+            - Expert Systems performed faster and needs fewer rules
+            - Merges rules
+            - Most Expert Systems used fuzzy logic to solve computationally difficult problems
+        - **Improved Cognitive Modelling**
+            - Easier to improve modelling because don't have to define strict boundaries for expert rules like *fast*, *slow*, *heavy*, *light*
+
+---
 
 <a name="Chapter2"></a>
 
 ## Chapter 2 - Rule Based Expert Systems
 
 <a name="2.1"></a>
+
+### Rules - Knowledge Representation Technique
+- A **Rule** in AI can be defined as an *IF-THEN* structure
+    - Consists of two parts 
+        - **IF** = *Antecedent* (premise or condition)
+            - Contains an Object and a Value, linked by an Operator
+        - **THEN** = *Consequent* (conclusion or action)
+    - Can chain antecedents using **AND**, **OR**
+
+<a name="2.2"></a>
+
+### Main Players in the Development Team
+-   ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mpDT.png)
+- **Domain Expert**
+    - Capable of solving problems in a specific area (domain)
+    - Greatest experience in a given domain
+        - Most important player in the team
+- **Knowledge Engineer**
+    - Capable of designing, building and testing an expert system
+    - Gets reasoning methods from the expert and decides how to represent them in the system
+    - Responsible for testing, revising and integrating the system into the workplace
+- **Programmer**
+    - Responsible for the actual programming, describing domain knowledge in terms that the computer can understand
+- **Project Manager**
+    - Leader of the team
+    - Keeps the project on track, make sure deliverables and deadlines are met
+- **End-User**
+    - Basically the user of the expert system after development
+
+<a name="2.3"></a>
+
+### Structure of Rule-Based Expert System
