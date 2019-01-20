@@ -15,7 +15,6 @@
 - [Characteristics of an Expert System](#2.4)
 - [Forward Chaining and Backward Chaining](#2.4)
 - [Conflict Resolution](#2.5)
-<br>
 
 ----
 
