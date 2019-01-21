@@ -13,8 +13,8 @@
 - [Main Players in the Development Team](#2.2)
 - [Structure of Rule-Based Expert System](#2.3)
 - [Characteristics of an Expert System](#2.4)
-- [Forward Chaining and Backward Chaining](#2.4)
-- [Conflict Resolution](#2.5)
+- [Forward Chaining and Backward Chaining](#2.5)
+- [Conflict Resolution](#2.6)
 
 ----
 
@@ -108,7 +108,8 @@
 <a name="2.2"></a>
 
 ### Main Players in the Development Team
--   ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mpDT.PNG)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mpDT.PNG)
+
 - **Domain Expert**
     - Capable of solving problems in a specific area (domain)
     - Greatest experience in a given domain
@@ -128,3 +129,36 @@
 <a name="2.3"></a>
 
 ### Structure of Rule-Based Expert System
+- **Production Model**
+    - Based on how humans apply knowledge (production rules) to a given problem
+    - Production rules are stored in long term memory
+    - Problem-Specific information is stored in short term memory
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/srbesS.PNG)
+- **Knowledge Base**
+    - Contains domain knowledge useful for problem solving
+    - Represented by a set of rules
+- **Database**
+    - Contains facts used to match against the *IF* condition parts of rules from the knowledge base
+- **Inference Enginer**
+    - Carries out the reasoning
+    - Links rules with facts
+- **Explanation Facilities**
+    - Enables user to ask *how* a conclusion is reached and *why* a fact is needed
+    - Expert Sytem must be able to justify its conclusion
+- **User Interface**
+    - Means of communication between a user and the expert system.
+
+<a name="2.4"></a>
+
+### Characteristics of an Expert System
+- 
+
+<a name="2.5"></a>
+
+### Forward Chaining and Backward Chaining
+- 
+
+<a name="2.6"></a>
+
+### Conflict Resolution
+- 
