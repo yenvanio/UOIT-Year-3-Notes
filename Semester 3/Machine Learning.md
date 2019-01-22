@@ -151,12 +151,47 @@
 <a name="2.4"></a>
 
 ### Characteristics of an Expert System
-- 
+- **High Quality Performance**
+  - Need to make sure result is correct, not just fast
+- **Speed**
+  - Althought quality is important, no use if result is too late
+- **Heuristics**
+  - Systems apply heuristics to guide the reasoning and reduce the search area
+- **Explantion Capability**
+  - Enables system to review and explain its own reasoning and decisions
+- **Symbolic Reasoning**
+  - Symbols are used to represent different types of knowledge (facts, concepts, rules)
+- **Mistakes**
+  - Expert systems should still be allowed to make mistakes
+  - Afterall they are designed to imitate humans
+- Expert systems split up knowledge and processing 
+  - Knowledge base and inference engine are split up
 
 <a name="2.5"></a>
 
 ### Forward Chaining and Backward Chaining
-- 
+- Inference engine compares rules from the knowledge base with facts contained in the database
+  - When the *IF* condition matches a fact the rule is fired and *THEN* is executed
+  - The matching produces **Inference Chains**. 
+    - Indicates how the sytem applies rules to reach a conclusion
+- **Forward Chaining**
+  - Data Driven Reasoning
+  - Starts with known data
+    - Each time only the topmost rule is executed
+    - After every match & fire, a fact is added to the database
+    - Stops when no more rules can be matched & fired
+  - Used to gather information first then infer from it
+  - May end up executing rules that have nothing to do with the goal
+    - Not efficient if goal is to infer only one particular fact
+- **Backward Chainng**
+  - Goal Driven Reasoning
+  - Starts with a goal (*hypothetical solution*)
+    - Tries to find supporting evidence
+    - Search knowledge base to find rules that might have the solution
+      - Goal must be in their *THEN* action part
+      - Ex: If Goal = X, find a rule where THEN x is true (lets say Z)
+        - Next find a rule where THEN Z is true
+      - Rules basically stack and sets up new goals until finds enough evidence
 
 <a name="2.6"></a>
 
