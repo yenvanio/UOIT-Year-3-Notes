@@ -196,4 +196,46 @@
 <a name="2.6"></a>
 
 ### Conflict Resolution
-- 
+- Conflicting rules
+  - If traffic light is red
+    - THEN action is STOP
+    - THEN action is GO
+- Confliction Resolution is a method for deciding which rule to fire when more than one rule can be fired in a given cycle
+- In forward chaining
+  - STOP will happen first because it is the topmost
+  - GO will also happen because the 'traffic light is red' is still a fact in the database, so GO will overwrite STOP
+- Methods of Conflict Resolution
+  - **Priority**
+    - Simple priority rule is taking the one that appears first in order
+  - **Most Specific Rule**
+    - The rule that has the most matching
+    - `IF X then Y` vs `IF X & A & B THEN Y` 
+  - **Timestamps**
+    - The rule that uses the most recently entered data into the database
+  - **Metaknowledge**
+    - Knowledge about *knowledge*
+      - More specifically it is knowledge about the use and control of domain knowledge in an expert sytem
+    - Represented by **Metarules**
+      - Determines the use of task-specific rules (Priority)
+      - Rule #1
+        - Rules provided by experts > non-experts
+      - Rule #2
+        - Rules for rescuing human lives > rules for clearning overloads on power system equipment
+- **Advantages of Rule-Based Expert Systems**
+  - Natural knowledge representation
+    - Can naturally represent an experts problem solving procedure using `IF, THEN` production rules
+  - Uniform Structure
+    - All rules have `IF, THEN` structure
+  - Seperation of knowledge from its processing
+    - Possible to develop different applications using same expert system shell
+  - Dealing with incomplete and uncertain knowledge
+    - Can represent and reason with incomplete knowledge
+      - Fuzzy Logic
+- **Disadvantages of Rule-Based Expert Systems**
+  - Opaque relations between rules
+    - Logic interaction of rules within a large set, hard to tell the effect of each individual rule
+  - Ineffective search strategy
+    - Exhaustive search through all rules during each cycle
+    - Large rule-based systems are unsuited for real-time applications
+  - Inability to learn
+    - Do not learn from experience 
