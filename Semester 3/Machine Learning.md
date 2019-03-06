@@ -357,7 +357,15 @@
 <a name="3.4"></a>
 
 ### Bias of the Bayesian Method
+- Bayesian method requires probability values as primary inputs
+    - Assessment of these values is left up to human judgement
+    - Research shows that humans cannot elicit probability values consistent with the Bayesian Rules
+    - Suggests that conditional probabilities may be inconsistent with prior probabilities given by the expert
+    - Reason for the inconsistency is that the expert usually makes different assumptions when assessing the conditional and prior probabilities
 
 <a name="3.5"></a>
 
 ### Certainity Factors Theory and Evidential Reasoning
+- 
+
+---
