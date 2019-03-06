@@ -336,7 +336,24 @@
     - Rule implies that if `E` occurs, then there is a probability `p` that `H` will occur
 - In an expert system usually represents a `hypothesis` an E denotes `evidence` to support the hypothesis
 - Bayesian Rule in terms of evidence and hypothesis
-    - ``
+    - `p(H|E) = p(E|H) x p(H) / [ p(E|H) x p(H) ] + [ p(E|¬H) x p(¬H) ]`
+        - `p(H)` is the prior probability of the hypothesis H being true
+        - `p(E|H)` is the probability that the hypothesis H being true will result in evidence E
+        - `p(¬H)` is the prior probability of the hypothesis H being false
+        - `p(E|¬H)` is the probability of finding evidence E even when hypothesis H is false
+- In expert systems the prior probabilities are provided by experts
+    - `p(H)` and `p(¬H)` are given by experts
+    - They also provide conditional probabilities for observing evidence E if hypothesis H is true or false
+- The conditional probability `p(H|E)` is then computed by the expert systems based on user input of Evidence E
+    - Based on given user input (observations about evidence E)
+- There can be multiple hypothesis and multiple evidence
+    - **Evidences/Hypotheses must be mutually exclusive**
+    - Single Hypothesis and Multiple Evidence
+    - Multiple Hypothesis and Multiple Evidence
+    - To solve these, need to gather conditional probabilities of all possible combinations of evidences and hypothesis
+        - Huge burden on the expert
+    - In expert systems
+
 
 <a name="3.4"></a>
 
