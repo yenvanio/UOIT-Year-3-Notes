@@ -320,7 +320,11 @@
     - `p(A|B) = p(B|A) x p(A) / p(B)`
     - Can get this by substiting conditional probabiltiy equations
 - Joint Probability
-    -           
+    - When A depends on multiple events of B
+        - `Σ p(A ∩ B<sub>i<sub>) = Σ p(A | B<sub>i<sub>) x p(B<sub>i<sub>)`
+    - If A depends only on `B` and `NOT B`
+        - `p(A) = p(A|B) x p(B) + p(A|¬B) x p(¬B)`
+        - `¬` = NOT
 
 
 <a name="3.3"></a>
