@@ -314,18 +314,23 @@
     - When the probability of two events are not mutually exclusive
     - Probability of A happening given that B has occured
     - `p(A|B) = # of times A & B can occur / # of times B can occur`
-        - `p(A|B) = p(A  B) / p(B)`
-        - The number of times A & B can occur is called **Join Probability**
+        - `p(A|B) = p(A ∩ B) / p(B)`
+        - The number of times A & B can occur at the same time is called **Join Probability**
 - Bayesian Rule
     - `p(A|B) = p(B|A) x p(A) / p(B)`
     - Can get this by substiting conditional probabiltiy equations
 - Joint Probability
-    -         
+    -           
 
 
 <a name="3.3"></a>
 
 ### Bayesian Reasoning
+- `IF E is true THEN H is true {with probability p}`
+    - Rule implies that if `E` occurs, then there is a probability `p` that `H` will occur
+- In an expert system usually represents a `hypothesis` an E denotes `evidence` to support the hypothesis
+- Bayesian Rule in terms of evidence and hypothesis
+    - ``
 
 <a name="3.4"></a>
 
