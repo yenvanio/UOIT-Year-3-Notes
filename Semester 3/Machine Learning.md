@@ -325,6 +325,8 @@
     - If A depends only on `B` and `NOT B`
         - `p(A) = p(A|B) x p(B) + p(A|¬B) x p(¬B)`
         - `¬` = NOT
+    - Substituting this into the Bayesian rule gives us the following formula
+        - `p(A|B) = p(B|A) x p(A) / [ p(B|A) x p(A) ] + [ p(B|¬A) x p(¬A) ]`
 
 
 <a name="3.3"></a>
