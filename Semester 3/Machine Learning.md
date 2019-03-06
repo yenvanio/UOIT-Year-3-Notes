@@ -16,6 +16,13 @@
 - [Forward Chaining and Backward Chaining](#2.5)
 - [Conflict Resolution](#2.6)
 
+[Chapter 3 - Uncertainty Management in Rule-Based Expert Systems](#Chapter3)
+- [Introduction](#3.1)
+- [Basic Probability Theory](#3.2)
+- [Bayesian Reasoning](#3.3)
+- [Bias of the Bayesian Method](#3.4)
+- [Certainity Factors Theory and Evidential Reasoning](#3.5)
+
 ----
 
 <a name="Chapter1"></a>
@@ -239,3 +246,55 @@
     - Large rule-based systems are unsuited for real-time applications
   - Inability to learn
     - Do not learn from experience 
+
+---
+
+<a name="Chapter3"></a>
+
+## Chapter 3 - Uncertainty Management in Rule-Based Expert Systems
+
+<a name="3.1"></a>
+
+### Introduction
+- Uncertainty 
+    - Lack of exact knowledge that would enable us to reach a reliable conclusion
+- Law of Excluded Middle
+    - If `A` is true `THEN` `A` is not false
+- Sources of Uncertainity
+    - Weak Implications
+        - Domain experts are tasked with establishing concrete correlations between `IF` and `THEN` parts of the rules
+        - Expert Systems must be able to handle vague associations
+            - Do this by accepting the degree of correlations as numerical certainity factors
+    - Imprecise Language
+        - Natural Language is ambiguous and imprecise
+            - Terms like: *often*, *sometimes*, *frequently*, *hardly ever*
+        - Difficult to express the knowledge precisely 
+        - If the meaning of the facts is **quantified** it can be used in expert systems.
+- Quantification of Ambiguous and Imprecise Terms
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ambiTF.png)
+
+- Unknown Data
+    - Incomplete or missing data
+    - Only solution is to accept the value as *unknown* and approximate reasoning with this value
+- Combining Views of Different Experts
+    - Large expert systems usually combine knowledge of a number of experts
+    - This leads to conflicting rules and contradictory opinions 
+    - To resolve this, need to attach a weight to each expert and then calculate
+        - No systematic method to obtain the weights though
+
+<a name="3.2"></a>
+
+### Basic Probability Theory
+- 
+
+<a name="3.3"></a>
+
+### Bayesian Reasoning
+
+<a name="3.4"></a>
+
+### Bias of the Bayesian Method
+
+<a name="3.5"></a>
+
+### Certainity Factors Theory and Evidential Reasoning
