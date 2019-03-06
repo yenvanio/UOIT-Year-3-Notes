@@ -352,7 +352,6 @@
     - Multiple Hypothesis and Multiple Evidence
     - To solve these, need to gather conditional probabilities of all possible combinations of evidences and hypothesis
         - Huge burden on the expert
-    - In expert systems
 
 
 <a name="3.4"></a>
