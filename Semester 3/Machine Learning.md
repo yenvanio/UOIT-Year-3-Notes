@@ -258,8 +258,10 @@
 ### Introduction
 - Uncertainty 
     - Lack of exact knowledge that would enable us to reach a reliable conclusion
+
 - Law of Excluded Middle
     - If `A` is true `THEN` `A` is not false
+
 - Sources of Uncertainity
     - Weak Implications
         - Domain experts are tasked with establishing concrete correlations between `IF` and `THEN` parts of the rules
@@ -270,17 +272,20 @@
             - Terms like: *often*, *sometimes*, *frequently*, *hardly ever*
         - Difficult to express the knowledge precisely 
         - If the meaning of the facts is **quantified** it can be used in expert systems.
+
 - Quantification of Ambiguous and Imprecise Terms
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ambiTF.png)
 
 - Unknown Data
     - Incomplete or missing data
     - Only solution is to accept the value as *unknown* and approximate reasoning with this value
+
 - Combining Views of Different Experts
     - Large expert systems usually combine knowledge of a number of experts
     - This leads to conflicting rules and contradictory opinions 
     - To resolve this, need to attach a weight to each expert and then calculate
         - No systematic method to obtain the weights though
+        
 
 <a name="3.2"></a>
 
