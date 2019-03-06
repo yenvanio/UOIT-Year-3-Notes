@@ -285,12 +285,43 @@
     - This leads to conflicting rules and contradictory opinions 
     - To resolve this, need to attach a weight to each expert and then calculate
         - No systematic method to obtain the weights though
-        
+
 
 <a name="3.2"></a>
 
 ### Basic Probability Theory
-- 
+- The **Probability** of an event 
+    - Proportion of cases in which the event occurs
+    - Also defined as the **Scientific Measure of Chance**
+        - `P(success) = # of success / # of possible outcomes`
+        - `P(failure) = # of failures / # of possible outcomes`
+        - Probability Index between 0 and 1
+        - `# of possible of outcomes` = `# of success + # of failure`
+- Example
+    - If area of a triangle inside a square is `1/2 x^2` and area of square is `4x^2`
+    - What is the probability that a random point in the square is inside the triangle
+        - `1/2x^2 divided by 4x^2`
+- Monty Hall Problem
+    - 3 doors
+        - 2 Goats, 1 Car
+    - You pick a door
+    - Monty shows you a door with a goat
+    - Switch or Stay?
+        - Want to switch because initial choice has a 1/3 of car which means other door must have the remaining 2/3 chance of a car
+        - Another way to look at it, the odds of picking the correct door on the first try is 1/3 and switching is 2/3
+    - Monty opening a goat door, gives us new information to act on, which increases our chances
+- Conditional Probability
+    - When the probability of two events are not mutually exclusive
+    - Probability of A happening given that B has occured
+    - `p(A|B) = # of times A & B can occur / # of times B can occur`
+        - `p(A|B) = p(A  B) / p(B)`
+        - The number of times A & B can occur is called **Join Probability**
+- Bayesian Rule
+    - `p(A|B) = p(B|A) x p(A) / p(B)`
+    - Can get this by substiting conditional probabiltiy equations
+- Joint Probability
+    -         
+
 
 <a name="3.3"></a>
 
