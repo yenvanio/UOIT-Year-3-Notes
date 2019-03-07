@@ -359,6 +359,7 @@
     - Multiple Hypothesis and Multiple Evidence
     - To solve these, need to gather conditional probabilities of all possible combinations of evidences and hypothesis
         - Huge burden on the expert
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/multiCP.png)
 
 
@@ -391,6 +392,7 @@
     - How would you determine the cf value of C having a value of Z if both rules are fired?
         - Because 2 rules are pointing to the same hypothesis, the cf should be higher
         - Can calculate using the following formula
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/doubleCF.png)
 
 ---
