@@ -377,5 +377,12 @@
 - For Disjunctive Rules (OR) the (cf) value is calculated as follows
     - If E<sub>1</sub> ... OR E<sub>N</sub>
     - cf(H, E<sub>1</sub> ... ∪ E<sub>N</sub>) = max[cf(E<sub>1</sub>) ... cf(E<sub>N</sub>)] * cf(H)
+- If 2 rules support the same hypothesis with different certainty factors
+    - `IF` A is X `THEN` C is Z {cf 0.8}
+    - `IF` B is Y `THEN` C is Z {cf 0.6}
+    - How would you determine the cf value of C having a value of Z if both rules are fired?
+        - Because 2 rules are pointing to the same hypothesis, the cf should be higher
+        - Can calculate using the following formula
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/doubleCF.png)
 
 ---
