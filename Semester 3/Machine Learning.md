@@ -359,6 +359,7 @@
     - Multiple Hypothesis and Multiple Evidence
     - To solve these, need to gather conditional probabilities of all possible combinations of evidences and hypothesis
         - Huge burden on the expert
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/multiCP.png)
 
 
 <a name="3.4"></a>
