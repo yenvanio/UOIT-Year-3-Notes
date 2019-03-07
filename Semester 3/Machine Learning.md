@@ -366,6 +366,16 @@
 <a name="3.5"></a>
 
 ### Certainity Factors Theory and Evidential Reasoning
-- 
+- Certainty Factors is an alternative to Bayesian Reasoning
+    - (cf) = a number to measure the expert's belief
+        - Max value +1.0 (definitely true)
+        - Min Value -1.0 (definitely false)
+    - The (cf) value assigned to a rule is propagated throughout the chain
+- For Conjuctive Rules (AND) the (cf) value is calculated as follows
+    - If E<sub>1</sub> ... AND E<sub>N</sub>
+    - cf(H, E<sub>1</sub> ... ∩ E<sub>N</sub> ) = min[cf(E<sub>1</sub>) ... cf(E<sub>N</sub>)] * cf(H)
+- For Disjunctive Rules (OR) the (cf) value is calculated as follows
+    - If E<sub>1</sub> ... OR E<sub>N</sub>
+    - cf(H, E<sub>1</sub> ... ∪ E<sub>N</sub>) = max[cf(E<sub>1</sub>) ... cf(E<sub>N</sub>)] * cf(H)
 
 ---
