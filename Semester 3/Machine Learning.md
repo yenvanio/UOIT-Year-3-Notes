@@ -23,6 +23,13 @@
 - [Bias of the Bayesian Method](#3.4)
 - [Certainity Factors Theory and Evidential Reasoning](#3.5)
 
+[Chapter 4 - Fuzzy Expert Systems: Fuzzy Logic](#Chapter4)
+- [Introduction](#4.1)
+- [Fuzzy Sets](#4.2)
+- [Linguistic Variables and Hedges](#4.3)
+- [Operations of Fuzzy Sets](#4.4)
+- [Fuzzy Rules](#4.5)
+
 ----
 
 <a name="Chapter1"></a>
@@ -386,3 +393,32 @@
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/doubleCF.png)
 
 ---
+
+<a name="Chapter4"></a>
+
+## Chapter 4 - Fuzzy Expert Systems: Fuzzy Logic
+
+<a name="4.1"></a>
+
+### Introduction
+- 
+
+<a name="4.2"></a>
+
+### Fuzzy Sets
+- 
+
+<a name="4.3"></a>
+
+### Linguistic Variables and Hedges
+- 
+
+<a name="4.4"></a>
+
+### Operations of Fuzzy Sets
+- 
+
+<a name="4.5"></a>
+
+### Fuzzy Rules
+- 
