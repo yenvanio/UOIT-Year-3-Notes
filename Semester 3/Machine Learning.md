@@ -424,7 +424,12 @@
 <a name="4.2"></a>
 
 ### Fuzzy Sets
-- 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/crispFuzz.png)
+
+- A fuzzy set is a set with fuzzy boundaries
+
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mbFunc.png)
 
 <a name="4.3"></a>
 
