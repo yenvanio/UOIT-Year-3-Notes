@@ -684,10 +684,26 @@
     - `Step 5`
         - Select a pair of chromosomes for mating from the current population
         - Parent chromosomes are selected with a probability based on their fitness
+            - Random Weighted Probability
+            - Also known as *Roulette Wheel Selection*
     - `Step 6`
         - Create a pair of offspring chromosomes by applying the genetic operators 
             - Crossover Operator
+                - One Point Crossover
+                    - Swaps all the bits on the right side of the point
+                - Two Point Crossover
+                    - Swaps all the bits between the two points  
+                - Uniform Crossover
+                    - Simplest case
+                        - Randomly swaps bits between chromosomes
+                    - Can be based on a given distribution
+                - No Crossover
+                    - Cloning takes place and the offspring created are exact copies of the parent
             - Mutation Operator
+                - Represents a change in the gene
+                - Used to make sure the algorithm isnt trapped on a local optimum
+                - It basically flips a randomly selected gene in a chromosome
+                - Probability is pretty small, usuall between 0.001 and 0.01
     - `Step 7`
         - Place the created offspring chromosomes in the new population
     - `Step 8`
@@ -696,7 +712,12 @@
         - Replace the initial chromosome population with the new population
     - `Step 10`
         - Go to `Step 4` and repeat until termination criteria is satisfied
-- 
+- Each iteration in the genetic algorithm = **Generation**
+    - A GA can range from 50 to over 500 generations
+    - Its common to end the GA after a specified  # of generations
+- **Run** is the entire set of generations
+    - If a solution isnt found after `n` generations then we do another run
+
 
 <a name="5.4"></a>
 
