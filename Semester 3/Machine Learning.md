@@ -31,6 +31,12 @@
 - [Fuzzy Rules](#4.5)
 - [Fuzzy Inference](#4.6)
 
+[Chapter 5 - Evolutionary Computation: Genetic Algorithms](#Chapter5)
+- [Introduction](#5.1)
+- [Simulation of Natural Evolution](#5.2)
+- [Genetic Algorithms](#5.3)
+- [Case Study](#5.4)
+
 ----
 
 <a name="Chapter1"></a>
@@ -551,14 +557,14 @@
         - Rule 1: 
             - x is A3 = 0
             - y is B1 = 0.1
-            - z is C1 = 0.1 (OR = max)
+            - z is `C1(0.1)` (OR = max)
         - Rule 2:
             - x is A2 = 0.2
             - y is B2 = 0.7
-            - z is C2 = 0.2 (AND = min)
+            - z is `C2(0.2)` (AND = min)
         - Rule 3:
             - x is A1 = 0.5
-            - z is C3 = 0.5
+            - z is `C3(0.5)`
 
 - 3.) Aggregation of Rule Outputs
     - Process of unifying the outputs of all the rules 
@@ -579,4 +585,61 @@
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/COGcalc.png)
 
-- Sugeno Fuzzy Inference
+#### Sugeno Fuzzy Inference
+- The Mamdani-style inference is not computationally efficient
+- The Sugeno methods uses a single spike vs integrating across a function
+    - A fuzzy singleton is a fuzzy set with a membership function that is unity at a single point and 0 everywhere else
+- Format of Sugeno Fuzzy Rule
+    - `IF` x is A 
+    - `AND` y is B 
+    - `THEN` z is f(x,y)
+        - x, y, z are linguistic variables
+        - A & B are fuzzy sets 
+        - f(x, y) is a mathematical function 
+- Most common used zero-order Sugeno Fuzzy Model applies fuzzy rules in the following form 
+    - `IF` x is A 
+    - `AND` y is B
+    - `THEN` z is `k`
+        - `k` is a constant 
+        - In this case the output of each fuzzy rule is constant 
+        - All consequent membership functions are represented by fuzzy singletons
+- Evaluating 
+    - Rule 1: 
+        - x is A3 = 0
+        - y is B1 = 0.1
+        - z is `k1(0.1)` (OR = max)
+    - Rule 2:
+        - x is A2 = 0.2
+        - y is B2 = 0.7
+        - z is `k2(0.2)` (AND = min)
+    - Rule 3:
+        - x is A1 = 0.5
+        - z is `k3(0.5)`
+- Defuzzification
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/waFuzz.png)
+
+#### Case Study: Building an Expert Fuzzy System
+
+---
+
+<a name="Chapter5"></a>
+
+## Chapter 5 - Evolutionary Computation: Genetic Algorithms
+
+<a name="5.1"></a>
+
+### Introduction
+
+<a name="5.2"></a>
+
+### Simulation of Natural Evolution
+
+<a name="5.3"></a>
+
+### Genetic Algorithms
+
+<a name="5.4"></a>
+
+### Case Study
+
+
