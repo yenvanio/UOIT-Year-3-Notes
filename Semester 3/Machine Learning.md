@@ -629,10 +629,18 @@
 <a name="5.1"></a>
 
 ### Introduction
+- Evolutionary approach is based on computational models of natural selection and genetics
+    - The result of this simulation is a series of optimisation algorithms, usually based on a simple set of rules
+    - This optimisation happens iteratively and improves the quality of the solutions until an optimal solution is found
+- Evolutionary Computation is an umbrella term
+    - Genetic Algorithms 
+    - Evolution Strategies
+    - Genetic Programming
 
 <a name="5.2"></a>
 
 ### Simulation of Natural Evolution
+- 
 
 <a name="5.3"></a>
 
