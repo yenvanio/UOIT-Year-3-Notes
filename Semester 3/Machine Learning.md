@@ -433,7 +433,7 @@
 
 - Set A of Universe X is defined by the membership function μ<sub>A</sub>(x)
     - The set allows for more than just a 1 or 0
-    - The membership functiona represents the degree to which x is an element of set A a.k.a the **Degree of Membership** or **Membership Value** of element x in set A
+    - The membership function represents the degree to which x is an element of set A a.k.a the **Degree of Membership** or **Membership Value** of element x in set A
 - Representing Fuzzy Sets in a Computer
     - Example: Men's Heights
     - Can have fuzzy sets of `Tall` `Short` `Average`
@@ -449,7 +449,20 @@
 <a name="4.3"></a>
 
 ### Linguistic Variables and Hedges
-- 
+- A Linguistic variable is a fuzzy variable
+    - `John is tall`
+    - Implies that the linguistic variable *John* takes the linguistic value *tall*
+- Fuzzy Rules use linguistic variables
+    - `IF` wind is strong
+    - `THEN` sailing is good
+- Range of possible values of a linguistic variable represents the universe of discourse for that variable
+    - Linguistic variable `speed` can have a range from 0km/h to 220km/h
+    - Fuzzy subsets can be very slow, slow, medium, fast, very fast
+- A linguistic variable has fuzzy set qualifiers called **Hedges**
+    - Hedges are terms that modify the shape of fuzzy sets
+    - `Very` `Somewhat` `Quite` `More` `Less` `Slightly`
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/veryduD.png)
 
 <a name="4.4"></a>
 
