@@ -498,4 +498,44 @@
 <a name="4.5"></a>
 
 ### Fuzzy Rules
-- 
+- A fuzzy rule is a conditional statement in the form 
+    - `IF x is A` : `THEN y is B`
+        - `x` and `y` are linguistic variables 
+        - `A` and `B` are linguistic values determined by fuzzy sets on the universe of discourses `X` and `Y`
+- Fuzzy rules relate fuzzy sets 
+- **Monotonic Selection**
+    - Fuzzy inference when the output value is estimated from a corresponding output in the antecedent (IF OR/AND part of the rule)
+- Fuzzy rules can have multiple antecdents and multiple consequents
+    - `IF` service is excellent
+    - `OR` food is delicious
+    - `THEN` tip is generous; mood is happy;
+
+<a name="4.6"></a>
+
+### Fuzzy Inference
+- Mamdani Fuzzy Inference
+    - 4 Step Process
+        - Fuzzification of Input Variables
+        - Rule Evaluation
+        - Aggregation of Rule Outputs
+        - Defuzzification
+    - Example
+        - Rule 1:
+            - `IF` x is A3
+            - `OR` y is B1 
+            - `THEN` z is C1
+        - Rule 2:
+            - `IF` x is A2
+            - `AND` y is B12
+            - `THEN` z is C2
+        - Rule 3:
+            - `IF` x is A1
+            - `THEN` z is C3
+    - Fuzzification
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/fuzzif.png)
+
+
+    - Rule Evaluation
+
+- Sugeno Fuzzy Inference
