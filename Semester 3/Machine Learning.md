@@ -467,7 +467,33 @@
 <a name="4.4"></a>
 
 ### Operations of Fuzzy Sets
-- 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/cantorSet.png)
+
+- Complement
+    - Complement of a set is an opposite of the set
+        - A  = set of `tall men`
+        - ¬A = set of `NOT tall men`
+        - μ<sub>¬A</sub>(x) = 1 - μ<sub>A</sub>(x)
+    - `Crisp Sets`: Who doesn't belong to the set
+    - `Fuzzy Sets`: How much do elements not belong to the set
+- Containment
+    - `Crisp Sets`: Which sets belong to which other sets
+        - All elements of a subset belong entirely to a larger set
+    - `Fuzzy Sets`: Which sets belong to other sets
+        - Each element can belong less to the subset than the large set
+            - Smaller membership value in subset than large set
+- Intersection
+    - `Crisp Sets`: Which element belongs to both sets
+        - Intersection of tall men set and fat men set is the area of overlap
+    - `Fuzzy Sets`: How much of the element is in both sets
+        - Elements may partly belong to both sets with different memberships
+        - Intersection is the lower membership in both sets of the element
+- Union
+    - `Crisp Sets`: Who element belongs to either set
+        - Union of tall men and fat men = all men who are tall or fat
+    - `Fuzzy Sets`: How much of the element is in either set
+        - Reverse of intersection
+        - Union is the largest membership value of the element in either set
 
 <a name="4.5"></a>
 
