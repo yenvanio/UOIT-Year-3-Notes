@@ -29,6 +29,7 @@
 - [Linguistic Variables and Hedges](#4.3)
 - [Operations of Fuzzy Sets](#4.4)
 - [Fuzzy Rules](#4.5)
+- [Fuzzy Inference](#4.6)
 
 ----
 
@@ -513,29 +514,69 @@
 <a name="4.6"></a>
 
 ### Fuzzy Inference
-- Mamdani Fuzzy Inference
-    - 4 Step Process
-        - Fuzzification of Input Variables
-        - Rule Evaluation
-        - Aggregation of Rule Outputs
-        - Defuzzification
-    - Example
-        - Rule 1:
-            - `IF` x is A3
-            - `OR` y is B1 
-            - `THEN` z is C1
-        - Rule 2:
-            - `IF` x is A2
-            - `AND` y is B12
-            - `THEN` z is C2
-        - Rule 3:
-            - `IF` x is A1
-            - `THEN` z is C3
-    - Fuzzification
+
+
+#### Mamdani Fuzzy Inference
+- 4 Step Process
+    - Fuzzification of Input Variables
+    - Rule Evaluation
+    - Aggregation of Rule Outputs
+    - Defuzzification
+- Example
+    - Rule 1:
+        - `IF` x is A3
+        - `OR` y is B1 
+        - `THEN` z is C1
+    - Rule 2:
+        - `IF` x is A2
+        - `AND` y is B2
+        - `THEN` z is C2
+    - Rule 3:
+        - `IF` x is A1
+        - `THEN` z is C3
+- 1.) Fuzzification
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/fuzzif.png)
 
 
-    - Rule Evaluation
+- 2.) Rule Evaluation
+    - Take fuzzified inputs and apply them to the antecedents of the fuzzy rules
+        - μ<sub>(x = A1)</sub> = 0.5
+        - μ<sub>(x = A2)</sub> = 0.2
+        - μ<sub>(y = B1)</sub> = 0.1
+        - μ<sub>(y = B2)</sub> = 0.7
+    - If `OR` / Union then use `max`
+    - If `AND` / Intersection then use `min`
+    - Evaluating 
+        - Rule 1: 
+            - x is A3 = 0
+            - y is B1 = 0.1
+            - z is C1 = 0.1 (OR = max)
+        - Rule 2:
+            - x is A2 = 0.2
+            - y is B2 = 0.7
+            - z is C2 = 0.2 (AND = min)
+        - Rule 3:
+            - x is A1 = 0.5
+            - z is C3 = 0.5
+
+- 3.) Aggregation of Rule Outputs
+    - Process of unifying the outputs of all the rules 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/aggZ.png)
+
+- 4.) Defuzzification
+    - Output of a fuzzy system must be a crisp number
+    - Most popular defuzzification method is called the **Centroid Technique**
+        - Finds the point where a vertical line slices the aggregated set into two equal masses.
+        - This **Center of Gravity (COG)** can be expressed by the function below
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/COGF.png)
+
+- Numerator Values
+    - Points off of the x axis (summed) and multiplied by the degree of membership
+- Denominator Values
+    - Degree of Membership multiplied by number of points taken and used in the numerator
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/COGcalc.png)
 
 - Sugeno Fuzzy Inference
