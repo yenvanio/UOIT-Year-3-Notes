@@ -406,7 +406,20 @@
 <a name="4.1"></a>
 
 ### Introduction
-- 
+- Fuzzy logic is logic for describing fuzziness
+    - Used to calibrate vagueness 
+    - Represents how people think
+        - We dont think in terms of strictly boolean (0 or 1)
+    - Fuzzy logic is a set of mathematical principles for knowledge representation based on degrees of membership.
+- Jan Lukaseiwicz came up with the **Possibility Theory** 
+    - He used values that included all real numbers between 0 and 1
+    - The numbers in the interval represent the probability that a statement was true or false
+- Max Black claimed vagueness is a matter of probability
+    - Line up countless chairs, each successive chair is less chair like until the last one which is a log
+    - At what point does a chair become a log?
+    - If a continuum is discrete a number can be allocated to each element
+- Lotfi Zadeh
+    - Master of Fuzzy Logic
 
 <a name="4.2"></a>
 
