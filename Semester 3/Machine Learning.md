@@ -37,6 +37,13 @@
 - [Genetic Algorithms](#5.3)
 - [Case Study](#5.4)
 
+[Chapter 6 - Artificial Neural Networks](#Chapter6)
+- [Introduction](#6.1)
+- [The Neuron as a Simple Computing Element](#6.2)
+- [The Perceptron](#6.3)
+- [Multilayer Neural Networks](#6.4)
+- [Accelerated Learning in Multilayer Neural Networks](#6.5)
+
 ----
 
 <a name="Chapter1"></a>
@@ -655,9 +662,72 @@
 <a name="5.3"></a>
 
 ### Genetic Algorithms
+- Two mechanism link a genetic algorithm (GA) to the problem its trying to solve
+    - Encoding
+    - Evaluation
+- GA uses the fitness of individual chromosomes to carry out reproduction
+    - As reproduction happens...
+        - Crossover Operator exchanges parts of two single chromosomes
+        - Mutation Operator changes the gene value in some randomly chosen location of the chromosome
+- Basic Genetic Algorithm Process
+    - `Step 1`
+        - Choose the Chromosome Population size `N`
+        - Choose the Crossover Probability p<sub>c</sub>
+        - Choose the Mutation Probability p<sub>m</sub>
+    - `Step 2`
+        - Define a fitness function that measures the fitness of an individual chromosome
+        - The fitness function is the basis for selecting chromosomes to be mated
+    - `Step 3`
+        - Randomly generate an initial chromosome population of size `N`
+    - `Step 4`
+        - Calculate the fitness of each individual chromosome
+    - `Step 5`
+        - Select a pair of chromosomes for mating from the current population
+        - Parent chromosomes are selected with a probability based on their fitness
+    - `Step 6`
+        - Create a pair of offspring chromosomes by applying the genetic operators 
+            - Crossover Operator
+            - Mutation Operator
+    - `Step 7`
+        - Place the created offspring chromosomes in the new population
+    - `Step 8`
+        - Repeat `Step 5` until the size of the new population equals `N`(size of the initial population)
+    - `Step 9`
+        - Replace the initial chromosome population with the new population
+    - `Step 10`
+        - Go to `Step 4` and repeat until termination criteria is satisfied
+- 
 
 <a name="5.4"></a>
 
 ### Case Study
+- 
+
+---
+
+<a name="Chapter6"></a>
+
+## Chapter 6 - Artificial Neural Networks
+
+<a name="6.1"></a>
+
+### Introduction
+
+<a name="6.2"></a>
+
+### The Neuron as a Simple Computing Element
+
+<a name="6.3"></a>
+
+### The Perceptron
+
+<a name="6.4"></a>
+
+### Multilayer Neural Networks
+
+<a name="6.5"></a>
+
+### Accelerated Learning in Multilayer Neural Networks
+
 
 
