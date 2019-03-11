@@ -632,7 +632,7 @@
 - Evolutionary approach is based on computational models of natural selection and genetics
     - The result of this simulation is a series of optimisation algorithms, usually based on a simple set of rules
     - This optimisation happens iteratively and improves the quality of the solutions until an optimal solution is found
-- Evolutionary Computation is an umbrella term
+- Evolutionary Computation is an umbrella term that combines the following
     - Genetic Algorithms 
     - Evolution Strategies
     - Genetic Programming
@@ -640,7 +640,17 @@
 <a name="5.2"></a>
 
 ### Simulation of Natural Evolution
-- 
+- **Evolutionary Fitness**: A populations ability to survive in reproduce in a specific environment
+    - It is also the organism's ability to anticipate changes in its environment
+    - This ability is the quality that is optimised in natural life 
+- Example: Rabbits and Foxes
+    - The faster rabbits will survive due to their superior fitness
+    - These superior fitness rabbits will produce offspring with even greater fitness
+- Natural Evolution - General Process
+    - Creating a population of individuals
+    - Evaluating their fitness
+    - Generating a new population through genetic operations
+    - Repeating this process `n` number of times
 
 <a name="5.3"></a>
 
