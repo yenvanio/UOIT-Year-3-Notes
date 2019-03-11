@@ -426,10 +426,25 @@
 ### Fuzzy Sets
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/crispFuzz.png)
 
-- A fuzzy set is a set with fuzzy boundaries
+- A fuzzy set is a set with fuzzy boundaries 
 
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mbFunc.png)
+
+- Set A of Universe X is defined by the membership function μ<sub>A</sub>(x)
+    - The set allows for more than just a 1 or 0
+    - The membership functiona represents the degree to which x is an element of set A a.k.a the **Degree of Membership** or **Membership Value** of element x in set A
+- Representing Fuzzy Sets in a Computer
+    - Example: Men's Heights
+    - Can have fuzzy sets of `Tall` `Short` `Average`
+    - Different heights are classified under different fuzzy sets
+        - A height can be part of two fuzzy sets 
+        - 184cm tall is a member of average men with a degree of membership = 0.1
+        - 184cm tall is also a member of tall men with a degree of membership = 0.4
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/crispFuzz2.png)
+
+
 
 <a name="4.3"></a>
 
