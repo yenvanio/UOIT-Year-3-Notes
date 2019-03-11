@@ -35,7 +35,6 @@
 - [Introduction](#5.1)
 - [Simulation of Natural Evolution](#5.2)
 - [Genetic Algorithms](#5.3)
-- [Case Study](#5.4)
 
 [Chapter 6 - Artificial Neural Networks](#Chapter6)
 - [Introduction](#6.1)
@@ -690,17 +689,21 @@
         - Create a pair of offspring chromosomes by applying the genetic operators 
             - Crossover Operator
                 - One Point Crossover
-                    - Swaps all the bits on the right side of the point
+                    - Swaps all the genes on the right side of the point between two chromosomes
                 - Two Point Crossover
-                    - Swaps all the bits between the two points  
+                    - Swaps all the genes in between the two points between two chromosomes
                 - Uniform Crossover
                     - Simplest case
-                        - Randomly swaps bits between chromosomes
+                        - Swaps genes at randomly selected points between two chromosomes
                     - Can be based on a given distribution
                 - No Crossover
                     - Cloning takes place and the offspring created are exact copies of the parent
             - Mutation Operator
                 - Represents a change in the gene
+                    - Reciprocal Exchange
+                        - Swaps two randomly selected genes
+                    - Inversion Operator
+                        - Selects two random points on the chromosome and reverses the order of genes between these points
                 - Used to make sure the algorithm isnt trapped on a local optimum
                 - It basically flips a randomly selected gene in a chromosome
                 - Probability is pretty small, usuall between 0.001 and 0.01
@@ -717,12 +720,6 @@
     - Its common to end the GA after a specified  # of generations
 - **Run** is the entire set of generations
     - If a solution isnt found after `n` generations then we do another run
-
-
-<a name="5.4"></a>
-
-### Case Study
-- 
 
 ---
 
