@@ -1001,7 +1001,7 @@
         - Need to resolve by limiting growth of synaptic weights with a **forgetting factor**
         - Δw<sub>ij</sub>(p) = α • y<sub>j</sub>(p) • x<sub>i</sub>(p) - φ • y<sub>j</sub>(p) • w<sub>ij</sub>(p)
             - We can factor out the y<sub>j</sub>(p) to get a general equation
-            - Δw<sub>ij</sub>(p) = φ • y<sub>j</sub>(p) • [λ• x<sub>i</sub>(p) - w<sub>ij</sub>(p)]
+            - Δw<sub>ij</sub>(p) = φ • y<sub>j</sub>(p) [λ• x<sub>i</sub>(p) - w<sub>ij</sub>(p)]
                 - This equations is the **Generalized Activity Product Rule**
                 - In this case λ = α / φ
                     - Because we factored out φ
