@@ -777,6 +777,8 @@
     - If sum > threshold
         - `Output = +1`
     - This type of activation function is known as a **Sign Function**
+
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/acNeuron.png)
 
 - The most basic ANN can be made up of just one neuron
@@ -787,6 +789,8 @@
         - A single Neuron
         - Adjustable Synaptic Weights
         - A Hard Limiter
+
+        
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sl2ip.png)
 
 
