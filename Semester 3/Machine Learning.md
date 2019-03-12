@@ -767,6 +767,28 @@
 <a name="6.2"></a>
 
 ### The Neuron as a Simple Computing Element
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/neuron.png)
+
+- Neuron computs the *weighted sum* of the input signals
+- The function the neuron uses is called an **Activation Function** and is shown below along with the different types
+- The sum is compared to a threshold value `θ`
+    - If sum < threshold
+        - `Output = -1`
+    - If sum > threshold
+        - `Output = +1`
+    - This type of activation function is known as a **Sign Function**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/acNeuron.png)
+
+- The most basic ANN can be made up of just one neuron
+    - Frank Roseblatt develop the first training algorithm for this ANN 
+    - Called a **Perceptron**
+- Perceptron is the simplest form of an ANN
+    - Consits of
+        - A single Neuron
+        - Adjustable Synaptic Weights
+        - A Hard Limiter
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sl2ip.png)
+
 
 <a name="6.3"></a>
 
