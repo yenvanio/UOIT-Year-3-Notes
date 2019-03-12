@@ -790,13 +790,50 @@
         - Adjustable Synaptic Weights
         - A Hard Limiter
 
-        
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sl2ip.png)
 
 
 <a name="6.3"></a>
 
 ### The Perceptron
+- The model consists of
+    - A Linear Combiner
+    - A Hard Limiter
+- Weighted sum of inputs is applied to hard limiter 
+    - Output is either `+1` if its  positive
+    - or `-1` if its negative
+- The goal of the percepton is to classify inputs x<sub>1</sub> ... x<sub>n</sub>
+    - For example lets say classes `A1` and `A2`
+- An Elementry Perceptron its n-dimensional space is divided into **two decision regions** by a hyperplane
+    - The hyperplane is define by a *linearly seperable function*
+    - The sum of (x<sub>i</sub>w<sub>i</sub>) - θ = 0
+- How does a perceptron learn?
+    - It makes small adjustments in the weight values
+    - The adjustments are made to reduce the difference between the actual and desired output
+    - Inital weight is randomly assigned
+        - Usually within a range of `[-0.5, 0.5]`
+    - To figure out how to make the changes, we need to calculate the error
+- Perceptron Error
+    - For the p<sup>th</sup> training example presented to the perceptron
+    - e(p) = Y<sub>d</sub>(p) - Y(p)
+        - If the error `e(p)` is positive we need to increase the perceptron output Y(p)
+            - If positive then Y(p) is less than desired output
+            - Need to increase to get ideal error of 0
+        - If the error `e(p)` is negative we need to decrease the perceptron outout Y(p)
+            - If negative then Y(p) is greater than desired output
+            - Need to reduce to get ideal error of 0
+
+
+#### The Perceptron Learning Rule
+- p = 1, 2, 3, ...
+- α = Learning Rate
+    - A positive constant less than unity
+- e(p) = error of perceptron
+- w<sub>i(p) = weight of perceptron
+
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pcprule.png)
 
 <a name="6.4"></a>
 
