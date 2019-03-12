@@ -1002,21 +1002,34 @@
         - Δw<sub>ij</sub>(p) = α • y<sub>j</sub>(p) • x<sub>i</sub>(p) - φ • y<sub>j</sub>(p) • w<sub>ij</sub>(p)
             - We can factor out the y<sub>j</sub>(p) to get a general equation
             - Δw<sub>ij</sub>(p) = φ • y<sub>j</sub>(p) [λ• x<sub>i</sub>(p) - w<sub>ij</sub>(p)]
-                - This equations is the **Generalized Activity Product Rule**
+                - This equation is the **Generalized Activity Product Rule**
                 - In this case λ = α / φ
                     - Because we factored out φ
             
 
 #### Hebbian Learning Algorithm
 - `Step 1: Initialization`:
+    - Set initial synaptic weights and thresholds to random values within the interval [0, 1]
 - `Step 1: Activation`:
+    - Compute neuron output
+    - `n` is the number of neuron inputs
+    - θ<sub>j</sub> is the threshold value of neuron `j`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/hebbianNN.png)
+
 - `Step 1: Learning`:
+    - Update weights in the network
+        - Δw<sub>ij</sub>(p + 1) = w<sub>ij</sub>(p) + Δw<sub>ij</sub>(p)
+    - The weight correction factor is given by the formula we derived above
+        - Δw<sub>ij</sub>(p) = φ • y<sub>j</sub>(p) [λ• x<sub>i</sub>(p) - w<sub>ij</sub>(p)]
+        - Where λ = α / φ
 - `Step 1: Iteration`:
+    - Increase iteration and go back to `Step 2` until goal output is reached
 
 <a name="7.3"></a>
 
 ### Self Organizing Computational Map: Kohonen Network
-- 
+- Competitive Learning
+    - 
 
 
 
