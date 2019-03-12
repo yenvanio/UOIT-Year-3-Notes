@@ -1010,7 +1010,7 @@
 #### Hebbian Learning Algorithm
 - `Step 1: Initialization`:
     - Set initial synaptic weights and thresholds to random values within the interval [0, 1]
-- `Step 1: Activation`:
+- `Step 2: Activation`:
     - Compute neuron output
     - `n` is the number of neuron inputs
     - θ<sub>j</sub> is the threshold value of neuron `j`
@@ -1018,13 +1018,13 @@
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/hebbianNN.png)
 
-- `Step 1: Learning`:
+- `Step 3: Learning`:
     - Update weights in the network
         - Δw<sub>ij</sub>(p + 1) = w<sub>ij</sub>(p) + Δw<sub>ij</sub>(p)
     - The weight correction factor is given by the formula we derived above
         - Δw<sub>ij</sub>(p) = φ • y<sub>j</sub>(p) [λ• x<sub>i</sub>(p) - w<sub>ij</sub>(p)]
         - Where λ = α / φ
-- `Step 1: Iteration`:
+- `Step 4: Iteration`:
     - Increase iteration and go back to `Step 2` until goal output is reached
 
 <a name="7.3"></a>
