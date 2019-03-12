@@ -762,7 +762,7 @@
         - Neuron (Soma)
         - Input (Dendrite)
         - Output (Axon)
-        - Weight (Weight)
+        - Weight (Synapse)
 
 <a name="6.2"></a>
 
