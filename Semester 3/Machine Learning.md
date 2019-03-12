@@ -1014,6 +1014,8 @@
     - Compute neuron output
     - `n` is the number of neuron inputs
     - θ<sub>j</sub> is the threshold value of neuron `j`
+
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/hebbianNN.png)
 
 - `Step 1: Learning`:
