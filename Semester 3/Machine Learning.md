@@ -830,7 +830,25 @@
 - α = Learning Rate
     - A positive constant less than unity
 - e(p) = error of perceptron
-- w<sub>i(p) = weight of perceptron
+- w<sub>i</sub>(p) = weight of perceptron
+- Using this rule we can derive the training algorithm
+
+#### Perceptron Training Algorithm
+- `Step 1: Initialization`
+    - Set initial weights w<sub>1</sub>...w<sub>n</sub>
+        and the threshold θ to random numbers in the range [-0.5, 0.5]
+- `Step 2: Activation`
+    - Use this step function to calculate the actual output
+    - Since it is a step function
+        - IF `Y(p)` < 0 then `Y(p)` = 0
+        - IF `Y(p)` >= 0 then `Y(p)` = 1
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pcprule.png)
+
+
+- `Step 3: Weight Training`
+    - Depending on error `e(p)` need to increase or decrease the perceptron output Y(p)
+- `Step 4: Iteration`
 
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pcprule.png)
