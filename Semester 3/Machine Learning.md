@@ -906,7 +906,14 @@
     - F<sub>i</sub> = total number of inputs of neuron `i`
     - Weight initialization is done on a neuron-by-neuron basis
 - `Step 2: Activation`
-    - 
+    - Now we use a Sigmoid function instead of a step function
+    - `2.1` Calculate the actual outputs of the neurons in the hidden layer
+    - `n` is the # of inputs of neuron `j` in the hidden layer
+    - ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sigmoidfns.png)
+    - `2.2` Calculate the actual outputs of the neurons in the output layer
+    - `m` is the # of inputs of neuron `k` in the output layer
+    - ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sigmoidfnr.png)
+
 - `Step 3: Weight Training`
 - `Step 4: Iteration`
 
