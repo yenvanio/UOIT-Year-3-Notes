@@ -730,6 +730,39 @@
 <a name="6.1"></a>
 
 ### Introduction
+- Main Applications of ANN
+    - Pattern Classification
+    - Prediction and Financial Analysis
+    - Control and Optimization
+- Sample Real World Applications
+    - CC Fraud Detection
+    - Optical Character Recognition (OCR)
+    - Foreign Exchange Trading Systems
+- A neural network is based on the reasoning model of the human brain
+    - Brain consists of densely interconnected set of nerve cells 
+        - Nerve Cells are basic information processing units a.k.a **Neurons**
+    - Each neuron has a simple structure but using multiple simultaneously the brain performs functions at very fast rates
+        - Faster than computers
+        - Tremendous Processing Power
+- Neuron consists of the following
+    - Soma - Cell Body 
+    - Dendrites - A Number of Fibers
+    - Axon - Single Long Fiber
+- The brain is a highly complex, non-linear and parallel information processing system
+    - Information is stored and processed in a neural network
+        - This means the processing and data are **global** not local
+    - Leaning is a fundamental and essential part of neural networks
+    - This is why it is being used in computing
+- How a Neural Network Works
+    - Consists of a number of simple processors (Neurons)
+    - Neurons are connected by weighted links that pass signals between them
+    - Output signal is split into branches 
+        - The branches terminate at the incoming connections of other neurons
+    - Structure
+        - Neuron (Soma)
+        - Input (Dendrite)
+        - Output (Axon)
+        - Weight (Weight)
 
 <a name="6.2"></a>
 
