@@ -622,9 +622,9 @@
         - x is A1 = 0.5
         - z is `k3(0.5)`
 - Defuzzification
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/waFuzz.png)
 
-#### Case Study: Building an Expert Fuzzy System
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/waFuzz.png)
 
 ---
 
@@ -843,15 +843,22 @@
         - IF `Y(p)` < 0 then `Y(p)` = 0
         - IF `Y(p)` >= 0 then `Y(p)` = 1
 
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pcprule.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/stepstep.png)
 
 
 - `Step 3: Weight Training`
     - Depending on error `e(p)` need to increase or decrease the perceptron output Y(p)
+    - `e(p)` = Y<sub>d</sub>(p) - Y(p)
+    - If `e(p)` != 0
+        - Need to calculate the Weight Correction Value
+            - Δw<sub>i</sub>(p) = α • x<sub>i</sub>(p) • e(p)
+        - Using the correction value you can calculate the weight at the next iteration `p+1`
+            - w<sub>i</sub>(p+1) = w<sub>i</sub>(p) + Δw<sub>i</sub>(p)
 - `Step 4: Iteration`
+    - Go back to step 2 and repeat until `e(p)` = 0
+    - The weight values will keep getting updated with each iteration until the actual output Y(p) = The desired output Y<sub>d</sub>(p)
 
-
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pcprule.png)
+- Perceptrons can learn `AND` and `OR` operations but not `XOR`
 
 <a name="6.4"></a>
 
