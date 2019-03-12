@@ -894,7 +894,6 @@
         - If the output is different from the desired output, the error is calculated
         - The error is then propagated backwards through the network from output to input
         - Weights get modified as the error is propagated
-- **We couldn't do `XOR` with a single layer perceptron but we can do it now with multilayers**
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/bpnn.png)
 
@@ -914,7 +913,7 @@
         - θ<sub>j</sub> is the threshold of neuron `j` in the hidden layer
         - ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sigmoidfns.png)
 
-    - `2.2` Calculate the actual outputs of the neurons in the output layer
+    - `2.2` Calculate the actual outputs of the neurons in the output layer (`k`)
         - `m` is the # of inputs of neuron `k` in the output layer
         - x<sub>jk</sub> is the input to neuron `k` from the neuron `j` in the hidden layer
         - w<sub>jk</sub> is the weight from neuron `j` in the hidden layer to neuron `k` in the output layer
@@ -922,7 +921,28 @@
         - ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sigmoidfnr.png)
 
 - `Step 3: Weight Training`
+    - Two steps, output layer then the hidden layer, because back propagation
+    - `3.1 - Output Layer`
+        - Calculate Error Gradient for neurons in the output layer
+            - 𝛿<sub>k</sub>(p) = y<sub>k</sub>(p) • [1 - y<sub>k</sub>(p)] • e<sub>k</sub>(p)
+                - e<sub>k</sub>(p) = y<sub>d, k</sub>(p) - y<sub>k</sub>(p)
+                - y<sub>d, k</sub>(p) = Desired output for neuron `k` in the output layer
+        - Calculate the Weight Corrections
+            - Δw<sub>jk</sub>(p) = α • y<sub>j</sub>(p) • 𝛿<sub>k</sub>(p)
+        - Update the Weights
+            - w<sub>jk</sub>(p+1) = w<sub>jk</sub>(p) + Δw<sub>jk</sub>(p)
+    - `3.2 - Hidden Layer`
+        - Calculate the Error Gradient for neurons in the hidden layer
+            - 𝛿<sub>j</sub>(p) = y<sub>j</sub>(p) • [1 - y<sub>j</sub>(p)] • Σ 𝛿<sub>k</sub>(p) • Δw<sub>jk</sub>(p)
+        - Calculate the Weight Corrections
+            - Δw<sub>ij</sub>(p) = α • x<sub>i</sub>(p) • 𝛿<sub>j</sub>(p)
+        - Update the Weights
+            - w<sub>ij</sub>(p+1) = w<sub>ij</sub>(p) + Δw<sub>ij</sub>(p)
 - `Step 4: Iteration`
+    - Increase iteration and go back to `Step 2`
+    - Repeat this until goal output is reached
+
+- **We couldn't do `XOR` with a single layer perceptron but we can do it now with multilayers**
 
 <a name="6.6"></a>
 
