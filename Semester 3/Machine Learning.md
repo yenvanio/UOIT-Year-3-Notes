@@ -933,7 +933,7 @@
             - w<sub>jk</sub>(p+1) = w<sub>jk</sub>(p) + Δw<sub>jk</sub>(p)
     - `3.2 - Hidden Layer`
         - Calculate the Error Gradient for neurons in the hidden layer
-            - 𝛿<sub>j</sub>(p) = y<sub>j</sub>(p) • [1 - y<sub>j</sub>(p)] • Σ 𝛿<sub>k</sub>(p) • Δw<sub>jk</sub>(p)
+            - 𝛿<sub>j</sub>(p) = y<sub>j</sub>(p) • [1 - y<sub>j</sub>(p)] • [ Σ 𝛿<sub>k</sub>(p) • Δw<sub>jk</sub>(p) ]
         - Calculate the Weight Corrections
             - Δw<sub>ij</sub>(p) = α • x<sub>i</sub>(p) • 𝛿<sub>j</sub>(p)
         - Update the Weights
@@ -947,7 +947,25 @@
 <a name="6.6"></a>
 
 ### Accelerated Learning in Multilayer Neural Networks
+- Multilayer networks learn faster when the sigmoid function gets modified
+    - By replacing the Sigmoidal function with a Hyperbolic Tangent
+    - With constants `a = 1.716` and `b = 0.667`
 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ytanh.png)
+
+
+- Another way to accelerate training is to include a momentum term in the weight correction equation
+    - Δw<sub>jk</sub>(p) = `β` • Δw<sub>jk</sub>(p-1) + α • y<sub>j</sub>(p) • 𝛿<sub>k</sub>(p)
+    - β is the momentum constant
+        - 0 <= β < 1 
+        - Typically set to 0.95
+    - The equation is the **Generalized Delta Rule**
+
+- We can apply two heuristics so that we can accelerate the process without compromising stability
+    - **Heuristic 1**
+        - If the change of `Sum of Squared Errors (SSE)` has the same sign (+/-) for several consequent epochs, then the learning rate parameter `α` should be increased
+    - **Heuristic 2**
+        - If the sign (+/-) of the change of `Sum of Squared Errors (SSE)` alternates for several consequent epochs, then the learning rate parameter `α` should be decreased
 
 ---
 
@@ -972,6 +990,28 @@
 - **Hebb's Law**: If `neuron i` is close enough to exicte  `neuron j` and repeatedly participates in its activation, the synaptic connection between these two neurons is strengthened and `neuron j` becomes sensitive to stimuli from `neuron i`
     - **Rule 1**: If two neurons on either side of a connection are *activated synchronously* ten the weight of the connection is increased
     - **Rule 2**: If two neurons on either side of a connection are *activated asynchronously* ten the weight of the connection is decreased
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/hebbianNN.png)
+
+- Hebb's Law allows us to adjust the weight formulas to the following
+    - Δw<sub>ij</sub>(p) = F[y<sub>j</sub>(p), x<sub>i</sub>(p)]
+    - A special case of Hebb's law with the α (learning rate)
+        - Δw<sub>ij</sub>(p) = α • y<sub>j</sub>(p) • x<sub>i</sub>(p)
+    - Since the learning implies that weights can only increase
+        - Need to resolve by limiting growth of synaptic weights with a **forgetting factor**
+        - Δw<sub>ij</sub>(p) = α • y<sub>j</sub>(p) • x<sub>i</sub>(p) - φ • y<sub>j</sub>(p) • w<sub>ij</sub>(p)
+            - We can factor out the y<sub>j</sub>(p) to get a general equation
+            - Δw<sub>ij</sub>(p) = φ • y<sub>j</sub>(p) • [λ• x<sub>i</sub>(p) - w<sub>ij</sub>(p)]
+                - This equations is the **Generalized Activity Product Rule**
+                - In this case λ = α / φ
+                    - Because we factored out φ
+            
+
+#### Hebbian Learning Algorithm
+- `Step 1: Initialization`:
+- `Step 1: Activation`:
+- `Step 1: Learning`:
+- `Step 1: Iteration`:
 
 <a name="7.3"></a>
 
