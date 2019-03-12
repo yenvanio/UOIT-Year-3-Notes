@@ -902,17 +902,23 @@
 #### Back Propagation Training Algorithm
 - `Step 1: Initialization`
     - Set weight and threshold levels to random numbers in the range
-    [-2.4/F<sub>i</sub>, +2.4/F<sub>i</sub>]
+    [-2.4/F<sub>i</sub>  ,  +2.4/F<sub>i</sub>]
     - F<sub>i</sub> = total number of inputs of neuron `i`
     - Weight initialization is done on a neuron-by-neuron basis
 - `Step 2: Activation`
     - Now we use a Sigmoid function instead of a step function
-    - `2.1` Calculate the actual outputs of the neurons in the hidden layer
+    - `2.1` Calculate the actual outputs of the neurons in the hidden layer (`j`)
         - `n` is the # of inputs of neuron `j` in the hidden layer
+        - x<sub>i</sub> is the input to neuron `i`
+        - w<sub>ij</sub> is the weight from neuron `i` to neuron `j` in the hidden layer
+        - θ<sub>j</sub> is the threshold of neuron `j` in the hidden layer
         - ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sigmoidfns.png)
 
     - `2.2` Calculate the actual outputs of the neurons in the output layer
         - `m` is the # of inputs of neuron `k` in the output layer
+        - x<sub>jk</sub> is the input to neuron `k` from the neuron `j` in the hidden layer
+        - w<sub>jk</sub> is the weight from neuron `j` in the hidden layer to neuron `k` in the output layer
+        - θ<sub>j</sub> is the threshold of neuron `k` in the output layer
         - ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sigmoidfnr.png)
 
 - `Step 3: Weight Training`
@@ -932,12 +938,20 @@
 <a name="7.1"></a>
 
 ### Introduction
-- 
+- The main purpose of a neural network is sot hat it can learn and improve its performance
+- Unsupervised learning algorithms aim to learn rapidly and be used in real time
+    - Doesnt require an external teacher
+    - Able to recieve input patterns
+        - Discover features in the patterns
+        - CLassify the input data into categories
+    - Follows the neuro-biological organization of the brain
 
 <a name="7.2"></a>
 
 ### Hebbian Learning
-- 
+- **Hebb's Law**: If `neuron i` is close enough to exicte  `neuron j` and repeatedly participates in its activation, the synaptic connection between these two neurons is strengthened and `neuron j` becomes sensitive to stimuli from `neuron i`
+    - **Rule 1**: If two neurons on either side of a connection are *activated synchronously* ten the weight of the connection is increased
+    - **Rule 2**: If two neurons on either side of a connection are *activated asynchronously* ten the weight of the connection is decreased
 
 <a name="7.3"></a>
 
