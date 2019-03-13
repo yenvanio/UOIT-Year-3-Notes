@@ -1030,9 +1030,72 @@
 <a name="7.3"></a>
 
 ### Self Organizing Computational Map: Kohonen Network
-- Competitive Learning
-    - 
+- **Competitive Learning**
+    - Neurons compete to be activated
+    - In Hebbian learning, several neurons can be activated simultaneously
+    - In Competitive learning only a single neuron is active at any time
+- The output neuron that gets activated is basically the winner
+- Special type of ANN called **Self-Organizing Feature Maps**
+    - Based on Competitive Learning
+- **Relation to the Brain**
+    - Cerebral Cortex dominates the brain
+        - Contains billions of neurons and hundreds of billions of synapses
+        - The cortex contains area responsible for different human activities
+            - Each area is associated with different sensory inputs
+    - The cortex is a self-organising computational map in the human brain
 
+#### Kohonen Network
+- This model provides a topological mapping
+- Places fixed # of input patterns from intput layer into a higher dimensional output (**Kohonen Layer**)
+- Training starts with the *winner's* neighbourhood of a large size
+    - With each iteration of the training, the neighbourhood size decreases
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/konan.png)
+
+- The lateral connections (the connections between the blue circles ^)
+    - This is to create competition between neurons 
+    - The neuron with the largest activation level among all the output neurons is the winner
+    - The winner is the only one that then produces an output signal
+        - Rest of the neuron activity is supressed by the competition
+- The lateral connections produce either one of the following depending on the distance from the winning neuron
+    - **Inhibitory**
+    - **Excitatory**
+- To determine what is produced, we use a **Mexican Hat Function**
+    - It describes synaptic weights between neurons in the Kohonen Layer
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mexicano.png)
+
+
+- Learning in this network works by neurons shifting weights from inactive connections to active connections
+    - Only winning neuron and its neighbourhood allowed to learn
+    - If a neuron does not respond to a given input then, learning cannot occur at that neuron
+
+#### Competitive Learning Algorithm
+- `Step 1: Initialization`
+    - Set initial synaptic weights to small random values in the range [0, 1]
+    - Assign a small positive value to the learning rate α
+- `Step 2: Activation & Similarity Matching`
+    - Activate the Kohonen Network by finding the winning neuron (j<sub>x</sub>) using the minimum-distance Euclidean Criterion
+        - After finding the distance, the winning one would be the minimum because of the shortest distance
+    - j<sub>x</sub>(p) = min||x - w<sub>j</sub>(p)
+        - = Σ {[x<sub>i</sub> - w<sub>ij</sub>(p)]<sup>2</sup>}<sup>1/2</sup>
+- `Step 3: Learning`
+    - Update the weights
+    - w<sub>ij</sub>(p+1) = w<sub>ij</sub>(p) + Δw<sub>ij</sub>(p)
+    - Δw<sub>ij</sub> (The change applied to the weight)
+        - If Neuron `j` wins the competition
+            - = α(x<sub>i</sub> - w<sub>ij</sub>(p))
+        - If Neuron `j` loses the competition
+            - = 0
+- `Step 4: Iteration`
+    - Increase iteration and go back to `Step 2` and repeat until criterion is satisfied
+
+- **Summary of Self-Organizing Map (SOM)**
+    - Trained using unsupervised learning 
+        - Produces a low-dimensional (usually 2 dimensional) representation of the input
+    - They differ from other ANN because they use competitive learning vs error-correction learning
+        - Error correction is like backpropagation
+    - The differ in the sense that they use a neighborhood function to preserve the topological properties of the input space
 
 
 
