@@ -48,6 +48,14 @@
 - [Introduction](#7.1)
 - [Hebbian Learning](#7.2)
 - [Self Organizing Computational Map: Kohonen Network](#7.3)
+
+[Chapter 8 - Deep Learning](#Chapter8)
+- [Introduction](#8.1)
+- [Unsupervised Pre-Trained Networks (UPNs)](#8.2)
+- [Convolutional Neural Networks (CNNs)](#8.3)
+- [Recurrent Neural Networks (RNNs)](#8.4)
+- [Recursive Neural Networks](#8.5)
+
 ----
 
 <a name="Chapter1"></a>
@@ -1097,5 +1105,34 @@
         - Error correction is like backpropagation
     - The differ in the sense that they use a neighborhood function to preserve the topological properties of the input space
 
+
+<a name="Chapter8"></a>
+
+## Chapter 8 - Deep Learning
+
+<a name="8.1"></a>
+
+### Introduction
+- 
+
+<a name="8.2"></a>
+
+### Unsupervised Pre-Trained Networks (UPNs)
+- 
+
+<a name="8.3"></a>
+
+### Convolutional Neural Networks (CNNs)
+- 
+
+<a name="8.4"></a>
+
+### Recurrent Neural Networks (RNNs)
+- 
+
+<a name="8.5"></a>
+
+### Recursive Neural Networks
+- 
 
 
