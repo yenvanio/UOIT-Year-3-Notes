@@ -1152,7 +1152,24 @@
 <a name="9.1"></a>
 
 ### Introduction
-- 
+- **Hybrid Intelligent System**: combining two or more intelligent technologies
+    - For example
+        - Neural Network + Expert System
+        - Neural Network + Fuzzy System
+- Words are less precise than numbers but numbers carry a higher cost
+    - Words are used when a system has a tolerance for imprecision 
+- **Soft Computing**: An approach to building hybrid intelligent systems
+    - Capable of reasoning and learning in an uncertain/imprecise environment
+    - Core of Soft Computing consists of
+        - Probabilistic Reasoning
+        - Fuzzy Logic
+        - Neural NEtworks
+        - Evolutionary COmputation
+    - It exploits the tolerance for unertainty and imprecision to achieve more robustness and lower the cost of solutions
+- Comparison of the Systems
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sysCom.png)
+
 
 <a name="9.2"></a>
 
