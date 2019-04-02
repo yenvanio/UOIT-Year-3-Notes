@@ -1216,6 +1216,8 @@
 - Can make an inference if the `Sum of Weighted Known Inputs` is greater than `Sum of AbsoluteValue(Weights of Unknown Inputs)`
     - Σ x<sub>i</sub>w<sub>i</sub> > Σ | w<sub>j</sub> | 
 
+- Multilayer Knowledge Base Example
+
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mlkbetch.png)
 
 <a name="9.3"></a>
