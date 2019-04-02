@@ -1168,7 +1168,7 @@
     - It exploits the tolerance for unertainty and imprecision to achieve more robustness and lower the cost of solutions
 - Comparison of the Systems
 
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sysCom.png)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/syscom.png)
 
 
 <a name="9.2"></a>
