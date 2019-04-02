@@ -56,6 +56,12 @@
 - [Recurrent Neural Networks (RNNs)](#8.4)
 - [Recursive Neural Networks](#8.5)
 
+[Chapter 9 - Hybrid Intelligent Systems](#Chapter9)
+- [Introduction](#9.1)
+- [Neural Expert Systems](#9.2)
+- [Neuro-Fuzzy Systems](#9.3)
+- [Evolutionary Neural Networks](#9.4)
+
 ----
 
 <a name="Chapter1"></a>
@@ -1113,7 +1119,10 @@
 <a name="8.1"></a>
 
 ### Introduction
-- 
+- Deep Learning is born from Big Data and Massive Computational Power
+    - It is useful because it has higher performance for large amounts of data
+- The idea was to build learning algorithms to mimic the brain
+- The bigger the neural network the better the performance, with deep learning
 
 <a name="8.2"></a>
 
@@ -1135,4 +1144,28 @@
 ### Recursive Neural Networks
 - 
 
+
+<a name="Chapter9"></a>
+
+## Chapter 9 - Hybrid Intelligent Systems
+
+<a name="9.1"></a>
+
+### Introduction
+- 
+
+<a name="9.2"></a>
+
+### Neural Expert Systems
+- 
+
+<a name="9.3"></a>
+
+### Neuro-Fuzzy Systems
+- 
+
+<a name="9.4"></a>
+
+### Evolutionary Neural Networks
+- 
 
