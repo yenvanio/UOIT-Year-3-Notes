@@ -1174,7 +1174,49 @@
 <a name="9.2"></a>
 
 ### Neural Expert Systems
-- 
+- Expert Systems
+    - Rely on decision trees and model `human reasoning`
+    - Treat the brain as a black-box
+    - Represented by `IF-THEN` rules
+        - Knowledge can be divided into individual rules
+- Neural Networks
+    - Rely on parallel data processing and model `human brain`
+    - Look at the structure, function and ability of the brain to learn
+    - Knowledge stored as `synaptic weights between neurons`
+        - Knowledge cant be divided, it is embedded in the entire network
+        - One Synaptic Weight wont give you any information but the entire network will
+        - Basically a black-box for the user
+
+#### Neural Expert System
+- Structure of a Neural Expert System
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/nesSTUC.png)
+
+- The heart of a neural expert system is the `inference engine`
+    - It controls information flow (from the neural network)
+    - It performs inference over the knowledge base (from the expert system)
+    - Ensures **Approximate Reasoning**
+
+- Approximate Reasoning
+    - Instead of precisely matching rules with data from the database, we replace the knowledge base with a neural network so we can approximate the reasoning
+
+- The following is an example of determining if something is a bird, using approximate reasoning
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/birdex.png)
+
+- In the above example, each property (`Wings`, `Tail`, `Engine`) has a +1, 0 or -1 value to it
+    - `+1` is true
+    - `0` is unknown
+    - `-1` is false
+- This allows us to get a semantic interpretation for the activation of output neurons
+- Basically sum the weights multiplied by the truth value (+1, 0, -1)
+    - X<sub>Rule 1</sub> = 1•(-0.8) + 0•(-0.2) + 1•(2.2) + 1•(2.8) + -1•(-1.1) = 5.3
+        - 5.3 > 0
+        - Y<sub>Rule 1</sub> = Y<sub>Bird</sub> = +1
+- Can make an inference if the `Sum of Weighted Known Inputs` is greater than `Sum of AbsoluteValue(Weights of Unknown Inputs)`
+    - Σ x<sub>i</sub>w<sub>i</sub> > Σ | w<sub>j</sub> | 
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mlkbetch.png)
 
 <a name="9.3"></a>
 
