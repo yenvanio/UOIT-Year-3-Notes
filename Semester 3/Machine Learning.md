@@ -1223,7 +1223,41 @@
 <a name="9.3"></a>
 
 ### Neuro-Fuzzy Systems
-- 
+- Fuzzy Systems cannot learn by themselves and cannot adjust to new environments
+    - By combining them with neural networks, they can now learn and adapt
+    - Also neural networks become more transparent by combining them with fuzzy systems because they can use the explanation abilities of a fuzzy system
+- They can be trained to
+    - Develop `IF-THEN` fuzzy rules
+    - Determine membership functions (how much of this is in set A)
+        - Ex: `Rule 1(0.8)`
+    - Incorporate expert knowledge
+- The structure is similar to a multi-layer neural network
+    - Input Layer
+    - 3 Hidden Layers
+        - These layers represent the membership functions and fuzzy rules
+    - Output Layer
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/nfnazi.png)
+
+- `Layer 1: Input Layer`
+    - Each neuron transmits **crisp** signals to the next layer
+    - y<sub>i</sub><sup>(1)</sup> = x<sub>i</sub><sup>(1)</sup>
+        - The `(1)` represents which layer the variable is associated with
+        - x<sub>i</sub><sup>(1)</sup> = Input to Layer 1
+        - y<sub>i</sub><sup>(1)</sup> = Output of Layer 1
+- `Layer 2: Fuzzification Layer`
+    - Neurons represent fuzzy sets used in the `IF` statements of fuzzy rules
+    - A fuzzification neuron takes a **crisp** input and determines the degree of membership (how much this input belongs in the neuron's fuzzy set)
+        - This is determined by a Triangular Activation Function because we use triangular sets
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mfuckath.png)
+
+- `Layer 3: Fuzzy Rule Layer`
+    - Each neuron represents a single fuzzy rule
+    - Takes a
+- `Layer 4: Output Membership Layer`
+    - Each neuron represents a fuzzy set from the `THEN` part of fuzzy rules
+- `Layer 5: Defuzzification Layer`
+
 
 <a name="9.4"></a>
 
