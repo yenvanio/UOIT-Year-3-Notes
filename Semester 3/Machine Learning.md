@@ -1295,5 +1295,29 @@
 <a name="9.4"></a>
 
 ### Evolutionary Neural Networks
-- 
+- Backpropagation sometimes creates a set of sub-optimal weights which make it hard to find a desirable solution
+- The network topology is usually selected by heuristics
+- By combining genetic algorithms with neural networks, we can
+    - optimize weight
+    - optimize topology selection
+- `Step 1`: Encoding Weights in a Chromosome
+- `Step 2`: Define a Fitness Function
+    - Estimate performance of a neural network
+    - Can apply the Sum of Squared Errors Function
+        - Smaller the sum, fitter the chromosome
+    - GA tries to find weights that minimise the sum of squared errors
+- `Step 3`: Choose Crossover and Mutation Operators
+    - Crossover takes two parents and creates a child
+        - Child has genetic material from both parents
+    - Mutation selects a gene in the chromosome and adds a random value (-1, 1) to the weights in the gene
 
+
+- Genetic Algorithms help us search for a suitable network architecture in a population of potential candidates
+    - This is needed because without it, it's basically trial and error
+- First, Need to encode network architecture into a chromosome
+    - Represented by a square connectivity matrix
+    - `0` means no connection between neurons
+    - `1` means connection with weight (that can be changed through learning)
+    - To convert matrix to chromosome, string the rows together
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/encodeMatCh.png)
