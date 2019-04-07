@@ -62,6 +62,14 @@
 - [Neuro-Fuzzy Systems](#9.3)
 - [Evolutionary Neural Networks](#9.4)
 
+[Chapter 10 - Introduction to Data Mining](#Chapter10)
+- [Introduction](#10.1)
+- [Multi-Dimensional View of Data Mining](#10.2)
+- [Data, Patterns & Technologies](#10.3)
+- [Issues in Data Mining](#10.4)
+
+
+
 ----
 
 <a name="Chapter1"></a>
@@ -1321,3 +1329,35 @@
     - To convert matrix to chromosome, string the rows together
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/encodeMatCh.png)
+
+---
+
+[Chapter 10 - Introduction to Data Mining](#Chapter10)
+- [Introduction](#10.1)
+- [Multi-Dimensional View of Data Mining](#10.2)
+- [Data, Patterns & Technologies](#10.3)
+- [Issues in Data Mining](#10.4)
+
+<a name="Chapter10"></a>
+
+## Chapter 10 - Introduction to Data Mining
+
+<a name="10.1"></a>
+
+### Introduction
+- 
+
+<a name="10.2"></a>
+
+### Multi-Dimensional View of Data Mining
+- 
+
+<a name="10.3"></a>
+
+### Datta, Patterns & Technologies
+- 
+
+<a name="10.4"></a>
+
+### Issues in Data Mining
+- 
