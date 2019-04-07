@@ -1613,17 +1613,43 @@
     - Starts with random choice of cluster centers
         - so results can lack consistency
     - `k` needs to be given
-
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/kkkm.png)
 
 <a name="12.3"></a>
 
 ### Agglomerative Hierarchical Clustering
-- 
+- Algorithm
+    - Each point starts off as it's own clusters
+    - Repeat the following until only 1 cluster remains
+        - Find the pair of clusters that are closest to each other
+            - To find closest you pick the points nearest to each other from each cluster
+        - Merge the clusters
+            - The height on the graph represents the distance between prior to merging
+- Pros
+    - No need to specify number of clusters
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/anglo.png)
 
 <a name="12.4"></a>
 
 ### Mean Shift Clustering
+- Algorithm
+    - Repeat with multiple sliding windows until all the points lie within a window
+        - For overlapping windows, higher points window will prevail
+    - Each window represents a cluster of data points
+        - Start with a circular sliding window at a randomly selected point `C` with radius `r`
+        - Repeat the following until you reach a point where you can accommodate the maximum number of points within it
+            - Shift window towards denser regions by changing centre point
+                - The new centre point is the mean of the points within the window
+                - Shifting the mean ensures the window moves towards denser regions
+            - You will know this is the goal state by comparing it to the next and previous states
+                - Greedy Algorithm type of shit
+- Pros
+    - Converging towards a maximum density point is desirable
+        - Data Driven
+- Cons
+    - Selection of window size is not trivial to do
 
 <a name="12.5"></a>
 
 ### DBSCAN
+- Density-Based Spatial Clustering of Applications with Noise
