@@ -1648,6 +1648,7 @@
         - Data Driven
 - Cons
     - Selection of window size is not trivial to do
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mesiftK.png)
 
 <a name="12.5"></a>
 
