@@ -1481,6 +1481,7 @@
     - Continuous
         - Real numbers
             - Temperature, Height, Weight
+    - **Database Columns = Data Attributes**
 
 <a name="11.2"></a>
 
