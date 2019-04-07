@@ -1634,7 +1634,7 @@
 ### Mean Shift Clustering
 - Algorithm
     - Repeat with multiple sliding windows until all the points lie within a window
-        - For overlapping windows, higher points window will prevail
+        - For overlapping windows, window with more points prevails
     - Each window represents a cluster of data points
         - Start with a circular sliding window at a randomly selected point `C` with radius `r`
         - Repeat the following until you reach a point where you can accommodate the maximum number of points within it
@@ -1642,7 +1642,6 @@
                 - The new centre point is the mean of the points within the window
                 - Shifting the mean ensures the window moves towards denser regions
             - You will know this is the goal state by comparing it to the next and previous states
-                - Greedy Algorithm type of shit
 - Pros
     - Converging towards a maximum density point is desirable
         - Data Driven
