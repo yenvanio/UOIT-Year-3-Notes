@@ -1653,3 +1653,22 @@
 
 ### DBSCAN
 - Density-Based Spatial Clustering of Applications with Noise
+- Has specific advantages over Mean-Shift clustering
+- Algorithm
+    - Start with a random unvisited point
+        - All points within distance ε (epsilon) are neighbourhood points
+    - Need a certain number of neighbourhood points to start clustering
+        - If not met, its considered noise
+        - Regardless of noise or not, it becomes a visited point
+    - All points within distance ε become part of this new cluster
+        - Do this for all points added to the cluster
+        - Until no more can be added (no more points ε distance away)
+    - Repeat the process with an unvisited point until there are no unvisited points
+- Pros
+    - Does not require pre-set number of clusters
+    - Identifies Noise
+    - Finds arbitrarily shaped and sized clusters quite well
+- Cons
+    - Not effective with clusters of varying densities
+    - Variance in the ε value when there is a change in density levels
+    - With high dimensional data, determining threshold ε becomes a challenging task
