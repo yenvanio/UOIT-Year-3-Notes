@@ -73,6 +73,13 @@
 - [Data Visualization](#11.3)
 - [Data Similarity vs Dissimilarity](#11.4)
 
+[Chapter 12 - Clustering](#Chapter12)
+- [Introduction](#12.1)
+- [K-Means Clustering](#12.2)
+- [Agglomerative Hierarchical Clustering](#12.3)
+- [Mean Shift Clustering](#12.4)
+- [DBSCAN](#12.5)
+
 ----
 
 <a name="Chapter1"></a>
@@ -1486,7 +1493,43 @@
 <a name="11.2"></a>
 
 ### Basic Statistical Descriptions of Data
-- 
+- Measuring Central Tendency
+    - Mean
+        - Average
+    - Median
+        - Middle Value 
+            - Average of Middle if two values in middle
+    - Mode
+        - Most Frequently appearing
+    - Empirical Formula: `Mean` - `Mode` = 3 x (`Mean` - `Median`)
+- Skewed Data
+    - Positive Skew
+        - The data skews to the right (positive direction)
+            - Mound is to the left, dies down to the right
+        - Mean > Median
+    - Negative Skew 
+        - The data skews to the left (negative direction)
+            - Mound is to the right, dies down to the left
+        - Mean < Median
+    - **Mean is always further in the direction of the skew than the Median**
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/skewskew.png)
+
+- Normal Distribution Curve
+    - 68% of the measurements are within the range of the mean 
+        - +- 1 * standard deviation
+    - 95% of the measurements are within the range of the mean
+        - +- 2 * standard deviation
+    - 99.7% of the measurements are within the range of the mean
+        - +- 3 * standard deviation
+- Histogram
+    - Graph that displays bars representing the frequencies
+    - It shows which bars fall into what category
+- Scatter Plot
+    - Shows clusters of points, outliers
+    - Correlation is shown below
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/correll.png)
 
 <a name="11.3"></a>
 
@@ -1496,6 +1539,63 @@
 <a name="11.4"></a>
 
 ### Data Similarity vs Dissimilarity
-- 
+- **Similarity**: Numerical measure of how alike two data objects are
+    - Range of [0, 1]
+    - Higher value = more similarity
+- **Dissimilarity**: Numerical measure of how different two data objects are
+    - Lower values when objects are more alike
+    - Min value = 0 
+- Data Matrix
+    - `n` data points with `p` dimensions
+- Dissimilarity Matrix
+    - `n` data points but registers only the distance
+    - Triangular Matrix
 
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/matrIX.png)
+
+- Minkowski Distance
+    - Positive Definiteness: `d(i,j)` > 0 if `i` != `j` and `d(i,i)` = 0
+    - Symmetry: `d(i,j)` = `d(j,i)`
+    - Triangle Inequality: `d(i,j)` <= `d(i,k)` + `d(k,j)`
+- A distance that satisfies these properties is a metric
+- Special Cases
+    - `h = 1` Manhattan Distance
+    - `h = 2` Euclidean Distance
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/minko.png)
+- `i` and `j` are two p-dimensional data objects
+- `h` is the order
+    - Distance, also called the `L-h` norm
+
+- **Cosine Similarity**
+    - A measure of similarity between two vectors
+    - `cos(d1, d2)` = `d1` • `d2` / ||d1|| ||d2||
+        - Dot Prduct of `d1` and `d2`
+            - Multiply each number from `d1` with `d2` in order
+        - Divided by ||d1|| x ||d2||
+            - Square each number and sum them
+            - Then square root the sum
 --- 
+
+
+## Chapter 12 - Clustering
+
+<a name="12.1"></a>
+
+### Introduction
+
+<a name="12.2"></a>
+
+### K-Means Clustering
+
+<a name="12.3"></a>
+
+### Agglomerative Hierarchical Clustering
+
+<a name="12.4"></a>
+
+### Mean Shift Clustering
+
+<a name="12.5"></a>
+
+### DBSCAN
