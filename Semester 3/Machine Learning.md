@@ -1432,7 +1432,55 @@
 <a name="11.1"></a>
 
 ### Data Objects & Attribute Types
-- 
+- Types of Data Sets
+    - Record
+        - Relational Records
+        - Data Matrix
+        - Transaction Data
+    - Graph / Network
+        - WWW
+        - Social / Information Networks
+        - Molecular Structure
+    - Ordered
+        - Time Series
+        - Genetic Sequence Data
+    - Spatial / Image / MultiMedia
+        - Image
+        - Video
+- Characteristics of Structured Data
+    - Dimensionality
+    - Sparsity
+    - Resolution
+    - Distribution
+- Data Objects
+    - Data sets are made up of data objects
+    - Data object is an entity
+        - Example Data Set: Sales Database
+        - Example Data Objects: Customers, Store Items, Sales
+    - Objects are described by attributes
+    - **Database Rows = Data Objects**
+- Attributes
+    - A data field, representing a feature of a data object
+        - customer_ID, name, address
+    - Types
+        - Nominal
+            - Basically categories
+        - Binary
+            - Nominal but with only 2 states
+            - Symmetric: Both outcomes are equally important
+                - Example: Gender
+            - Asymmetric: Outcomes not equally important
+                - Example: Medical Test (Positive vs Negative)
+        - Ordinal 
+            - Values have a meaningful order (Ranking)
+                - Example: Grades
+    - Discrete 
+        - Finite or countable values
+            - ZIP Codes, Set of words, collection of documents
+            - **Binary Attributes are a special case of discrete attributes**
+    - Continuous
+        - Real numbers
+            - Temperature, Height, Weight
 
 <a name="11.2"></a>
 
