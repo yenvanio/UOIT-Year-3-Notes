@@ -1245,19 +1245,52 @@
         - The `(1)` represents which layer the variable is associated with
         - x<sub>i</sub><sup>(1)</sup> = Input to Layer 1
         - y<sub>i</sub><sup>(1)</sup> = Output of Layer 1
+
 - `Layer 2: Fuzzification Layer`
     - Neurons represent fuzzy sets used in the `IF` statements of fuzzy rules
+        - The `IF` condition
     - A fuzzification neuron takes a **crisp** input and determines the degree of membership (how much this input belongs in the neuron's fuzzy set)
         - This is determined by a Triangular Activation Function because we use triangular sets
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mfuckath.png)
 
 - `Layer 3: Fuzzy Rule Layer`
     - Each neuron represents a single fuzzy rule
-    - Takes a
+    - Takes inputs from the fuzzification layer
+    - Outputs of the fuzzy rule layer are determined by intersections
+        - Intersections can be implemented by the product operator
+        - Outputs of Layer 3 are as follows
+            - y<sub>i</sub><sup>(3)</sup> = x<sub>1i</sub><sup>(3)</sup> • x<sub>2i</sub><sup>(3)</sup>  •...• x<sub>ki</sub><sup>(3)</sup> 
+            - Example from the structure above
+                - y<sub>C1</sub><sup>(4)</sup> = μ<sub>R3</sub> • μ<sub>R4</sub> = μ<sub>C1</sub>
+
 - `Layer 4: Output Membership Layer`
     - Each neuron represents a fuzzy set from the `THEN` part of fuzzy rules
-- `Layer 5: Defuzzification Layer`
+        - The result of the `IF` condition 
+    - Output neuron combines all its inputs by using the `Union` operation
+        - Basically the `OR` operator
+    - y<sub>i</sub><sup>(4)</sup> = x<sub>1i</sub><sup>(4)</sup> ⨁ x<sub>2i</sub><sup>(4)</sup>  ⨁...⨁ x<sub>ki</sub><sup>(4)</sup> 
+    - Example from the structure above
+        - y<sub>C1</sub><sup>(4)</sup> = μ<sub>R3</sub> ⨁ μ<sub>R4</sub> = μ<sub>C1</sub>
+        - μ<sub>C1</sub> = Integrated Firing Strength of Fuzzy Rules R3 & R6
 
+- `Layer 5: Defuzzification Layer`
+    - Each neuron represents a single output of the neuro-fuzzy system
+    - Takes the fuzzy sets and combines them into a single fuzzy set
+        - Before combining, the fuzzy sets are clipped by the respective firing strength
+    - Normal defuzzification techniques can be applied
+        - Like the `Centroid Technique`
+        - We're gonna use `Sum-Product Compostion`
+- **Sum-Product Composition**
+    - Caluclates the weighted average of centroids of all output membership functions
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/avgcent.png)
+
+- Learning
+    - Basically a multi-layer neural network so it can use standard learning algorithms like back-propagation
+    - By incorporaing `IF-THEN` rules supplied by domain experts, the training can be expedited
+- Neuro-Fuzzy Systems should be able to identify bad rules
+    - Because experts do make mistakes and some rules may be false or redundant
+- When a representative set of examples is available
+    - Neuro-Fuzzy Systems should be able to automatically transform it into a set of fuzzy `IF-THEN` rules.
 
 <a name="9.4"></a>
 
