@@ -1583,14 +1583,42 @@
 <a name="12.1"></a>
 
 ### Introduction
+- Given a set of data points, group them into clusters so that...
+    - Points within clusters are similar
+    - Points from different clusters are dissimilar
+- For points in high-dimensional spaces
+    - Similarity is defined using distance measures
+        - Eculidean, Cosine ...etc
+- Importance
+    - Real world science/engineering problems can be modeled as a clustering problem
+    - Allows us to segregate data based on properties/features and group them
+- Similarity for clustering
+    - Based on set of observations
+    - If the observations are in the same subset than they are similar in some sense
 
 <a name="12.2"></a>
 
 ### K-Means Clustering
+- Algorithm
+    - Determine the number of clusters
+    - Randomly initialize `k` data points to be cluster centers
+    - Repeat the following until the centers are unchanged
+        - `Step 1`: Allocate each data point to a cluster whose center is nearest
+        - `Step 2`: Ensure every cluster has at least one point
+            - For empty clusters, randomly select a point far from the cluster center
+        - `Step 3`: Replace cluster center with the `mean` of the cluster
+- Pros
+    - Fast because less computations
+- Cons
+    - Starts with random choice of cluster centers
+        - so results can lack consistency
+    - `k` needs to be given
+
 
 <a name="12.3"></a>
 
 ### Agglomerative Hierarchical Clustering
+- 
 
 <a name="12.4"></a>
 
