@@ -64,11 +64,14 @@
 
 [Chapter 10 - Introduction to Data Mining](#Chapter10)
 - [Introduction](#10.1)
-- [Multi-Dimensional View of Data Mining](#10.2)
-- [Data, Patterns & Technologies](#10.3)
-- [Issues in Data Mining](#10.4)
+- [Data Mining Function](#10.2)
+- [Issues in Data Mining](#10.3)
 
-
+[Chapter 11 - Getting to Know your Data](#Chapter11)
+- [Data Objects & Attribute Types](#11.1)
+- [Basic Statistical Descriptions of Data](#11.2)
+- [Data Visualization](#11.3)
+- [Data Similarity vs Dissimilarity](#11.4)
 
 ----
 
@@ -1332,12 +1335,6 @@
 
 ---
 
-[Chapter 10 - Introduction to Data Mining](#Chapter10)
-- [Introduction](#10.1)
-- [Multi-Dimensional View of Data Mining](#10.2)
-- [Data, Patterns & Technologies](#10.3)
-- [Issues in Data Mining](#10.4)
-
 <a name="Chapter10"></a>
 
 ## Chapter 10 - Introduction to Data Mining
@@ -1345,19 +1342,111 @@
 <a name="10.1"></a>
 
 ### Introduction
-- 
+- Extraction of interesting patterns or knowledge from huge amounts of data
+    - Example: Web Mining. It involves...
+        - Data Cleaning
+        - Data Integration from multiple sources
+        - Data Selectiong for mining
+        - Data Mining
+        - Presentation of Results
+        - Patterns to be stored in knowledge base
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/pyraMIDsch.png)
+
+- Knowledge Discovery in Databases
+    - `Step 1`: Input Data
+    - `Step 2`: Data Pre-Processing
+        - Normalization
+        - Feature Selection
+        - Dimension Reduction
+    - `Step 3`: Data Mining
+        - Pattern Discovery
+        - Association & Correlation
+        - CLassification
+        - Clustering
+        - Outlier Analysis
+    - `Step 4`: Post Processing
+        - Pattern Evaluation
+        - Pattern Selection
+        - Pattern Interpretation
+        - Pattern Visualization
+    - `Step 5`: Pattern Information Knowledge
+
+- Multi-Dimensional View of Data Mining
+    - Data to be Mined
+        - Database data, Data Warehouse, Multi-Media, Graphs, Social/Information Networks
+    - Knowledge to be Mined
+        - Characterization, Association, Classification, Clustering
+        - Descriptive vs Predictive Data Mining
+    - Techniques Utilized
+        - Machine Learning, Statistics, Pattern Recognition, Visualization
+    - Applications Adapted
+        - Retail, Telecommunications, Banking, Fraud Analysis
 
 <a name="10.2"></a>
 
-### Multi-Dimensional View of Data Mining
-- 
+### Data Mining Function
+- `Step 1`: Generalization
+    - Information Integration & Data Warehouse Construction
+        - Data cleaning
+    - Data Cube Technology
+        - Scalable methods for computing
+    - Characterization & Discrimination
+        - Generalize, Summarize, Contrast
+- `Step 2`: Association & Correlation Analysis
+    - Frequent Patterns
+    - Association, Correlation vs Causality
+- `Step 3`: Classification
+    - Label Prediction
+        - Describe & Distinguish classes or concepts for future predictions
+        - Predict unknown class labels
+    - Methods
+        - Decision Trees, Bayesian Classification
+    - Applications
+        - CC Fraud Detection, Direct Marketing, Diseases
+- `Step 4`: Cluster Analysis
+    - Unsupervised learning
+    - Group data to form new clusters
+    - Goal is to **Maximize** intra-class similarity & **Minimize** interclass similarity
+        - Maximize similarities within the group
+        - Minimize similarities between other groups
+- `Step 5`: Outlier Analysis
+    - **Outlier**: Data that does not comply with general behavior of the data
+    - **Noise**: Could be useful or an exception
+        - One person's garbage could be another person's treasure
+    - **Methods**: Clustering or Regression Analysis
 
 <a name="10.3"></a>
 
-### Datta, Patterns & Technologies
-- 
-
-<a name="10.4"></a>
-
 ### Issues in Data Mining
+- Mining Methodology
+- User Interaction
+- Efficiency & Scalability
+- Diversity of Data Types
+- Data Mining & Society
+
+--- 
+
+## Chapter 11 - Getting to Know your Data
+
+<a name="11.1"></a>
+
+### Data Objects & Attribute Types
 - 
+
+<a name="11.2"></a>
+
+### Basic Statistical Descriptions of Data
+- 
+
+<a name="11.3"></a>
+
+### Data Visualization
+- 
+
+<a name="11.4"></a>
+
+### Data Similarity vs Dissimilarity
+- 
+
+--- 
