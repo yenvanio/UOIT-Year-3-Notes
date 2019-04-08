@@ -1742,7 +1742,25 @@
 <a name="13.3"></a>
 
 ### Neural Networks (NN)
-- 
+- Objective of training is to obtain a set of weights that classify all the entities in the training data correctly
+- **Algorithm**
+    - Intialize weights with random values
+    - Feed inputs into the network
+    - For each unit
+        - Compute the net input
+        - Compute the output using the activation function
+        - Computer the error
+        - Update the weights and the bias
+- **Pros**
+    - Prediction accuracy is generally high
+    - Works well even if training examples have errors
+    - Fast evaluation 
+    - Output can be flexible 
+        - Discrete, Vecotr, or several discrete/real-valued attributes
+- **Cons**
+    - Long training time
+    - Difficult to understand the learned function (weights)
+    - Hard to incorporate domain knowledge
 
 <a name="13.4"></a>
 
