@@ -1442,6 +1442,8 @@
 
 --- 
 
+<a name="Chapter11"></a>
+
 ## Chapter 11 - Getting to Know your Data
 
 <a name="11.1"></a>
@@ -1585,6 +1587,7 @@
             - Then square root the sum
 --- 
 
+<a name="Chapter12"></a>
 
 ## Chapter 12 - Clustering
 
@@ -1681,6 +1684,10 @@
     - Variance in the ε value when there is a change in density levels
     - With high dimensional data, determining threshold ε becomes a challenging task
 
+---
+
+<a name="Chapter13"></a>
+
 ## Chapter 13 - Classification
 
 <a name="13.1"></a>
@@ -1706,6 +1713,7 @@
 <a name="13.2"></a>
 
 ### K-Nearest Neighbor (KNN)
+- Data-driven
 - 
 
 <a name="13.3"></a>
