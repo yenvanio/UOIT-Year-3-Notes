@@ -1713,8 +1713,31 @@
 <a name="13.2"></a>
 
 ### K-Nearest Neighbor (KNN)
-- Data-driven
-- 
+- Data-driven, not model-driven
+- No assumptions can be made about the data
+- **Algorithm**
+    - For unclassified records, find the nearest records
+        - The new record is now classified under the predominant class of the nearby records
+    - Nearby records are determined by using the euclidean distance
+    - `K` is the number of nearby neighbors that will be used to classify the new record
+        - `K = 1` means use the nearest record
+        - `K = 5` means use the 5 nearest records
+        - Want to choose `K` so that it has a low error rate in validation data
+            - Low `K` values capture the local structures but also the noise
+            - High `K` values avoid the noise but may also miss local structures
+            - Special case when `K` = `n` (entire dataset)
+                - All records are classified by the majority class in the entire dataset
+- **Pros**
+    - Simple
+    - No assumptions required
+    - Effective at capturing complex interactions without a statistical model
+- **Cons**
+    - **Curse of Dimensionality**
+        - Required size of training set increases exponentially with # of predictors
+            - Because larger vector so records all seem farther away from each other
+        - Larger training sets take longer times to find distances to the neighbors
+    - To deal with the curse, reduce the dimension of predictors
+        - Can do this with Pincipal Component Analysis (PCA)
 
 <a name="13.3"></a>
 
