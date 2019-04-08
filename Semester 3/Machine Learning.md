@@ -1797,9 +1797,9 @@
     - Proportion of `charges = y` among the classification `frauds` = 3/4
     - Proportion of `small` among the classification `frauds` = 1/4
     - Proportion of `frauds` = 4/10
-- Truthful Classification = `1/6 * 3/6 * 6/10 = 0.067`
+- Truthful Classification = `1/6 * 4/6 * 6/10 = 0.067`
     - Proportion of `charges = y` among the classification `truthfuls` = 1/6
-    - Proportion of `small` among the classification `truthfuls` = 3/6
+    - Proportion of `small` among the classification `truthfuls` = 4/6
     - Proportion of `truthful` = 6/10
 - `P(fraud | charges, small)` = 0.075 / (0.075 + 0.067)
     - = 0.53
@@ -1816,7 +1816,42 @@
 <a name="13.5"></a>
 
 ### Symbolic Regression: Genetic Programming (GP)
-- 
+- Symbolic Expression (S-Expression)
+    - (- (* A B) C)
+        - Difference between (A * B) & C
+    - Write the expression from **Left to Right**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sexp.png)
+
+
+- 5 Preparatory Steps
+    - Determining the set of terminals
+        - Terminals are the inputs for the program
+    - Determining the set of functions
+        - Functions range from basic arithmetic to math / logical / domain-specific functions
+        - We will be using the four standard arithmetic operations `+, -, *, /` and one math function `sqrt`
+    - Determining the fitness function
+        - Evalutes how well a program can solve the problem
+        - The error between the actual result given by the program vs the correct result given by the fitness case
+            - Calculated as a `sum of absolute errors` over multiple fitness cases
+            - Closer it is to `0` the better the program 
+    - Determining the parameters for the run `(same as GA)`
+        - Population Size
+        - Maximum # of Generations to be run
+    - Determining the method for designating a result and the criterion for terminating a run
+        - The `best-so-far` generated program is often the result of a run
+- Crossover
+    - Swap a function node and its all children with another chromosomes
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/swapperoni.png)
+
+- Mutation
+    - Randomly change any function or terminal 
+        - Function is square node (an operation)
+        - Terminal is a circle node (a value or input)
+    - Function can only be replaced by a function and terminal can only be replaced by a terminal
+- Genetic Programming vs Genetic Algorithm
+    - GP generates complete programs that solves a particular problem instead of coded bit strings like GA does
+    - GA has fixed length coding, which limits the power and can lead to false solutions
+    - GP works well in a variety of cases and has more potential applications
 
 <a name="13.6"></a>
 
