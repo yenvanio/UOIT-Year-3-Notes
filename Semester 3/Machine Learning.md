@@ -1686,7 +1686,22 @@
 <a name="13.1"></a>
 
 ### Introduction
-- 
+- **Classification**
+    - Classifies data based on training set and values (class labels)
+    - Classification Process
+        - Model Construction
+            - Determine a classifier based on the training data
+        - Use Model in Prediction
+            - Use the classifier created and classify new data
+- **Prediction**
+    - Models continuous-valued functions   
+    - Predicts unknown or missing values
+- **Supervised Learning (Classification)**
+    - Training data is accompanied by labels indicating the class
+    - New data is classified based on the training set classifier
+- **Unsupervised Learning (Clustering)**
+    - Labels of training data is unknown
+    - Given observations, establissh classes or clusters in the data
 
 <a name="13.2"></a>
 
