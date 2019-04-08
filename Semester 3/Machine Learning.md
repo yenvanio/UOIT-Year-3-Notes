@@ -1870,4 +1870,76 @@
 - Used to classify unknown samples
     - Test the attribute values against the decision tree
 - **Algorithm**
-    - 
+    - Tree is constructed in a top-down, divide-and-conquer manner
+    - All training examples start at the root
+        - Attributes are categorical
+            - If continuous data, they are discretized in advance
+    - Examples are partitioned recursively based on the selected attributes
+        - Attributes are selected on the basis of information gain
+            - Greedy Algorithm basically
+
+#### Attribute Selection
+- Information Gain (ID3/C4.5)
+    - All attributes are assumed to be categorical
+    - Can modify continous-valued attributes
+    - `I` = Information needed to decide if example belongs in class N or P
+    - `p` = # of elements of class `P`
+    - `n` = # of elements of class `N`
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/sexp.png)
+
+- If using attribute `A` will partition set `S` into {S<sub>1</sub>, S2<sub></sub>,...,S<sub>v</sub>}
+- The expected information needed (entropy) to classify all objects into subtrees
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/eatropy.png)
+
+- Using the **Entropy** formula and the **Information** formula from above we can calculate information gained by branching on attribute `A` using the following 
+    - `Gain(A) = I(p,n) - E(A)`
+        - Where A is an attribute
+
+- Example
+    - Class P: buys_computer = "yes"
+    - Class N: buys_computer = "no"
+
+| Age | Income | Credit Rating | Buys Computer |
+|-----|:------:|:-------------:|:--------------|
+| <= 30 | high | fair | no |
+| <= 30 | high | excellent | no |
+| <= 30 | medium | fair | no |
+| <= 30 | low | fair | yes |
+| <= 30 | medium | excellent | yes |
+| 31...40 | high | fair | no |
+| 31...40 | low | excellent | yes |
+| 31...40 | medium | excellent | no |
+| 31...40 | high | fair | yes |
+| > 40 | medium | fair | no |
+| > 40 | low | fair | yes |
+| > 40 | low | excellent | yes |
+| > 40 | medium | fair | yes |
+| > 40 | medium | excellent | no |
+
+- Attribute `Age`
+- Entropy
+    - `<= 30`
+        - = 5/14 * I(2,3)
+    - `31...40`
+        - = 4/14 * I(4,0)
+    - `> 40`
+        - = 5/14 * I(3,2)
+    - E(Age) = 5/14 * I(2,3) + 4/14 * I(4,0) + 5/14 * I(3,2)
+        - = 0.69
+- Gain
+    - Gain(Age) = I(p,n) - E(Age)
+        - = I(9, 5) - 0.69
+
+| Age | p<sub>i</sub> | n<sub>i</sub>  | I(p<sub>i</sub> , n<sub>i</sub> ) |
+|-----|:-------------:|:--------------:|:----------------------------------|
+| <= 30 | 2 | 3 | 0.p |
+| 31...40 | 4 | 0 | 0 |
+| > 40 | 3 | 2 | 0.971 |
+
+
+- Gini Index (IBM IntelligentMiner)
+    - All attributes are assumed continuous-valued
+    - There exists several possible split values for each attribute
+        - May need clustering to get these values
+    - Can be modified for categorical attributes
