@@ -80,6 +80,14 @@
 - [Mean Shift Clustering](#12.4)
 - [DBSCAN](#12.5)
 
+[Chapter 13 - Classification](#Chapter13)
+- [Introduction](#13.1)
+- [K-Nearest Neighbor (KNN)](#13.2)
+- [Neural Networks (NN)](#13.3)
+- [Naive Bayes Classifier](#13.4)
+- [Symbolic Regression: Genetic Programming (GP)](#13.5)
+- [Decision Trees (DT)](#13.6)
+
 ----
 
 <a name="Chapter1"></a>
@@ -1672,3 +1680,35 @@
     - Not effective with clusters of varying densities
     - Variance in the ε value when there is a change in density levels
     - With high dimensional data, determining threshold ε becomes a challenging task
+
+## Chapter 13 - Classification
+
+<a name="13.1"></a>
+
+### Introduction
+- 
+
+<a name="13.2"></a>
+
+### K-Nearest Neighbor (KNN)
+- 
+
+<a name="13.3"></a>
+
+### Neural Networks (NN)
+- 
+
+<a name="13.4"></a>
+
+### Naive Bayes Classifier
+- 
+
+<a name="13.5"></a>
+
+### Symbolic Regression: Genetic Programming (GP)
+- 
+
+<a name="13.6"></a>
+
+### Decision Trees (DT)
+- 
