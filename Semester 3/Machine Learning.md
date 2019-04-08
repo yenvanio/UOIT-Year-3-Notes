@@ -1449,7 +1449,7 @@
 <a name="11.1"></a>
 
 ### Data Objects & Attribute Types
-- Types of Data Sets
+- **Types of Data Sets**
     - Record
         - Relational Records
         - Data Matrix
@@ -1464,19 +1464,19 @@
     - Spatial / Image / MultiMedia
         - Image
         - Video
-- Characteristics of Structured Data
+- **Characteristics of Structured Data**
     - Dimensionality
     - Sparsity
     - Resolution
     - Distribution
-- Data Objects
+- **Data Objects**
     - Data sets are made up of data objects
     - Data object is an entity
         - Example Data Set: Sales Database
         - Example Data Objects: Customers, Store Items, Sales
     - Objects are described by attributes
     - **Database Rows = Data Objects**
-- Attributes
+- **Attributes**
     - A data field, representing a feature of a data object
         - customer_ID, name, address
     - Types
@@ -1503,7 +1503,7 @@
 <a name="11.2"></a>
 
 ### Basic Statistical Descriptions of Data
-- Measuring Central Tendency
+- **Measuring Central Tendency**
     - Mean
         - Average
     - Median
@@ -1512,7 +1512,7 @@
     - Mode
         - Most Frequently appearing
     - Empirical Formula: `Mean` - `Mode` = 3 x (`Mean` - `Median`)
-- Skewed Data
+- **Skewed Data**
     - Positive Skew
         - The data skews to the right (positive direction)
             - Mound is to the left, dies down to the right
@@ -1525,17 +1525,17 @@
 
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/skewskew.png)
 
-- Normal Distribution Curve
+- **Normal Distribution Curve**
     - 68% of the measurements are within the range of the mean 
         - +- 1 * standard deviation
     - 95% of the measurements are within the range of the mean
         - +- 2 * standard deviation
     - 99.7% of the measurements are within the range of the mean
         - +- 3 * standard deviation
-- Histogram
+- **Histogram**
     - Graph that displays bars representing the frequencies
     - It shows which bars fall into what category
-- Scatter Plot
+- **Scatter Plot**
     - Shows clusters of points, outliers
     - Correlation is shown below
 
@@ -1555,9 +1555,9 @@
 - **Dissimilarity**: Numerical measure of how different two data objects are
     - Lower values when objects are more alike
     - Min value = 0 
-- Data Matrix
+- **Data Matrix**
     - `n` data points with `p` dimensions
-- Dissimilarity Matrix
+- **Dissimilarity Matrix**
     - `n` data points but registers only the distance
     - Triangular Matrix
 
@@ -1610,7 +1610,7 @@
 <a name="12.2"></a>
 
 ### K-Means Clustering
-- Algorithm
+- **Algorithm**
     - Determine the number of clusters
     - Randomly initialize `k` data points to be cluster centers
     - Repeat the following until the centers are unchanged
@@ -1618,9 +1618,9 @@
         - `Step 2`: Ensure every cluster has at least one point
             - For empty clusters, randomly select a point far from the cluster center
         - `Step 3`: Replace cluster center with the `mean` of the cluster
-- Pros
+- **Pros**
     - Fast because less computations
-- Cons
+- **Cons**
     - Starts with random choice of cluster centers
         - so results can lack consistency
     - `k` needs to be given
@@ -1629,21 +1629,21 @@
 <a name="12.3"></a>
 
 ### Agglomerative Hierarchical Clustering
-- Algorithm
+- **Algorithm**
     - Each point starts off as it's own clusters
     - Repeat the following until only 1 cluster remains
         - Find the pair of clusters that are closest to each other
             - To find closest you pick the points nearest to each other from each cluster
         - Merge the clusters
             - The height on the graph represents the distance between prior to merging
-- Pros
+- **Pros**
     - No need to specify number of clusters
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/anglo.png)
 
 <a name="12.4"></a>
 
 ### Mean Shift Clustering
-- Algorithm
+- **Algorithm**
     - Repeat with multiple sliding windows until all the points lie within a window
         - For overlapping windows, window with more points prevails
     - Each window represents a cluster of data points
@@ -1653,10 +1653,10 @@
                 - The new centre point is the mean of the points within the window
                 - Shifting the mean ensures the window moves towards denser regions
             - You will know this is the goal state by comparing it to the next and previous states
-- Pros
+- **Pros**
     - Converging towards a maximum density point is desirable
         - Data Driven
-- Cons
+- **Cons**
     - Selection of window size is not trivial to do
 ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/mesiftK.png)
 
@@ -1665,7 +1665,7 @@
 ### DBSCAN
 - Density-Based Spatial Clustering of Applications with Noise
 - Has specific advantages over Mean-Shift clustering
-- Algorithm
+- **Algorithm**
     - Start with a random unvisited point
         - All points within distance ε (epsilon) are neighbourhood points
     - Need a certain number of neighbourhood points to start clustering
@@ -1675,11 +1675,11 @@
         - Do this for all points added to the cluster
         - Until no more can be added (no more points ε distance away)
     - Repeat the process with an unvisited point until there are no unvisited points
-- Pros
+- **Pros**
     - Does not require pre-set number of clusters
     - Identifies Noise
     - Finds arbitrarily shaped and sized clusters quite well
-- Cons
+- **Cons**
     - Not effective with clusters of varying densities
     - Variance in the ε value when there is a change in density levels
     - With high dimensional data, determining threshold ε becomes a challenging task
