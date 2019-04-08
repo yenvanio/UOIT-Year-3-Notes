@@ -1765,7 +1765,38 @@
 <a name="13.4"></a>
 
 ### Naive Bayes Classifier
-- 
+- Data-driven, not model-driven
+- No assumptions can be made about the data
+- To classify a new record, find records with similar predictor values
+    - Basically want to find the probability of belonging to C
+    - Find the most prevalent class among the records
+    - Assign this class to the new record
+- **Algorithm**
+    - Repeat the following for each classification
+        - Find the proportion of each predictor value across all records
+        - Multiply all the values together
+        - Then multiply it by the proportion of that classification across all records
+    - To identify the probability of a record belonging in a classification
+        - Divide the probability of classification by the sum of probabilities
+    - Follow example below
+
+| Charges? | Size | Outcome |
+|----------|:----:| -------:|
+| y | small | truthful |
+| n | small | truthful |
+| n | large | truthful |
+| n | large | truthful |
+| n | small | truthful |
+| n | small | truthful |
+| y | small | fraud |
+| y | large | fraud |
+| n | large | fraud |
+| y | large | fraud |
+
+- **Pros**
+    - 
+- **Cons**
+    - 
 
 <a name="13.5"></a>
 
