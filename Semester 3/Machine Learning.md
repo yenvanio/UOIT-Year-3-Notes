@@ -1793,10 +1793,25 @@
 | n | large | fraud |
 | y | large | fraud |
 
+- Fraud Classification = `3/4 * 1/4 * 4/10 = 0.075`
+    - Proportion of `charges = y` among the classification `frauds` = 3/4
+    - Proportion of `small` among the classification `frauds` = 1/4
+    - Proportion of `frauds` = 4/10
+- Truthful Classification = `1/6 * 3/6 * 6/10 = 0.067`
+    - Proportion of `charges = y` among the classification `truthfuls` = 1/6
+    - Proportion of `small` among the classification `truthfuls` = 3/6
+    - Proportion of `truthful` = 6/10
+- `P(fraud | charges, small)` = 0.075 / (0.075 + 0.067)
+    - = 0.53
+
 - **Pros**
-    - 
+    - Handles categorical data well
+    - Works well with large data sets
+    - Simple and efficient computation
 - **Cons**
-    - 
+    - Requires large number of records
+    - Becomes a problem when a predictor category is not present in training data  
+        - Because it assigns a 0 probability of response
 
 <a name="13.5"></a>
 
