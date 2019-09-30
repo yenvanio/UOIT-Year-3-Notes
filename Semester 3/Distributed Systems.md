@@ -4,18 +4,18 @@
 ## Table of Contents
 
 [Chapter 1 - Introduction](#Chapter1)
-<br>
+<br><br>
 [Chapter 2 - Architectures](#Chapter2)
-<br>
+<br><br>
 [Chapter 3 - Communication](#Chapter3)
-<br>
+<br><br>
 [Appendix](#Appendix)
 - [Sockets Programming with Java](#a.1)
 - [Multithreaded Programming with Java](#a.2)
 - [Code Migration](#a.3)
 - [Java RMI](#a.4)
 <br>
-
+---
 
 <a name="Chapter1"></a>
 
@@ -31,6 +31,7 @@
 
 ## Chapter 3 - Communication
 
+---
 
 <a name="Appendix"></a>
 
