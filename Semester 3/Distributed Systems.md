@@ -14,7 +14,6 @@
 - [Multithreaded Programming with Java](#a.2)
 - [Code Migration](#a.3)
 - [Java RMI](#a.4)
-<br>
 
 ---
 
