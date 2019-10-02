@@ -55,7 +55,32 @@
 <a name="1.2"></a>
 
 ### Design Goals
--
+- **Sharing Resources**
+  - Cloud based storage
+  - Peer-to-Peer assisted media streaming
+  - Shared mail services
+  - Shared web hosting
+- **Distribution Transparency**
+  - Types
+|Transparency|Description|
+|------------|-----------|
+|Access|Hide data representation & how object is accessed|
+|Location|Hide where an object is located|
+|Relocation|Hide that an object may change locations during use|
+|Migration|Hide that an object may move to another location|
+|Replication|Hide that an object is replicated|
+|Concurrency|Hide that an object may be shared by multiple users|
+|Failure|Hide the failure / recovery of an object|
+  - Full distribution transparency is too much
+    - Will cost performance
+  - Some communication delays can't be hidden
+  - Impossible to completely hide failures
+- **Openness**
+  - Conforming to well defined interfaces
+  - Easily interoperate 
+  - Portability
+  - Extensible
+- **Scalability**
 
 <a name="1.3"></a>
 
