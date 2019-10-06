@@ -71,6 +71,7 @@
 |Replication|Hide that an object is replicated|
 |Concurrency|Hide that an object may be shared by multiple users|
 |Failure|Hide the failure / recovery of an object|
+
   - Full distribution transparency is too much
     - Will cost performance
   - Some communication delays can't be hidden
@@ -135,6 +136,88 @@
 
 ### Types of Distributed Systems
 
+### High Performance Distributed Computing Systems
+- **Parallel Computing**
+  - High performance computing started with parallel computing
+- **Cluster Computing**
+  - Homogeneous (Same OS, Near-Identical Hardware)
+  - 1 Master Node (Managing Node)
+    - Multiple Compute Nodes
+- **Grid Computing**
+  - Heterogeneous
+  - Dispersed over organizations, can span WAN
+  - Allow collaborations by using virtual organizations
+    - Authorization on resource allocation based on users (ID's)
+- **Cloud Computing**
+  - Hardware
+    - Processors, Routers, Power Systems
+  - Infrastructure
+    - Allocating / Managing virtual storage devices and servers
+  - Platform
+    - Higher level storage abstraction (Amazon S3 Buckets)
+  - Application
+    - The actual app
+
+### Distributed Information Systems
+- **Integrating Applications**
+  - Basic Networked application follows client-server model
+    - Server makes the services available to remote clients
+  - Integration: clients combine multiple requests to different applications, collect responses and present final result to user
+  - Next Step: **Enterprise Application Integration** Allowing direct application to application communication
+  - Ways to Integrate
+    - **File Transfer**
+      - Simple but not flexible
+        - Need File Format / Layout information
+        - Need to figure out file management
+        - Update propagation and notifications
+    - **Shared Database**
+      - More flexible but needs common data scheme
+      - Risk of bottleneck
+    - **Remote Procedure Call**
+      - Effective for executing a series of actions
+    - **Messaging**
+      - Caller / Callee need to be running at the same time
+      - Allows separation in time & space
+- **EAI: Enterprise Application Integration**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/eai.PNG)
+- **Transaction Processing Monitor (TPM)**
+  - Transactions often distribute data over several servers
+  - Need to coordinate and execute the transaction properly
+  - TPM fulfills that role
+- **Remote Procedure Call (RPC)**
+  - Requests are sent through a local procedure call
+  - Packaged as a message
+  - Processed
+  - Responded through the message
+  - Returns result as a return from the call
+- **Message Oriented Middleware (MOM)**
+  - Messages sent to logical contact point and forwarded to applications
+
+### Distributed Systems for Pervasive Computing
+- Nodes are small, embedded in larger systems
+  - System naturally blends into the user's environment
+- 3 Subtypes
+  - **Ubiquitous Computing Systems**
+    - Continuous interaction between system and user
+    - Distribution
+      - Devices are networked and transparently accessible
+    - Interaction
+      - Interaction between user / device is unobtrusive
+    - Context Awareness
+      - System is aware of user's context to optimize interaction
+    - Autonomy
+      - Autonomous operation, without human intervention, highly self managed
+    - Intelligence
+      - System can handle a wide range of dynamic actions / interactions
+  - **Mobile Computing Systems**
+    - Inherently Mobile
+    - Disruption-Tolerant Networking
+    - Implied that device location is ever-changing
+      - Change of local services, reachability
+  - **Sensor & Actuator Networks**
+    - Collaboration between sensing and actuation of the environment
+    - 1 : Many relationship between nodes and sensors
+    - Simple, Small, Battery Powered Sensors 
 ---
 
 
