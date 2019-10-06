@@ -77,10 +77,59 @@
   - Impossible to completely hide failures
 - **Openness**
   - Conforming to well defined interfaces
-  - Easily interoperate 
+  - Easily interoperate
   - Portability
   - Extensible
 - **Scalability**
+  - 3 Components to scale
+    - **Size Scalability**
+      - Number of users
+    - **Geographical Scalability**
+      - Distance between nodes
+      - Difficult to transition between LAN & WAN
+        - WAN links are also unreliable
+      - No multipoint communication
+        - Search broadcast requires its own naming/directory service
+        - The above service will have its own scaling problems
+    - **Administrative Scalability**
+      - Number of admin domains
+      - Computational grids share expensive resources between domains
+      - Managing shared equipment
+  - **Root causes of scalability problems**
+    - Limited computational capacity (limited by CPUs)
+    - Limited storage capacity (and transfer rate to store)
+    - Limited networking between user and central service
+
+- **Scaling Techniques**
+ - Using Asynchronous Communication
+ - Separate handler for incoming response
+  - However, not all applications can implement this model
+- Partitioning Data & Computations
+  - Move computations to the clients
+  - Decentralized naming services (DNS)
+  - Decentralized information systems (WWW)
+- Replication & Caching
+  - Replicated file servers and databases
+  - Mirrored Web Sites
+  - Web Caches
+  - File Caching (at server & clients)
+  - **Cons of Replication**
+    - Having multiple copies can lead to inconsistencies
+    - Requires global synchronization
+
+- **Pitfalls of Developing Distributed Systems**
+  - Many distributed systems are needlessly complex
+    - Caused by false assumptions
+  - Some of the common assumptions
+    - Network is reliable
+    - Network is secure
+    - Network is homogeneous
+    - Topology does not change
+    - Latency is zero
+    - Bandwidth is infinite
+    - Transport cost is zero
+    - Only one administrator
+
 
 <a name="1.3"></a>
 
