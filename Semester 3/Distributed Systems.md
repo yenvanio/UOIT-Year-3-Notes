@@ -62,6 +62,7 @@
   - Shared web hosting
 - **Distribution Transparency**
   - Types
+  
 |Transparency|Description|
 |------------|-----------|
 |Access|Hide data representation & how object is accessed|
