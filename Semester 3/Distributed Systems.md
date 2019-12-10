@@ -62,6 +62,7 @@
   - Shared web hosting
 - **Distribution Transparency**
   - Types
+  
 |Transparency|Description|
 |------------|-----------|
 |Access|Hide data representation & how object is accessed|
@@ -102,18 +103,18 @@
     - Limited networking between user and central service
 
 - **Scaling Techniques**
- - Using Asynchronous Communication
- - Separate handler for incoming response
-  - However, not all applications can implement this model
-- Partitioning Data & Computations
-  - Move computations to the clients
-  - Decentralized naming services (DNS)
-  - Decentralized information systems (WWW)
-- Replication & Caching
-  - Replicated file servers and databases
-  - Mirrored Web Sites
-  - Web Caches
-  - File Caching (at server & clients)
+  - Using Asynchronous Communication
+    - Separate handler for incoming response
+    - However, not all applications can implement this model
+  - Partitioning Data & Computations
+    - Move computations to the clients
+    - Decentralized naming services (DNS)
+    - Decentralized information systems (WWW)
+  - Replication & Caching
+    - Replicated file servers and databases
+    - Mirrored Web Sites
+    - Web Caches
+    - File Caching (at server & clients)
   - **Cons of Replication**
     - Having multiple copies can lead to inconsistencies
     - Requires global synchronization
