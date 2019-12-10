@@ -217,7 +217,7 @@
   - **Sensor & Actuator Networks**
     - Collaboration between sensing and actuation of the environment
     - 1 : Many relationship between nodes and sensors
-    - Simple, Small, Battery Powered Sensors 
+    - Simple, Small, Battery Powered Sensors
 ---
 
 
@@ -228,6 +228,13 @@
 <a name="2.1"></a>
 
 ### Architectural Styles
+- Style is made up of how
+  - Components with well-defined interfaces
+  - Connection between components
+  - Data exchanged between components
+  - Configuration and connection between components form a system
+- **Layered Architecture**
+  - 
 
 
 <a name="2.2"></a>
