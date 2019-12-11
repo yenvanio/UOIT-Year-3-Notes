@@ -285,3 +285,82 @@ Part B (Latency of Request 2 (Open Page))
 <a name="Chapter9"></a>
 
 ## Chapter 9 - Hardware & Software Interfacing
+- **Characteristics of an OS**
+  - Real-time operation
+  - Reactive operation
+  - Configurability
+  - I/O device flexibility
+  - Streamlined protection mechanisms
+  - Direct use of interrupts
+- Using OS for Embedded Systems
+  - Adapt an Existing OS
+    - Slower than a special purpose OS
+    - Familiar interface though
+    - Usually need to add specialized functionality
+  - Purpose Built OS
+    - Faster, Smaller
+    - Scheduling in real-time
+    - Interrupt response time is quicker and less latency
+
+### Embedded Linux
+- **Advantages**
+  - Vendor Independence / Open Source
+  - Supports wide range of processor architectures and peripheral devices
+  - Minimal cost for dev / training
+- **Kernel Architecture**
+  - Modular
+  - Single process with one address and memory space
+  - Each application protected with own user memory
+    - Invalid access will only crash that process
+  - `User Space > Kernel Space > Architecture`
+- **Structure**
+  - Kernel Modules export functions that can be called by other modules
+  - If kernel has invalid memory reference then kernel + all processes crash
+- **Booting Process**
+
+```
+Bootloader
+  1. Reset Microcontroller
+  2. First Stage Bootloader (in small ROM) initializes CPU, MMU, on-chip devices and memory map
+  3. ROM bootloader loads second stage bootloader from flash -> RAM
+  4. Second Stage Bootlader loads Kernel and RAMDisk
+  5. Manual Interrupt (ctrl + c) to use tftp and load Linux Kernel from Server
+    - Trivial File Transfer Protocol
+  6. After linux starts running, bootloader not in RAM anymore
+  7. Bootloader config saved in high address space (only for dev/tesing)
+  8. During development, Bootloader runs start_kernel()
+
+Kernel
+  1. Kernel initializes cache, hardware devices, mounts root file system
+    - Without root file system, kernel hangs
+  2. Kernel executes init() -> startup scripts
+    - Run Level: Diff processes started by scripts to activate resources
+      - Run Level 5 - GUI
+      - Run Level 3 - System Console Window
+
+Root File System
+  1. RAMDisk used for file system (No Hard Disk in Embedded System)
+  2. Compressed file before loaded, supports multiple file systems
+  3. Mounted in RAM, stays there till reboot 
+```
+
+### QNX
+-
+
+
+### Design Process
+-
+
+
+### Co-Design Environment
+-
+
+
+
+
+
+
+
+
+
+---
