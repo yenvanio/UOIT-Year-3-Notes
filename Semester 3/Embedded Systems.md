@@ -5,7 +5,9 @@
 
 [Chapter 7 - Program Design & Analysis](#Chapter7)
 <br>
-[Chapter 8 - Memory 7 Caches](#Chapter8)
+[Chapter 8 - Memory & Caches](#Chapter8)
+<br>
+[Chapter 9 - Hardware & Software Interfacing](#Chapter9)
 <br>
 
 <a name="Chapter7"></a>
@@ -215,7 +217,7 @@ Part B (Latency of Request 2 (Open Page))
   - *Problem*: packet occupies multiple flit switches
     - If packet blocked, all switches blocked
   - *Solution*: Multiple flit buffers in each router
-    - Assign packets to different flit buffers (virtual channels) 
+    - Assign packets to different flit buffers (virtual channels)
 
 ### Shared Memory Issues
 - Case Study
@@ -277,3 +279,9 @@ Part B (Latency of Request 2 (Open Page))
     - Reads > Writes (Higher Priority)
 - **Schedule Resource Access**
   - Schedule the contenders so no competing for access
+
+---
+
+<a name="Chapter9"></a>
+
+## Chapter 9 - Hardware & Software Interfacing
