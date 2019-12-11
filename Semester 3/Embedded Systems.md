@@ -5,7 +5,8 @@
 
 [Chapter 7 - Program Design & Analysis](#Chapter7)
 <br>
-
+[Chapter 8 - Memory 7 Caches](#Chapter8)
+<br>
 
 <a name="Chapter7"></a>
 
@@ -108,3 +109,171 @@
   - Can be done on multiple levels
     - Each level has different techniques applied
     - Different overheads and accuracy for each technique
+
+---
+
+
+<a name="Chapter8"></a>
+
+## Chapter 8 - Memory & Caches
+- **Memory Wall Problem**
+  - `CPU Speed / Number of Cores` increases faster than memory bandwidth
+  - Memory elements causes unpredictability when shared amongst multiple cores
+  - Cache is hard to analyze for a single task
+- **Timing Interference**
+  - Depends on
+    - Caches
+    - Interconnects
+    - Main Memory
+  - **Arbitration**: Order in which cores access a resource will effect next resource in the chain
+  - **Latency**: Access latency for a slower resource can hide the latency for access to a faster resource
+- **Cache Challenges**
+  - Need to determine worst-case to establish a safe bound
+  - Worst Case is hard to determine
+    - Ex: Direct-Mapped Cache
+      - Multiple `<dynamic>[size]`
+      - They all have same indexes in cache, huge # of conflict misses
+- **Memory Controllers**
+  - Main Memory consists of multiple parallel components (**Banks**)
+  - Most commonly used memory is Dynamic Random Access Memory (**DRAM**)
+
+### DRAM
+- Each device is composed of multiple banks
+  - Each bank has a row buffer
+- DRAM row must be loaded before read/write operations
+  - Closed after operation so we can load another page
+- Banks operate in parallel
+  - However there is a shared command bus and data bus
+- DRAM Module consists of multiple DRAM devices
+
+#### How a Page Works
+- Latency for initial request is long
+  - Successive requests to same page are more efficient
+
+```
+Steps
+
+Part A (Latency of Request 1 (Closed Page))
+  1. Request 1 Arrives @ Page
+  2. Close Previous Page
+  3. Load New Page
+
+  PRE -> ACT -> READ -> DATA
+
+Part B (Latency of Request 2 (Open Page))
+  1. Request 1 Completes
+  2. Request 2 Arrives
+  3. Request 2 Completes
+
+```
+
+#### Contention
+- Depends on which rank and bank is accessed by each core
+- If all cores access same rank & bank
+  - `N` requests for one cache block at the same time
+  - Must close / open page `N` times
+- Different Ranks can operate in parallel
+  - Do not need to close before opening because each rank/bank has a different page
+  - Open all pages in parallel even
+    - (in this ex: limited to 4 to avoid command bus conflicts)
+- Same Rank, Different Banks
+  - Can also run pages in parallel
+  - However more read and write constraints within same rank
+    - IO / gating adds these read/write constraints
+
+### Interconnection
+- Need scalable communication between cores
+- Delay on interconnection compounds memory access delay
+- Types
+  - **Shared Bus**
+    - Single Resource
+    - Each transaction interferes with every other one
+    - Not scalable
+  - **Crossbar**
+    - N inputs, M outputs
+    - Each input connected to each output
+    - Employs virtual input buffers
+    - Still scales poorly, delay increases with N, M ^
+  - **Network On Chip**
+    - Interconnect comprises on-chip switches connected by links
+    - Topologies: Linear, Ring, Tree, 2D Mesh
+
+#### Off-Chip vs On-Chip Networks
+- **Synchronization**
+  - Easier with On-Chip routers
+- **Link Width**
+  - Wires are inexpensive On-Chip, so fairly wide
+  - However, many Off-Chip moved to serial connection
+- **Buffers**
+  - Inexpensive on Off-Chip
+  - Buffers are main cost for On-Chip
+- **Wormhole Routing**
+  - Buffer parts of packet
+  - Break into blocks (**Flits**) equal to link width
+  - Propagates in sequence through network
+- **Virtual Channels**
+  - *Problem*: packet occupies multiple flit switches
+    - If packet blocked, all switches blocked
+  - *Solution*: Multiple flit buffers in each router
+    - Assign packets to different flit buffers (virtual channels) 
+
+### Shared Memory Issues
+- Case Study
+  - Fixed Priority Scheduler
+  - 2 Processes with different low / high priorities
+    - Low Priority: (5ms, 10ms) & (10ms, 20ms)
+    - High Priority: (1ms, 2ms), (2ms, 4ms) & (5ms, 10ms)
+  - Low Priority task utilization increased due to interference from high priority task
+- **Cache Interference**
+  - Reloading cache directly affects execution time
+  - If it takes `655 us` to reload L2 cache and partition size `2ms`
+  - Execution time increment = `655us / 2ms ~ 33% ^`
+  - Cache Interference proportional to
+    - Cache Size
+    - CPU Clock Frequency
+    - (Inversely Proportional to) Memory Bus Speed
+- **Storage (Shared Cache) Interference**
+  - Multiple cores compete for cache space
+  - A core can evict cache lines belonging to another core
+    - **Cache Line**: Cache entry holding certain number of words, a line is read and cached at once.
+- **Shared Timing Interference**
+  - Multiple cores want access simultaneously
+  - Other cores wait for the selected core to finish
+  - Each core can delay the others
+
+### Solutions to Interference
+
+#### Allocation Interference
+- **Cache Partitioning**
+  - Partitioning amongst multiple tasks / cores
+    - Pro: No Allocation Interference
+    - Con: Each task / core gets smaller portion of cache
+  - How to do?
+    - **Compiler Based**
+      - Modify linkage so different cores occupy different cache lines
+    - **OS Based**
+      - Modify page allocation so different cores occupy different cache lines
+    - **HW Based**
+      - Partition cache n-ways among cores
+  - For shared cache it is harder because
+    - Need to know which tasks running on which core
+    - If schedule of all cores not scheduled then tough
+- **Scratchpad**
+  - A programmable cache
+    - Software responsible for loading and unloading the Scratchpad
+  - What it do?
+    - Divide memory access into two categories
+      - Scratchpad
+      - Main Memory
+  - How it do?
+    - Determine what to load by algorithm
+    - Scratchpad contents can be updated while tasks are running
+
+#### Timing Interference
+- **Modify Arbitration**
+  - Works better when different contenders have different requirements
+    - Different latency / bandwidth
+  - Access is given to high priority cores
+    - Reads > Writes (Higher Priority)
+- **Schedule Resource Access**
+  - Schedule the contenders so no competing for access
