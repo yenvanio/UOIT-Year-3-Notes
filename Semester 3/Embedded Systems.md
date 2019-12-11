@@ -399,11 +399,30 @@ Root File System
 
 
 #### File System Manager
--
-
+- **Fys** provides standardized storing / accessing of data on disk subsystems
+- QNX implements 6 types, 5 are managed by Fsys
+  - **Regular Files**
+    - Randomly accessible sequences of bytes
+    - No predefined structure
+  - **Directories**
+    - Information to locate regular files
+    - Status / Attribute info of regular files as well
+  - **Symbolic Links**
+    - Pathname to file / directory to be linked in place of symbolic link
+    - Provide multiple paths to a single file
+  - **Pipes & FIFO's**
+    - I/O channels between processes
+  - **Block Special Files**
+    - Devices, disk drives, partitions
+    - Accessed in a way that hides characteristics from applications
+- 6th type is **Character Special File**
+  - Managed by Device Manager (**Dev**)
+    - Interface between process and terminal devices
+    - Located in I/O space, names starting with `/dev`
+    - Manages flow of data between processes
 
 #### Network Manager
--
+- (**Net**) gives user a seamless extension of OS messaging
 
 
 ### Design Process
