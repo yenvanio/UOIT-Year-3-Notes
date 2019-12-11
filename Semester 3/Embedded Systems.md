@@ -341,10 +341,68 @@ Kernel
 Root File System
   1. RAMDisk used for file system (No Hard Disk in Embedded System)
   2. Compressed file before loaded, supports multiple file systems
-  3. Mounted in RAM, stays there till reboot 
+  3. Mounted in RAM, stays there till reboot
 ```
 
 ### QNX
+- **Micro Kernel**
+  - **Inter Process Communication (IPC)**
+    - Micro Kernel Supervises routing of messages
+    - Micro Kernel Supports 3 Types of IPC
+      - **Messages**: Fundamental form of IPC
+        - Synchronous communication, requires proof of receipt
+      - **Proxies**: Special form of message
+        - Good when process doesn't interact with recipient
+      - **Signals**: Traditional form of IPC
+        - Supports Asynchronous IPC
+  - **Low Level Network Communication**
+    - Micro Kernel Delivers all messages destined for other nodes
+  - **Process Scheduling**
+    - Micro Kernel Scheduler decides which process executes next
+  - **First Level Interrupt Handling**
+    - Micro Kernel Supervises routing of hardware interrupts / faults
+
+#### Process Manager
+- Responsible for creating new processes and managing resources of a process
+- QNX Supports 3 process-creation functions
+  - `fork()`
+    - Creates a new process that is duplicate of the calling process image
+  - `exec()`
+    - Replaces calling process image with new process image
+  - `spawn()`
+    - Creates new process - child of calling process
+- Lifecycle
+  - Creation
+    - Allocating process ID for new process
+    - Environment definitions for new process
+  - Loading
+    - Loading process images
+    - Loading thread runs under ID of new process
+  - Execution
+    - Compete with other process for CPU resources
+  - Termination
+    - Can be terminated in 2 ways
+      - Process invoked `exit()` manually or returning from `main()`
+      - Signal whose action is to terminate process
+- Process States
+  - Ready
+    - Can use CPU
+  - Blocked
+    - Cannot use CPU
+  - Held
+    - Received `SIGSTOP` cannot use CPU until removed from `HELD` state
+  - Wait-Blocked
+    - `wait()` or `waitpid()` was called, waiting for status from child processes
+  - Dead
+    - Process ended, cannot send exit status to parent because no `wait()` called
+    - Zombie Process
+
+
+#### File System Manager
+-
+
+
+#### Network Manager
 -
 
 
