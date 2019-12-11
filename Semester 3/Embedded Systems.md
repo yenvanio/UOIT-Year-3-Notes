@@ -430,11 +430,25 @@ Root File System
 
 
 ### Design Process
--
-
+- **Outline**
+  - Partitioned into hardware / software components
+  - Developed separately
+  - Usually hardware first approach
+- **Assumptions**
+  - Hardware / Software can be acquired separately and easily integrated
+  - Hardware problems can be fixed with software modifications
+  - Software doesn't need maintenance
+- **Cons**
+  - Impact of hardware and software on each other is hard to assess
+  - Poor quality designs
+  - Expensive modifications
 
 ### Co-Design Environment
--
+- **Requirements**
+- **Cross Functionality**
+- **Process**
+- **Features**
+- **Issues**
 
 
 
