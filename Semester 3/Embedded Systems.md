@@ -423,6 +423,10 @@ Root File System
 
 #### Network Manager
 - (**Net**) gives user a seamless extension of OS messaging
+- Responsible for propagating QNX messaging across LAN
+- TCP / IP
+  - QNX implements LAN that relies on its own protocol to provide fast seamless interface between QNX computers
+  - To communicate with non-QNX systems uses TCP/IP
 
 
 ### Design Process
