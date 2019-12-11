@@ -1,4 +1,4 @@
-# Embedded Systems
+Continuous# Embedded Systems
 
 
 ## Table of Contents
@@ -445,10 +445,40 @@ Root File System
 
 ### Co-Design Environment
 - **Requirements**
+  - Unified hardware/software representation
+    - Uniform design analysis techniques for HW / SW
+    - Easy migration of tasks to either HW / SW
+  - Iterative Partitioning Techniques
+    - Different HW/SW partitions to be evaluated
+  - Integrated Modeling Substrate
+    - Intermediate Evaluation throughout the design process
+    - Step-wise integration of hardware / software
+  - Validation Methodology
+    - System meets initial requirements
 - **Cross Functionality**
-- **Process**
+  - Single Language Design
+  - Compiler transformations and techniques
+    - Dead code elimination
+    - Loop unrolling
+  - Design Change Management
+    - Information Hiding
 - **Features**
-- **Issues**
+  - Mutual Influence on HW / SW early on
+    - Continual verification throughout design process
+  - Tool interoperability and automation of codesign at abstract design levels
+  - Key Enabling Technologies (Easier to explore design tradeoffs)
+- **Pros / Cons**
+  - **Cons**
+    - Lack of standardized representation
+    - Loack of good validation / evaluation methods
+  - **Potential Solutions**
+    - Extend HW / SW to use hetrogeneous paradigms
+    - Extend verification techniques to HW / SW domain
+- **Integration**
+  - Errors in HW / SW design increase as more commitments are made
+  - Hardware first approach compounds cost because SW must compensate for HW
+
+
 
 
 
