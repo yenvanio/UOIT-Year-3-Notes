@@ -1,6 +1,3 @@
-InitializeContinuous# Embedded Systems
-
-
 ## Table of Contents
 
 [Chapter 7 - Program Design & Analysis](#Chapter7)
