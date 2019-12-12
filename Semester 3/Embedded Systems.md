@@ -1,4 +1,4 @@
-Continuous# Embedded Systems
+InitializeContinuous# Embedded Systems
 
 
 ## Table of Contents
@@ -954,20 +954,141 @@ Example
 
 ## Chapter 13 - Specification Languages
 - **MARTE: Modeling & Analysis of Real-Time Embedded Systems**
-  -
+  - Support for non-functional property modeling
+  - Rich time and resource models to UML
+  - Concept definition for SW / HW platform modeling
+  - Concept definition for application allocation on platforms
+  - Support for Quantitative Analysis
 - **AADL: Analysis & Design Language**
-  -
+  - Core Language Providing Full Support
+  - Modeling Application Tasks & Communication Architecture
+  - Pre-declared properties to characterize task execution
 - **Comparison**
-  -
+  - Cover same design objectives and real time analysis of real-time embedded system
+  - Provide SW / HW design and have semantic equivalencies
+  - MARTE is UML based, covers wider modeling range
+    - Address multiple abstraction layers
+  - AADL optimized and address only needed concepts
+    - Addresses specific abstraction layer
+- **Subprograms**
+  - Represents Entry points in executable code
+  - Data subprograms are features of data components
+  - Server subprograms are features of threads
+  - No static data
+    - External data accessed through parameters
+  - Called within a process
+    - Can be called remotely or locally
+- **Process**
+  - Visual address space
+- **Platform Components**
+  - Processor
+    - Scheduling and execution abstraction
+    - Memory subcomponents
+    - Scheduling protocol
+  - Memory
+    - Size, Access Times, Memory Protocol
+  - Bus
+    - Latency, Bandwith, Message Size
 
 ### AADL
+- **Components**
+  - Software Components
+    - ThreadGroup & Thread
+    - Data
+    - Subprogram
+    - Process
+  - Platform Components
+    - Processor
+    - Memory
+    - Bus
+    - Device
+  - System Components
+    - System
+- **Component Interfaces**
+  - Features
+    - External Connections
+  - Flows
+    - End to End Internal Connections
+  - Properties
+    - Useful attributes for analysis
+- **Component Implementations**
+  - Subcomponents are type references
+  - Connections conform with flows in the type
+  - External features conform with the type
+  - Internal features conform with subcomponent types
+- **Features & Connections**
+  - Communication
+    - Ports & Port Groups
+    - Port Connections
+  - Resource Access
+    - Required and provided access
+    - Access connections
+  - Control   
+    - Subprogram features
+    - Parameter connections
+- **Ports & Port Groups**
+  - Ports are typed
+    - Data component types
+  - Ports are directional
+    - Input, Output, Bi-Directional
+  - Synchronous or Asynchronous communication
+    - Event, Data, Event Data Ports
+      - Input event and event data ports have queues
+      - Input data ports have status flags for new data
+- **Data Components**
+  - Data component types
+    - Represent data types
+    - Can have subprogram features
+      - Like access request methods
+    - Used as types of data ports and connections
+  - Data component implementations can have data subcomponents
+    - Representing internal data of object
 
+### Threads
+- **Component**
+  - Thread represents a sequential flow of control
+    - Only data as subcomponents
+- **Group**
+  - Organization of threads within a process
+  - Can be recursive
+- **States**
+  - Active
+    - Member of current mode
+  - Inactive
+    - Not member of current mode
+- **Properties**
+  - Dispatch Protocol
+    - Periodic, Aperiodic, Sporadic, or Background
+  - Period
+    - For periodic and sporadic threads
+  - Execution Time Range & Deadline
+    - Execution states separate
+      - Intialize, Compute, Activate ...etc
+- **Dispatch**
+  - Periodic threads dispatched periodically
+    - Event arrivals are in a queue
+  - Non periodic threads are dispatched by incoming events
+  - Pre declared ports
+    - Event IN port `Dispatch`
+      - If connected, other events queued
+    - Event OUT port `Complete`
+      - Can implement precedence
 
-
-
-
-
-
+### Port Connections
+- Event connections support `n - n` connectivity
+- Data connection supports `1 - n` connectivity
+- **Semantic Port Connection**
+  - Ultimate source to ultimate destination
+  - Processor, Thread or Device
+- Type Checking
+  - Directions and types must match
+- **Immediate & Delayed Connections**
+  - Data connections between periodic threads
+  - `T1 -> T2` vs `T1 -> DELAY -> T2`
+- **Component Bindings**
+  - Software components are bound to Platform components
+  - **Binding Mechanism**: Exploration of design alternatives
+    - Properties specify allowed vs actual bindings 
 
 
 ---
