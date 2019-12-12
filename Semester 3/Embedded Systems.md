@@ -9,6 +9,9 @@ Continuous# Embedded Systems
 <br>
 [Chapter 9 - Hardware & Software Interfacing](#Chapter9)
 <br>
+[Chapter 10 - Verification, Validation & Certification](#Chapter10)
+<br>
+
 
 <a name="Chapter7"></a>
 
@@ -470,17 +473,95 @@ Root File System
 - **Pros / Cons**
   - **Cons**
     - Lack of standardized representation
-    - Loack of good validation / evaluation methods
+    - Lack of good validation / evaluation methods
   - **Potential Solutions**
-    - Extend HW / SW to use hetrogeneous paradigms
+    - Extend HW / SW to use heterogeneous paradigms
     - Extend verification techniques to HW / SW domain
 - **Integration**
   - Errors in HW / SW design increase as more commitments are made
   - Hardware first approach compounds cost because SW must compensate for HW
 
+---
 
+<a name="Chapter10"></a>
 
+## Chapter 10 - Verification, Validation & Certification
+- **Integrators**: Responsible for setting requirements and validating final product
+- **Verification**: Ensuring a subsystem meets the objectives
+  - Basically does what we want
+- **Validation**: Ensuring entire system meets requirements
+  - Basically does what we want
+- **Certification**: Convincing an authority that the validation process is correct
+  - Process based
+  - Follow good process management practices
+    - To track requirements and deliverables
+  - Expensive
+    - Document & Review everything!
+- **The Process**
+  - Requirements Definition
+  - Requirements Validation
+  - Allocation of Requirements
+  - System Validation
+- **Challenges**
+  - Interoperability
+    - Vendor `X` equipment only works with other vendor `X` equipment
+    - Problems
+      - Who gets blame when multiple vendor equipment being used
+      - Vendors have nothing to gain from doing this
+  - Wireless Communication
+    - Solve cable mess
+    - Interference & Jamming are new problems with wireless
+      - Physical layer techniques can help
+        - Ultra-Wide Bandwidth, Dynamic Frequency Selection
 
+### Certification Standards
+- Organizations
+  - **ISO**: International Organization for Standardization founded in 1946
+  - **IEC**: International Electrotechnical Commission founded in 1906
+  - Both in Geneva
+  - Each country gets a vote
+- **SIL**: Safety Integrity Level
+  - Levels 1 - 4
+  - Each level has
+    - Probability of Failure / Hour
+    - Probability of Failure on Demand
+    - Higher Level = Smaller Probability
+  - **SIL 1**
+    - Integrity required to avoid minor incidents
+    - Satisfied by certain degree of fault tolerant design guidelines
+  - **SIL 2**
+    - Integrity required to avoid more serious incidents
+    - May cause injury / death
+  - **SIL 3**
+    - Integrity required to avoid multiple fatalities
+  - **SIL 4**
+    - Integrity required to avoid disastrous accidents
+  - SIL levels for field instruments are established by two methods
+    - **FMEDA**: Failures Modes, Effects and Diagnostic Analysis
+      - Reviewed by 3rd party
+      - Systematic analysis technique to determine failure rates
+    - **Proven In Use**
+      - Used by customer
+      - Requires lots of operational hours
+- **ASIL** Automotive SIL
+  - Levels: A -> D
+  - `++` highly recommended for the ASIL
+  - `+` recommended for the ASIL
+  - `o` no recommendation for/against the ASIL
+
+### Hardware Product Development
+
+#### Architectural Design
+
+#### Detailed Design
+
+#### Safety Analysis
+
+#### Faults & Metrics
+
+#### Failure Modes
+
+### Patient Monitoring System (PMU) 
 
 
 
