@@ -550,18 +550,47 @@ Root File System
   - `o` no recommendation for/against the ASIL
 
 ### Hardware Product Development
+- Activities and processes for product development at hardware level include
+  - Hardware implementation of technical safety concept
+  - Analysis of hardware faults and effects
+  - Coordination with software development
 
 #### Architectural Design
+- Represents all hardware components and their interactions
+- Each component inherits the highest ASIL
+  - If made up of sub elements with different ASIL's
+  - Each treated with highest ASIL
+- Traceability between safety requirements and implementation maintained to lowest level of hardware components
+- To avoid failures due to high complexity, will follow the principles below
+  - Modularity
+  - Adequate Level of Granularity
+  - Simplicity
+- Non Functional causes for failure
+  - Temperature, Vibrations, Water, Dust
+  - Considered during architectural design
 
 #### Detailed Design
+- Level of electrical schematics representing interconnections between hardware parts of a component
+- Operating conditions of parts used in design comply with environmental operational limits
+- Robust design principles
 
 #### Safety Analysis
-
-#### Faults & Metrics
+- Applies to ASIL B -> D
+- Safety Analysis identifies the following for the safety goal
+  - Safe Faults
+  - Single Point Faults / Residual Faults
+  - Multiple Point Faults
+- Evidence of safety mechanisms to maintain or switch safely into a safe state shall be made available
+  - Diagnostic coverage wrt to residual faults shall be evaluated
+- Fault that can occur at anytime
+  - If the diagnostic `test interval + fault reaction time > fault tolerant time interval`
+- If a fault only occurs at power-up and negligible elsewhere
+  - Can run a test at start-up after power-on only
+- Analysis like FMEA or FTA can be used to structure rationale
 
 #### Failure Modes
 
-### Patient Monitoring System (PMU) 
+### Patient Monitoring System (PMU)
 
 
 
