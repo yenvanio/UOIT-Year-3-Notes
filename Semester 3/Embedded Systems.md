@@ -683,16 +683,209 @@ Root File System
 <a name="Chapter11"></a>
 
 ## Chapter 11 - Chapter 11 - Software Quality - Performance Analysis of Embedded Systems
+- **Clustering**
+  - Concentrate data points into groups
+  - Experiment with group reps instead of each data point
+  - Steps
+    - Sample, Normalize it, Select metric, Cluster, Analyze results
+- **Monitors & Probes**
+  - **Probe**: Something inserted into computer to extract information
+  - **Probe Effect**: Unintended alteration in system behaviour caused by measuring it
+- **Monitors**
+  - **Software Monitor**
+    - Low input rates, resolution but higher overhead
+    - Activiation Trigger
+    - Buffer Size
+    - Buffer Elements
+    - Buffer Overflow
+    - Online vs Offline Analysis 
+  - **Hardware Monitor**
+    - Usually separate piece of equipment
+    - Probes and Ports
+    - Counters
+    - Comparators
+    - Logic Elements
+    - Timer
+    - Memory
+- **Measurement Scales**
+  - Nominal Scale (Categories)
+  - Ordinal Scale (Ordered Categories)
+  - Interval Scale (Range)
+  - Ratio Scale (Ratio)
+- **Variables**
+  - Qualitative
+  - Quantitative
+  - Discrete
+  - Continuous
 
 ### Trade Offs & Common Mistakes
+- Tradeoffs occur at every stage of development
+  - `Memory` vs `Computation Time`
+  - `Computation Time` vs `Power Consumption`
+  - `Look` vs `Computation Time`
+  - `Look` vs `Durability`
+  - `Cost` vs `Safety`
+- Requirements: `Features vs Time to Market`
+- Design: `Centralization vs Partition vs Integration`
+- Coding: `Language of choice vs Training Requirements`
+- Manufacturing: `Part Reliability vs Cost`
 
 ### Performance Evaluation
+- Measures a system with respect to a metric
+- Requires Understanding of
+  - Measurement techniques and tools
+  - Data Analysis with statistics
+  - Experimental Design and Analysis
+  - Simulation Methods
+  - Modeling Methods
+- Example: `Computation Time, Memory Consumption, Power Consumption`
+
+### Common Mistakes
+- **No Goals**
+  - Performance Project needs goals
+  - Everything depends on the goal
+  - Ex: `Measuring response time requires different setup than measuring interference`
+- **Biased Goals**
+  - Proper formal approach forbids this
+- **Unsystematic Approach**
+  - Don't touch setup or experiment during execution
+- **Analysis without Understanding**
+  - Think First -> Then Do (Saves Time)
+- **Incorrect Performance Metrics**
+  - Pick correct / comparable metrics
+  - Ex: `CISC != RISC`
+- **Unrepresentative Workload**
+  - Existing workloads might be outdated
+  - Be wary of synthetic workloads
+- **Assuming no Future Changes**
+  - Don't assume workload for analysis will be valid in 24 months
+- **Wrong Evaluation Technique**
+  - Analytically modeling / simulating / measuring are the correct techniques
+- **Overlooking Important Parameters**
+  - Renders result useless
+  - Ex: `Network-Switch Buffer different size parameter for different cases`
+- **Inappropriate Experimental Design**
+  - Specifies the number of measurements and parameter settings
+    - Improper settings, wastes time
+  - Ex: `Full Factorial: trying all combinations (Memoization)`
+- **No Analysis**
+  - Raw Data without interpretations or conclusions
+- **Erroneous Analysis**
+  - Errors during data collection
+  - Ex: `Short runs`
+- **Starting Too Complicated**
+  - `Start Simple`
+- **Ignoring Variability**
+  - Systems have varying performance
+- **Improper Presentation of Results**
+  - Aim is to inform decision making not make as many graphs as possible
+- **Ignoring Social Aspects**
+  - Communicating data is more important than flexing
+- **Omitting Assumptions and Limitations**
+  - Always list assumptions and Limitations
+  - When conclusion wont hold etc.
 
 ### Systematic Approach
+- Steps
+  - State Goals & Define System
+  - List Services and Outcomes
+  - Select Metrics
+  - List Parameters
+  - Select Factors
+  - Select Evaluation Technique
+  - Select Workload
+  - Design Experiments
+  - Analyze Interpret Data
+  - Present Results
+- Evaluation Types
+  - **Analytic Model**
+    - Validate through simulation or measurements
+  - **Simulation**
+    - Validate through analytic model or measurements
+  - **Measurements**
+    - Validate through analytic model or simulation
 
 ### Metrics
+- Properties
+  - **Global Metrics**
+    - Affects whole system
+  - **Individual Metrics**
+    - Affects only the user
+  - **Low Variability**
+    - Little difference in measurement values
+  - **Non Redundancy**
+    - Metrics only convey new information
+  - **Completeness**
+    - Metrics should cover all service outcomes
 
+#### Performance Metrics
+- **Structured Approach to Selecting Performance Metrics**
+  - List services, describe service outcomes and classify
+    - Done Correctly
+    - Done Incorrectly
+    - Cannot Do
 
+### Time Rate Resource Metrics
+- **Responsiveness**
+  - Time delay between two events in the system
+- **Productivity**
+  - Amount of work a system does
+- **Utilization**
+  - Unused resources vs Used resources over time
+- Resource with the highest utilization is bottleneck
 
+### Error Metrics
+- How likely is it to happen?
+- Probability of failure modes
+  - Distinguish between different modes / sources (error from HW / SW)
+
+### Common Metrics
+- **Response Time**
+  - Turnaround time: Duration of a job from start to finish
+  - Stretch Factor: Describes parameters that affect response time
+- **Throughput**
+  - Rate at which requests can be services
+- **Utilization**
+  - Ratio of `resource busy` vs `resource idle`
+- **Utility Classification**
+  - Higher is better: Higher value is better
+  - Lower is better: Lower value is better
+  - Nominal is best
+    - Tradeoff in system and there exists a best operating point
+- **Workloads**
+  - Real workload based on observed workloads
+  - Synthetic workload based on expected workloads
+  - Types
+    - **Code Based**:  Cant change source code
+    - **Algorithm Based**: Run bubble sort on this data set
+    - **Problem Based**: Sort this data set
+  - **Timeliness**
+    - Workload design for todays system might be invalid for tomorrows system
+  - **Loading Level**
+    - Design workload with load
+    - Ex: `Overloading for stress testing`
+  - **Repeatability**
+    - Might need to redo experiment
+    - Script and keep record of everything
+  - **Impact of external components**
+    - Ensure external component doesnt become driver for workload
+- **Benchmarks**
+  - Useful for domain specific applications
+  - Results not portable to other domains
+  - Evaluation
+    - Synthetic load benchmark requires proper justification
+    - Real load benchmarks requires citations for the source
+    - *Can I use data to make a good decision*
+      - Basically how u evaluate a benchmark ^
+
+### Workload Characterization
+- Workloads should be created by abstracting observations
+  - Comprises workload components
+  - Component should be parameterized
+- **Measures of Centre**: Mean, Median
+- **Dispersion**: Centre doesn't state variability
+- **Markov Models**
+  - Represents system states with probabilities on transitions
+  - Can represent a workload component
 
 ---
