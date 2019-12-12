@@ -11,6 +11,8 @@ Continuous# Embedded Systems
 <br>
 [Chapter 10 - Verification, Validation & Certification](#Chapter10)
 <br>
+[Chapter 11 - Software Quality - Performance Analysis of Embedded Systems](#Chapter11)
+<br>
 
 
 <a name="Chapter7"></a>
@@ -588,12 +590,107 @@ Root File System
   - Can run a test at start-up after power-on only
 - Analysis like FMEA or FTA can be used to structure rationale
 
-#### Failure Modes
+#### Hardware Architectural Metrics
+- Evaluates hardware architecture against requirements for fault handling
+- Metrics dependent on whole hardware of item
+  - Compliance with target figures is achieved for each safety goal in which item is involved
+- Need to be precise enough to differentiate between different architectures
+- Need to support evaluation of the final design
+- Make ASIL Dependent pass/fail criteria
+- **Single Point Fault Metric**
+  - Reveal if coverage to prevent risk from single point faults is sufficient
+- **Latent Fault Metric**
+  - Reveal if coverage to prevent risk from latent faults is sufficient
+- **Failure rates for hardware parts** are determined by
+  - Using hardware part failure rates data from recognized industry source
+  - Using statistics based on field tests
+  - Use expert judgement founded on an engineering approach
+- **Residual Risks**
+  - Two methods to evaluate if residual risk of safety goals is low
+    - **PMHF**: Probabilistic Metric for random Hardware Faults
+      - Compare quantified FTA with target value
+    - **Individual Evaluation**
+      - Of reisdual / single-point faults
+      - Of each dual-point failure leading to the violation of safety goal
+
+### Hazard and Risk Analysis
+  - **Hazard**: situation that may lead to risks
+  - **Risk Analysis**: Identifying potential hazards and risk of each hazard
 
 ### Patient Monitoring System (PMU)
 
+#### Contextual Requirements
+- High Level Requirements
+- Examples:
+  - `Health of immobile patient SHALL be monitored and SHALL be altered in the event it becomes unsatisfactory`
+  - `All readings from monitoring equipment of patient SHALL be logged`
 
+#### PMU Requirements
+- **External Interfaces**
+  - `PMU SHALL provide Acknowledge Button that can be activated via physical contact`
+  - `PMU SHALL display its current working state`
+- **PMU States**
+  - `Active` / `Inactive`
+  - `Powered Off` / `Powered On`
+- **Routine Maintenance**
+  - `Routine maintenance SHOULD not be required more often than once every six months`
+- **Dependability Requirements**
+  - `The failed state for the PMU shall be to move into the safe state`
+  - `Be Compliant with SIL3`
+- **Security Requirements**
+  - `Any operator SHALL be required to present credentials before PMU operation`
+- **Functional Requirements**
+  - `PMU SHALL perform sanity check on rules`
+- **Non Functional Requirements**
+  - `PMU SHALL have an operational life of 20 years`
 
+#### PMU Hardware Requirements
+- **Functional**
+  - `Hardware SHALL detect complete failure of power to the PMU`
+- **Non Functional Requirements**
+  - `The PMU SHALL operate at 120V / 240V at 50Hz / 60Hz`
+
+#### PMU - Hardware & Risk Analysis
+- **Hazard**: Power Supplies
+- **Associated Risk**: External power supply might fail, switching PMU to run on batteries
+- **Mitigation**: If external power fails, relay alert to human
+- **Residual Risk**: Battery might not be charged enough to allow PMU to handle external power failure
+
+#### PMU - Failure Analysis
+- Build fault trees incorporating identified risks to cover
+  - Probability of PMU failing to meet functional safety requirements
+  - Probability of PMU failing in dangerous manner
+    - Not failing gracefully
+- Explore opinion to identify risks with each hazard
+- **Component Failure Analysis**
+  - Assume OS is SIL3
+    - Probability of failure in 24 hours: `PFO < 2.4 x 10^-6`
+  - Assume hardware is SIL1
+    - Probability of failure in 24 hours: `PFH < 2.4 x 10^-6`
+
+### Fault Trees
+- **FTA**: Fault Tree Analysis is a top down deductive failure analysis
+  - Used to analyze undesired state of system using *Boolean Logic* to combine a series of lower-level events
+- Applying
+  - Top Event (The Fault)
+  - Branch down listing faults that lead to the top fault (working backwards)
+    - Consider sequential and parallel or combinations of faults
+  - Use boolean algebra to add probabilities fault tree
+  - Determine probability of top event
+
+---
+
+<a name="Chapter11"></a>
+
+## Chapter 11 - Chapter 11 - Software Quality - Performance Analysis of Embedded Systems
+
+### Trade Offs & Common Mistakes
+
+### Performance Evaluation
+
+### Systematic Approach
+
+### Metrics
 
 
 
