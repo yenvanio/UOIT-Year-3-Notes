@@ -13,7 +13,10 @@ Continuous# Embedded Systems
 <br>
 [Chapter 11 - Software Quality - Performance Analysis of Embedded Systems](#Chapter11)
 <br>
-
+[Chapter 12 - Virtualization Technologies](#Chapter12)
+<br>
+[Chapter 13 - Specification Languages](#Chapter13)
+<br>
 
 <a name="Chapter7"></a>
 
@@ -698,7 +701,7 @@ Root File System
     - Buffer Size
     - Buffer Elements
     - Buffer Overflow
-    - Online vs Offline Analysis 
+    - Online vs Offline Analysis
   - **Hardware Monitor**
     - Usually separate piece of equipment
     - Probes and Ports
@@ -887,5 +890,84 @@ Root File System
 - **Markov Models**
   - Represents system states with probabilities on transitions
   - Can represent a workload component
+
+---
+
+<a name="Chapter12"></a>
+
+## Chapter 12 - Virtualization Technologies
+- To create a virtual version of something
+- Including
+  - Virtual hardware platform
+  - Virtual OS
+  - Virtual Storage
+  - Virtual Network
+- Fundamental part of cloud computing
+
+### Creating Virtualization
+- **Host / Guest OS**
+  - OS functions as Host
+  - Virtual machines are guests
+  - Uses *Type 2 Hypervisors*
+- **Hypervisor**
+  - Description
+    - Software that creates and runs virtual machines
+    - **Type 1: Native:** Runs directly on hardware
+    - **Type 2:** Hosted: Runs on conventional OS
+  - Uses Type 1 Hypervisor and custom minimal OS
+- **Emulation / Simulation**
+  - Creates virtual hardware / software
+- **Jails / Linux Containers**
+  - Virtual application runs on host OS
+  - **Pros**
+    - Ease of development & deployment
+    - Security isolation
+    - Maximizing resource utilization
+  - **Performance**
+    - Minimal performance overhead
+    - Ideal method of process isolation and system virtualization
+
+```
+Example
+
+1: Host OS / Guest OS
+  - Full blown OS
+    - VMWare, Virtual Box etc.
+
+2. Hypervisor
+  - Sleek OS customzied for virtualization
+    - VMWare Vsphere (specific for VMWare)
+
+3. Emulation
+  - Emilates hardware architecture
+    - Java VM
+
+4. Containers
+  - Virtualizing isolated process
+    - Docker, Solaris, Web Hosting
+
+```
+
+---
+
+<a name="Chapter13"></a>
+
+## Chapter 13 - Specification Languages
+- **MARTE: Modeling & Analysis of Real-Time Embedded Systems**
+  -
+- **AADL: Analysis & Design Language**
+  -
+- **Comparison**
+  -
+
+### AADL
+
+
+
+
+
+
+
+
 
 ---
