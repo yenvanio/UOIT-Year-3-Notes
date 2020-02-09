@@ -210,7 +210,30 @@
 <a name="1.5"></a>
 
 ### Attack Surfaces and Attack Trees
--
+- **Attack Surface**: Consists of reachable and exploitable vulnerabilities in a system
+  - Examples: Open ports on outward facing web servers, Services inside a firewall, SQL / Web Forms
+  - **Network Attack Surface**
+    - Vulnerabilities over an enterprise network, wide-area network or the Internet
+    - Network protocol vulnerabilities, DDOS, disruption of communications
+  - **Software Attack Surface**
+    - Vulnerabilities in application, utility or OS code
+    - Particular focus on web server software
+  - **Human Attack Surface**
+    - Vulnerabilities created by personnel or outsiders
+    - Social engineering / Insider attacks
+- *Layering ↑ & Attack Surface ↓ = Low Security Risk*
+
+- **Attack Tree**: Hierarchical data structure representing a set of potential techniques for exploiting security vulnerabilities
+  - **Root Node**: Goal of the attack
+  - **Sub Nodes**: Ways the attacker can reach the goal, each sub node has sub goals
+  - **Leaf Nodes**: Ways to initiate an attack
+  - A node that is not a *Leaf Node* is an **AND** node or an **OR** node
+    - To achieve the sub goal of an **AND** node, all the sub goals must be achieved
+    - To achieve the sub goal of an **OR** node, at least one of the sub goals must be achieved
+  - Branches are labelled by cost / difficulty or other attack attributes
+    - This allows us to compare different attacks
+
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/atreeb.PNG)
 
 
 <a name="1.6"></a>
