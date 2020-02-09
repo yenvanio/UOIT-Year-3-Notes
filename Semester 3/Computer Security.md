@@ -233,7 +233,7 @@
   - Branches are labelled by cost / difficulty or other attack attributes
     - This allows us to compare different attacks
 
-![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/atreeb.PNG)
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/atreeb.png)
 
 
 <a name="1.6"></a>
