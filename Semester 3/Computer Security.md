@@ -70,9 +70,20 @@
       - Capable of exploiting vulnerabilities
       - Represent potential security harm to an asset
     - Attacks
-      - **Passive**: Attempt to make use of information from system, that doesn't affect system resources
+      - **Passive**
+        - Attempt to make use of information from system, that doesn't affect system resources
+        - Eavesdropping or monitoring transmissions
+        - Two types
+          - **Release of Message Contents**
+          - **Traffic Analysis**
       - **Active**
         - Attempt to alter system resources / affect their operation
+        - Modification of data stream or creation of a false stream of data
+        - Four types
+          - **Replay**
+          - **Masquerade** (Faking to be another entity)
+          - **Modification of messages**
+          - **Denial of Service**
       - **Insider**
         - Initiated by an entity inside the security parameter
       - **Outsider**
@@ -94,10 +105,10 @@
 
 | | <b>Availability</b> | <b>Confidentiality</b> | <b>Integrity</b> |
 |-|---------------------|------------------------|------------------|
-| Hardware | Equipment is stolen or disabled, thus denying service | An unencrypted CD-ROM or DVD is stolen | |
-| Software | Programs are deleted, denying access to users | An unauthorized copy of software is made | A working program is modified causing it to fail during execution or do an unintended task |
-| Data | Files are deleted, denying access to users | An unauthorized read od data is performed | Existing files are modified or new files are fabricated |
-| Communication Lines <br> and Networks | Messages are destroyed or deleted <br> Communication lines or networks are rendered unavailable | Messages are read, traffic pattern of messages is observed | Messages are modified, delayed, reordered or duplicated |
+| <b>Hardware</b> | Equipment is stolen or disabled, thus denying service | An unencrypted CD-ROM or DVD is stolen | |
+| <b>Software</b> | Programs are deleted, denying access to users | An unauthorized copy of software is made | A working program is modified causing it to fail during execution or do an unintended task |
+| <b>Data</b> | Files are deleted, denying access to users | An unauthorized read od data is performed | Existing files are modified or new files are fabricated |
+| <b>Communication Lines <br> and Networks</b> | Messages are destroyed or deleted <br> Communication lines or networks are rendered unavailable | Messages are read, traffic pattern of messages is observed | Messages are modified, delayed, reordered or duplicated |
 
 
 <a name="1.3"></a>
