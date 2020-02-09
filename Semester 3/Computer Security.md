@@ -92,6 +92,13 @@
 | <b> Threat to Availability or System Integrity </b> | <b> Disruption </b> <br> A circumstance or event interrupting correct operation of system services| <b>Incapacitation</b>: Prevents system operation by disabling a system component <br> <b>Corruption</b>: Alters system operation by modifying system functions or data <br> <b>Obstruction</b>: Threat action that interrupts delivery of system services by hindering system operation
 | <b> Threat to System Integrity </b> | <b>Usurpation</b> <br> An unauthorized entity gaining control of system services and functions | <b>Misappropriation</b>: Entity assuming unauthorized logical or physical control of a system resource <br> <b> Misuse </b>: Causes a system component to perform a function or service that is detrimental to system security |
 
+| | <b>Availability</b> | <b>Confidentiality</b> | <b>Integrity</b> |
+|-|---------------------|------------------------|------------------|
+| Hardware | Equipment is stolen or disabled, thus denying service | An unencrypted CD-ROM or DVD is stolen | |
+| Software | Programs are deleted, denying access to users | An unauthorized copy of software is made | A working program is modified causing it to fail during execution or do an unintended task |
+| Data | Files are deleted, denying access to users | An unauthorized read od data is performed | Existing files are modified or new files are fabricated |
+| Communication Lines <br> and Networks | Messages are destroyed or deleted <br> Communication lines or networks are rendered unavailable | Messages are read, traffic pattern of messages is observed | Messages are modified, delayed, reordered or duplicated |
+
 
 <a name="1.3"></a>
 
