@@ -11,6 +11,21 @@
 - [Attack Surfaces and Attack Trees](#1.5)
 - [Computer Security Strategy](#1.6)
 <br>
+[Chapter 2 - Cryptographic Tools](#Chapter2)
+- [Symmetric Encryption](#2.1)
+- [Message Authentication & Hash Functions](#2.2)
+- [Public Key Encryption](#2.3)
+- [Digital Signature & Management](#2.4)
+- [Random & Pseudorandom Numbers](#2.5)
+- [Encryption of Stored Data](#2.6)
+<br>
+[Chapter 3 - User Authentication](#Chapter3)
+- [Electronic User Authentication Principles](#3.1)
+- [Password Based Authentication](#3.2)
+- [Token Based Authentication](#3.3)
+- [Biometric Authentication](#3.4)
+- [Remote User Authentication](#3.5)
+- [Security Issues](#3.6)
 
 ---
 
@@ -255,7 +270,84 @@
 - **Assurance & Evaluation**
   - Assurance is the degree of confidence of security measures
   - Evaluation is the process of examining a system with respect to certain criteria
-    - Involves testing including formal analytics or math techniques 
+    - Involves testing including formal analytics or math techniques
+
+
+---
+
+<a name="Chapter2"></a>
+
+## Chapter 2 - Cryptographic Tools
+-
+
+<a name="2.1"></a>
+
+### Symmetric Encryption
+-
+
+<a name="2.2"></a>
+
+### Message Authentication & Hash Functions
+-
+
+<a name="2.3"></a>
+
+### Public Key Encryption
+-
+
+<a name="2.4"></a>
+
+### Digital Signature & Management
+-
+
+<a name="2.5"></a>
+
+### Random & Pseudorandom Numbers
+-
+
+<a name="2.6"></a>
+
+### Encryption of Stored Data
+-
+
+
+
+---
+
+<a name="Chapter3"></a>
+
+## Chapter 3 - User Authentication
+-
+
+<a name="3.1"></a>
+
+### Electronic User Authentication Principles
+-
+
+<a name="3.2"></a>
+
+### Password Based Authentication
+-
+
+<a name="3.3"></a>
+
+### Token Based Authentication
+-
+
+<a name="3.4"></a>
+
+### Biometric Authentication
+-
+
+<a name="3.5"></a>
+
+### Remote User Authentication
+-
+
+<a name="3.6"></a>
+
+### Security Issues
+-
 
 
 ---
