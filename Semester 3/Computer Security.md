@@ -114,10 +114,6 @@
 <a name="1.3"></a>
 
 ### Security Functional Requirements
-
-<br>
-
-#### Countermeasures in terms of Functional Requirements
 - **Access Control**
   - Limit system access to authorized users
 - **Awareness & Training**
@@ -182,7 +178,33 @@
 <a name="1.4"></a>
 
 ### Fundamental Security Design Principles
--
+- **Economy of Mechanism**
+  - Make it simple, not complex
+- **Fail Safe Defaults**
+  - Access decisions based on permissions instead of exclusions
+- **Complete Mediation**
+  - Every access must be checked against access control mechanisms
+- **Open Design**
+  - Design of security system should be open instead of secret
+- **Separation of Privilege**
+  - Multiple privilege attributes are required to achieve access to restricted resources
+- **Least Privilege**
+  - Every user should operate with the least set of privileges necessary to perform a task
+- **Least Common Mechanism**
+  - Design should minimize functions shared by different users
+- **Psychological Acceptability**
+  - Security mechanisms shouldn't interfere with the work of users
+- **Isolation**
+  - Public access systems should be isolated from critical resources
+  - Prevents disclosure or tampering
+- **Encapsulation**
+  - Encapsulating a collection of procedures in it's own domain
+- **Modularity**
+  - Security design should be modular so individual parts can be upgraded without modifying entire system
+- **Layering**
+  - Use multiple, overlapping protection approaches
+- **Least Astonishment**
+  - A program should respond in the way that is least likely to astonish the user
 
 
 <a name="1.5"></a>
