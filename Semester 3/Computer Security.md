@@ -114,7 +114,67 @@
 <a name="1.3"></a>
 
 ### Security Functional Requirements
--
+<br>
+#### Countermeasures in terms of Functional Requirements
+- **Access Control**
+  - Limit system access to authorized users
+- **Awareness & Training**
+  - Ensure managers and users are aware of security risks
+  - Ensure personnel are trained to carry out information security related duties
+- **Audit and Accountability**
+  - Maintain information system audit records
+  - Ensure actions of individual users can be traced back to them to be held accountable
+- **Certification, Accreditation and Security Assessments**
+  - Routine assessment of security controls to ensure effectiveness
+  - Implement plans of action to correct deficiencies in the system
+  - Authorize system operations and connections
+  - Monitor system security controls to ensure continued effectiveness
+- **Configuration Management**
+  - Maintain configurations and inventories of systems throughout development life cycles
+  - Enforce security configuration settings for products in the system
+- **Contingency Planning**
+  - Implement plans for emergency response and post-disaster recovery
+  - Ensure availability of critical information during emergency situations
+- **Identification & Authentication**
+  - Identify users and authenticate those users as a prerequisite to allowing them access
+- **Incident Response**
+  - Response includes preparation, detection, analysis, recovery and user response activities
+  - Track, document and report incidents to officials and authorities
+- **Maintenance**
+  - Perform regular maintenance on systems
+  - Provide effective controls on tools, techniques and personnel used to conduct system maintenance
+- **Media Protection**
+  - Protect system media (paper & digital)
+  - Limit access to system media by authorized users
+  - Sanitize / Destroy system medium before disposal or release for reuse
+- **Physical & Environmental Protection**
+  - Limit physical access to system, equipment and operating environments
+  - Protect physical plant and support system infrastructure
+  - Provide supporting utilities for systems
+  - Protect systems against environmental hazards
+  - Provide appropriate environmental controls for systems
+- **Planning**
+  - Develop, document and update security plans for systems
+  - Plans should describe security controls in place for the systems
+    - As well as define rules for behavior of users accessing the systems
+- **Personnel Security**
+  - Ensure individuals occupying positions of responsibility are trustworthy and meet security criteria
+  - Ensure information and systems are protected during personnel terminations and transfers
+  - Employ formal sanctions for failing to comply with security policies and procedures
+- **Risk Assessment**
+  - Periodically assess risk to operations, assets and individuals
+- **Systems & Services Acquisition**
+  - Allocate sufficient resources to protect systems
+  - Employ system development life cycle processes incorporating security considerations
+  - Employ software usage and installation restrictions
+  - Ensure 3rd party providers employ adequate security measures to protect the system
+- **System & Communication Protection**
+  - Monitor communications at internal and external boundaries of the system
+  - Employ architectural designs, software development techniques and systems engineering principles that promote effect security within systems
+- **System & Information Integrity**
+  - Identify, report and correct system flaws in a timely manner
+  - Provide protection from malicious code
+  - Monitor system security alerts and take appropriate actions in response
 
 
 <a name="1.4"></a>
