@@ -114,7 +114,9 @@
 <a name="1.3"></a>
 
 ### Security Functional Requirements
+
 <br>
+
 #### Countermeasures in terms of Functional Requirements
 - **Access Control**
   - Limit system access to authorized users
