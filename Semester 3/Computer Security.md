@@ -239,7 +239,23 @@
 <a name="1.6"></a>
 
 ### Computer Security Strategy
--
+- **Policy**: Formal statement of rules and practices that regulate how a system provides security services to protect system resources and sensitive data
+  - Security Manager needs to consider
+    - Value of assets being protected
+    - Vulnerabilities of the system
+    - Potential threats and likelihood of attacks
+  - Must also take the following trade-offs
+    - Ease of use vs. Security
+    - Cost of security vs. Cost of failure / recovery
+- **Implementation**: Security Implementation involves four courses of action
+  - **Prevention**: Ideal security scheme is when no attack is successful
+  - **Detection**: Absolute protection is not feasible, but practical to detect security attacks
+  - **Response**: System response during ongoing attack to halt or prevent further damage
+  - **Recovery**: Using backup systems to correctly restore data
+- **Assurance & Evaluation**
+  - Assurance is the degree of confidence of security measures
+  - Evaluation is the process of examining a system with respect to certain criteria
+    - Involves testing including formal analytics or math techniques 
 
 
 ---
