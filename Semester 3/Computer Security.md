@@ -10,7 +10,9 @@
 - [Fundamental Security Design Principles](#1.4)
 - [Attack Surfaces and Attack Trees](#1.5)
 - [Computer Security Strategy](#1.6)
+
 <br>
+
 [Chapter 2 - Cryptographic Tools](#Chapter2)
 - [Symmetric Encryption](#2.1)
 - [Message Authentication & Hash Functions](#2.2)
@@ -18,7 +20,9 @@
 - [Digital Signature & Management](#2.4)
 - [Random & Pseudorandom Numbers](#2.5)
 - [Encryption of Stored Data](#2.6)
+
 <br>
+
 [Chapter 3 - User Authentication](#Chapter3)
 - [Electronic User Authentication Principles](#3.1)
 - [Password Based Authentication](#3.2)
