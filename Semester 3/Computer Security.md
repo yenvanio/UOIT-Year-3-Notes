@@ -282,12 +282,69 @@
 <a name="Chapter2"></a>
 
 ## Chapter 2 - Cryptographic Tools
--
+- **Cryptography**
+  - Classified in 3 dimensions
+    - Type of operations to transform plaintext to cipher-text
+      - **Substitution**: Every element in plaintext is mapped to another element
+      - **Transposition**: Elements in plaintext are rearranged
+    - Number of keys used
+      - **Symmetric**: Sender and receiver use the same keys
+      - **Asymmetric**: Sender and receiver use different keys
+    - How the plaintext is processed
+      - **Block Cipher**: Processes input one block of elements at a time
+      - **Stream Cipher**: Processes input elements continuously
+  - Encryption is computationally secure if
+    - Cost of breaking cipher > value of information  
+    - Time needed to break cipher > useful lifetime of the information
+- **Cryptanalysis**: Process of attempting to discover the plaintext or key
 
 <a name="2.1"></a>
 
 ### Symmetric Encryption
--
+- Universal technique for providing confidentiality for data
+  - Single Key Encryption
+- Two Requirements
+  - Need a strong encryption algorithm
+  - Sender / Receiver must have obtained the secret key securely and keep it secure
+- 5 Step Process
+  - Plaintext Input
+  - Encryption Algorithm + Secret Key
+  - Transmitting Cipher-text
+  - Decryption Algorithm + Secret Key
+  - Plaintext Output
+- 2 Approaches to attacking a symmetric encryption scheme
+  - **Cryptanalytic Attacks**
+    - Relies on
+      - Nature of Algorithm
+      - Knowledge of general characteristics of the plaintext
+      - Some sample plaintext-ciphertext pairs
+    - Exploits algorithm to deduce a specific plaintext or the key being used
+      - If successful, all messages encrypted with that key are compromised
+  - **Brute Force Attack**
+    - Try all possible keys until a proper translation into plaintext is found
+    - On average, half of all possible keys must be tried to succeed
+
+#### Symmetric Block Encryption Algorithms
+- **DES**: Data Encryption Standard
+  - Most widely used encryption scheme
+  - Uses 64-bit plaintext block and 56-bit key to produce a 64-bit cipher-text block
+  - Cons
+    - Concerns about the algorithm itself
+    - Concerns about using a 56-bit key
+- **Triple DES**
+  - Repeats DES using 3 unique keys
+  - `(C) = E(K3, D(K2, E(K1, P)))`
+    - Cipher Text = Encryption of (Decryption of (Encryption of P using K1) using K2) using K3
+  - `(P) = D(K1, E(K2, D(K3, C)))`
+    - Plain Text = Decryption of (Encryption of (Decryption of C using K3) using K2) using K1
+  - Pros
+    - 168-bit key length overcomes brute-force attack vulnerability of DES
+    - Underlying encryption is same as DES
+  - Cons
+    - Algorithm is sluggish in software
+    - Uses 64-bit block size, larger block size would be better
+- **AES**: Advanced Encryption Standard
+
 
 <a name="2.2"></a>
 
