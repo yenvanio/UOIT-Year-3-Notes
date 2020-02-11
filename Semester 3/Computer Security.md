@@ -344,7 +344,56 @@
     - Algorithm is sluggish in software
     - Uses 64-bit block size, larger block size would be better
 - **AES**: Advanced Encryption Standard
+  - Substitute Bytes
+    - S-Box
+    - Performs a byte-by-byte substitution of the block
+  - Shift Rows
+    - *Encryption*: Shift each row to the left by `n` bytes, starting at 0
+    ```
+    87 | F2 | 4D | 97       =>    87 | F2 | 4D | 97
+    EC | 6E | 4C | 90       =>    6E | 4C | 90 | EC
+    ```
+      - 1st Row: Moved 0 bytes from left to right
+      - 2nd Row: Moved 1 byte from left to right
+    - *Decryption*: Shift each row to the right by `n` bytes, starting at 0
+  - Mix Columns
+    - Operate on each column individually
+    - Map each byte to a new value that is a function of all 4 bytes in the column
+  - Add Round Key
+    - Bitwise XOR of current block with a portion of the key
+- **Security Issues**
+  - Symmetric usually used for larger data ( > 128-bit block)
+  - Each block encrypted using same key
 
+#### Block Cyphers
+- Processes input one block of elements at a time
+- Can reuse keys
+- **ECB**: Electronic Codebook
+  - Simplest mode
+  - `b` bits a time and each block encrypted using same key
+  - Called `codebook` because each b-bit block has unique cipher-text output
+    - Security issue cause repeated plaintext can be seen in repeated cipher-text
+- **Stream Cyphers**
+  - Process input continuously
+    - Produces one output element at a time
+  - Faster, use less code
+  - Uses **RC4** to generate a pseudo-random stream of bits (a key-stream)
+
+#### Block Cipher Modes of Operation
+|Mode|Description|Typical Application|
+|----|-----------|-------------------|
+|<b> Electronic Codebook (ECB) </b>|Input is processed a block at a time, each block encoded using the same key| Secure transmission of single values (an encryption key)|
+|<b> Cipher Block Chaining (CBC) </b>|Input to encryption is XOR of next 64 bits of plaintext and previous 64 bits of cipher-text|Block Oriented Transmission, Authentication|
+|<b> Cipher Feedback (CFB) </b>|Input processed <code>s</code> bits at a time. Previous cipher-text used to produce pseudorandom output which is XOR'd with the plaintext input to produce cipher-text|Stream Oriented Transmission, Authentication|
+|<b> Output Feedback (OFB) </b>|Same as CFB, but input is the DES output| Stream Oriented Transmission over noisy channels (Satellite Communication)|
+|<b> Counter (CTR) </b>|Each plaintext block is XOR'd with an encrypted counter, counter is incremented for each block|Block Oriented Transmission, High speed requirements|
+
+#### Key Distribution
+- How to deliver a key to `A` and `B` without allowing others to see the key
+  - Selected by `A`, physically delivered to `B`
+  - Third party selects key and delivers to both parties
+  - If both parties have used a key recently, can transmit new key encrypted with old key
+  - If both parties have an encrypted connection to `C`, they could deliver the key to `A` and `B` using an encrypted link
 
 <a name="2.2"></a>
 
