@@ -398,7 +398,63 @@
 <a name="2.2"></a>
 
 ### Message Authentication & Hash Functions
--
+- Protects us against active attacks (falsification of data / transactions)
+- 2 Important Aspects of Message Authentication
+  - Verify contents of message have not been altered
+  - Verify source is authentic
+- **Authentication without Encryption**
+  - 3 situations where message authentication without confidentiality is preferred
+    - Message Broadcast
+    - Computer Program
+      - Can be executed without having to decrypt every time
+      - Waste of resources
+    - Heavy Load
+      - One side cannot afford to decrypt all messages due to heavy load
+- **Message Authentication Code (MAC)**
+  - Appended to a message
+  - Assuming parties `A` & `B` share a secret key <code>K<sub>AB</sub></code>
+    - When a message `M` is sent the MAC is calculated as a function of the message and the key
+    - <code>MAC<sub>M</sub> = F(K<sub>AB</sub>, M)</code>
+  - Recipient performs same calculations and compares codes
+  - DES is used to encrypt the message
+    - Last 16 / 32 bits are the code
+
+- *Note: Authentication doesn't need to be reversible and because of the mathematical properties it's less vulnerable than encryption*
+
+- **One Way Hash Function**
+  - Produce a 'fingerprint' of a block of data (file, message, ...etc)
+    - Alternative to `MAC`
+  - Takes message `M` and produces fixed size message output `H(M)`
+    - Message is always padded to a fixed length
+    - The padding bits include the length of the original message
+      - This is to increase difficulty of producing an alternate message with the same hash value
+  - 3 Ways to Authenticate using Hash Code
+    - Symmetric Encryption
+    - Public Key Encryption
+    - Keyed Hash MAC
+      - Common key `K` combined with hash function
+  - Computationally Infeasible
+    - **Pre-Image Resistant**
+      - Can't find `x` such that `H(x) = h`
+    - **Second Pre-Image Resistant** (Weak Collision Resistant)
+      - Can't find `H(y) = H(x)` where `y != x`
+    - **Strong Collision Resistant** (Strong Collision Resistant)
+      - Can't find a pair `(x, y)` where `H(x) = H(y)`
+
+- **HMAC**
+  - Developing a MAC from crypto hash code
+    - Crypto hash functions execute faster
+  - **Objectives**
+    - Use existing hash functions
+    - Be able to switch up hash functions as better ones come out
+    - Simple way of handling keys
+  - **Algorithm**
+  ![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/hmac.png)
+  - **Security**
+    - Depends on strength of hash function
+    - Attacks on HMAC
+      - Attacker computes the output of the compression function even with an IV that is secret and unknown to the attacker
+      - Attacker finds collisions in the hash function
 
 <a name="2.3"></a>
 
