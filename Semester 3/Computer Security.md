@@ -542,7 +542,28 @@ receiver# Computer Security
 <a name="2.5"></a>
 
 ### Random & Pseudorandom Numbers
--
+- **Randomness**
+  - Uniform Distribution
+    - Frequency of each number should be approx. the same
+  - Independence
+    - No value in sequence can be inferred from another
+    - Basically no patterns
+- **Unpredictability**
+  - Each number is statistically independent from other numbers in the sequence
+  - Attacker should not be able to guess future numbers in sequence based on earlier ones
+  - Again, no patterns
+- **Uses**
+  - Keys for public-key algorithms
+  - Stream Key for stream ciphers
+  - Symmetric Key for digital envelope
+  - Session Key generation
+- **Random vs Pseduorandom**
+  - TRNG (True Random Number Generator)
+    - Uses nondeterministic source to produce randomness
+      - *Nondterministic: Even for same input, can exhibit different behaviour for different runs*
+  - PRNG (Pseudo Random Number Generator)
+    - Use math and computer programs to give the appearance of randomness
+    - Statistically random
 
 <a name="2.6"></a>
 
