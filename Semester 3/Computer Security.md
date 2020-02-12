@@ -713,12 +713,36 @@ initializedreceiver# Computer Security
 <a name="3.5"></a>
 
 ### Remote User Authentication
-- 
+- Authentication over a network
+  - More complex because of additional security threats  
+- Relies on some form of challenge-response protocol to counter these threats
+- **Challenge Response Protocol : Password**
+![alt](https://github.com/yenvanio/UOIT-Year-3-Notes/blob/master/Images/ch_protec.png)
 
 <a name="3.6"></a>
 
 ### Security Issues
--
+|Attacks|Authenticators|Examples|Typical Defenses|
+|-------|--------------|--------|----------------|
+|<b> Client Attack </b>|Password  <br> Token <br> Biometric|Exhaustive Search, Guessing <br> Exhaustive Search <br> False Match|Large Entropy, Limited Guessing <br> Large Entropy, Limited Guessing <br> Large Entropy, Limited Guessing|
+|<b> Host Attack </b>|Password  <br> Token <br> Biometric|Plaintext Theft, Exhaustive Search <br> Passcode Theft <br> Template Theft| Hashing, large entropy <br> Same as password, 1-time passcode <br> Capture device authentication, challenge-response|
+|<b> Eavesdropping, Theft & Copying </b>|Password  <br> Token <br> Biometric|Shoulder Surfing <br> Theft, Counterfeiting hardware <br> Spoofing Biometrics|User need to keep a secrete and adminstrator needs to revoke compromised passwords <br> Multifactor Authentication <br> Copy detection at capture device and capture device authentication|
+|<b> Replay </b>|Password  <br> Token <br> Biometric|Replay stolen password response <br> Replay stolen passcode response <br> Replay stolen biometric template response|Challenge-Response Protocol <br> Challenge-Response Protocol, 1-Time Passcode <br> Copy detection at capture device and capture device authentication via Challenge-Response Protocol|
+|<b> Trojan Horse </b>|Password, Token, Biometric|Installation of rogue client or capture device|Authentication of client or capture device used within security perimeter|
+|<b> Denial of Service </b>|Password, Token|Lockout by multiple|Multifactor with token|
+
+- **Eavesdropping**
+  - Learn password via an attack involving physical proximity of the user
+- **Host Attacks**
+  - Directed at the host, where password and biometric auth data is stored
+- **Replay**
+  - Repeating of user response (captured from before)
+- **Client Attacks**
+  - Trying to achieve user authentication without host access
+- **Trojan Horse**
+  - App / Physical device fakes being an authentic application to capture passwords or biometric credentials
+- **Denial of Service**
+  - Disable user authentication by flooding the service with tons of auth attempts
 
 
 ---
