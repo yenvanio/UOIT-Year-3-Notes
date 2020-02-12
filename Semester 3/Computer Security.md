@@ -585,12 +585,51 @@ receiver# Computer Security
 <a name="Chapter3"></a>
 
 ## Chapter 3 - User Authentication
--
+- Establishing confidence in user identities that are presented to a system
+- 2 Steps
+  - Identification
+  - Verification
 
 <a name="3.1"></a>
 
 ### Electronic User Authentication Principles
--
+- Process of establishing confidence in user identities presented to the system electronically
+- **Process**
+  - Initial Requirement: User must be registered with the system
+  - Applicant applies to Registration Authority (RA) to become a subscriber of a Credential Service Provider (CSP)
+  - RA vouches to a CSP
+  - CSP issues a credential to the subscriber
+  - Credential can be used in subsequent auth events
+- **Authenticating a User's Identity**
+  - Something the user knows
+    - Password, PIN
+    - *Problems: Can guess or steal PINs and Passwords*
+  - Something the user possesses
+    - Key Cards, Physical Keys
+    - *Problems: Can forge or steal tokens*
+  - Something the user is (static biometrics)
+    - Fingerprint, Facial Recognition
+    - *Problems: False positives/negatives*
+  - Something the user does (dynamic biometrics)
+    - Voice Recognition, Handwriting / Typing Recognition
+    - *Problems: False positives/negatives*
+- **Risk Assessment**
+  - Assurance Level: Certainty that the user using the credentials is the one that it was issued to
+    - Level 1: Low Confidence
+    - Level 2: Moderate Confidence
+      - Requires some sort of authentication protocol
+    - Level 3: High Confidence
+      - Requires multi-factor authentication
+    - Level 4: Very High Confidence
+      - Requires multi-factor authentication and in-person registration
+  - Potential Impact
+    - Low: Limited adverse effects on operations
+    - Moderate: Serious adverse effects
+    - High: Catastrophic adverse effects
+  - Areas of Risk
+    - Low: Negligible financial/organizational loss
+    - Moderate: Serious financial/organizational loss
+    - High: Catastrophic financial/organizational loss
 
 <a name="3.2"></a>
 
