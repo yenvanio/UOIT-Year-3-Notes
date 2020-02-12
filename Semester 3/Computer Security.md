@@ -19,7 +19,7 @@ receiver# Computer Security
 - [Public Key Encryption](#2.3)
 - [Digital Signature & Management](#2.4)
 - [Random & Pseudorandom Numbers](#2.5)
-- [Encryption of Stored Data](#2.6)
+- [Practical Application : Encryption of Stored Data](#2.6)
 
 <br>
 
@@ -567,10 +567,18 @@ receiver# Computer Security
 
 <a name="2.6"></a>
 
-### Encryption of Stored Data
--
-
-
+### Practical Application : Encryption of Stored Data
+- **Pretty Good Privacy (PGP)**
+  - User generates a key from a password and uses that to encrypt files
+  - PGP does not store the password
+    - To recover a file, user enters password, PGP generates key, PGP decrypts file
+- **Back-end Appliance**
+  - Hardware device sitting between servers and storage systems
+  - Encrypts all data going from server -> storage and vice versa
+- **Library Based Tape Encryption**
+  - Based on co-processor board embedded in the tape drive and tape library hardware
+- **Background Laptop & PC Data Encryption**
+  - Software that provides encryption that is transparent to the user
 
 ---
 
