@@ -1,4 +1,4 @@
-initializedreceiver# Computer Security
+# Computer Security
 
 
 ## Table of Contents
