@@ -350,11 +350,9 @@
   - Shift Rows
     - *Encryption*: Shift each row to the left by `n` bytes, starting at 0
     ```
-    87 | F2 | 4D | 97       =>    87 | F2 | 4D | 97
-    EC | 6E | 4C | 90       =>    6E | 4C | 90 | EC
+    87 | F2 | 4D | 97       =>    87 | F2 | 4D | 97 Moved 0 bytes
+    EC | 6E | 4C | 90       =>    6E | 4C | 90 | EC Moved 1 byte
     ```
-      - 1st Row: Moved 0 bytes from left to right
-      - 2nd Row: Moved 1 byte from left to right
     - *Decryption*: Shift each row to the right by `n` bytes, starting at 0
   - Mix Columns
     - Operate on each column individually
@@ -459,7 +457,24 @@
 <a name="2.3"></a>
 
 ### Public Key Encryption
--
+- Greater security from cryptanalysis than symmetric encryption
+  - Strength of security depends on
+    - Length of Key
+    - Computational work needed to break a cipher
+- General Purpose Technique
+  - Makes symmetric encryption obsolete
+  - Key distribution is simpler vs symmetric encryption
+- 6 Step Process  
+  - Plain Text
+  - Encryption Algorithm
+  - Public & Private Key
+    - One for encryption, One for decryption
+    - Exact transformations depends on the key provided
+  - Cipher Text
+  - Decryption Algorithm
+- Use Cases
+  - `A` sends a message to `B` using `B`'s public key for encryption and `B` decrypts it using their own private key
+  - `A` encrypts data using private key and any corresponding public key can decrypt it
 
 <a name="2.4"></a>
 
