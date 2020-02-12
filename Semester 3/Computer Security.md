@@ -705,7 +705,10 @@ initializedreceiver# Computer Security
 <a name="3.4"></a>
 
 ### Biometric Authentication
--
+- Authenticate a user based on *unique* physical characteristics
+- Generic System
+  - Registration associates a user with certain biometric characteristics
+  - Verification involves checking that a claimed user is the actual user or identifying an unkown user
 
 <a name="3.5"></a>
 
