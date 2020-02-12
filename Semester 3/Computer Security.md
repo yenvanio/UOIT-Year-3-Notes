@@ -634,7 +634,37 @@ receiver# Computer Security
 <a name="3.2"></a>
 
 ### Password Based Authentication
--
+- User provides an id and a password
+  - Systems compares it with stored password
+  - ID determines user access, privileges ...etc
+- **Salt & Hash**
+  - Hashed passwords with a Salt value
+  - Purpose of Salt
+    - Duplicate passwords from being visible in the password file
+    - Increases difficulty of offline dictionary attacks
+    - Almost impossible to find out if a user used same password on multiple systems
+- **Password Cracking**
+  - Dictionary Attacks
+    - Large dictionary of possible passwords
+    - Each password must be hashed using each salt value before comparing
+  - Rainbow Table Attacks
+    - Pre-compute tables of hash values for all salts
+    - Can counter this attack by using large salt and hash values
+  - Guessable Passwords
+    - Shorter password lengths are easier to crack
+  - John the Ripper
+    - Open source since '96
+    - Brute Force + Dictionary tactics
+- **Password File Access Control**
+  - Deny attacker access to password file
+- **Proactive Password Checking**
+  - Rule Enforcement
+    - Rules to force users to enter harder-to-crack passwords
+  - Password Checker
+    - Compile a dictionary of passwords not to use
+  - Bloom Filter
+    - Build a table of hash values
+    - Compare password against the table
 
 <a name="3.3"></a>
 
