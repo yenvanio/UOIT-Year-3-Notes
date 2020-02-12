@@ -1,4 +1,4 @@
-# Computer Security
+receiver# Computer Security
 
 
 ## Table of Contents
@@ -502,7 +502,42 @@
 <a name="2.4"></a>
 
 ### Digital Signature & Management
--
+- **Digital Signatures**
+  - Created by encrypting hash code with a private key
+    - Signature is appended to message and receiver hashes and checks
+  - Used to authenticate source and data integrity
+  - Does not provide confidentiality
+    - Message is safe from alteration but not eavesdropping
+- **Public Key Certificate**
+  - Public keys are convenient because you can send them to a lot of people at once, but it also makes it easier for attackers
+    - An attacker can fake a broadcast of someones public key
+  - The way around this, is Public Key Certificates
+  - Public Key + User ID
+    - Whole block is signed by a trusted third party
+    - Certificate also contains info about the third party and validity period of the certificate
+- **Digital Envelopes**
+  - Protects a message even before ensuring sender / receiver have the same keys  
+    - Basically a sealed envelope with an unsigned letter
+    - Useful when two users do not share a symmetric secret key
+  - **5 Step Process**
+    - Prepare a message
+    - Generate a one-time use key
+    - Encrypt message using one-time key
+    - Encrypt the one-time key using other parties public key
+    - Attach the encrypted one-time key to the encrypted message and send to other party
+      - Other party can decrypt using their private key to get the one-time key to decrypt the message
+- **Diffie-Hellman Key Exchange**
+  - Exchange keys securely and use them for subsequent message encryption
+  - Security is based on difficulty of computing discrete logarithms
+    - Not protected against replay attack or Man-In-The-Middle attacks
+    - Can overcome these with digital signatures and public-key certificates
+  - **Process**
+    - Select a prime number and a primitive root
+      - A primitive root `a` of a number `p` is one whose powers generate all the integers from `1 -> p - 1`
+      - <code> a mod p, a<sup>2</sup> mod p, .... a<sup>p-1</sup> mod p </code>
+    - Compute public keys
+    - Exchange and compute secret keys
+- *Note: Other Algorithms - Digital Signature Standard (DSS), Elliptic-Curve Cryptography (ECC)*
 
 <a name="2.5"></a>
 
