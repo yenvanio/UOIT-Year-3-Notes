@@ -350,8 +350,8 @@
   - Shift Rows
     - *Encryption*: Shift each row to the left by `n` bytes, starting at 0
     ```
-    87 | F2 | 4D | 97       =>    87 | F2 | 4D | 97 Moved 0 bytes
-    EC | 6E | 4C | 90       =>    6E | 4C | 90 | EC Moved 1 byte
+    87 | F2 | 4D | 97       =>    87 | F2 | 4D | 97     [ Moved 0 bytes ]
+    EC | 6E | 4C | 90       =>    6E | 4C | 90 | EC     [ Moved 1 byte ]
     ```
     - *Decryption*: Shift each row to the right by `n` bytes, starting at 0
   - Mix Columns
@@ -464,7 +464,7 @@
 - General Purpose Technique
   - Makes symmetric encryption obsolete
   - Key distribution is simpler vs symmetric encryption
-- 6 Step Process  
+- **6 Step Process**  
   - Plain Text
   - Encryption Algorithm
   - Public & Private Key
@@ -472,9 +472,32 @@
     - Exact transformations depends on the key provided
   - Cipher Text
   - Decryption Algorithm
-- Use Cases
+- **Requirements**
+  - Easy to create key pairs
+  - Easy for sender with public key to encrypt messages
+  - Easy for receiver knowing private key to decrypt messages
+  - Hard for someone else to determine private key from public key
+  - Hard for someone to recover original message
+  - Useful if either key can be used for either role  
+- **Use Cases**
   - `A` sends a message to `B` using `B`'s public key for encryption and `B` decrypts it using their own private key
   - `A` encrypts data using private key and any corresponding public key can decrypt it
+- **RSA Public Key Encryption**
+  - Uses exponentiation of integers (modulo %) a prime number
+  - Encrypt: <code> C = M<sup><i>e</i></sup> mod <i>n</i> </code>
+  - Decrypt: <code> M = C<sup><i>d</i></sup> mod <i>n</i> = (M<sup><i>e</i></sup>)<sup><i>d</i></sup> mod <i>n</i> </code>
+  - `PU = {e, n}  ; PR = {d, n}`
+    - Both parties know values of `n` and `e`
+    - Only receiver knows `d`
+- **Security**
+  - Brute Force Attacks
+    - Try all possible private keys
+  - Mathematical Attacks
+    - Factoring the product of two primes
+  - Timing Attacks
+    - Exploits running time of decryption algorithm
+  - Chosen Cipher Text Attacks
+    - Exploits properties of the RSA algorithm
 
 <a name="2.4"></a>
 
