@@ -1,4 +1,4 @@
-receiver# Computer Security
+initializedreceiver# Computer Security
 
 
 ## Table of Contents
@@ -669,7 +669,38 @@ receiver# Computer Security
 <a name="3.3"></a>
 
 ### Token Based Authentication
--
+- **Token**: Object a user possess for authenticate purposes
+- 2 Widely Used Types
+  - **Memory Cards**
+    - Store, but doesn't process data
+    - Cons: Requires special reader, loss of token
+    - *Ex: Magnetic Stripe Card*
+  - **Smart Cards**
+    - Physical Characteristics
+      - Has an embedded microprocessor
+    - Interface
+      - Manual: Keypad and display for interaction
+      - Electronic: Uses a reader/writer, contact or contactless
+    - Authentication Protocol
+      - Static
+      - Dynamic Password Generator
+      - Challenge-Response
+    - Memory
+      - Read Only Memory (ROM)
+        - Stores data that never changes for the card's lifetime
+      - Electrically Erasable Programmable ROM (EEPROM)
+        - Holds application data and programs
+      - Random Access Memory (RAM)
+        - Holds temp data when applications are executed
+- **Smart Card/Reader Exchange**
+  - Card inserted into reader
+    - A `reset` is initialized by the reader
+    - This is to initialize parameters like clock value
+  - Card responds with an `Answer To Reset (ATR)`
+    - This message defines protocols, parameters and functions of the card
+  - Terminal can use `Protocol Type Selection (PTS)` to change the protocol and other parameters
+    - The card will confirm the changes with a `PTS Response`
+  - Now the card can perform the desired application
 
 <a name="3.4"></a>
 
