@@ -724,10 +724,10 @@ initializedreceiver# Computer Security
 ### Security Issues
 |Attacks|Authenticators|Examples|Typical Defenses|
 |-------|--------------|--------|----------------|
-|<b> Client Attack </b>|Password  <br> Token <br> Biometric|Exhaustive Search, Guessing <br> Exhaustive Search <br> False Match|Large Entropy, Limited Guessing <br> Large Entropy, Limited Guessing <br> Large Entropy, Limited Guessing|
-|<b> Host Attack </b>|Password  <br> Token <br> Biometric|Plaintext Theft, Exhaustive Search <br> Passcode Theft <br> Template Theft| Hashing, large entropy <br> Same as password, 1-time passcode <br> Capture device authentication, challenge-response|
-|<b> Eavesdropping, Theft & Copying </b>|Password  <br> Token <br> Biometric|Shoulder Surfing <br> Theft, Counterfeiting hardware <br> Spoofing Biometrics|User need to keep a secrete and adminstrator needs to revoke compromised passwords <br> Multifactor Authentication <br> Copy detection at capture device and capture device authentication|
-|<b> Replay </b>|Password  <br> Token <br> Biometric|Replay stolen password response <br> Replay stolen passcode response <br> Replay stolen biometric template response|Challenge-Response Protocol <br> Challenge-Response Protocol, 1-Time Passcode <br> Copy detection at capture device and capture device authentication via Challenge-Response Protocol|
+|<b> Client Attack </b>|Password  <br><br> Token <br><br> Biometric|Exhaustive Search, Guessing <br><br> Exhaustive Search <br><br> False Match|Large Entropy, Limited Guessing <br><br> Large Entropy, Limited Guessing <br><br> Large Entropy, Limited Guessing|
+|<b> Host Attack </b>|Password  <br><br> Token <br><br> Biometric|Plaintext Theft, Exhaustive Search <br><br> Passcode Theft <br><br> Template Theft| Hashing, large entropy <br><br> Same as password, 1-time passcode <br><br> Capture device authentication, challenge-response|
+|<b> Eavesdropping, Theft & Copying </b>|Password  <br><br> Token <br><br> Biometric|Shoulder Surfing <br><br> Theft, Counterfeiting hardware <br><br> Spoofing Biometrics|User need to keep a secrete and adminstrator needs to revoke compromised passwords <br><br> Multifactor Authentication <br><br> Copy detection at capture device and capture device authentication|
+|<b> Replay </b>|Password  <br><br> Token <br><br> Biometric|Replay stolen password response <br><br> Replay stolen passcode response <br><br> Replay stolen biometric template response|Challenge-Response Protocol <br><br> Challenge-Response Protocol, 1-Time Passcode <br> Copy detection at capture device and capture device authentication via Challenge-Response Protocol|
 |<b> Trojan Horse </b>|Password, Token, Biometric|Installation of rogue client or capture device|Authentication of client or capture device used within security perimeter|
 |<b> Denial of Service </b>|Password, Token|Lockout by multiple|Multifactor with token|
 
