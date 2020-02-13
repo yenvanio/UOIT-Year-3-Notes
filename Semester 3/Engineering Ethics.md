@@ -28,7 +28,23 @@
   - **Equitable Estoppel**: Prevents one party from taking advantage of another when, through false language or conduct, the person to be estopped has induced another person to act in a certain way, which resulted in the other person being injured in some way.
 
 
-  
+### HESI vs ERRS
+- ERRS agreed to build a heat recovery system for HESI costing $600,000. After reviewing HESI's process, they guaranteed the appliance would recover 40% of the heat (written in contract).
+- The contract limited ERRS total liability to $600,000 for any loss or damage.
+- The appliance could not recover more than 5% of the heat. HESI hired another company for $800,000 replacing ERRS and achieving the performance that was promised by ERRS.
+- ERRS received $500,000 under this contract.
+
+### What contract law claim HESI can make against ERRS
+- ERRS `breached its contract` with HESI, so HESI is allowed to `claim direct damages`.
+- HESI can claim up to $600,000. However, must absorb the $100,000 difference between the original contract and the total cost of $700,000, once damages are paid by ERRS.
+  - Originally supposed to pay $600,000. Only paid $500,000
+  - Cost another $800,000 to replace with new company
+  - Total Cost: $700,000 + Damages by ERRS
+- ERRS may be able to claim `quantum meruit` for part of the $100,000 difference between money received and what was stated in the contract.
+  - **Quantum Meruit**: 'What one has earned' : Reasonable value of services
+
+### Owner v Mammoth
+- 
 
 
 
