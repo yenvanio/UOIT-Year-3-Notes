@@ -34,7 +34,7 @@
 - The appliance could not recover more than 5% of the heat. HESI hired another company for $800,000 replacing ERRS and achieving the performance that was promised by ERRS.
 - ERRS received $500,000 under this contract.
 
-#### What contract law claim HESI can make against ERRS
+#### What contract law claim HESI can make against ERRS?
 - ERRS `breached its contract` with HESI, so HESI is allowed to `claim direct damages`.
 - HESI can claim up to $600,000. However, must absorb the $100,000 difference between the original contract and the total cost of $700,000, once damages are paid by ERRS.
   - Originally supposed to pay $600,000. Only paid $500,000
@@ -44,7 +44,17 @@
   - **Quantum Meruit**: 'What one has earned' : Reasonable value of services
 
 ### Owner v Mammoth
--
+- Mammoth hired an architectural firm to design them a building. Architect agreed they would arrange for inspection services to make sure everything was carried out correctly.
+- Architect hired a structural engineering firm to get them a design for the building and Mammoth hired Swift to construct their building.
+- Swift told Mammoth they could save money by using a different material for a certain part of the construction.
+- Mammoth asked for the architects advice and they asked the engineering firms representative & inspector at the time (Jim).
+- The original material had been specified by an ex-engineer and it was based on soil conditions. Under lots of pressure from Mammoth and Swift to approve the new material and not delay the construction process, Jim approved it.
+- The new material was no good and cost more money to redo after damages.
+
+#### What are the potential liabilities in tort law arising from this case?
+- Jim was expected to `apply reasonable care` and therefore owes a `duty of care` to Swift.
+- Jim negligently approved the material; Swift was negligent in proposing the new material on the `basis of availability and not suitability`.
+- Engineering firm is responsible for its employees and such is `responsible for injuries sustained by Mammoth.`
 
 
 
