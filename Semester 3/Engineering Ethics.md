@@ -34,7 +34,7 @@
 - The appliance could not recover more than 5% of the heat. HESI hired another company for $800,000 replacing ERRS and achieving the performance that was promised by ERRS.
 - ERRS received $500,000 under this contract.
 
-### What contract law claim HESI can make against ERRS
+#### What contract law claim HESI can make against ERRS
 - ERRS `breached its contract` with HESI, so HESI is allowed to `claim direct damages`.
 - HESI can claim up to $600,000. However, must absorb the $100,000 difference between the original contract and the total cost of $700,000, once damages are paid by ERRS.
   - Originally supposed to pay $600,000. Only paid $500,000
@@ -44,7 +44,7 @@
   - **Quantum Meruit**: 'What one has earned' : Reasonable value of services
 
 ### Owner v Mammoth
-- 
+-
 
 
 
